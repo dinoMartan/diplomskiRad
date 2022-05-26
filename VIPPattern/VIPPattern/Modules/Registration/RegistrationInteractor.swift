@@ -16,10 +16,12 @@ class RegistrationInteractor: RegistrationInteractorProtocol {
 
     private let authenticationService: AuthenticationServiceProtocol
     private let keychainService: KeychainServiceProtocol
+    private let userRepository: UserRepositoryProtocol
 
-    init(keychainService: KeychainServiceProtocol, authenticationService: AuthenticationServiceProtocol) {
+    init(keychainService: KeychainServiceProtocol, authenticationService: AuthenticationServiceProtocol, userRepository: UserRepositoryProtocol) {
         self.keychainService = keychainService
         self.authenticationService = authenticationService
+        self.userRepository = userRepository
     }
 
     deinit {
@@ -40,9 +42,23 @@ extension RegistrationInteractor {
         }
         authenticationService.registerUser(email: email, password: password) { [weak self] result in
             switch result {
-            case .success(_):
+            case .success(let authDataResult):
+                self?.addUserToDatabase(userId: authDataResult.user.uid)
                 self?.keychainService.setUserLoggedIn(true)
+                self?.keychainService.setUserId(authDataResult.user.uid)
                 self?.presenter?.interactorDidSucceedRegistration()
+            case .failure(let myError):
+                self?.presenter?.interactor(didFail: myError)
+            }
+        }
+    }
+
+    private func addUserToDatabase(userId: String) {
+        let user = User(id: userId)
+        userRepository.setUser(user: user) { [weak self] result in
+            switch result {
+            case .success(_):
+                break
             case .failure(let myError):
                 self?.presenter?.interactor(didFail: myError)
             }

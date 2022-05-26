@@ -35,11 +35,13 @@ class RegistrationFlowCoordinator: FlowCoordinator {
 extension RegistrationFlowCoordinator {
     private func startRegistrationFlow() {
         let authenticationService = AuthenticationService()
+        let userRepository = UserRepository(firestoreService: dependencies.firestoreService)
         let registrationViewController = RegistrationViewController()
         RegistrationConfigurator.configureModule(registrationRouterOutput: self,
                                                  viewController: registrationViewController,
                                                  keychainService: dependencies.keychainService,
-                                                 authenticationService: authenticationService)
+                                                 authenticationService: authenticationService,
+                                                 userRepository: userRepository)
         rootViewController.present(registrationViewController, animated: true)
     }
 }

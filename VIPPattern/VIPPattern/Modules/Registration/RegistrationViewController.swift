@@ -27,12 +27,13 @@ class RegistrationViewController: UIViewController {
         setupInteractions()
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        router?.shouldClose()
-    }
+//    override func viewDidDisappear(_ animated: Bool) {
+//        super.viewDidDisappear(animated)
+//        router?.shouldClose()
+//    }
 
     deinit {
+        router?.shouldClose()
         print("deinit \(self)")
     }
 }
@@ -50,6 +51,7 @@ extension RegistrationViewController: RegistrationPresenterOutput {
     func presenterDidSucceedRegistration() {
         dismiss(animated: true) { [weak self] in
             self?.router?.showMainFlow()
+            // self?.router?.shouldClose()
         }
     }
 

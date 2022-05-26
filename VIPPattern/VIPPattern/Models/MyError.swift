@@ -30,4 +30,6 @@ enum MyErrorType {
     case signInFailed
     case emailOrPasswordFieldEmpty
     case passwordResetFailed
+    case firestoreFailed
+    case codableError
 }
