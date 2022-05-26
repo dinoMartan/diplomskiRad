@@ -8,10 +8,14 @@
 import Foundation
 
 class ProfileConfigurator {
-    static func configureModule(routerOutput: ProfileRouterOutput, viewController: ProfileViewController) {
+    static func configureModule(routerOutput: ProfileRouterOutput,
+                                viewController: ProfileViewController,
+                                keychainService: KeychainServiceProtocol,
+                                userRepository: UserRepositoryProtocol) {
         let view = ProfileView()
         let router = ProfileRouter()
-        let interactor = ProfileInteractor()
+        let interactor = ProfileInteractor(userRepository: userRepository,
+                                           keychainService: keychainService)
         let presenter = ProfilePresenter()
 
         viewController.view = view

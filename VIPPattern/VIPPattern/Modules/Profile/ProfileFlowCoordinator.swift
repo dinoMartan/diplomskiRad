@@ -24,9 +24,12 @@ class ProfileFlowCoordinator: FlowCoordinator {
     }
 
     func start() {
+        let userRepository = UserRepository(firestoreService: dependencies.firestoreService)
         let viewController = ProfileViewController()
         ProfileConfigurator.configureModule(routerOutput: self,
-                                            viewController: viewController)
+                                            viewController: viewController,
+                                            keychainService: dependencies.keychainService,
+                                            userRepository: userRepository)
         self.viewController = viewController
     }
 

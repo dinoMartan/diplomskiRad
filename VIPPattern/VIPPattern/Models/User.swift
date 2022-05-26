@@ -23,11 +23,11 @@ struct User: Codable {
         self.email = email
     }
 
-    init(id: String?) {
+    init(id: String?, email: String?) {
         self.id = id
         self.username = nil
         self.firstName = nil
         self.lastName = nil
-        self.email = nil
+        self.email = email
     }
 }

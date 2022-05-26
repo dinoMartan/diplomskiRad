@@ -20,6 +20,11 @@ class ProfileViewController: UIViewController {
         self.view = viewProfile
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        interactor?.getUserData()
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         router?.shouldClose()

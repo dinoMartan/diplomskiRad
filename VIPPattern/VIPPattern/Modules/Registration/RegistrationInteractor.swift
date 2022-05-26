@@ -43,7 +43,7 @@ extension RegistrationInteractor {
         authenticationService.registerUser(email: email, password: password) { [weak self] result in
             switch result {
             case .success(let authDataResult):
-                self?.addUserToDatabase(userId: authDataResult.user.uid)
+                self?.addUserToDatabase(userId: authDataResult.user.uid, email: authDataResult.user.email)
                 self?.keychainService.setUserLoggedIn(true)
                 self?.keychainService.setUserId(authDataResult.user.uid)
                 self?.presenter?.interactorDidSucceedRegistration()
@@ -53,8 +53,8 @@ extension RegistrationInteractor {
         }
     }
 
-    private func addUserToDatabase(userId: String) {
-        let user = User(id: userId)
+    private func addUserToDatabase(userId: String, email: String?) {
+        let user = User(id: userId, email: email)
         userRepository.setUser(user: user) { [weak self] result in
             switch result {
             case .success(_):
