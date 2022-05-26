@@ -14,7 +14,7 @@ protocol ProfileRouterOutput: AnyObject {
 protocol ProfileRouterProtocol: AnyObject {
     func shouldClose()
 }
- 
+
 class ProfileRouter: ProfileRouterProtocol {
     weak var routerOutput: ProfileRouterOutput?
 
