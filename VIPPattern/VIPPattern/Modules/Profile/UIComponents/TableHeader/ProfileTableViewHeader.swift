@@ -5,7 +5,6 @@
 //  Created by Dino Martan on 27.05.2022..
 //
 
-import Kingfisher
 import UIKit
 
 class ProfileTableViewHeader: UITableViewHeaderFooterView {
@@ -17,7 +16,7 @@ class ProfileTableViewHeader: UITableViewHeaderFooterView {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.borderWidth = 3
         imageView.layer.masksToBounds = false
-        imageView.layer.borderColor = UIColor.systemBackground.cgColor
+        imageView.layer.borderColor = UIColor.systemFill.cgColor
         imageView.layer.cornerRadius = 150 / 2
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
@@ -26,6 +25,7 @@ class ProfileTableViewHeader: UITableViewHeaderFooterView {
 
     private let displayNameLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         return label
     }()
 
@@ -39,7 +39,7 @@ class ProfileTableViewHeader: UITableViewHeaderFooterView {
     }
 
     func setupWith(image: String?, label: String?) {
-        imageView.kf.setImage(with: URL(string: image ?? ""))
+        imageView.setImageFromFireStore(image ?? "")
         displayNameLabel.text = label
     }
 }

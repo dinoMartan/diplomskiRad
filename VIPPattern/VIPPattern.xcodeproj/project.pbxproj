@@ -76,10 +76,10 @@
 		8C81414E283FD8B800E7AB43 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81414D283FD8B800E7AB43 /* User.swift */; };
 		8C814151283FDB0B00E7AB43 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C814150283FDB0B00E7AB43 /* UserRepository.swift */; };
 		8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */; };
-		8C8141562840BFE500E7AB43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141552840BFE500E7AB43 /* Constants.swift */; };
 		8C81415A2840CBBE00E7AB43 /* ProfileSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141582840CBBE00E7AB43 /* ProfileSettingTableViewCell.swift */; };
 		8C81415B2840CBBE00E7AB43 /* ProfileSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8141592840CBBE00E7AB43 /* ProfileSettingTableViewCell.xib */; };
 		8C81415F2840D3D100E7AB43 /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81415E2840D3D100E7AB43 /* ProfileTableViewHeader.swift */; };
+		8C8141612840E18100E7AB43 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141602840E18100E7AB43 /* UIImageView+Extension.swift */; };
 		A2247B211646827829AF9746 /* Pods_VIPPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353F610B3041E62C9C8EFC1 /* Pods_VIPPattern.framework */; };
 		EC2FFBE235F4208096F17E5D /* Pods_VIPPattern_VIPPatternUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF439562096D7DE22519846 /* Pods_VIPPattern_VIPPatternUITests.framework */; };
 /* End PBXBuildFile section */
@@ -180,10 +180,10 @@
 		8C81414D283FD8B800E7AB43 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8C814150283FDB0B00E7AB43 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
-		8C8141552840BFE500E7AB43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		8C8141582840CBBE00E7AB43 /* ProfileSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingTableViewCell.swift; sourceTree = "<group>"; };
 		8C8141592840CBBE00E7AB43 /* ProfileSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingTableViewCell.xib; sourceTree = "<group>"; };
 		8C81415E2840D3D100E7AB43 /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeader.swift; sourceTree = "<group>"; };
+		8C8141602840E18100E7AB43 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		A30803D977BC4D2488FF6532 /* Pods-VIPPattern-VIPPatternUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; path = "Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA29FF392958C526D06EADA7 /* Pods-VIPPattern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern.debug.xcconfig"; path = "Target Support Files/Pods-VIPPattern/Pods-VIPPattern.debug.xcconfig"; sourceTree = "<group>"; };
 		E6B278D7BDA81285949465DA /* Pods-VIPPatternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPatternTests.release.xcconfig"; path = "Target Support Files/Pods-VIPPatternTests/Pods-VIPPatternTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -267,7 +267,6 @@
 			children = (
 				8C6BDD8C283F7B9D00A96ED4 /* GoogleService-Info.plist */,
 				8C6BDC62283CE78300A96ED4 /* Application */,
-				8C8141542840BFCD00E7AB43 /* Common */,
 				8C6BDC63283CE78A00A96ED4 /* Services */,
 				8C81414F283FDAF200E7AB43 /* Repositories */,
 				8C6BDC66283CE98000A96ED4 /* Flow */,
@@ -455,6 +454,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6BDD97283F89A600A96ED4 /* UIViewController+Extension.swift */,
+				8C8141602840E18100E7AB43 /* UIImageView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -480,14 +480,6 @@
 				8C814150283FDB0B00E7AB43 /* UserRepository.swift */,
 			);
 			path = Repositories;
-			sourceTree = "<group>";
-		};
-		8C8141542840BFCD00E7AB43 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				8C8141552840BFE500E7AB43 /* Constants.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		8C8141572840CBA400E7AB43 /* UIComponents */ = {
@@ -766,12 +758,12 @@
 				8C6BDD67283DFB6800A96ED4 /* HomeConfigurator.swift in Sources */,
 				8C6BDD62283DFB6800A96ED4 /* HomePresenter.swift in Sources */,
 				8C6BDD68283DFB6800A96ED4 /* HomeFlowCoordinator.swift in Sources */,
-				8C8141562840BFE500E7AB43 /* Constants.swift in Sources */,
 				8C6BDD58283DF9E700A96ED4 /* TabBarConfigurator.swift in Sources */,
 				8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */,
 				8C6BDC73283CF24A00A96ED4 /* LoginPresenter.swift in Sources */,
 				8C6BDD76283E019500A96ED4 /* MyProjectsConfigurator.swift in Sources */,
 				8C6BDD84283E031E00A96ED4 /* ConversationsView.swift in Sources */,
+				8C8141612840E18100E7AB43 /* UIImageView+Extension.swift in Sources */,
 				8C6BDD74283E019500A96ED4 /* MyProjectsInteractor.swift in Sources */,
 				8C6BDC6F283CF23600A96ED4 /* LoginConfigurator.swift in Sources */,
 				8C6BDD73283E019500A96ED4 /* MyProjectsViewController.swift in Sources */,

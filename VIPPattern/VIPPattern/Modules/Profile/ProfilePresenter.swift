@@ -49,7 +49,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
     func interactor(didFetchUser user: User) {
         let baseInfo = ProfileViewModelBaseInfo(userId: user.id,
                                                 displayName: (user.firstName ?? "") + " " + (user.lastName ?? ""),
-                                                profileImage: Constants.storageBaseURL.rawValue + (user.profileImage ?? ""))
+                                                profileImage: user.profileImage)
         let sections = [
             ProfileViewModelSection.settings([
                 ProfileViewModelSetting(value: user.firstName, icon: "person", type: .firstName),

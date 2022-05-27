@@ -80,10 +80,15 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileTableViewHeader.identifier) as? ProfileTableViewHeader
-        view?.setupWith(image: profileViewModel?.baseInfo.profileImage,
-                        label: profileViewModel?.baseInfo.displayName)
-        return view
+        let section = profileViewModel?.sections[section]
+        switch section {
+        case .settings(_):
+            let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileTableViewHeader.identifier) as? ProfileTableViewHeader
+            view?.setupWith(image: profileViewModel?.baseInfo.profileImage,
+                            label: profileViewModel?.baseInfo.displayName)
+            return view
+        default: return nil
+        }
     }
 }
 

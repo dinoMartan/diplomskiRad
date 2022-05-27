@@ -10,7 +10,8 @@ import UIKit
 
 class ProfileView: UIView {
     let tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.backgroundColor = .systemBackground
         return tableView
     }()
 
