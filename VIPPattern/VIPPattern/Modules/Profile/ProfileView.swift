@@ -12,6 +12,7 @@ class ProfileView: UIView {
     let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.backgroundColor = .systemBackground
+        tableView.allowsSelection = false
         return tableView
     }()
 
