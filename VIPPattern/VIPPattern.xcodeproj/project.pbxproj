@@ -80,6 +80,14 @@
 		8C81415B2840CBBE00E7AB43 /* ProfileSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8141592840CBBE00E7AB43 /* ProfileSettingTableViewCell.xib */; };
 		8C81415F2840D3D100E7AB43 /* ProfileTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81415E2840D3D100E7AB43 /* ProfileTableViewHeader.swift */; };
 		8C8141612840E18100E7AB43 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141602840E18100E7AB43 /* UIImageView+Extension.swift */; };
+		8C81416328411E8200E7AB43 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81416228411E8200E7AB43 /* Project.swift */; };
+		8C81416C2841341900E7AB43 /* EditProjectPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141652841341900E7AB43 /* EditProjectPresenter.swift */; };
+		8C81416D2841341900E7AB43 /* EditProjectRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141662841341900E7AB43 /* EditProjectRouter.swift */; };
+		8C81416E2841341900E7AB43 /* EditProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141672841341900E7AB43 /* EditProjectViewController.swift */; };
+		8C81416F2841341900E7AB43 /* EditProjectInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141682841341900E7AB43 /* EditProjectInteractor.swift */; };
+		8C8141702841341900E7AB43 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141692841341900E7AB43 /* EditProjectView.swift */; };
+		8C8141712841341900E7AB43 /* EditProjectConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81416A2841341900E7AB43 /* EditProjectConfigurator.swift */; };
+		8C8141722841341900E7AB43 /* EditProjectFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81416B2841341900E7AB43 /* EditProjectFlowCoordinator.swift */; };
 		A2247B211646827829AF9746 /* Pods_VIPPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353F610B3041E62C9C8EFC1 /* Pods_VIPPattern.framework */; };
 		EC2FFBE235F4208096F17E5D /* Pods_VIPPattern_VIPPatternUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF439562096D7DE22519846 /* Pods_VIPPattern_VIPPatternUITests.framework */; };
 /* End PBXBuildFile section */
@@ -184,6 +192,14 @@
 		8C8141592840CBBE00E7AB43 /* ProfileSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileSettingTableViewCell.xib; sourceTree = "<group>"; };
 		8C81415E2840D3D100E7AB43 /* ProfileTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewHeader.swift; sourceTree = "<group>"; };
 		8C8141602840E18100E7AB43 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		8C81416228411E8200E7AB43 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		8C8141652841341900E7AB43 /* EditProjectPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectPresenter.swift; sourceTree = "<group>"; };
+		8C8141662841341900E7AB43 /* EditProjectRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectRouter.swift; sourceTree = "<group>"; };
+		8C8141672841341900E7AB43 /* EditProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectViewController.swift; sourceTree = "<group>"; };
+		8C8141682841341900E7AB43 /* EditProjectInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectInteractor.swift; sourceTree = "<group>"; };
+		8C8141692841341900E7AB43 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
+		8C81416A2841341900E7AB43 /* EditProjectConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectConfigurator.swift; sourceTree = "<group>"; };
+		8C81416B2841341900E7AB43 /* EditProjectFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectFlowCoordinator.swift; sourceTree = "<group>"; };
 		A30803D977BC4D2488FF6532 /* Pods-VIPPattern-VIPPatternUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; path = "Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA29FF392958C526D06EADA7 /* Pods-VIPPattern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern.debug.xcconfig"; path = "Target Support Files/Pods-VIPPattern/Pods-VIPPattern.debug.xcconfig"; sourceTree = "<group>"; };
 		E6B278D7BDA81285949465DA /* Pods-VIPPatternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPatternTests.release.xcconfig"; path = "Target Support Files/Pods-VIPPatternTests/Pods-VIPPatternTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -320,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6BDD4B283DF99500A96ED4 /* TabBar */,
+				8C8141642841340000E7AB43 /* EditProject */,
 				8C6BDD78283E030D00A96ED4 /* Conversations */,
 				8C6BDD69283E017B00A96ED4 /* MyProjects */,
 				8C6BDD5A283DFB5800A96ED4 /* Home */,
@@ -446,6 +463,7 @@
 			children = (
 				8C6BDD91283F83A800A96ED4 /* MyError.swift */,
 				8C81414D283FD8B800E7AB43 /* User.swift */,
+				8C81416228411E8200E7AB43 /* Project.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -506,6 +524,20 @@
 				8C81415E2840D3D100E7AB43 /* ProfileTableViewHeader.swift */,
 			);
 			path = TableHeader;
+			sourceTree = "<group>";
+		};
+		8C8141642841340000E7AB43 /* EditProject */ = {
+			isa = PBXGroup;
+			children = (
+				8C81416B2841341900E7AB43 /* EditProjectFlowCoordinator.swift */,
+				8C81416A2841341900E7AB43 /* EditProjectConfigurator.swift */,
+				8C8141692841341900E7AB43 /* EditProjectView.swift */,
+				8C8141672841341900E7AB43 /* EditProjectViewController.swift */,
+				8C8141682841341900E7AB43 /* EditProjectInteractor.swift */,
+				8C8141652841341900E7AB43 /* EditProjectPresenter.swift */,
+				8C8141662841341900E7AB43 /* EditProjectRouter.swift */,
+			);
+			path = EditProject;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -763,17 +795,22 @@
 				8C6BDC73283CF24A00A96ED4 /* LoginPresenter.swift in Sources */,
 				8C6BDD76283E019500A96ED4 /* MyProjectsConfigurator.swift in Sources */,
 				8C6BDD84283E031E00A96ED4 /* ConversationsView.swift in Sources */,
+				8C8141712841341900E7AB43 /* EditProjectConfigurator.swift in Sources */,
 				8C8141612840E18100E7AB43 /* UIImageView+Extension.swift in Sources */,
 				8C6BDD74283E019500A96ED4 /* MyProjectsInteractor.swift in Sources */,
 				8C6BDC6F283CF23600A96ED4 /* LoginConfigurator.swift in Sources */,
 				8C6BDD73283E019500A96ED4 /* MyProjectsViewController.swift in Sources */,
+				8C81416328411E8200E7AB43 /* Project.swift in Sources */,
 				8C81415A2840CBBE00E7AB43 /* ProfileSettingTableViewCell.swift in Sources */,
 				8C6BDC75283CF25000A96ED4 /* LoginRouter.swift in Sources */,
 				8C81415F2840D3D100E7AB43 /* ProfileTableViewHeader.swift in Sources */,
+				8C81416E2841341900E7AB43 /* EditProjectViewController.swift in Sources */,
+				8C81416C2841341900E7AB43 /* EditProjectPresenter.swift in Sources */,
 				8C6BDC89283D53C200A96ED4 /* RegistrationFlowCoordinator.swift in Sources */,
 				8C6BDC6A283CEB1400A96ED4 /* FlowCoordinator.swift in Sources */,
 				8C6BDD83283E031E00A96ED4 /* ConversationsInteractor.swift in Sources */,
 				8C6BDC71283CF24000A96ED4 /* LoginInteractor.swift in Sources */,
+				8C8141702841341900E7AB43 /* EditProjectView.swift in Sources */,
 				8C6BDC8B283D53CA00A96ED4 /* RegistrationInteractor.swift in Sources */,
 				8C6BDD85283E031E00A96ED4 /* ConversationsConfigurator.swift in Sources */,
 				8C6BDD81283E031E00A96ED4 /* ConversationsRouter.swift in Sources */,
@@ -784,6 +821,7 @@
 				8C6BDC8A283D53C700A96ED4 /* RegistrationConfigurator.swift in Sources */,
 				8C6BDC8D283D53D000A96ED4 /* RegistrationRouter.swift in Sources */,
 				8C6BDD65283DFB6800A96ED4 /* HomeInteractor.swift in Sources */,
+				8C8141722841341900E7AB43 /* EditProjectFlowCoordinator.swift in Sources */,
 				8C6BDC68283CE99100A96ED4 /* AppFlowCoordinator.swift in Sources */,
 				8C6BDD80283E031E00A96ED4 /* ConversationsPresenter.swift in Sources */,
 				8C6BDD63283DFB6800A96ED4 /* HomeRouter.swift in Sources */,
@@ -796,6 +834,7 @@
 				8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */,
 				8C6BDD71283E019500A96ED4 /* MyProjectsPresenter.swift in Sources */,
 				8C6BDD98283F89A600A96ED4 /* UIViewController+Extension.swift in Sources */,
+				8C81416F2841341900E7AB43 /* EditProjectInteractor.swift in Sources */,
 				8C814149283FA5BC00E7AB43 /* ProfileConfigurator.swift in Sources */,
 				8C6BDD55283DF9E700A96ED4 /* TabBarViewController.swift in Sources */,
 				8C814145283FA5BC00E7AB43 /* ProfileRouter.swift in Sources */,
@@ -806,6 +845,7 @@
 				8C6BDC7F283D34B500A96ED4 /* LoginFlowCoordinator.swift in Sources */,
 				8C814144283FA5BC00E7AB43 /* ProfilePresenter.swift in Sources */,
 				8C81414A283FA5BC00E7AB43 /* ProfileFlowCoordinator.swift in Sources */,
+				8C81416D2841341900E7AB43 /* EditProjectRouter.swift in Sources */,
 				8C6BDD66283DFB6800A96ED4 /* HomeView.swift in Sources */,
 				8C6BDC77283CF26A00A96ED4 /* LoginView.swift in Sources */,
 				8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */,
