@@ -11,11 +11,13 @@ class RegistrationConfigurator {
     static func configureModule(registrationRouterOutput: RegistrationRouterOutput,
                                 viewController: RegistrationViewController,
                                 keychainService: KeychainServiceProtocol,
-                                authenticationService: AuthenticationServiceProtocol) {
+                                authenticationService: AuthenticationServiceProtocol,
+                                userRepository: UserRepositoryProtocol) {
         let view = RegistrationView()
         let router = RegistrationRouter()
         let interactor = RegistrationInteractor(keychainService: keychainService,
-                                                authenticationService: authenticationService)
+                                                authenticationService: authenticationService,
+                                                userRepository: userRepository)
         let presenter = RegistrationPresenter()
 
         viewController.registrationView = view

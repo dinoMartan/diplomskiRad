@@ -11,6 +11,8 @@ target 'VIPPattern' do
   pod 'Firebase'
   pod 'FirebaseAuth'
   pod 'FirebaseFirestore'
+  pod 'FirebaseFirestoreSwift'
+  pod 'FirebaseStorage'
 
   target 'VIPPatternTests' do
     inherit! :search_paths

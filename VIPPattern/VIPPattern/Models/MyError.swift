@@ -15,7 +15,7 @@ struct MyError: Error {
         guard let message = message else {
             switch type {
                 case .registrationFailed: return "Registracija neuspješna!"
-                case .emailOrPasswordFieldEmpty: return "Email ili lozinka nisu uneseni"
+                case .registrationFieldsRequired: return "Potrebno je unesti sve podatke"
                 case .signInFailed: return "Prijava neuspješna!"
                 case .passwordResetFailed: return "Došlo je do greške kod resetiranja lozinke"
                 default: return "Došlo je do greške"
@@ -28,6 +28,8 @@ struct MyError: Error {
 enum MyErrorType {
     case registrationFailed
     case signInFailed
-    case emailOrPasswordFieldEmpty
+    case registrationFieldsRequired
     case passwordResetFailed
+    case firestoreFailed
+    case codableError
 }

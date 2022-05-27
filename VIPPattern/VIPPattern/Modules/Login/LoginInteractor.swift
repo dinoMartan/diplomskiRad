@@ -35,14 +35,15 @@ extension LoginInteractor {
         let password = password,
         !password.isEmpty
         else {
-            let myError = MyError(type: .emailOrPasswordFieldEmpty, message: nil)
+            let myError = MyError(type: .registrationFieldsRequired, message: nil)
             presenter?.interactor(didFail: myError)
             return
         }
         authenticationService.signInUser(email: email, password: password) { [weak self] result in
             switch result {
-            case .success(_):
+            case .success(let authDataResult):
                 self?.keychainService.setUserLoggedIn(true)
+                self?.keychainService.setUserId(authDataResult.user.uid)
                 self?.presenter?.interactorDidSuceedLogin()
             case .failure(let myError):
                 self?.presenter?.interactor(didFail: myError)

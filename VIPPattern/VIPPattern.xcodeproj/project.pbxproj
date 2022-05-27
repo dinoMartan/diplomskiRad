@@ -72,6 +72,11 @@
 		8C814148283FA5BC00E7AB43 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C814141283FA5BC00E7AB43 /* ProfileView.swift */; };
 		8C814149283FA5BC00E7AB43 /* ProfileConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C814142283FA5BC00E7AB43 /* ProfileConfigurator.swift */; };
 		8C81414A283FA5BC00E7AB43 /* ProfileFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C814143283FA5BC00E7AB43 /* ProfileFlowCoordinator.swift */; };
+		8C81414C283FD4C000E7AB43 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81414B283FD4C000E7AB43 /* FirestoreService.swift */; };
+		8C81414E283FD8B800E7AB43 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81414D283FD8B800E7AB43 /* User.swift */; };
+		8C814151283FDB0B00E7AB43 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C814150283FDB0B00E7AB43 /* UserRepository.swift */; };
+		8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */; };
+		8C8141562840BFE500E7AB43 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141552840BFE500E7AB43 /* Constants.swift */; };
 		A2247B211646827829AF9746 /* Pods_VIPPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353F610B3041E62C9C8EFC1 /* Pods_VIPPattern.framework */; };
 		EC2FFBE235F4208096F17E5D /* Pods_VIPPattern_VIPPatternUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF439562096D7DE22519846 /* Pods_VIPPattern_VIPPatternUITests.framework */; };
 /* End PBXBuildFile section */
@@ -168,6 +173,11 @@
 		8C814141283FA5BC00E7AB43 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		8C814142283FA5BC00E7AB43 /* ProfileConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileConfigurator.swift; sourceTree = "<group>"; };
 		8C814143283FA5BC00E7AB43 /* ProfileFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowCoordinator.swift; sourceTree = "<group>"; };
+		8C81414B283FD4C000E7AB43 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
+		8C81414D283FD8B800E7AB43 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8C814150283FDB0B00E7AB43 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
+		8C8141552840BFE500E7AB43 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		A30803D977BC4D2488FF6532 /* Pods-VIPPattern-VIPPatternUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; path = "Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA29FF392958C526D06EADA7 /* Pods-VIPPattern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern.debug.xcconfig"; path = "Target Support Files/Pods-VIPPattern/Pods-VIPPattern.debug.xcconfig"; sourceTree = "<group>"; };
 		E6B278D7BDA81285949465DA /* Pods-VIPPatternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPatternTests.release.xcconfig"; path = "Target Support Files/Pods-VIPPatternTests/Pods-VIPPatternTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -251,7 +261,9 @@
 			children = (
 				8C6BDD8C283F7B9D00A96ED4 /* GoogleService-Info.plist */,
 				8C6BDC62283CE78300A96ED4 /* Application */,
+				8C8141542840BFCD00E7AB43 /* Common */,
 				8C6BDC63283CE78A00A96ED4 /* Services */,
+				8C81414F283FDAF200E7AB43 /* Repositories */,
 				8C6BDC66283CE98000A96ED4 /* Flow */,
 				8C6BDD90283F829800A96ED4 /* Models */,
 				8C6BDC64283CE79A00A96ED4 /* Modules */,
@@ -294,6 +306,7 @@
 				8C6BDC7A283D2F3100A96ED4 /* Dependencies.swift */,
 				8C6BDC7C283D31B600A96ED4 /* KeychainService.swift */,
 				8C6BDD8E283F7D9100A96ED4 /* AuthenticationService.swift */,
+				8C81414B283FD4C000E7AB43 /* FirestoreService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -336,11 +349,11 @@
 			children = (
 				8C6BDC7E283D34B500A96ED4 /* LoginFlowCoordinator.swift */,
 				8C6BDC6E283CF23600A96ED4 /* LoginConfigurator.swift */,
+				8C6BDC76283CF26A00A96ED4 /* LoginView.swift */,
+				8C6BDC78283CF27400A96ED4 /* LoginViewController.swift */,
 				8C6BDC70283CF24000A96ED4 /* LoginInteractor.swift */,
 				8C6BDC72283CF24A00A96ED4 /* LoginPresenter.swift */,
 				8C6BDC74283CF25000A96ED4 /* LoginRouter.swift */,
-				8C6BDC76283CF26A00A96ED4 /* LoginView.swift */,
-				8C6BDC78283CF27400A96ED4 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -350,11 +363,12 @@
 			children = (
 				8C6BDC85283D3C1C00A96ED4 /* RegistrationFlowCoordinator.swift */,
 				8C6BDC88283D3C1C00A96ED4 /* RegistrationConfigurator.swift */,
+				8C6BDC82283D3C1C00A96ED4 /* RegistrationView.swift */,
+				8C6BDC86283D3C1C00A96ED4 /* RegistrationViewController.swift */,
 				8C6BDC87283D3C1C00A96ED4 /* RegistrationInteractor.swift */,
 				8C6BDC83283D3C1C00A96ED4 /* RegistrationPresenter.swift */,
 				8C6BDC84283D3C1C00A96ED4 /* RegistrationRouter.swift */,
-				8C6BDC82283D3C1C00A96ED4 /* RegistrationView.swift */,
-				8C6BDC86283D3C1C00A96ED4 /* RegistrationViewController.swift */,
+				8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -362,10 +376,10 @@
 		8C6BDD4B283DF99500A96ED4 /* TabBar */ = {
 			isa = PBXGroup;
 			children = (
-				8C6BDD4D283DF9E700A96ED4 /* TabBarRouter.swift */,
-				8C6BDD4E283DF9E700A96ED4 /* TabBarViewController.swift */,
-				8C6BDD51283DF9E700A96ED4 /* TabBarConfigurator.swift */,
 				8C6BDD52283DF9E700A96ED4 /* TabBarFlowCoordinator.swift */,
+				8C6BDD51283DF9E700A96ED4 /* TabBarConfigurator.swift */,
+				8C6BDD4E283DF9E700A96ED4 /* TabBarViewController.swift */,
+				8C6BDD4D283DF9E700A96ED4 /* TabBarRouter.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -374,13 +388,13 @@
 			isa = PBXGroup;
 			children = (
 				8C6BDD87283E220100A96ED4 /* Cell */,
-				8C6BDD5B283DFB6800A96ED4 /* HomePresenter.swift */,
-				8C6BDD5C283DFB6800A96ED4 /* HomeRouter.swift */,
+				8C6BDD61283DFB6800A96ED4 /* HomeFlowCoordinator.swift */,
+				8C6BDD60283DFB6800A96ED4 /* HomeConfigurator.swift */,
+				8C6BDD5F283DFB6800A96ED4 /* HomeView.swift */,
 				8C6BDD5D283DFB6800A96ED4 /* HomeViewController.swift */,
 				8C6BDD5E283DFB6800A96ED4 /* HomeInteractor.swift */,
-				8C6BDD5F283DFB6800A96ED4 /* HomeView.swift */,
-				8C6BDD60283DFB6800A96ED4 /* HomeConfigurator.swift */,
-				8C6BDD61283DFB6800A96ED4 /* HomeFlowCoordinator.swift */,
+				8C6BDD5B283DFB6800A96ED4 /* HomePresenter.swift */,
+				8C6BDD5C283DFB6800A96ED4 /* HomeRouter.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -388,13 +402,13 @@
 		8C6BDD69283E017B00A96ED4 /* MyProjects */ = {
 			isa = PBXGroup;
 			children = (
-				8C6BDD6A283E019500A96ED4 /* MyProjectsPresenter.swift */,
-				8C6BDD6B283E019500A96ED4 /* MyProjectsRouter.swift */,
+				8C6BDD70283E019500A96ED4 /* MyProjectsFlowCoordinator.swift */,
+				8C6BDD6F283E019500A96ED4 /* MyProjectsConfigurator.swift */,
+				8C6BDD6E283E019500A96ED4 /* MyProjectsView.swift */,
 				8C6BDD6C283E019500A96ED4 /* MyProjectsViewController.swift */,
 				8C6BDD6D283E019500A96ED4 /* MyProjectsInteractor.swift */,
-				8C6BDD6E283E019500A96ED4 /* MyProjectsView.swift */,
-				8C6BDD6F283E019500A96ED4 /* MyProjectsConfigurator.swift */,
-				8C6BDD70283E019500A96ED4 /* MyProjectsFlowCoordinator.swift */,
+				8C6BDD6A283E019500A96ED4 /* MyProjectsPresenter.swift */,
+				8C6BDD6B283E019500A96ED4 /* MyProjectsRouter.swift */,
 			);
 			path = MyProjects;
 			sourceTree = "<group>";
@@ -402,13 +416,13 @@
 		8C6BDD78283E030D00A96ED4 /* Conversations */ = {
 			isa = PBXGroup;
 			children = (
-				8C6BDD79283E031E00A96ED4 /* ConversationsPresenter.swift */,
-				8C6BDD7A283E031E00A96ED4 /* ConversationsRouter.swift */,
+				8C6BDD7F283E031E00A96ED4 /* ConversationsFlowCoordinator.swift */,
+				8C6BDD7E283E031E00A96ED4 /* ConversationsConfigurator.swift */,
+				8C6BDD7D283E031E00A96ED4 /* ConversationsView.swift */,
 				8C6BDD7B283E031E00A96ED4 /* ConversationsViewController.swift */,
 				8C6BDD7C283E031E00A96ED4 /* ConversationsInteractor.swift */,
-				8C6BDD7D283E031E00A96ED4 /* ConversationsView.swift */,
-				8C6BDD7E283E031E00A96ED4 /* ConversationsConfigurator.swift */,
-				8C6BDD7F283E031E00A96ED4 /* ConversationsFlowCoordinator.swift */,
+				8C6BDD79283E031E00A96ED4 /* ConversationsPresenter.swift */,
+				8C6BDD7A283E031E00A96ED4 /* ConversationsRouter.swift */,
 			);
 			path = Conversations;
 			sourceTree = "<group>";
@@ -426,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				8C6BDD91283F83A800A96ED4 /* MyError.swift */,
+				8C81414D283FD8B800E7AB43 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -441,8 +456,8 @@
 		8C81413C283FA58E00E7AB43 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				8C814142283FA5BC00E7AB43 /* ProfileConfigurator.swift */,
 				8C814143283FA5BC00E7AB43 /* ProfileFlowCoordinator.swift */,
+				8C814142283FA5BC00E7AB43 /* ProfileConfigurator.swift */,
 				8C814141283FA5BC00E7AB43 /* ProfileView.swift */,
 				8C81413F283FA5BC00E7AB43 /* ProfileViewController.swift */,
 				8C814140283FA5BC00E7AB43 /* ProfileInteractor.swift */,
@@ -450,6 +465,22 @@
 				8C81413E283FA5BC00E7AB43 /* ProfileRouter.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		8C81414F283FDAF200E7AB43 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8C814150283FDB0B00E7AB43 /* UserRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		8C8141542840BFCD00E7AB43 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8C8141552840BFE500E7AB43 /* Constants.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -697,10 +728,13 @@
 				8C6BDD72283E019500A96ED4 /* MyProjectsRouter.swift in Sources */,
 				8C6BDD64283DFB6800A96ED4 /* HomeViewController.swift in Sources */,
 				8C6BDC8C283D53CC00A96ED4 /* RegistrationPresenter.swift in Sources */,
+				8C81414C283FD4C000E7AB43 /* FirestoreService.swift in Sources */,
 				8C6BDD67283DFB6800A96ED4 /* HomeConfigurator.swift in Sources */,
 				8C6BDD62283DFB6800A96ED4 /* HomePresenter.swift in Sources */,
 				8C6BDD68283DFB6800A96ED4 /* HomeFlowCoordinator.swift in Sources */,
+				8C8141562840BFE500E7AB43 /* Constants.swift in Sources */,
 				8C6BDD58283DF9E700A96ED4 /* TabBarConfigurator.swift in Sources */,
+				8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */,
 				8C6BDC73283CF24A00A96ED4 /* LoginPresenter.swift in Sources */,
 				8C6BDD76283E019500A96ED4 /* MyProjectsConfigurator.swift in Sources */,
 				8C6BDD84283E031E00A96ED4 /* ConversationsView.swift in Sources */,
@@ -716,6 +750,7 @@
 				8C6BDD85283E031E00A96ED4 /* ConversationsConfigurator.swift in Sources */,
 				8C6BDD81283E031E00A96ED4 /* ConversationsRouter.swift in Sources */,
 				8C6BDD54283DF9E700A96ED4 /* TabBarRouter.swift in Sources */,
+				8C81414E283FD8B800E7AB43 /* User.swift in Sources */,
 				8C6BDD59283DF9E700A96ED4 /* TabBarFlowCoordinator.swift in Sources */,
 				8C6BDD77283E019500A96ED4 /* MyProjectsFlowCoordinator.swift in Sources */,
 				8C6BDC8A283D53C700A96ED4 /* RegistrationConfigurator.swift in Sources */,
@@ -728,6 +763,7 @@
 				8C6BDC7D283D31B600A96ED4 /* KeychainService.swift in Sources */,
 				8C6BDD82283E031E00A96ED4 /* ConversationsViewController.swift in Sources */,
 				8C6BDD86283E031E00A96ED4 /* ConversationsFlowCoordinator.swift in Sources */,
+				8C814151283FDB0B00E7AB43 /* UserRepository.swift in Sources */,
 				8C6BDD75283E019500A96ED4 /* MyProjectsView.swift in Sources */,
 				8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */,
 				8C6BDD71283E019500A96ED4 /* MyProjectsPresenter.swift in Sources */,

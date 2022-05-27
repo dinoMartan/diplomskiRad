@@ -11,6 +11,9 @@ import KeychainSwift
 protocol KeychainServiceProtocol {
     func getUserLoggedIn() -> Bool
     func setUserLoggedIn(_ userLoggedIn: Bool)
+
+    func getUserId() -> String?
+    func setUserId(_ userId: String)
 }
 
 class KeychainService: KeychainServiceProtocol {
@@ -18,6 +21,7 @@ class KeychainService: KeychainServiceProtocol {
 
     private enum Key: String {
         case userLoggedIn
+        case userId
     }
 
     init() {
@@ -32,5 +36,15 @@ extension KeychainService {
 
     func setUserLoggedIn(_ userLoggedIn: Bool) {
         keychainSwift.set(userLoggedIn, forKey: Key.userLoggedIn.rawValue)
+    }
+}
+
+extension KeychainService {
+    func getUserId() -> String? {
+        keychainSwift.get(Key.userId.rawValue)
+    }
+
+    func setUserId(_ userId: String) {
+        keychainSwift.set(userId, forKey: Key.userId.rawValue)
     }
 }

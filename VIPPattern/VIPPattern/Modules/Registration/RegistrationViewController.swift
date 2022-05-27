@@ -27,12 +27,8 @@ class RegistrationViewController: UIViewController {
         setupInteractions()
     }
 
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        router?.shouldClose()
-    }
-
     deinit {
+        router?.shouldClose()
         print("deinit \(self)")
     }
 }
@@ -40,8 +36,19 @@ class RegistrationViewController: UIViewController {
 extension RegistrationViewController {
     private func setupInteractions() {
         registrationView?.registerButtonTapInteraction = { [weak self] in
-            self?.interactor?.registerUser(email: self?.registrationView?.emailTextField.text,
-                                           password: self?.registrationView?.passwordTextField.text)
+            self?.interactor?.registerUser(username: self?.registrationView?.usernameTextField.text,
+                                           firstName: self?.registrationView?.firstNameTextField.text,
+                                           lastName: self?.registrationView?.lastNameTextField.text,
+                                           email: self?.registrationView?.emailTextField.text,
+                                           password: self?.registrationView?.passwordTextField.text,
+                                           image: self?.registrationView?.imageView.image)
+        }
+
+        registrationView?.imageTapInteraction = { [weak self] in
+            guard let self = self else { return }
+            ImagePickerManager().pickImage(self) { image in
+                self.registrationView?.imageView.image = image
+            }
         }
     }
 }
