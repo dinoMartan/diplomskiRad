@@ -28,8 +28,8 @@ class ProfileViewController: UIViewController {
         configureTableView()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         interactor?.getUserData()
     }
 
@@ -84,10 +84,45 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         switch section {
         case .settings(_):
             let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileTableViewHeader.identifier) as? ProfileTableViewHeader
+            view?.delegate = self
             view?.setupWith(image: profileViewModel?.baseInfo.profileImage,
                             label: profileViewModel?.baseInfo.displayName)
             return view
         default: return nil
+        }
+    }
+
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let section = profileViewModel?.sections[indexPath.section]
+        switch section {
+        case .settings(let settings):
+            let setting = settings[indexPath.row]
+            let editAction = UIContextualAction(style: .normal,
+                                                title: "Uredi") { [weak self] _, _, completion in
+                self?.editSetting(setting)
+                completion(true)
+            }
+            return UISwipeActionsConfiguration(actions: [editAction])
+        default: return nil
+        }
+    }
+
+    private func editSetting(_ setting: ProfileViewModelSetting) {
+        showAlertControllerWithTextField(title: "Uredi", message: nil, placeholder: setting.value) { [weak self] newValue in
+            var newSetting = setting
+            newSetting.value = newValue
+            self?.interactor?.updateSetting(newSetting)
+        }
+    }
+}
+
+extension ProfileViewController: ProfileTableViewHeaderDelegate {
+    func didTapProfileImage() {
+        ImagePickerManager().pickImage(self) { [weak self] newImage in
+            let profileSetting = ProfileViewModelSetting(value: nil,
+                                                         icon: nil,
+                                                         type: .image(newImage))
+            self?.interactor?.updateSetting(profileSetting)
         }
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 protocol ProfilePresenterProtocol: AnyObject {
     func interactor(didFetchUser user: User)
@@ -28,7 +29,7 @@ enum ProfileViewModelSection {
 }
 
 struct ProfileViewModelSetting {
-    let value: String?
+    var value: String?
     let icon: String?
     let type: ProfileViewModelSettingType
 }
@@ -37,6 +38,7 @@ enum ProfileViewModelSettingType {
     case firstName
     case lastName
     case username
+    case image(_ image: UIImage?)
 }
 
 class ProfilePresenter: ProfilePresenterProtocol {
@@ -48,7 +50,7 @@ class ProfilePresenter: ProfilePresenterProtocol {
 
     func interactor(didFetchUser user: User) {
         let baseInfo = ProfileViewModelBaseInfo(userId: user.id,
-                                                displayName: (user.firstName ?? "") + " " + (user.lastName ?? ""),
+                                                displayName: user.username,
                                                 profileImage: user.profileImage)
         let sections = [
             ProfileViewModelSection.settings([

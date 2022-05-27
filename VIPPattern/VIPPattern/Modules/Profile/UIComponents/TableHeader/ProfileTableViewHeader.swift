@@ -7,8 +7,14 @@
 
 import UIKit
 
+protocol ProfileTableViewHeaderDelegate: AnyObject {
+    func didTapProfileImage()
+}
+
 class ProfileTableViewHeader: UITableViewHeaderFooterView {
     static let identifier = "ProfileTableViewHeader"
+
+    weak var delegate: ProfileTableViewHeaderDelegate?
 
     private let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -48,6 +54,7 @@ extension ProfileTableViewHeader {
     private func setupView() {
         addSubviews()
         setupCoinstraints()
+        setupAction()
     }
 
     private func addSubviews() {
@@ -68,5 +75,16 @@ extension ProfileTableViewHeader {
             make.top.equalTo(imageView.snp.bottom).offset(20)
             make.bottom.equalToSuperview().offset(-20)
         }
+    }
+
+    private func setupAction() {
+        let guesture = UITapGestureRecognizer(target: self,
+                                              action: #selector(didTapProfileImage))
+        imageView.addGestureRecognizer(guesture)
+    }
+
+    @objc
+    private func didTapProfileImage() {
+        delegate?.didTapProfileImage()
     }
 }

@@ -10,9 +10,9 @@ import Foundation
 
 struct User: Codable {
     @DocumentID var id: String?
-    let username: String?
-    let firstName: String?
-    let lastName: String?
+    var username: String?
+    var firstName: String?
+    var lastName: String?
     let email: String?
     var profileImage: String?
 }
