@@ -55,31 +55,11 @@ extension LoginViewController {
     }
 
     private func handleForgottenPasswordButtonTap() {
-        let alertController = createForgottenPasswordAlertController { email in
-            self.interactor?.sendResetPasswordEmail(email: email)
+        showAlertControllerWithTextField(title: "Zaboravljena lozinka",
+                                         message: nil,
+                                         placeholder: "Email") { [weak self] email in
+            self?.interactor?.sendResetPasswordEmail(email: email)
         }
-        present(alertController, animated: true)
-    }
-
-    private func createForgottenPasswordAlertController(completion: @escaping ((String?) -> Void)) -> UIAlertController {
-        let alertController = UIAlertController(title: "Zaboravljena lozinka",
-                                                message: nil,
-                                                preferredStyle: .alert)
-        alertController.addTextField { textField in
-            textField.placeholder = "Email"
-        }
-        setForgottenPasswordAlertActionsFor(alertController, completion: completion)
-        return alertController
-    }
-
-    private func setForgottenPasswordAlertActionsFor(_ alertController: UIAlertController, completion: @escaping ((String?) -> Void)) {
-        let confirmAction = UIAlertAction(title: "OK", style: .default) { _ in
-            let email = alertController.textFields?.first?.text
-            completion(email)
-        }
-        let cancelAction = UIAlertAction(title: "Odustani", style: .cancel)
-        alertController.addAction(confirmAction)
-        alertController.addAction(cancelAction)
     }
 }
 

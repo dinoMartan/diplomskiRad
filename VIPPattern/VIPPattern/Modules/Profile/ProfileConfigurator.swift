@@ -18,7 +18,7 @@ class ProfileConfigurator {
                                            keychainService: keychainService)
         let presenter = ProfilePresenter()
 
-        viewController.view = view
+        viewController.profileView = view
         viewController.router = router
         viewController.interactor = interactor
 

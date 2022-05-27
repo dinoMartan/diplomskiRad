@@ -15,8 +15,14 @@ protocol AuthenticationServiceProtocol {
 }
 
 class AuthenticationService: AuthenticationServiceProtocol {
+    private let authentication: Auth
+
+    init() {
+        authentication = Auth.auth()
+    }
+
     func registerUser(email: String, password: String, completion: @escaping ((Result<AuthDataResult, MyError>) -> Void)) {
-        Auth.auth().createUser(withEmail: email, password: password) { authDataResult, error in
+        authentication.createUser(withEmail: email, password: password) { authDataResult, error in
             guard let authDataResult = authDataResult,
                   error == nil else {
                 completion(.failure(MyError(type: .registrationFailed, message: error?.localizedDescription)))
@@ -27,7 +33,7 @@ class AuthenticationService: AuthenticationServiceProtocol {
     }
 
     func signInUser(email: String, password: String, completion: @escaping ((Result<AuthDataResult, MyError>) -> Void)) {
-        Auth.auth().signIn(withEmail: email, password: password) { authDataResult, error in
+        authentication.signIn(withEmail: email, password: password) { authDataResult, error in
             guard let authDataResult = authDataResult,
                   error == nil else {
                 completion(.failure(MyError(type: .registrationFailed, message: error?.localizedDescription)))
@@ -38,7 +44,7 @@ class AuthenticationService: AuthenticationServiceProtocol {
     }
 
     func sendResetPasswordEmail(email: String, completion: @escaping ((Result<Void, MyError>) -> Void)) {
-        Auth.auth().sendPasswordReset(withEmail: email) { error in
+        authentication.sendPasswordReset(withEmail: email) { error in
             guard let error = error else {
                 completion(.success(()))
                 return
