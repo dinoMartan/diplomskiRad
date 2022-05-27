@@ -5,11 +5,11 @@
 //  Created by Dino Martan on 26.05.2022..
 //
 
-import Foundation
+import UIKit
 
 protocol UserRepositoryProtocol {
     func getUser(userId: String, completion: @escaping ((Result<User, MyError>) -> Void))
-    func setUser(user: User, completion: @escaping ((Result<Void, MyError>) -> Void))
+    func setUser(user: User, userImage: UIImage?, completion: @escaping ((Result<Void, MyError>) -> Void))
 }
 
 class UserRepository: UserRepositoryProtocol {
@@ -23,11 +23,24 @@ class UserRepository: UserRepositoryProtocol {
         firestoreService.getDocument(documentPath: "users/" + userId, completion: completion)
     }
 
-    func setUser(user: User, completion: @escaping ((Result<Void, MyError>) -> Void)) {
+    func setUser(user: User, userImage: UIImage?, completion: @escaping ((Result<Void, MyError>) -> Void)) {
         guard let id = user.id else {
             completion(.failure(MyError(type: .codableError, message: "userId nije pronađen!")))
             return
         }
-        firestoreService.setDocument(documentPath: "users/" + id, document: user, completion: completion)
+        var user = user
+        if let userImageData = userImage?.jpegData(compressionQuality: 0.1) {
+            firestoreService.uploadImage(data: userImageData) { [weak self] result in
+                switch result {
+                case .success(let imageUrl):
+                    user.profileImage = imageUrl
+                case .failure(_):
+                    break
+                }
+                self?.firestoreService.setDocument(documentPath: "users/" + id, document: user, completion: completion)
+            }
+        } else {
+            firestoreService.setDocument(documentPath: "users/" + id, document: user, completion: completion)
+        }
     }
 }

@@ -35,7 +35,7 @@ extension LoginInteractor {
         let password = password,
         !password.isEmpty
         else {
-            let myError = MyError(type: .emailOrPasswordFieldEmpty, message: nil)
+            let myError = MyError(type: .registrationFieldsRequired, message: nil)
             presenter?.interactor(didFail: myError)
             return
         }

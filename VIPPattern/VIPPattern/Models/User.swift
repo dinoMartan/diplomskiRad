@@ -14,20 +14,5 @@ struct User: Codable {
     let firstName: String?
     let lastName: String?
     let email: String?
-
-    init(id: String?, username: String?, firstName: String?, lastName: String?, email: String?) {
-        self.id = id
-        self.username = username
-        self.firstName = firstName
-        self.lastName = lastName
-        self.email = email
-    }
-
-    init(id: String?, email: String?) {
-        self.id = id
-        self.username = nil
-        self.firstName = nil
-        self.lastName = nil
-        self.email = email
-    }
+    var profileImage: String?
 }

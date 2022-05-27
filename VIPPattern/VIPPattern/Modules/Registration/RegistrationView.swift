@@ -16,6 +16,46 @@ class RegistrationView: UIView {
         return label
     }()
 
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(systemName: "person")
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.borderWidth = 3
+        imageView.layer.masksToBounds = false
+        imageView.layer.borderColor = UIColor.systemBackground.cgColor
+        imageView.layer.cornerRadius = 150 / 2
+        imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
+        return imageView
+    }()
+
+    let usernameTextField: UITextField = {
+        let textField = UITextField()
+        textField.backgroundColor = .secondarySystemBackground
+        textField.placeholder = "Korisničko ime"
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        return textField
+    }()
+
+    let firstNameTextField: UITextField = {
+        let textField = UITextField()
+        textField.backgroundColor = .secondarySystemBackground
+        textField.placeholder = "Ime"
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        return textField
+    }()
+
+    let lastNameTextField: UITextField = {
+        let textField = UITextField()
+        textField.backgroundColor = .secondarySystemBackground
+        textField.placeholder = "Prezime"
+        textField.autocorrectionType = .no
+        textField.autocapitalizationType = .none
+        return textField
+    }()
+
     let emailTextField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .secondarySystemBackground
@@ -47,6 +87,7 @@ class RegistrationView: UIView {
         return stackView
     }()
 
+    var imageTapInteraction: (() -> Void)?
     var registerButtonTapInteraction: (() -> Void)?
 
     init() {
@@ -69,23 +110,33 @@ extension RegistrationView {
     
     private func addSubviews() {
         addSubview(titleLabel)
+        addSubview(imageView)
         addSubview(stackView)
+        stackView.addArrangedSubview(usernameTextField)
+        stackView.addArrangedSubview(firstNameTextField)
+        stackView.addArrangedSubview(lastNameTextField)
         stackView.addArrangedSubview(emailTextField)
         stackView.addArrangedSubview(passwordTextField)
         stackView.addArrangedSubview(registerButton)
     }
-    
+
     private func setupCoinstraints() {
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
-            make.top.equalToSuperview().offset(40)
+            make.top.equalToSuperview().offset(30)
         }
-        stackView.snp.makeConstraints { make in
-            make.top.equalTo(titleLabel.snp.bottom)
+
+        imageView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.height.equalTo(200)
-            make.width.equalTo(200)
+            make.top.equalTo(titleLabel.snp.bottom).offset(15)
+            make.width.height.equalTo(150)
+        }
+
+        stackView.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(30)
+            make.leading.equalToSuperview().offset(30)
+            make.trailing.equalToSuperview().offset(-30)
+            make.bottom.equalToSuperview().offset(-50)
         }
     }
 }
@@ -93,6 +144,7 @@ extension RegistrationView {
 extension RegistrationView {
     private func setupActions() {
         setupLoginButtonAction()
+        setupImageTapAction()
     }
 
     private func setupLoginButtonAction() {
@@ -104,5 +156,16 @@ extension RegistrationView {
     @objc
     private func didTapLoginButton() {
         registerButtonTapInteraction?()
+    }
+
+    private func setupImageTapAction() {
+        let guesture = UITapGestureRecognizer(target: self,
+                                              action: #selector(didTapImage))
+        imageView.addGestureRecognizer(guesture)
+    }
+
+    @objc
+    private func didTapImage() {
+        imageTapInteraction?()
     }
 }

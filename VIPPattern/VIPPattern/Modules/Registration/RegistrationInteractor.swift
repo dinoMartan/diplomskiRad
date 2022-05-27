@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 protocol RegistrationInteractorProtocol {
-    func registerUser(email: String?, password: String?)
+    func registerUser(username: String?, firstName: String?, lastName: String?, email: String?, password: String?, image: UIImage?)
 }
 
 class RegistrationInteractor: RegistrationInteractorProtocol {
@@ -30,20 +31,28 @@ class RegistrationInteractor: RegistrationInteractorProtocol {
 }
 
 extension RegistrationInteractor {
-    func registerUser(email: String?, password: String?) {
-        guard let email = email,
-        !email.isEmpty,
-        let password = password,
-        !password.isEmpty
+    func registerUser(username: String?, firstName: String?, lastName: String?, email: String?, password: String?, image: UIImage?) {
+        guard let email = email, !email.isEmpty,
+              let password = password, !password.isEmpty,
+              let username = username, !username.isEmpty,
+              let firstName = firstName, !firstName.isEmpty,
+              let lastName = lastName, !lastName.isEmpty
         else {
-            let myError = MyError(type: .emailOrPasswordFieldEmpty, message: nil)
+            let myError = MyError(type: .registrationFieldsRequired, message: nil)
             presenter?.interactor(didFail: myError)
             return
         }
+        var user = User(id: nil,
+                        username: username,
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        profileImage: nil)
         authenticationService.registerUser(email: email, password: password) { [weak self] result in
             switch result {
             case .success(let authDataResult):
-                self?.addUserToDatabase(userId: authDataResult.user.uid, email: authDataResult.user.email)
+                user.id = authDataResult.user.uid
+                self?.addUserToDatabase(user: user, image: image)
                 self?.keychainService.setUserLoggedIn(true)
                 self?.keychainService.setUserId(authDataResult.user.uid)
                 self?.presenter?.interactorDidSucceedRegistration()
@@ -53,9 +62,8 @@ extension RegistrationInteractor {
         }
     }
 
-    private func addUserToDatabase(userId: String, email: String?) {
-        let user = User(id: userId, email: email)
-        userRepository.setUser(user: user) { [weak self] result in
+    private func addUserToDatabase(user: User, image: UIImage?) {
+        userRepository.setUser(user: user, userImage: image) { [weak self] result in
             switch result {
             case .success(_):
                 break

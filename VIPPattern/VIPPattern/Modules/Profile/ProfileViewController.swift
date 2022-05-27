@@ -25,12 +25,8 @@ class ProfileViewController: UIViewController {
         interactor?.getUserData()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        router?.shouldClose()
-    }
-
     deinit {
+        router?.shouldClose()
         print("deinit \(self)")
     }
 }

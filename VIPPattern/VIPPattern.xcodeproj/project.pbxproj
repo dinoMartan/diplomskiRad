@@ -75,6 +75,7 @@
 		8C81414C283FD4C000E7AB43 /* FirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81414B283FD4C000E7AB43 /* FirestoreService.swift */; };
 		8C81414E283FD8B800E7AB43 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81414D283FD8B800E7AB43 /* User.swift */; };
 		8C814151283FDB0B00E7AB43 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C814150283FDB0B00E7AB43 /* UserRepository.swift */; };
+		8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */; };
 		A2247B211646827829AF9746 /* Pods_VIPPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353F610B3041E62C9C8EFC1 /* Pods_VIPPattern.framework */; };
 		EC2FFBE235F4208096F17E5D /* Pods_VIPPattern_VIPPatternUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF439562096D7DE22519846 /* Pods_VIPPattern_VIPPatternUITests.framework */; };
 /* End PBXBuildFile section */
@@ -174,6 +175,7 @@
 		8C81414B283FD4C000E7AB43 /* FirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirestoreService.swift; sourceTree = "<group>"; };
 		8C81414D283FD8B800E7AB43 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8C814150283FDB0B00E7AB43 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		A30803D977BC4D2488FF6532 /* Pods-VIPPattern-VIPPatternUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; path = "Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA29FF392958C526D06EADA7 /* Pods-VIPPattern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern.debug.xcconfig"; path = "Target Support Files/Pods-VIPPattern/Pods-VIPPattern.debug.xcconfig"; sourceTree = "<group>"; };
 		E6B278D7BDA81285949465DA /* Pods-VIPPatternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPatternTests.release.xcconfig"; path = "Target Support Files/Pods-VIPPatternTests/Pods-VIPPatternTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 				8C6BDC87283D3C1C00A96ED4 /* RegistrationInteractor.swift */,
 				8C6BDC83283D3C1C00A96ED4 /* RegistrationPresenter.swift */,
 				8C6BDC84283D3C1C00A96ED4 /* RegistrationRouter.swift */,
+				8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -719,6 +722,7 @@
 				8C6BDD62283DFB6800A96ED4 /* HomePresenter.swift in Sources */,
 				8C6BDD68283DFB6800A96ED4 /* HomeFlowCoordinator.swift in Sources */,
 				8C6BDD58283DF9E700A96ED4 /* TabBarConfigurator.swift in Sources */,
+				8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */,
 				8C6BDC73283CF24A00A96ED4 /* LoginPresenter.swift in Sources */,
 				8C6BDD76283E019500A96ED4 /* MyProjectsConfigurator.swift in Sources */,
 				8C6BDD84283E031E00A96ED4 /* ConversationsView.swift in Sources */,
