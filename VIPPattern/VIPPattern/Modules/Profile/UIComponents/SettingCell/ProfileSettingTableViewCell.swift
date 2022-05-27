@@ -1,0 +1,20 @@
+//
+//  ProfileSettingTableViewCell.swift
+//  VIPPattern
+//
+//  Created by Dino Martan on 27.05.2022..
+//
+
+import UIKit
+
+class ProfileSettingTableViewCell: UITableViewCell {
+    static let identifier = "ProfileSettingTableViewCell"
+
+    @IBOutlet private weak var icon: UIImageView!
+    @IBOutlet private weak var label: UILabel!
+
+    func setupWith(_ profileSetting: ProfileViewModelSetting) {
+        icon.image = UIImage(systemName: profileSetting.icon ?? "")
+        label.text = profileSetting.value
+    }
+}

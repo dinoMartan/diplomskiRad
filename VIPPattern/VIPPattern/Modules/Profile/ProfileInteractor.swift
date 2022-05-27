@@ -33,10 +33,9 @@ extension ProfileInteractor {
         userRepository.getUser(userId: userId) { [weak self] result in
             switch result {
             case .success(let user):
-                print(user)
-                break
+                self?.presenter?.interactor(didFetchUser: user)
             case .failure(let myError):
-                break
+                self?.presenter?.interactor(didFail: myError)
             }
         }
     }

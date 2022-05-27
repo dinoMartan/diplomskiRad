@@ -9,7 +9,10 @@ import SnapKit
 import UIKit
 
 class ProfileView: UIView {
-    
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        return tableView
+    }()
 
     init() {
         super.init(frame: .zero)
@@ -32,8 +35,13 @@ extension ProfileView {
     }
 
     private func addSubviews() {
+        addSubview(tableView)
     }
 
     private func setupCoinstraints() {
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.bottom.equalToSuperview()
+        }
     }
 }
