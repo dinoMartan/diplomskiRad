@@ -8,12 +8,12 @@
 import FirebaseFirestoreSwift
 import Foundation
 
-struct Project {
+struct Project: Codable {
     @DocumentID var id: String?
-    let title: String?
-    let createdAt: Date?
-    let description: String?
-    let haveTags: [String]?
-    let needTags: [String]?
-    let owner: User?
+    var title: String?
+    var createdAt: Date?
+    var description: String?
+    var haveTags: [String]?
+    var needTags: [String]?
+    var owner: UserNested?
 }

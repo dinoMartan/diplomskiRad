@@ -27,10 +27,15 @@ class EditProjectFlowCoordinator: FlowCoordinator {
     }
 
     func startWith(project: Project?) {
+        let projectsRepository = ProjectsRepository(firestoreService: dependencies.firestoreService)
+        let userRepository = UserRepository(firestoreService: dependencies.firestoreService)
         let viewController = EditProjectViewController()
         EditProjectConfigurator.configureModule(routerOutput: self,
                                                 viewController: viewController,
-                                                project: project)
+                                                project: project,
+                                                projectsRepository: projectsRepository,
+                                                userRepository: userRepository,
+                                                keychainService: dependencies.keychainService)
         rootViewController.pushViewController(viewController, animated: true)
     }
 

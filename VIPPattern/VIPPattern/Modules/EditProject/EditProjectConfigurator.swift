@@ -8,10 +8,18 @@
 import Foundation
 
 class EditProjectConfigurator {
-    static func configureModule(routerOutput: EditProjectRouterOutput, viewController: EditProjectViewController, project: Project?) {
+    static func configureModule(routerOutput: EditProjectRouterOutput,
+                                viewController: EditProjectViewController,
+                                project: Project?,
+                                projectsRepository: ProjectsRepositoryProtocol,
+                                userRepository: UserRepositoryProtocol,
+                                keychainService: KeychainServiceProtocol) {
         let view = EditProjectView()
         let router = EditProjectRouter()
-        let interactor = EditProjectInteractor(project: project)
+        let interactor = EditProjectInteractor(project: project,
+                                               projectsRepository: projectsRepository,
+                                               userRepository: userRepository,
+                                               keychainService: keychainService)
         let presenter = EditProjectPresenter()
 
         viewController.editProjectView = view

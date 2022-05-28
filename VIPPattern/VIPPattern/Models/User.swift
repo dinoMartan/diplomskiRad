@@ -15,4 +15,31 @@ struct User: Codable {
     var lastName: String?
     let email: String?
     var profileImage: String?
+
+    func getUserNested() -> UserNested {
+        UserNested(id: id,
+                   username: username,
+                   firstName: firstName,
+                   lastName: lastName,
+                   email: email,
+                   profileImage: profileImage)
+    }
+}
+
+struct UserNested: Codable {
+    let id: String?
+    let username: String?
+    let firstName: String?
+    let lastName: String?
+    let email: String?
+    let profileImage: String?
+
+    func getUser() -> User {
+        User(id: id,
+             username: username,
+             firstName: firstName,
+             lastName: lastName,
+             email: email,
+             profileImage: profileImage)
+    }
 }

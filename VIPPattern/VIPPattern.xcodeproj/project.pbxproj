@@ -88,6 +88,8 @@
 		8C8141702841341900E7AB43 /* EditProjectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141692841341900E7AB43 /* EditProjectView.swift */; };
 		8C8141712841341900E7AB43 /* EditProjectConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81416A2841341900E7AB43 /* EditProjectConfigurator.swift */; };
 		8C8141722841341900E7AB43 /* EditProjectFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81416B2841341900E7AB43 /* EditProjectFlowCoordinator.swift */; };
+		8C8141752841528C00E7AB43 /* TagsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141742841528C00E7AB43 /* TagsField.swift */; };
+		8C81417728416B6D00E7AB43 /* ProjectsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */; };
 		A2247B211646827829AF9746 /* Pods_VIPPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353F610B3041E62C9C8EFC1 /* Pods_VIPPattern.framework */; };
 		EC2FFBE235F4208096F17E5D /* Pods_VIPPattern_VIPPatternUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF439562096D7DE22519846 /* Pods_VIPPattern_VIPPatternUITests.framework */; };
 /* End PBXBuildFile section */
@@ -200,6 +202,8 @@
 		8C8141692841341900E7AB43 /* EditProjectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectView.swift; sourceTree = "<group>"; };
 		8C81416A2841341900E7AB43 /* EditProjectConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectConfigurator.swift; sourceTree = "<group>"; };
 		8C81416B2841341900E7AB43 /* EditProjectFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectFlowCoordinator.swift; sourceTree = "<group>"; };
+		8C8141742841528C00E7AB43 /* TagsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsField.swift; sourceTree = "<group>"; };
+		8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsRepository.swift; sourceTree = "<group>"; };
 		A30803D977BC4D2488FF6532 /* Pods-VIPPattern-VIPPatternUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; path = "Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DA29FF392958C526D06EADA7 /* Pods-VIPPattern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern.debug.xcconfig"; path = "Target Support Files/Pods-VIPPattern/Pods-VIPPattern.debug.xcconfig"; sourceTree = "<group>"; };
 		E6B278D7BDA81285949465DA /* Pods-VIPPatternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPatternTests.release.xcconfig"; path = "Target Support Files/Pods-VIPPatternTests/Pods-VIPPatternTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 		8C6BDC64283CE79A00A96ED4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				8C814173284151D600E7AB43 /* Common */,
 				8C6BDD4B283DF99500A96ED4 /* TabBar */,
 				8C8141642841340000E7AB43 /* EditProject */,
 				8C6BDD78283E030D00A96ED4 /* Conversations */,
@@ -496,6 +501,7 @@
 			isa = PBXGroup;
 			children = (
 				8C814150283FDB0B00E7AB43 /* UserRepository.swift */,
+				8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -538,6 +544,14 @@
 				8C8141662841341900E7AB43 /* EditProjectRouter.swift */,
 			);
 			path = EditProject;
+			sourceTree = "<group>";
+		};
+		8C814173284151D600E7AB43 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				8C8141742841528C00E7AB43 /* TagsField.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -819,6 +833,7 @@
 				8C6BDD59283DF9E700A96ED4 /* TabBarFlowCoordinator.swift in Sources */,
 				8C6BDD77283E019500A96ED4 /* MyProjectsFlowCoordinator.swift in Sources */,
 				8C6BDC8A283D53C700A96ED4 /* RegistrationConfigurator.swift in Sources */,
+				8C8141752841528C00E7AB43 /* TagsField.swift in Sources */,
 				8C6BDC8D283D53D000A96ED4 /* RegistrationRouter.swift in Sources */,
 				8C6BDD65283DFB6800A96ED4 /* HomeInteractor.swift in Sources */,
 				8C8141722841341900E7AB43 /* EditProjectFlowCoordinator.swift in Sources */,
@@ -835,6 +850,7 @@
 				8C6BDD71283E019500A96ED4 /* MyProjectsPresenter.swift in Sources */,
 				8C6BDD98283F89A600A96ED4 /* UIViewController+Extension.swift in Sources */,
 				8C81416F2841341900E7AB43 /* EditProjectInteractor.swift in Sources */,
+				8C81417728416B6D00E7AB43 /* ProjectsRepository.swift in Sources */,
 				8C814149283FA5BC00E7AB43 /* ProfileConfigurator.swift in Sources */,
 				8C6BDD55283DF9E700A96ED4 /* TabBarViewController.swift in Sources */,
 				8C814145283FA5BC00E7AB43 /* ProfileRouter.swift in Sources */,

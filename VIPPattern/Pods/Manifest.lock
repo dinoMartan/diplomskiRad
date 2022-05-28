@@ -789,6 +789,7 @@ PODS:
   - nanopb/encode (2.30908.0)
   - PromisesObjC (2.1.0)
   - SnapKit (5.0.1)
+  - WSTagsField (5.4.0)
 
 DEPENDENCIES:
   - Firebase
@@ -800,6 +801,7 @@ DEPENDENCIES:
   - KeychainSwift
   - Kingfisher
   - SnapKit
+  - WSTagsField
 
 SPEC REPOS:
   trunk:
@@ -833,6 +835,7 @@ SPEC REPOS:
     - nanopb
     - PromisesObjC
     - SnapKit
+    - WSTagsField
 
 SPEC CHECKSUMS:
   abseil: ebe5b5529fb05d93a8bdb7951607be08b7fa71bc
@@ -865,7 +868,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   PromisesObjC: 99b6f43f9e1044bd87a95a60beff28c2c44ddb72
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  WSTagsField: a4e91b7d866e8c9755332ebcf8123f42f2abd4a0
 
-PODFILE CHECKSUM: 669bccfd3deeadd1db3e008d468ba8ad788d78a3
+PODFILE CHECKSUM: 871f47f8819cf1ecaf0cc141ab13e9d47ffc36dd
 
 COCOAPODS: 1.11.2

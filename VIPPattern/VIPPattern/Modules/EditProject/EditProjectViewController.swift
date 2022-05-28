@@ -15,9 +15,16 @@ class EditProjectViewController: UIViewController {
     var interactor: EditProjectInteractorProtocol?
     var router: EditProjectRouterProtocol?
 
+    private var project: Project? {
+        didSet {
+            //
+        }
+    }
+
     override func loadView() {
         super.loadView()
         self.view = editProjectView
+        setSaveButtonAction()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -30,6 +37,11 @@ class EditProjectViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        interactor?.getProject()
+    }
+
     deinit {
         router?.shouldClose()
         print("deinit \(self)")
@@ -37,6 +49,23 @@ class EditProjectViewController: UIViewController {
 }
 
 extension EditProjectViewController {
+    private func setSaveButtonAction() {
+        editProjectView?.saveButtonAction = { [weak self] in
+            self?.setProjectFromUI()
+            self?.interactor?.saveProject(self?.project)
+        }
+    }
+
+    private func setProjectFromUI() {
+        if project == nil {
+            project = Project()
+        }
+        project?.title = editProjectView?.titleTextField.text
+        project?.createdAt = Date()
+        project?.description = editProjectView?.descriptionTextView.text
+        project?.haveTags = editProjectView?.haveTagsField.tags.map({ $0.text }) // TODO: add to class
+        project?.needTags = editProjectView?.needTagsField.tags.map({ $0.text })
+    }
 }
 
 extension EditProjectViewController: EditProjectPresenterOutput {

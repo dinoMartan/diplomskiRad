@@ -15,6 +15,7 @@ target 'VIPPattern' do
   pod 'FirebaseStorage'
   pod 'Kingfisher'
   pod 'IQKeyboardManager'
+  pod 'WSTagsField'
 
   target 'VIPPatternTests' do
     inherit! :search_paths
