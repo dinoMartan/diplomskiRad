@@ -14,7 +14,7 @@ class MyProjectsConfigurator {
         let interactor = MyProjectsInteractor()
         let presenter = MyProjectsPresenter()
 
-        viewController.view = view
+        viewController.myProjectsView = view
         viewController.router = router
         viewController.interactor = interactor
 

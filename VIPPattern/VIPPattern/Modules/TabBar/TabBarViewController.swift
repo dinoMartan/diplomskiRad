@@ -10,11 +10,6 @@ import UIKit
 class TabBarViewController: UITabBarController {
     var router: TabBarRouterProtocol?
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        router?.shouldClose()
-    }
-
     override func loadView() {
         super.loadView()
         setupTabBar()
@@ -22,6 +17,7 @@ class TabBarViewController: UITabBarController {
     }
 
     deinit {
+        router?.shouldClose()
         print("deinit \(self)")
     }
 }

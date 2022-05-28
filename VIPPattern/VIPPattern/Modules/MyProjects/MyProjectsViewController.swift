@@ -11,18 +11,14 @@ protocol MyProjectsPresenterOutput: AnyObject {
 }
 
 class MyProjectsViewController: UIViewController {
-    var viewMyProjects: MyProjectsView?
+    var myProjectsView: MyProjectsView?
     var interactor: MyProjectsInteractorProtocol?
     var router: MyProjectsRouterProtocol?
 
     override func loadView() {
         super.loadView()
-        self.view = viewMyProjects
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        self.view = myProjectsView
+        setupActions()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -38,6 +34,11 @@ class MyProjectsViewController: UIViewController {
 }
 
 extension MyProjectsViewController {
+    private func setupActions() {
+        myProjectsView?.addProjectButtonAction = { [weak self] in
+            self?.router?.addNewProject()
+        }
+    }
 }
 
 extension MyProjectsViewController: MyProjectsPresenterOutput {
