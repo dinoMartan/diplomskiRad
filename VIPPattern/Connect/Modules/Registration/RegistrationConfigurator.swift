@@ -1,6 +1,6 @@
 //
 //  RegistrationConfigurator.swift
-//  VIPPattern
+//  Connect
 //
 //  Created by Dino Martan on 24.05.2022..
 //

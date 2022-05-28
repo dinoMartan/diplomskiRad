@@ -1,6 +1,6 @@
  //
 //  EditProjectInteractor.swift
-//  VIPPattern
+//  Connect
 //
 //  Created by Dino Martan on 27.05.2022..
 //

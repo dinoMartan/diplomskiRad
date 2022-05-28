@@ -1,6 +1,6 @@
 //
 //  UIViewController+Extension.swift
-//  VIPPattern
+//  Connect
 //
 //  Created by Dino Martan on 26.05.2022..
 //

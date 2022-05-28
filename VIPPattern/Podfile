@@ -5,7 +5,7 @@ target 'Connect' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for VIPPattern
+  # Pods for Connect
   pod 'SnapKit'
   pod 'KeychainSwift'
   pod 'Firebase'

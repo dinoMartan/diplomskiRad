@@ -1,6 +1,6 @@
  //
 //  MyProjectsView.swift
-//  VIPPattern
+//  Connect
 //
 //  Created by Dino Martan on 25.05.2022..
 //
