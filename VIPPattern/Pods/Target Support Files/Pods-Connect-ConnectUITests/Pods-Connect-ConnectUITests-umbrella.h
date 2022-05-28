@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_VIPPattern_VIPPatternUITestsVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_VIPPattern_VIPPatternUITestsVersionString[];
+FOUNDATION_EXPORT double Pods_Connect_ConnectUITestsVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_Connect_ConnectUITestsVersionString[];
 

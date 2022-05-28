@@ -1,4 +1,4 @@
-${PODS_ROOT}/Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests-frameworks.sh
+${PODS_ROOT}/Target Support Files/Pods-Connect/Pods-Connect-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseAppCheckInterop/FirebaseAppCheckInterop.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseAuth/FirebaseAuth.framework

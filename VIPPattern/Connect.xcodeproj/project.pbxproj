@@ -7,14 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		62FA39C8FAC67622EBADC928 /* Pods_VIPPatternTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 317D978E100A2927AAF1F0E7 /* Pods_VIPPatternTests.framework */; };
+		7F966E7F366554E8313AC5F2 /* Pods_Connect_ConnectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
 		8C6BDC3F283CE72100A96ED4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3D283CE72100A96ED4 /* LaunchScreen.storyboard */; };
-		8C6BDC4A283CE72100A96ED4 /* VIPPatternTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC49283CE72100A96ED4 /* VIPPatternTests.swift */; };
-		8C6BDC54283CE72100A96ED4 /* VIPPatternUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC53283CE72100A96ED4 /* VIPPatternUITests.swift */; };
-		8C6BDC56283CE72100A96ED4 /* VIPPatternUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC55283CE72100A96ED4 /* VIPPatternUITestsLaunchTests.swift */; };
 		8C6BDC68283CE99100A96ED4 /* AppFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC67283CE99100A96ED4 /* AppFlowCoordinator.swift */; };
 		8C6BDC6A283CEB1400A96ED4 /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC69283CEB1400A96ED4 /* FlowCoordinator.swift */; };
 		8C6BDC6C283CEDB100A96ED4 /* MainFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC6B283CEDB100A96ED4 /* MainFlowCoordinator.swift */; };
@@ -90,8 +87,8 @@
 		8C8141722841341900E7AB43 /* EditProjectFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81416B2841341900E7AB43 /* EditProjectFlowCoordinator.swift */; };
 		8C8141752841528C00E7AB43 /* TagsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141742841528C00E7AB43 /* TagsField.swift */; };
 		8C81417728416B6D00E7AB43 /* ProjectsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */; };
-		A2247B211646827829AF9746 /* Pods_VIPPattern.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3353F610B3041E62C9C8EFC1 /* Pods_VIPPattern.framework */; };
-		EC2FFBE235F4208096F17E5D /* Pods_VIPPattern_VIPPatternUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EF439562096D7DE22519846 /* Pods_VIPPattern_VIPPatternUITests.framework */; };
+		D6978D4255FC7ECB92EC7715 /* Pods_ConnectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */; };
+		D7AA47C0A49632F116840A2D /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,23 +109,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1C7819488E848DAEC2CAE210 /* Pods-VIPPattern-VIPPatternUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern-VIPPatternUITests.debug.xcconfig"; path = "Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests.debug.xcconfig"; sourceTree = "<group>"; };
-		309D14FBD68C880C88B35817 /* Pods-VIPPatternTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPatternTests.debug.xcconfig"; path = "Target Support Files/Pods-VIPPatternTests/Pods-VIPPatternTests.debug.xcconfig"; sourceTree = "<group>"; };
-		317D978E100A2927AAF1F0E7 /* Pods_VIPPatternTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIPPatternTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3353F610B3041E62C9C8EFC1 /* Pods_VIPPattern.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIPPattern.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		576328C4874884D3E189A19F /* Pods-VIPPattern.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern.release.xcconfig"; path = "Target Support Files/Pods-VIPPattern/Pods-VIPPattern.release.xcconfig"; sourceTree = "<group>"; };
-		5EF439562096D7DE22519846 /* Pods_VIPPattern_VIPPatternUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VIPPattern_VIPPatternUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C6BDC2F283CE71F00A96ED4 /* VIPPattern.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIPPattern.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5B832A382237C9C45B1CF03F /* Pods-Connect-ConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect-ConnectUITests.release.xcconfig"; path = "Target Support Files/Pods-Connect-ConnectUITests/Pods-Connect-ConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8546B102C62A6D9119A8464D /* Pods-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.release.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.release.xcconfig"; sourceTree = "<group>"; };
+		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C6BDC3E283CE72100A96ED4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8C6BDC40283CE72100A96ED4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C6BDC45283CE72100A96ED4 /* VIPPatternTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIPPatternTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C6BDC49283CE72100A96ED4 /* VIPPatternTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPPatternTests.swift; sourceTree = "<group>"; };
-		8C6BDC4F283CE72100A96ED4 /* VIPPatternUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VIPPatternUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C6BDC53283CE72100A96ED4 /* VIPPatternUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPPatternUITests.swift; sourceTree = "<group>"; };
-		8C6BDC55283CE72100A96ED4 /* VIPPatternUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPPatternUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8C6BDC45283CE72100A96ED4 /* ConnectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C6BDC4F283CE72100A96ED4 /* ConnectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnectUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC67283CE99100A96ED4 /* AppFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlowCoordinator.swift; sourceTree = "<group>"; };
 		8C6BDC69283CEB1400A96ED4 /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
 		8C6BDC6B283CEDB100A96ED4 /* MainFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainFlowCoordinator.swift; sourceTree = "<group>"; };
@@ -204,9 +195,12 @@
 		8C81416B2841341900E7AB43 /* EditProjectFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectFlowCoordinator.swift; sourceTree = "<group>"; };
 		8C8141742841528C00E7AB43 /* TagsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsField.swift; sourceTree = "<group>"; };
 		8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsRepository.swift; sourceTree = "<group>"; };
-		A30803D977BC4D2488FF6532 /* Pods-VIPPattern-VIPPatternUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; path = "Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests.release.xcconfig"; sourceTree = "<group>"; };
-		DA29FF392958C526D06EADA7 /* Pods-VIPPattern.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPattern.debug.xcconfig"; path = "Target Support Files/Pods-VIPPattern/Pods-VIPPattern.debug.xcconfig"; sourceTree = "<group>"; };
-		E6B278D7BDA81285949465DA /* Pods-VIPPatternTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIPPatternTests.release.xcconfig"; path = "Target Support Files/Pods-VIPPatternTests/Pods-VIPPatternTests.release.xcconfig"; sourceTree = "<group>"; };
+		973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9FE5F64275D1C84F3B6C1B6 /* Pods-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.debug.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.debug.xcconfig"; sourceTree = "<group>"; };
+		CA8279AC203FCCB15AE7CEA6 /* Pods-ConnectTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectTests.debug.xcconfig"; path = "Target Support Files/Pods-ConnectTests/Pods-ConnectTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DC71162548F0D522CA1927FA /* Pods-ConnectTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectTests.release.xcconfig"; path = "Target Support Files/Pods-ConnectTests/Pods-ConnectTests.release.xcconfig"; sourceTree = "<group>"; };
+		F8EF471B4A768883B8F86178 /* Pods-Connect-ConnectUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect-ConnectUITests.debug.xcconfig"; path = "Target Support Files/Pods-Connect-ConnectUITests/Pods-Connect-ConnectUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,7 +208,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2247B211646827829AF9746 /* Pods_VIPPattern.framework in Frameworks */,
+				D7AA47C0A49632F116840A2D /* Pods_Connect.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +216,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				62FA39C8FAC67622EBADC928 /* Pods_VIPPatternTests.framework in Frameworks */,
+				D6978D4255FC7ECB92EC7715 /* Pods_ConnectTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +224,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC2FFBE235F4208096F17E5D /* Pods_VIPPattern_VIPPatternUITests.framework in Frameworks */,
+				7F966E7F366554E8313AC5F2 /* Pods_Connect_ConnectUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,9 +234,9 @@
 		4A4B2BE18328ED846CE50297 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3353F610B3041E62C9C8EFC1 /* Pods_VIPPattern.framework */,
-				5EF439562096D7DE22519846 /* Pods_VIPPattern_VIPPatternUITests.framework */,
-				317D978E100A2927AAF1F0E7 /* Pods_VIPPatternTests.framework */,
+				13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */,
+				973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */,
+				B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -250,12 +244,12 @@
 		69D9148B018E1CD1CECBFA29 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				DA29FF392958C526D06EADA7 /* Pods-VIPPattern.debug.xcconfig */,
-				576328C4874884D3E189A19F /* Pods-VIPPattern.release.xcconfig */,
-				1C7819488E848DAEC2CAE210 /* Pods-VIPPattern-VIPPatternUITests.debug.xcconfig */,
-				A30803D977BC4D2488FF6532 /* Pods-VIPPattern-VIPPatternUITests.release.xcconfig */,
-				309D14FBD68C880C88B35817 /* Pods-VIPPatternTests.debug.xcconfig */,
-				E6B278D7BDA81285949465DA /* Pods-VIPPatternTests.release.xcconfig */,
+				B9FE5F64275D1C84F3B6C1B6 /* Pods-Connect.debug.xcconfig */,
+				8546B102C62A6D9119A8464D /* Pods-Connect.release.xcconfig */,
+				F8EF471B4A768883B8F86178 /* Pods-Connect-ConnectUITests.debug.xcconfig */,
+				5B832A382237C9C45B1CF03F /* Pods-Connect-ConnectUITests.release.xcconfig */,
+				CA8279AC203FCCB15AE7CEA6 /* Pods-ConnectTests.debug.xcconfig */,
+				DC71162548F0D522CA1927FA /* Pods-ConnectTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -263,9 +257,9 @@
 		8C6BDC26283CE71F00A96ED4 = {
 			isa = PBXGroup;
 			children = (
-				8C6BDC31283CE71F00A96ED4 /* VIPPattern */,
-				8C6BDC48283CE72100A96ED4 /* VIPPatternTests */,
-				8C6BDC52283CE72100A96ED4 /* VIPPatternUITests */,
+				8C6BDC31283CE71F00A96ED4 /* Connect */,
+				8C6BDC48283CE72100A96ED4 /* ConnectTests */,
+				8C6BDC52283CE72100A96ED4 /* ConnectUITests */,
 				8C6BDC30283CE71F00A96ED4 /* Products */,
 				69D9148B018E1CD1CECBFA29 /* Pods */,
 				4A4B2BE18328ED846CE50297 /* Frameworks */,
@@ -275,14 +269,14 @@
 		8C6BDC30283CE71F00A96ED4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C6BDC2F283CE71F00A96ED4 /* VIPPattern.app */,
-				8C6BDC45283CE72100A96ED4 /* VIPPatternTests.xctest */,
-				8C6BDC4F283CE72100A96ED4 /* VIPPatternUITests.xctest */,
+				8C6BDC2F283CE71F00A96ED4 /* Connect.app */,
+				8C6BDC45283CE72100A96ED4 /* ConnectTests.xctest */,
+				8C6BDC4F283CE72100A96ED4 /* ConnectUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8C6BDC31283CE71F00A96ED4 /* VIPPattern */ = {
+		8C6BDC31283CE71F00A96ED4 /* Connect */ = {
 			isa = PBXGroup;
 			children = (
 				8C6BDD8C283F7B9D00A96ED4 /* GoogleService-Info.plist */,
@@ -295,24 +289,21 @@
 				8C6BDC65283CE7A200A96ED4 /* SupportingFiles */,
 				8C6BDD96283F898A00A96ED4 /* Extensions */,
 			);
-			path = VIPPattern;
+			path = Connect;
 			sourceTree = "<group>";
 		};
-		8C6BDC48283CE72100A96ED4 /* VIPPatternTests */ = {
+		8C6BDC48283CE72100A96ED4 /* ConnectTests */ = {
 			isa = PBXGroup;
 			children = (
-				8C6BDC49283CE72100A96ED4 /* VIPPatternTests.swift */,
 			);
-			path = VIPPatternTests;
+			path = ConnectTests;
 			sourceTree = "<group>";
 		};
-		8C6BDC52283CE72100A96ED4 /* VIPPatternUITests */ = {
+		8C6BDC52283CE72100A96ED4 /* ConnectUITests */ = {
 			isa = PBXGroup;
 			children = (
-				8C6BDC53283CE72100A96ED4 /* VIPPatternUITests.swift */,
-				8C6BDC55283CE72100A96ED4 /* VIPPatternUITestsLaunchTests.swift */,
 			);
-			path = VIPPatternUITests;
+			path = ConnectUITests;
 			sourceTree = "<group>";
 		};
 		8C6BDC62283CE78300A96ED4 /* Application */ = {
@@ -557,9 +548,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8C6BDC2E283CE71F00A96ED4 /* VIPPattern */ = {
+		8C6BDC2E283CE71F00A96ED4 /* Connect */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C6BDC59283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "VIPPattern" */;
+			buildConfigurationList = 8C6BDC59283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "Connect" */;
 			buildPhases = (
 				EAAC8E5C9CC89CA08D6A4CAC /* [CP] Check Pods Manifest.lock */,
 				8C6BDC2B283CE71F00A96ED4 /* Sources */,
@@ -571,14 +562,14 @@
 			);
 			dependencies = (
 			);
-			name = VIPPattern;
+			name = Connect;
 			productName = VIPPattern;
-			productReference = 8C6BDC2F283CE71F00A96ED4 /* VIPPattern.app */;
+			productReference = 8C6BDC2F283CE71F00A96ED4 /* Connect.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8C6BDC44283CE72100A96ED4 /* VIPPatternTests */ = {
+		8C6BDC44283CE72100A96ED4 /* ConnectTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C6BDC5C283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "VIPPatternTests" */;
+			buildConfigurationList = 8C6BDC5C283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "ConnectTests" */;
 			buildPhases = (
 				1AFD83964B571EFB21B65AF6 /* [CP] Check Pods Manifest.lock */,
 				8C6BDC41283CE72100A96ED4 /* Sources */,
@@ -590,14 +581,14 @@
 			dependencies = (
 				8C6BDC47283CE72100A96ED4 /* PBXTargetDependency */,
 			);
-			name = VIPPatternTests;
+			name = ConnectTests;
 			productName = VIPPatternTests;
-			productReference = 8C6BDC45283CE72100A96ED4 /* VIPPatternTests.xctest */;
+			productReference = 8C6BDC45283CE72100A96ED4 /* ConnectTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		8C6BDC4E283CE72100A96ED4 /* VIPPatternUITests */ = {
+		8C6BDC4E283CE72100A96ED4 /* ConnectUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8C6BDC5F283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "VIPPatternUITests" */;
+			buildConfigurationList = 8C6BDC5F283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "ConnectUITests" */;
 			buildPhases = (
 				06FBDA3CA9E6602BC0C920E9 /* [CP] Check Pods Manifest.lock */,
 				8C6BDC4B283CE72100A96ED4 /* Sources */,
@@ -610,9 +601,9 @@
 			dependencies = (
 				8C6BDC51283CE72100A96ED4 /* PBXTargetDependency */,
 			);
-			name = VIPPatternUITests;
+			name = ConnectUITests;
 			productName = VIPPatternUITests;
-			productReference = 8C6BDC4F283CE72100A96ED4 /* VIPPatternUITests.xctest */;
+			productReference = 8C6BDC4F283CE72100A96ED4 /* ConnectUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -638,7 +629,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8C6BDC2A283CE71F00A96ED4 /* Build configuration list for PBXProject "VIPPattern" */;
+			buildConfigurationList = 8C6BDC2A283CE71F00A96ED4 /* Build configuration list for PBXProject "Connect" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -651,9 +642,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8C6BDC2E283CE71F00A96ED4 /* VIPPattern */,
-				8C6BDC44283CE72100A96ED4 /* VIPPatternTests */,
-				8C6BDC4E283CE72100A96ED4 /* VIPPatternUITests */,
+				8C6BDC2E283CE71F00A96ED4 /* Connect */,
+				8C6BDC44283CE72100A96ED4 /* ConnectTests */,
+				8C6BDC4E283CE72100A96ED4 /* ConnectUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -703,7 +694,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VIPPattern-VIPPatternUITests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Connect-ConnectUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -725,7 +716,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VIPPatternTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-ConnectTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -738,15 +729,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Connect-ConnectUITests/Pods-Connect-ConnectUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Connect-ConnectUITests/Pods-Connect-ConnectUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VIPPattern-VIPPatternUITests/Pods-VIPPattern-VIPPatternUITests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Connect-ConnectUITests/Pods-Connect-ConnectUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CB2CE3A09F24B3EA19650EFE /* [CP] Embed Pods Frameworks */ = {
@@ -755,15 +746,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VIPPattern/Pods-VIPPattern-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Connect/Pods-Connect-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-VIPPattern/Pods-VIPPattern-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Connect/Pods-Connect-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VIPPattern/Pods-VIPPattern-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Connect/Pods-Connect-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EAAC8E5C9CC89CA08D6A4CAC /* [CP] Check Pods Manifest.lock */ = {
@@ -781,7 +772,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-VIPPattern-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Connect-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -876,7 +867,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C6BDC4A283CE72100A96ED4 /* VIPPatternTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -884,8 +874,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C6BDC54283CE72100A96ED4 /* VIPPatternUITests.swift in Sources */,
-				8C6BDC56283CE72100A96ED4 /* VIPPatternUITestsLaunchTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -894,12 +882,12 @@
 /* Begin PBXTargetDependency section */
 		8C6BDC47283CE72100A96ED4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8C6BDC2E283CE71F00A96ED4 /* VIPPattern */;
+			target = 8C6BDC2E283CE71F00A96ED4 /* Connect */;
 			targetProxy = 8C6BDC46283CE72100A96ED4 /* PBXContainerItemProxy */;
 		};
 		8C6BDC51283CE72100A96ED4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8C6BDC2E283CE71F00A96ED4 /* VIPPattern */;
+			target = 8C6BDC2E283CE71F00A96ED4 /* Connect */;
 			targetProxy = 8C6BDC50283CE72100A96ED4 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1032,7 +1020,7 @@
 		};
 		8C6BDC5A283CE72100A96ED4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DA29FF392958C526D06EADA7 /* Pods-VIPPattern.debug.xcconfig */;
+			baseConfigurationReference = B9FE5F64275D1C84F3B6C1B6 /* Pods-Connect.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1040,7 +1028,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P675Y7Z4V8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VIPPattern/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = Connect/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1051,7 +1039,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dmartan.VIPPattern;
+				PRODUCT_BUNDLE_IDENTIFIER = dmartan.Connect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1061,7 +1049,7 @@
 		};
 		8C6BDC5B283CE72100A96ED4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 576328C4874884D3E189A19F /* Pods-VIPPattern.release.xcconfig */;
+			baseConfigurationReference = 8546B102C62A6D9119A8464D /* Pods-Connect.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1069,7 +1057,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = P675Y7Z4V8;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = VIPPattern/SupportingFiles/Info.plist;
+				INFOPLIST_FILE = Connect/SupportingFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -1080,7 +1068,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = dmartan.VIPPattern;
+				PRODUCT_BUNDLE_IDENTIFIER = dmartan.Connect;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1090,7 +1078,7 @@
 		};
 		8C6BDC5D283CE72100A96ED4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 309D14FBD68C880C88B35817 /* Pods-VIPPatternTests.debug.xcconfig */;
+			baseConfigurationReference = CA8279AC203FCCB15AE7CEA6 /* Pods-ConnectTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1105,13 +1093,13 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VIPPattern.app/VIPPattern";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Connect.app/Connect";
 			};
 			name = Debug;
 		};
 		8C6BDC5E283CE72100A96ED4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6B278D7BDA81285949465DA /* Pods-VIPPatternTests.release.xcconfig */;
+			baseConfigurationReference = DC71162548F0D522CA1927FA /* Pods-ConnectTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1126,13 +1114,13 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/VIPPattern.app/VIPPattern";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Connect.app/Connect";
 			};
 			name = Release;
 		};
 		8C6BDC60283CE72100A96ED4 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1C7819488E848DAEC2CAE210 /* Pods-VIPPattern-VIPPatternUITests.debug.xcconfig */;
+			baseConfigurationReference = F8EF471B4A768883B8F86178 /* Pods-Connect-ConnectUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1151,7 +1139,7 @@
 		};
 		8C6BDC61283CE72100A96ED4 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A30803D977BC4D2488FF6532 /* Pods-VIPPattern-VIPPatternUITests.release.xcconfig */;
+			baseConfigurationReference = 5B832A382237C9C45B1CF03F /* Pods-Connect-ConnectUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1171,7 +1159,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C6BDC2A283CE71F00A96ED4 /* Build configuration list for PBXProject "VIPPattern" */ = {
+		8C6BDC2A283CE71F00A96ED4 /* Build configuration list for PBXProject "Connect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C6BDC57283CE72100A96ED4 /* Debug */,
@@ -1180,7 +1168,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C6BDC59283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "VIPPattern" */ = {
+		8C6BDC59283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "Connect" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C6BDC5A283CE72100A96ED4 /* Debug */,
@@ -1189,7 +1177,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C6BDC5C283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "VIPPatternTests" */ = {
+		8C6BDC5C283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "ConnectTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C6BDC5D283CE72100A96ED4 /* Debug */,
@@ -1198,7 +1186,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8C6BDC5F283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "VIPPatternUITests" */ = {
+		8C6BDC5F283CE72100A96ED4 /* Build configuration list for PBXNativeTarget "ConnectUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8C6BDC60283CE72100A96ED4 /* Debug */,

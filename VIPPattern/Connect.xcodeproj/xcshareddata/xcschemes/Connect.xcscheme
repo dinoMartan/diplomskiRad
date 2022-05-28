@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8C6BDC2E283CE71F00A96ED4"
-               BuildableName = "VIPPattern.app"
-               BlueprintName = "VIPPattern"
-               ReferencedContainer = "container:VIPPattern.xcodeproj">
+               BuildableName = "Connect.app"
+               BlueprintName = "Connect"
+               ReferencedContainer = "container:Connect.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8C6BDC44283CE72100A96ED4"
-               BuildableName = "VIPPatternTests.xctest"
-               BlueprintName = "VIPPatternTests"
-               ReferencedContainer = "container:VIPPattern.xcodeproj">
+               BuildableName = "ConnectTests.xctest"
+               BlueprintName = "ConnectTests"
+               ReferencedContainer = "container:Connect.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8C6BDC4E283CE72100A96ED4"
-               BuildableName = "VIPPatternUITests.xctest"
-               BlueprintName = "VIPPatternUITests"
-               ReferencedContainer = "container:VIPPattern.xcodeproj">
+               BuildableName = "ConnectUITests.xctest"
+               BlueprintName = "ConnectUITests"
+               ReferencedContainer = "container:Connect.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -65,9 +65,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8C6BDC2E283CE71F00A96ED4"
-            BuildableName = "VIPPattern.app"
-            BlueprintName = "VIPPattern"
-            ReferencedContainer = "container:VIPPattern.xcodeproj">
+            BuildableName = "Connect.app"
+            BlueprintName = "Connect"
+            ReferencedContainer = "container:Connect.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8C6BDC2E283CE71F00A96ED4"
-            BuildableName = "VIPPattern.app"
-            BlueprintName = "VIPPattern"
-            ReferencedContainer = "container:VIPPattern.xcodeproj">
+            BuildableName = "Connect.app"
+            BlueprintName = "Connect"
+            ReferencedContainer = "container:Connect.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
