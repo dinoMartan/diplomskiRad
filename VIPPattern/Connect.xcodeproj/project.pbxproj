@@ -89,6 +89,7 @@
 		8C9304E22843EC2700AE2023 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E12843EC2700AE2023 /* LoginDataModel.swift */; };
 		8C9304E42843F03500AE2023 /* RegistrationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E32843F03500AE2023 /* RegistrationDataModel.swift */; };
 		8C9304E62843F48900AE2023 /* ProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E52843F48900AE2023 /* ProfileDataModel.swift */; };
+		8C9304E82843FABD00AE2023 /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E72843FABD00AE2023 /* HomeDataModel.swift */; };
 		D7AA47C0A49632F116840A2D /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +181,7 @@
 		8C9304E12843EC2700AE2023 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		8C9304E32843F03500AE2023 /* RegistrationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDataModel.swift; sourceTree = "<group>"; };
 		8C9304E52843F48900AE2023 /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
+		8C9304E72843FABD00AE2023 /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FE5F64275D1C84F3B6C1B6 /* Pods-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.debug.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.debug.xcconfig"; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 				8C6BDD87283E220100A96ED4 /* Cell */,
 				8C6BDD61283DFB6800A96ED4 /* HomeFlowCoordinator.swift */,
 				8C6BDD60283DFB6800A96ED4 /* HomeConfigurator.swift */,
+				8C9304E72843FABD00AE2023 /* HomeDataModel.swift */,
 				8C6BDD5F283DFB6800A96ED4 /* HomeView.swift */,
 				8C6BDD5D283DFB6800A96ED4 /* HomeViewController.swift */,
 				8C6BDD5E283DFB6800A96ED4 /* HomeInteractor.swift */,
@@ -652,6 +655,7 @@
 				8C9304E62843F48900AE2023 /* ProfileDataModel.swift in Sources */,
 				8C8141612840E18100E7AB43 /* UIImageView+Extension.swift in Sources */,
 				8C6BDD74283E019500A96ED4 /* MyProjectsInteractor.swift in Sources */,
+				8C9304E82843FABD00AE2023 /* HomeDataModel.swift in Sources */,
 				8C6BDC6F283CF23600A96ED4 /* LoginConfigurator.swift in Sources */,
 				8C6BDD73283E019500A96ED4 /* MyProjectsViewController.swift in Sources */,
 				8C81416328411E8200E7AB43 /* Project.swift in Sources */,
