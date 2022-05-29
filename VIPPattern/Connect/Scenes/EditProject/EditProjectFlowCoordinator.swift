@@ -26,13 +26,13 @@ class EditProjectFlowCoordinator: FlowCoordinator {
         fatalError("Use startWith()")
     }
 
-    func startWith(project: Project?) {
+    func startWith(projectId: String?) {
         let projectsRepository = ProjectsRepository(firestoreService: dependencies.firestoreService)
         let userRepository = UserRepository(firestoreService: dependencies.firestoreService)
         let viewController = EditProjectViewController()
         EditProjectConfigurator.configureModule(routerOutput: self,
                                                 viewController: viewController,
-                                                project: project,
+                                                projectId: projectId,
                                                 projectsRepository: projectsRepository,
                                                 userRepository: userRepository,
                                                 keychainService: dependencies.keychainService)

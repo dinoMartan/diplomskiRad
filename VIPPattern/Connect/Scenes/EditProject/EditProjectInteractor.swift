@@ -8,8 +8,8 @@
 import Foundation
 
 protocol EditProjectInteractorProtocol {
-    func saveProject(_ project: Project?)
-    func getProject()
+    func saveProject(request: EditProject.SaveProjectAction.Request)
+    func getProject(request: EditProject.GetProjectAction.Request)
 }
 
 class EditProjectInteractor: EditProjectInteractorProtocol {
@@ -19,10 +19,14 @@ class EditProjectInteractor: EditProjectInteractorProtocol {
     private let userRepository: UserRepositoryProtocol
     private let keychainService: KeychainServiceProtocol
 
-    private let project: Project?
+    private var currentProject: Project?
+    private let projectId: String?
 
-    init(project: Project?, projectsRepository: ProjectsRepositoryProtocol, userRepository: UserRepositoryProtocol, keychainService: KeychainServiceProtocol) {
-        self.project = project
+    init(projectId: String?,
+         projectsRepository: ProjectsRepositoryProtocol,
+         userRepository: UserRepositoryProtocol,
+         keychainService: KeychainServiceProtocol) {
+        self.projectId = projectId
         self.projectsRepository = projectsRepository
         self.userRepository = userRepository
         self.keychainService = keychainService
@@ -34,50 +38,80 @@ class EditProjectInteractor: EditProjectInteractorProtocol {
 }
 
 extension EditProjectInteractor {
-    func saveProject(_ project: Project?) {
-        guard var project = project else { return }
-        getUser { [weak self] user in
-            project.owner = user.getUserNested()
-            self?.setProject(project)
+    func saveProject(request: EditProject.SaveProjectAction.Request) {
+        guard currentProject == nil else {
+            updateCurrentProject(with: request)
+            setCurrentProject()
+            return
         }
+        getUser { [weak self] user in
+            guard let self = self else { return }
+            var project = self.getNewProjectFromRequest(request)
+            project.owner = user.getUserNested()
+            self.currentProject = project
+            self.setCurrentProject()
+        }
+    }
+
+    private func getNewProjectFromRequest(_ request: EditProject.SaveProjectAction.Request) -> Project {
+        Project(id: UUID().uuidString,
+                title: request.title,
+                createdAt: Date(),
+                description: request.description,
+                haveTags: request.haveTags,
+                needTags: request.haveTags,
+                owner: nil)
+    }
+
+    private func updateCurrentProject(with request: EditProject.SaveProjectAction.Request) {
+        guard var updatedProject = currentProject else { return }
+        updatedProject.title = request.title
+        updatedProject.description = request.description
+        updatedProject.haveTags = request.haveTags
+        updatedProject.needTags = request.needTags
+        currentProject = updatedProject
     }
 
     private func getUser(success: @escaping ((User) -> Void)) {
         guard let userId = keychainService.getUserId() else {
-            // TODO: handle error
+            let myError = MyError(type: nil, message: nil)
+            presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
             return
         }
-        userRepository.getUser(userId: userId) { result in
+        userRepository.getUser(userId: userId) { [weak self] result in
             switch result {
             case .success(let user):
                 success(user)
             case .failure(let myError):
-                break
-                // TODO: handle error
+                self?.presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
             }
         }
     }
 
-    private func setProject(_ project: Project) {
-        projectsRepository.setProject(project: project) { result in
+    private func setCurrentProject() {
+        guard let currentProject = currentProject else { return }
+        projectsRepository.setProject(project: currentProject) { [weak self] result in
             switch result {
             case .success(_):
-                break
-                // TODO: handle success
+                self?.presenter?.interactor(didSucceedSaveProject: EditProject.SaveProjectAction.ResponseSuccess())
             case .failure(let myError):
                 break
-                // TODO: handle error
+                self?.presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
             }
         }
     }
+}
 
-    func getProject() {
-        projectsRepository.getProject(projectId: "0114ECC1-0541-4830-AA71-B8EF9DBEB682") { result in
+extension EditProjectInteractor {
+    func getProject(request: EditProject.GetProjectAction.Request) {
+        guard let projectId = projectId else { return }
+        projectsRepository.getProject(projectId: projectId) { [weak self] result in
             switch result {
             case .success(let project):
-                print(project)
+                self?.currentProject = project
+                self?.presenter?.interactor(didSucceedGetProject: EditProject.GetProjectAction.ResponseSuccess(project: project))
             case .failure(let myError):
-                print(myError)
+                self?.presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
             }
         }
     }

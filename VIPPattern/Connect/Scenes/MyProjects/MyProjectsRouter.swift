@@ -9,12 +9,12 @@ import Foundation
 
 protocol MyProjectsRouterOutput: AnyObject {
     func shouldClose()
-    func showEditProject(project: Project?)
+    func showEditProject(projectId: String?)
 }
 
 protocol MyProjectsRouterProtocol: AnyObject {
     func shouldClose()
-    func showEditProject(project: Project)
+    func showEditProject(projectId: String)
     func addNewProject()
 }
 
@@ -29,11 +29,11 @@ class MyProjectsRouter: MyProjectsRouterProtocol {
         routerOutput?.shouldClose()
     }
 
-    func showEditProject(project: Project) {
-        routerOutput?.showEditProject(project: project)
+    func showEditProject(projectId: String) {
+        routerOutput?.showEditProject(projectId: projectId)
     }
 
     func addNewProject() {
-        routerOutput?.showEditProject(project: nil)
+        routerOutput?.showEditProject(projectId: nil)
     }
 }

@@ -20,3 +20,9 @@ class TagsField: WSTagsField {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+extension TagsField {
+    func getTags() -> [String] {
+        tags.map({ $0.text })
+    }
+}

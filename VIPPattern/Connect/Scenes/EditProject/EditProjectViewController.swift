@@ -8,18 +8,15 @@
 import UIKit
 
 protocol EditProjectPresenterOutput: AnyObject {
+    func presenter(didSucceedGetProject viewModel: EditProject.GetProjectAction.ViewModelSuccess)
+    func presenter(didSucceedSaveProject viewModel: EditProject.SaveProjectAction.ViewModelSuccess)
+    func presenter(didFail viewModel: EditProject.ViewModelFailure)
 }
 
 class EditProjectViewController: UIViewController {
     var editProjectView: EditProjectView?
     var interactor: EditProjectInteractorProtocol?
     var router: EditProjectRouterProtocol?
-
-    private var project: Project? {
-        didSet {
-            //
-        }
-    }
 
     override func loadView() {
         super.loadView()
@@ -39,7 +36,7 @@ class EditProjectViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        interactor?.getProject()
+        interactor?.getProject(request: EditProject.GetProjectAction.Request())
     }
 
     deinit {
@@ -51,22 +48,32 @@ class EditProjectViewController: UIViewController {
 extension EditProjectViewController {
     private func setSaveButtonAction() {
         editProjectView?.saveButtonAction = { [weak self] in
-            self?.setProjectFromUI()
-            self?.interactor?.saveProject(self?.project)
+            guard let request = self?.getSaveProjectActionRequest() else { return }
+            self?.interactor?.saveProject(request: request)
         }
     }
 
-    private func setProjectFromUI() {
-        if project == nil {
-            project = Project()
-        }
-        project?.title = editProjectView?.titleTextField.text
-        project?.createdAt = Date()
-        project?.description = editProjectView?.descriptionTextView.text
-        project?.haveTags = editProjectView?.haveTagsField.tags.map({ $0.text }) // TODO: add to class
-        project?.needTags = editProjectView?.needTagsField.tags.map({ $0.text })
+    private func getSaveProjectActionRequest() -> EditProject.SaveProjectAction.Request {
+        EditProject.SaveProjectAction.Request(title: editProjectView?.titleTextField.text,
+                                              description: editProjectView?.descriptionTextView.text,
+                                              haveTags: editProjectView?.haveTagsField.getTags(),
+                                              needTags: editProjectView?.needTagsField.getTags())
     }
 }
 
 extension EditProjectViewController: EditProjectPresenterOutput {
+    func presenter(didSucceedGetProject viewModel: EditProject.GetProjectAction.ViewModelSuccess) {
+        editProjectView?.titleTextField.text = viewModel.title
+        editProjectView?.descriptionTextView.text = viewModel.description
+        editProjectView?.haveTagsField.addTags(viewModel.haveTags ?? [])
+        editProjectView?.needTagsField.addTags(viewModel.needTags ?? [])
+    }
+
+    func presenter(didSucceedSaveProject viewModel: EditProject.SaveProjectAction.ViewModelSuccess) {
+        navigationController?.popViewController(animated: true)
+    }
+
+    func presenter(didFail viewModel: EditProject.ViewModelFailure) {
+        showMyErrorAlert(viewModel.myError)
+    }
 }

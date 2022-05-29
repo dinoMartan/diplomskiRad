@@ -25,7 +25,6 @@ class MyProjectsFlowCoordinator: FlowCoordinator {
 
     func start() {
         let viewController = MyProjectsViewController()
-        // let navigationController = UINavigationController(rootViewController: viewController)
         MyProjectsConfigurator.configureModule(routerOutput: self,
                                                viewController: viewController)
         self.viewController = viewController
@@ -37,12 +36,12 @@ class MyProjectsFlowCoordinator: FlowCoordinator {
 }
 
 extension MyProjectsFlowCoordinator {
-    private func startEditProject(with project: Project?) {
+    private func startEditProject(with projectId: String?) {
         let editProjectFlowCoordinator = EditProjectFlowCoordinator(rootViewController: rootViewController,
                                                                     dependencies: dependencies)
         addChildFlowCoordinator(editProjectFlowCoordinator)
         editProjectFlowCoordinator.delegate = self
-        editProjectFlowCoordinator.startWith(project: project)
+        editProjectFlowCoordinator.startWith(projectId: projectId)
     }
 }
 
@@ -52,8 +51,8 @@ extension MyProjectsFlowCoordinator: MyProjectsRouterOutput,
         delegate?.shouldRemoveFlowCoordinator(self)
     }
 
-    func showEditProject(project: Project?) {
-        startEditProject(with: project)
+    func showEditProject(projectId: String?) {
+        startEditProject(with: projectId)
     }
 
     func shouldRemoveFlowCoordinator(_ flowCoordinator: FlowCoordinator) {

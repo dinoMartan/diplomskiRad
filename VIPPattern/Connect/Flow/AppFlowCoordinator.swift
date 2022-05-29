@@ -18,8 +18,8 @@ class AppFlowCoordinator: FlowCoordinator {
     }
 
     func start() {
-        startLogin()
-        return
+//        startLogin()
+//        return
         guard dependencies.keychainService.getUserLoggedIn() else {
             startLogin()
             return
