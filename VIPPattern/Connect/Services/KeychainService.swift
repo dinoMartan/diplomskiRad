@@ -13,7 +13,7 @@ protocol KeychainServiceProtocol {
     func setUserLoggedIn(_ userLoggedIn: Bool)
 
     func getUserId() -> String?
-    func setUserId(_ userId: String)
+    func setUserId(_ userId: String?)
 }
 
 class KeychainService: KeychainServiceProtocol {
@@ -44,7 +44,8 @@ extension KeychainService {
         keychainSwift.get(Key.userId.rawValue)
     }
 
-    func setUserId(_ userId: String) {
+    func setUserId(_ userId: String?) {
+        guard let userId = userId else { return }
         keychainSwift.set(userId, forKey: Key.userId.rawValue)
     }
 }

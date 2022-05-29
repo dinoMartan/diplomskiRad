@@ -86,7 +86,8 @@
 		8C8141722841341900E7AB43 /* EditProjectFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81416B2841341900E7AB43 /* EditProjectFlowCoordinator.swift */; };
 		8C8141752841528C00E7AB43 /* TagsField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8141742841528C00E7AB43 /* TagsField.swift */; };
 		8C81417728416B6D00E7AB43 /* ProjectsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */; };
-		8C9304E22843EC2700AE2023 /* LoginDataModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E12843EC2700AE2023 /* LoginDataModels.swift */; };
+		8C9304E22843EC2700AE2023 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E12843EC2700AE2023 /* LoginDataModel.swift */; };
+		8C9304E42843F03500AE2023 /* RegistrationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E32843F03500AE2023 /* RegistrationDataModel.swift */; };
 		D7AA47C0A49632F116840A2D /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -175,7 +176,8 @@
 		8C81416B2841341900E7AB43 /* EditProjectFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectFlowCoordinator.swift; sourceTree = "<group>"; };
 		8C8141742841528C00E7AB43 /* TagsField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsField.swift; sourceTree = "<group>"; };
 		8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsRepository.swift; sourceTree = "<group>"; };
-		8C9304E12843EC2700AE2023 /* LoginDataModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModels.swift; sourceTree = "<group>"; };
+		8C9304E12843EC2700AE2023 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
+		8C9304E32843F03500AE2023 /* RegistrationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDataModel.swift; sourceTree = "<group>"; };
 		973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FE5F64275D1C84F3B6C1B6 /* Pods-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.debug.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.debug.xcconfig"; sourceTree = "<group>"; };
@@ -330,12 +332,12 @@
 			children = (
 				8C6BDC7E283D34B500A96ED4 /* LoginFlowCoordinator.swift */,
 				8C6BDC6E283CF23600A96ED4 /* LoginConfigurator.swift */,
+				8C9304E12843EC2700AE2023 /* LoginDataModel.swift */,
 				8C6BDC76283CF26A00A96ED4 /* LoginView.swift */,
 				8C6BDC78283CF27400A96ED4 /* LoginViewController.swift */,
 				8C6BDC70283CF24000A96ED4 /* LoginInteractor.swift */,
 				8C6BDC72283CF24A00A96ED4 /* LoginPresenter.swift */,
 				8C6BDC74283CF25000A96ED4 /* LoginRouter.swift */,
-				8C9304E12843EC2700AE2023 /* LoginDataModels.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -345,6 +347,7 @@
 			children = (
 				8C6BDC85283D3C1C00A96ED4 /* RegistrationFlowCoordinator.swift */,
 				8C6BDC88283D3C1C00A96ED4 /* RegistrationConfigurator.swift */,
+				8C9304E32843F03500AE2023 /* RegistrationDataModel.swift */,
 				8C6BDC82283D3C1C00A96ED4 /* RegistrationView.swift */,
 				8C6BDC86283D3C1C00A96ED4 /* RegistrationViewController.swift */,
 				8C6BDC87283D3C1C00A96ED4 /* RegistrationInteractor.swift */,
@@ -638,7 +641,8 @@
 				8C6BDD58283DF9E700A96ED4 /* TabBarConfigurator.swift in Sources */,
 				8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */,
 				8C6BDC73283CF24A00A96ED4 /* LoginPresenter.swift in Sources */,
-				8C9304E22843EC2700AE2023 /* LoginDataModels.swift in Sources */,
+				8C9304E42843F03500AE2023 /* RegistrationDataModel.swift in Sources */,
+				8C9304E22843EC2700AE2023 /* LoginDataModel.swift in Sources */,
 				8C6BDD76283E019500A96ED4 /* MyProjectsConfigurator.swift in Sources */,
 				8C6BDD84283E031E00A96ED4 /* ConversationsView.swift in Sources */,
 				8C8141712841341900E7AB43 /* EditProjectConfigurator.swift in Sources */,

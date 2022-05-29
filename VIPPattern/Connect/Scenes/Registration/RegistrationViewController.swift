@@ -8,8 +8,8 @@
 import UIKit
 
 protocol RegistrationPresenterOutput: AnyObject {
-    func presenterDidSucceedRegistration()
-    func presenter(didFail myError: MyError)
+    func presenter(didSucceedRegister viewModel: Registration.RegisterAction.ResponseSuccess)
+    func presenter(didFail viewModel: Registration.ViewModelFailure)
 }
 
 class RegistrationViewController: UIViewController {
@@ -36,12 +36,8 @@ class RegistrationViewController: UIViewController {
 extension RegistrationViewController {
     private func setupInteractions() {
         registrationView?.registerButtonTapInteraction = { [weak self] in
-            self?.interactor?.registerUser(username: self?.registrationView?.usernameTextField.text,
-                                           firstName: self?.registrationView?.firstNameTextField.text,
-                                           lastName: self?.registrationView?.lastNameTextField.text,
-                                           email: self?.registrationView?.emailTextField.text,
-                                           password: self?.registrationView?.passwordTextField.text,
-                                           image: self?.registrationView?.imageView.image)
+            guard let request = self?.getRegisterActionRequest() else { return }
+            self?.interactor?.registerUser(request: request)
         }
 
         registrationView?.imageTapInteraction = { [weak self] in
@@ -51,16 +47,26 @@ extension RegistrationViewController {
             }
         }
     }
+
+    private func getRegisterActionRequest() -> Registration.RegisterAction.Request {
+        Registration.RegisterAction.Request(username: registrationView?.usernameTextField.text,
+                                            firstName: registrationView?.firstNameTextField.text,
+                                            lastName: registrationView?.lastNameTextField.text,
+                                            email: registrationView?.emailTextField.text,
+                                            password: registrationView?.passwordTextField.text,
+                                            image: registrationView?.imageView.image)
+    }
 }
 
 extension RegistrationViewController: RegistrationPresenterOutput {
-    func presenterDidSucceedRegistration() {
+    func presenter(didSucceedRegister viewModel: Registration.RegisterAction.ResponseSuccess) {
         dismiss(animated: true) { [weak self] in
             self?.router?.showMainFlow()
         }
     }
 
-    func presenter(didFail myError: MyError) {
-        showMyErrorAlert(myError)
+    func presenter(didFail viewModel: Registration.ViewModelFailure) {
+        showMyErrorAlert(viewModel.myError)
     }
+
 }
