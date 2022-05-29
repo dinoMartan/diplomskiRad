@@ -246,7 +246,7 @@
 				8C81414F283FDAF200E7AB43 /* Repositories */,
 				8C6BDC66283CE98000A96ED4 /* Flow */,
 				8C6BDD90283F829800A96ED4 /* Models */,
-				8C6BDC64283CE79A00A96ED4 /* Modules */,
+				8C6BDC64283CE79A00A96ED4 /* Scenes */,
 				8C6BDC65283CE7A200A96ED4 /* SupportingFiles */,
 				8C6BDD96283F898A00A96ED4 /* Extensions */,
 			);
@@ -288,10 +288,10 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		8C6BDC64283CE79A00A96ED4 /* Modules */ = {
+		8C6BDC64283CE79A00A96ED4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8C814173284151D600E7AB43 /* Common */,
+				8C814173284151D600E7AB43 /* CommonUI */,
 				8C6BDD4B283DF99500A96ED4 /* TabBar */,
 				8C8141642841340000E7AB43 /* EditProject */,
 				8C6BDD78283E030D00A96ED4 /* Conversations */,
@@ -301,7 +301,7 @@
 				8C6BDC6D283CF22300A96ED4 /* Login */,
 				8C6BDC80283D3B7A00A96ED4 /* Registration */,
 			);
-			path = Modules;
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		8C6BDC65283CE7A200A96ED4 /* SupportingFiles */ = {
@@ -347,7 +347,6 @@
 				8C6BDC87283D3C1C00A96ED4 /* RegistrationInteractor.swift */,
 				8C6BDC83283D3C1C00A96ED4 /* RegistrationPresenter.swift */,
 				8C6BDC84283D3C1C00A96ED4 /* RegistrationRouter.swift */,
-				8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -498,12 +497,13 @@
 			path = EditProject;
 			sourceTree = "<group>";
 		};
-		8C814173284151D600E7AB43 /* Common */ = {
+		8C814173284151D600E7AB43 /* CommonUI */ = {
 			isa = PBXGroup;
 			children = (
+				8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */,
 				8C8141742841528C00E7AB43 /* TagsField.swift */,
 			);
-			path = Common;
+			path = CommonUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
