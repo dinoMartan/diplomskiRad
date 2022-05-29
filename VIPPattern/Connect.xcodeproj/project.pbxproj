@@ -91,6 +91,7 @@
 		8C9304E62843F48900AE2023 /* ProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E52843F48900AE2023 /* ProfileDataModel.swift */; };
 		8C9304E82843FABD00AE2023 /* HomeDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E72843FABD00AE2023 /* HomeDataModel.swift */; };
 		8C9304EA2843FB3600AE2023 /* MyProjectsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E92843FB3600AE2023 /* MyProjectsDataModel.swift */; };
+		8C9304EC2843FB6700AE2023 /* ConversationsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304EB2843FB6700AE2023 /* ConversationsDataModel.swift */; };
 		D7AA47C0A49632F116840A2D /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -184,6 +185,7 @@
 		8C9304E52843F48900AE2023 /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
 		8C9304E72843FABD00AE2023 /* HomeDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDataModel.swift; sourceTree = "<group>"; };
 		8C9304E92843FB3600AE2023 /* MyProjectsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsDataModel.swift; sourceTree = "<group>"; };
+		8C9304EB2843FB6700AE2023 /* ConversationsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsDataModel.swift; sourceTree = "<group>"; };
 		973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FE5F64275D1C84F3B6C1B6 /* Pods-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.debug.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.debug.xcconfig"; sourceTree = "<group>"; };
@@ -395,12 +397,12 @@
 			children = (
 				8C6BDD70283E019500A96ED4 /* MyProjectsFlowCoordinator.swift */,
 				8C6BDD6F283E019500A96ED4 /* MyProjectsConfigurator.swift */,
+				8C9304E92843FB3600AE2023 /* MyProjectsDataModel.swift */,
 				8C6BDD6E283E019500A96ED4 /* MyProjectsView.swift */,
 				8C6BDD6C283E019500A96ED4 /* MyProjectsViewController.swift */,
 				8C6BDD6D283E019500A96ED4 /* MyProjectsInteractor.swift */,
 				8C6BDD6A283E019500A96ED4 /* MyProjectsPresenter.swift */,
 				8C6BDD6B283E019500A96ED4 /* MyProjectsRouter.swift */,
-				8C9304E92843FB3600AE2023 /* MyProjectsDataModel.swift */,
 			);
 			path = MyProjects;
 			sourceTree = "<group>";
@@ -410,6 +412,7 @@
 			children = (
 				8C6BDD7F283E031E00A96ED4 /* ConversationsFlowCoordinator.swift */,
 				8C6BDD7E283E031E00A96ED4 /* ConversationsConfigurator.swift */,
+				8C9304EB2843FB6700AE2023 /* ConversationsDataModel.swift */,
 				8C6BDD7D283E031E00A96ED4 /* ConversationsView.swift */,
 				8C6BDD7B283E031E00A96ED4 /* ConversationsViewController.swift */,
 				8C6BDD7C283E031E00A96ED4 /* ConversationsInteractor.swift */,
@@ -638,6 +641,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9304EC2843FB6700AE2023 /* ConversationsDataModel.swift in Sources */,
 				8C6BDC7B283D2F3100A96ED4 /* Dependencies.swift in Sources */,
 				8C6BDD92283F83A800A96ED4 /* MyError.swift in Sources */,
 				8C6BDD72283E019500A96ED4 /* MyProjectsRouter.swift in Sources */,
