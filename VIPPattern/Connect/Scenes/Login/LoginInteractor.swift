@@ -8,8 +8,8 @@
 import Foundation
 
 protocol LoginInteractorProtocol: AnyObject {
-    func loginUser(email: String?, password: String?)
-    func sendResetPasswordEmail(email: String?)
+    func loginUser(request: Login.LoginAction.Request)
+    func forgottenPassword(request: Login.ForgottenPasswordAction.Request)
 }
 
 class LoginInteractor: LoginInteractorProtocol {
@@ -29,14 +29,14 @@ class LoginInteractor: LoginInteractorProtocol {
 }
 
 extension LoginInteractor {
-    func loginUser(email: String?, password: String?) {
-        guard let email = email,
-        !email.isEmpty,
-        let password = password,
-        !password.isEmpty
+    func loginUser(request: Login.LoginAction.Request) {
+        guard let email = request.email,
+              !email.isEmpty,
+              let password = request.password,
+              !password.isEmpty
         else {
             let myError = MyError(type: .registrationFieldsRequired, message: nil)
-            presenter?.interactor(didFail: myError)
+            presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
             return
         }
         authenticationService.signInUser(email: email, password: password) { [weak self] result in
@@ -44,27 +44,27 @@ extension LoginInteractor {
             case .success(let authDataResult):
                 self?.keychainService.setUserLoggedIn(true)
                 self?.keychainService.setUserId(authDataResult.user.uid)
-                self?.presenter?.interactorDidSuceedLogin()
+                self?.presenter?.interactor(didSucceedLogin: Login.LoginAction.ResponseSuccess())
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: myError)
+                self?.presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
             }
         }
     }
 
-    func sendResetPasswordEmail(email: String?) {
-        guard let email = email,
-        !email.isEmpty
+    func forgottenPassword(request: Login.ForgottenPasswordAction.Request) {
+        guard let email = request.email,
+              !email.isEmpty
         else {
             let myError = MyError(type: .passwordResetFailed, message: nil)
-            presenter?.interactor(didFail: myError)
+            presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
             return
         }
         authenticationService.sendResetPasswordEmail(email: email) { [weak self] result in
             switch result {
             case .success(_):
-                self?.presenter?.interactorDidSucceedSendForgottenPasswordEmail()
+                self?.presenter?.interactor(didSucceedForgottenPassword: Login.ForgottenPasswordAction.ResponseSuccess())
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: myError)
+                self?.presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
             }
         }
     }

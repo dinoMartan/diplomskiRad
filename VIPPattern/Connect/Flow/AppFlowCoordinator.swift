@@ -18,8 +18,8 @@ class AppFlowCoordinator: FlowCoordinator {
     }
 
     func start() {
-//        startLogin()
-//        return
+        startLogin()
+        return
         guard dependencies.keychainService.getUserLoggedIn() else {
             startLogin()
             return
@@ -45,7 +45,7 @@ class AppFlowCoordinator: FlowCoordinator {
 
     private func startRegistration() {
         let registrationFlowCoordinator =  RegistrationFlowCoordinator(rootViewController: rootViewController,
-                                    dependencies: dependencies)
+                                                                       dependencies: dependencies)
         addChildFlowCoordinator(registrationFlowCoordinator)
         registrationFlowCoordinator.delegate = self
         registrationFlowCoordinator.start()
@@ -58,7 +58,8 @@ extension AppFlowCoordinator: FlowCoordinatorDelegate {
     }
 }
 
-extension AppFlowCoordinator: LoginFlowCoordinatorDelegate, RegistrationFlowCoordinatorDelegate {
+extension AppFlowCoordinator: LoginFlowCoordinatorDelegate,
+                              RegistrationFlowCoordinatorDelegate {
     func showRegistration() {
         startRegistration()
     }

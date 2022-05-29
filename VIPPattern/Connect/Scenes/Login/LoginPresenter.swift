@@ -8,9 +8,9 @@
 import Foundation
 
 protocol LoginPresenterProtocol: AnyObject {
-    func interactorDidSuceedLogin()
-    func interactorDidSucceedSendForgottenPasswordEmail()
-    func interactor(didFail myError: MyError)
+    func interactor(didSucceedLogin response: Login.LoginAction.ResponseSuccess)
+    func interactor(didSucceedForgottenPassword response: Login.ForgottenPasswordAction.ResponseSuccess)
+    func interactor(didFail response: Login.ResponseFailure)
 }
 
 class LoginPresenter: LoginPresenterProtocol {
@@ -20,16 +20,18 @@ class LoginPresenter: LoginPresenterProtocol {
         print("deinit \(self)")
     }
 
-    func interactorDidSuceedLogin() {
-        viewController?.presenterDidSucceedLogin()
+    func interactor(didSucceedLogin response: Login.LoginAction.ResponseSuccess) {
+        viewController?.presenter(didSucceedLogin: Login.LoginAction.ViewModelSuccess())
     }
 
-    func interactorDidSucceedSendForgottenPasswordEmail() {
-        viewController?.presenter(didSucceedSendForgottenPasswordEmail: "Email poslan",
-                                  message: "Email za reset lozinke je poslan na Vašu email adresu")
+    func interactor(didSucceedForgottenPassword response: Login.ForgottenPasswordAction.ResponseSuccess) {
+        let title = "Email poslan"
+        let message = "Email za reset lozinke je poslan na Vašu email adresu"
+        viewController?.presenter(didSucceedForgottenPassword: Login.ForgottenPasswordAction.ViewModelSuccess(title: title,
+                                                                                                              message: message))
     }
 
-    func interactor(didFail myError: MyError) {
-        viewController?.presenter(didFail: myError)
+    func interactor(didFail response: Login.ResponseFailure) {
+        viewController?.presenter(didFail: Login.ViewModelFailure(myError: response.myError))
     }
 }

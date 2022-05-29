@@ -8,9 +8,9 @@
 import UIKit
 
 protocol LoginPresenterOutput: AnyObject {
-    func presenterDidSucceedLogin()
-    func presenter(didSucceedSendForgottenPasswordEmail title: String, message: String)
-    func presenter(didFail myError: MyError)
+    func presenter(didSucceedLogin viewModel: Login.LoginAction.ViewModelSuccess)
+    func presenter(didSucceedForgottenPassword viewModel: Login.ForgottenPasswordAction.ViewModelSuccess)
+    func presenter(didFail viewModel: Login.ViewModelFailure)
 }
 
 class LoginViewController: UIViewController {
@@ -28,12 +28,8 @@ class LoginViewController: UIViewController {
         setupInteractions()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        router?.shouldClose()
-    }
-
     deinit {
+        router?.shouldClose()
         print("deinit \(self)")
     }
 }
@@ -41,8 +37,10 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     private func setupInteractions() {
         loginView?.loginButtonTapInteraction = { [weak self] in
-            self?.interactor?.loginUser(email: self?.loginView?.emailTextField.text,
-                                        password: self?.loginView?.passwordTextField.text)
+            let email = self?.loginView?.emailTextField.text
+            let password = self?.loginView?.passwordTextField.text
+            self?.interactor?.loginUser(request: Login.LoginAction.Request(email: email,
+                                                                           password: password))
         }
 
         loginView?.registerButtonTapInteraction = { [weak self] in
@@ -58,21 +56,22 @@ extension LoginViewController {
         showAlertControllerWithTextField(title: "Zaboravljena lozinka",
                                          message: nil,
                                          placeholder: "Email") { [weak self] email in
-            self?.interactor?.sendResetPasswordEmail(email: email)
+            self?.interactor?.forgottenPassword(request: Login.ForgottenPasswordAction.Request(email: email))
         }
     }
 }
 
 extension LoginViewController: LoginPresenterOutput {
-    func presenterDidSucceedLogin() {
+    func presenter(didSucceedLogin viewModel: Login.LoginAction.ViewModelSuccess) {
         router?.showMainFlow()
     }
 
-    func presenter(didSucceedSendForgottenPasswordEmail title: String, message: String) {
-        showAlert(title: title, message: message)
+    func presenter(didSucceedForgottenPassword viewModel: Login.ForgottenPasswordAction.ViewModelSuccess) {
+        showAlert(title: viewModel.title,
+                  message: viewModel.message)
     }
-    
-    func presenter(didFail myError: MyError) {
-        showMyErrorAlert(myError)
+
+    func presenter(didFail viewModel: Login.ViewModelFailure) {
+        showMyErrorAlert(viewModel.myError)
     }
 }
