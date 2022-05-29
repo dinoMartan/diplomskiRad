@@ -88,6 +88,7 @@
 		8C81417728416B6D00E7AB43 /* ProjectsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */; };
 		8C9304E22843EC2700AE2023 /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E12843EC2700AE2023 /* LoginDataModel.swift */; };
 		8C9304E42843F03500AE2023 /* RegistrationDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E32843F03500AE2023 /* RegistrationDataModel.swift */; };
+		8C9304E62843F48900AE2023 /* ProfileDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9304E52843F48900AE2023 /* ProfileDataModel.swift */; };
 		D7AA47C0A49632F116840A2D /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */; };
 /* End PBXBuildFile section */
 
@@ -178,6 +179,7 @@
 		8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsRepository.swift; sourceTree = "<group>"; };
 		8C9304E12843EC2700AE2023 /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		8C9304E32843F03500AE2023 /* RegistrationDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDataModel.swift; sourceTree = "<group>"; };
+		8C9304E52843F48900AE2023 /* ProfileDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModel.swift; sourceTree = "<group>"; };
 		973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9FE5F64275D1C84F3B6C1B6 /* Pods-Connect.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.debug.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.debug.xcconfig"; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				8C8141572840CBA400E7AB43 /* UIComponents */,
 				8C814143283FA5BC00E7AB43 /* ProfileFlowCoordinator.swift */,
 				8C814142283FA5BC00E7AB43 /* ProfileConfigurator.swift */,
+				8C9304E52843F48900AE2023 /* ProfileDataModel.swift */,
 				8C814141283FA5BC00E7AB43 /* ProfileView.swift */,
 				8C81413F283FA5BC00E7AB43 /* ProfileViewController.swift */,
 				8C814140283FA5BC00E7AB43 /* ProfileInteractor.swift */,
@@ -646,6 +649,7 @@
 				8C6BDD76283E019500A96ED4 /* MyProjectsConfigurator.swift in Sources */,
 				8C6BDD84283E031E00A96ED4 /* ConversationsView.swift in Sources */,
 				8C8141712841341900E7AB43 /* EditProjectConfigurator.swift in Sources */,
+				8C9304E62843F48900AE2023 /* ProfileDataModel.swift in Sources */,
 				8C8141612840E18100E7AB43 /* UIImageView+Extension.swift in Sources */,
 				8C6BDD74283E019500A96ED4 /* MyProjectsInteractor.swift in Sources */,
 				8C6BDC6F283CF23600A96ED4 /* LoginConfigurator.swift in Sources */,

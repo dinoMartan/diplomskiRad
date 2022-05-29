@@ -13,7 +13,7 @@ class ProfileSettingTableViewCell: UITableViewCell {
     @IBOutlet private weak var icon: UIImageView!
     @IBOutlet private weak var label: UILabel!
 
-    func setupWith(_ profileSetting: ProfileViewModelSetting) {
+    func setupWith(_ profileSetting: Profile.GetUserDataAction.Setting) {
         icon.image = UIImage(systemName: profileSetting.icon ?? "")
         label.text = profileSetting.value
     }

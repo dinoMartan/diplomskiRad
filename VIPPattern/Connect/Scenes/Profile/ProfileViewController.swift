@@ -8,7 +8,8 @@
 import UIKit
 
 protocol ProfilePresenterOutput: AnyObject {
-    func presenter(didFetchUserData profileViewModel: ProfileViewModel)
+    func presenter(didSucceedGetUserData viewModel: Profile.GetUserDataAction.ViewModelSuccess)
+    func presenter(didFail viewModel: Login.ViewModelFailure)
 }
 
 class ProfileViewController: UIViewController {
@@ -16,7 +17,7 @@ class ProfileViewController: UIViewController {
     var interactor: ProfileInteractorProtocol?
     var router: ProfileRouterProtocol?
 
-    private var profileViewModel: ProfileViewModel? {
+    private var profileViewModel: Profile.GetUserDataAction.ViewModelSuccess? {
         didSet {
             profileView?.tableView.reloadData()
         }
@@ -30,7 +31,7 @@ class ProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        interactor?.getUserData()
+        interactor?.getUserData(request: Profile.GetUserDataAction.Request())
     }
 
     deinit {
@@ -107,11 +108,11 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
-    private func editSetting(_ setting: ProfileViewModelSetting) {
+    private func editSetting(_ setting: Profile.GetUserDataAction.Setting) {
         showAlertControllerWithTextField(title: "Uredi", message: nil, placeholder: setting.value) { [weak self] newValue in
             var newSetting = setting
             newSetting.value = newValue
-            self?.interactor?.updateSetting(newSetting)
+            self?.interactor?.updateSetting(request: Profile.UpdateSettingAction.Request(setting: newSetting))
         }
     }
 }
@@ -119,16 +120,20 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
 extension ProfileViewController: ProfileTableViewHeaderDelegate {
     func didTapProfileImage() {
         ImagePickerManager().pickImage(self) { [weak self] newImage in
-            let profileSetting = ProfileViewModelSetting(value: nil,
-                                                         icon: nil,
-                                                         type: .image(newImage))
-            self?.interactor?.updateSetting(profileSetting)
+            let profileSetting = Profile.GetUserDataAction.Setting(value: nil,
+                                                                   icon: nil,
+                                                                   type: .image(newImage))
+            self?.interactor?.updateSetting(request: Profile.UpdateSettingAction.Request(setting: profileSetting))
         }
     }
 }
 
 extension ProfileViewController: ProfilePresenterOutput {
-    func presenter(didFetchUserData profileViewModel: ProfileViewModel) {
-        self.profileViewModel = profileViewModel
+    func presenter(didSucceedGetUserData viewModel: Profile.GetUserDataAction.ViewModelSuccess) {
+        self.profileViewModel = viewModel
+    }
+
+    func presenter(didFail viewModel: Login.ViewModelFailure) {
+        showMyErrorAlert(viewModel.myError)
     }
 }

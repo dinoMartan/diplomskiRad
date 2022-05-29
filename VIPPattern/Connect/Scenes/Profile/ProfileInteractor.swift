@@ -9,8 +9,8 @@ import Foundation
 import UIKit
 
 protocol ProfileInteractorProtocol {
-    func getUserData()
-    func updateSetting(_ setting: ProfileViewModelSetting)
+    func getUserData(request: Profile.GetUserDataAction.Request)
+    func updateSetting(request: Profile.UpdateSettingAction.Request)
 }
 
 class ProfileInteractor: ProfileInteractorProtocol {
@@ -32,22 +32,22 @@ class ProfileInteractor: ProfileInteractorProtocol {
 }
 
 extension ProfileInteractor {
-    func getUserData() {
+    func getUserData(request: Profile.GetUserDataAction.Request) {
         guard let userId = keychainService.getUserId() else { return }
         userRepository.getUser(userId: userId) { [weak self] result in
             switch result {
             case .success(let user):
                 self?.user = user
-                self?.presenter?.interactor(didFetchUser: user)
+                self?.presenter?.interactor(getUserDataActionSuccess: Profile.GetUserDataAction.ResponseSuccess(user: user))
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: myError)
+                self?.presenter?.interactor(didFail: Profile.ResponseFailure(myError: myError))
             }
         }
     }
 
-    func updateSetting(_ setting: ProfileViewModelSetting) {
-        let value = setting.value
-        switch setting.type {
+    func updateSetting(request: Profile.UpdateSettingAction.Request) {
+        let value = request.setting.value
+        switch request.setting.type {
         case .firstName:
             user?.firstName = value
             updateUser(user: user)
@@ -67,9 +67,9 @@ extension ProfileInteractor {
         userRepository.setUser(user: user, userImage: userImage) { [weak self] result in
             switch result {
             case .success(_):
-                self?.getUserData()
+                self?.getUserData(request: Profile.GetUserDataAction.Request())
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: myError)
+                self?.presenter?.interactor(didFail: Profile.ResponseFailure(myError: myError))
             }
         }
     }

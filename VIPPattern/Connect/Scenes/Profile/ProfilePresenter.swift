@@ -9,36 +9,8 @@ import Foundation
 import UIKit
 
 protocol ProfilePresenterProtocol: AnyObject {
-    func interactor(didFetchUser user: User)
-    func interactor(didFail myError: MyError)
-}
-
-struct ProfileViewModel {
-    let baseInfo: ProfileViewModelBaseInfo
-    let sections: [ProfileViewModelSection]
-}
-
-struct ProfileViewModelBaseInfo {
-    let userId: String?
-    let displayName: String?
-    let profileImage: String?
-}
-
-enum ProfileViewModelSection {
-    case settings(_ settings: [ProfileViewModelSetting])
-}
-
-struct ProfileViewModelSetting {
-    var value: String?
-    let icon: String?
-    let type: ProfileViewModelSettingType
-}
-
-enum ProfileViewModelSettingType {
-    case firstName
-    case lastName
-    case username
-    case image(_ image: UIImage?)
+    func interactor(getUserDataActionSuccess response: Profile.GetUserDataAction.ResponseSuccess)
+    func interactor(didFail response: Profile.ResponseFailure)
 }
 
 class ProfilePresenter: ProfilePresenterProtocol {
@@ -48,23 +20,23 @@ class ProfilePresenter: ProfilePresenterProtocol {
         print("deinit \(self)")
     }
 
-    func interactor(didFetchUser user: User) {
-        let baseInfo = ProfileViewModelBaseInfo(userId: user.id,
-                                                displayName: user.username,
-                                                profileImage: user.profileImage)
+    func interactor(getUserDataActionSuccess response: Profile.GetUserDataAction.ResponseSuccess) {
+        let baseInfo = Profile.GetUserDataAction.BaseInfo(userId: response.user.id,
+                                                          displayName: response.user.username,
+                                                          profileImage: response.user.profileImage)
         let sections = [
-            ProfileViewModelSection.settings([
-                ProfileViewModelSetting(value: user.firstName, icon: "person", type: .firstName),
-                ProfileViewModelSetting(value: user.lastName, icon: "person", type: .lastName),
-                ProfileViewModelSetting(value: user.username, icon: "person", type: .username)
+            Profile.GetUserDataAction.Section.settings([
+                Profile.GetUserDataAction.Setting(value: response.user.firstName, icon: "person", type: .firstName),
+                Profile.GetUserDataAction.Setting(value: response.user.lastName, icon: "person", type: .lastName),
+                Profile.GetUserDataAction.Setting(value: response.user.username, icon: "person", type: .username)
             ])
         ]
-        let profileViewModel = ProfileViewModel(baseInfo: baseInfo,
-                                                sections: sections)
-        viewController?.presenter(didFetchUserData: profileViewModel)
+        let viewModelSuccess = Profile.GetUserDataAction.ViewModelSuccess(baseInfo: baseInfo,
+                                                                          sections: sections)
+        viewController?.presenter(didSucceedGetUserData: viewModelSuccess)
     }
 
-    func interactor(didFail myError: MyError) {
-        //
+    func interactor(didFail response: Profile.ResponseFailure) {
+        viewController?.presenter(didFail: Login.ViewModelFailure(myError: response.myError))
     }
 }
