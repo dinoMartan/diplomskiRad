@@ -15,15 +15,15 @@ protocol RegistrationInteractorProtocol {
 class RegistrationInteractor: RegistrationInteractorProtocol {
     var presenter: RegistrationPresenterProtocol?
 
-    private let authenticationService: AuthenticationServiceProtocol
+    private let authenticationRepository: AuthenticationRepositoryProtocol
     private let keychainService: KeychainServiceProtocol
     private let userRepository: UserRepositoryProtocol
 
     init(keychainService: KeychainServiceProtocol,
-         authenticationService: AuthenticationServiceProtocol,
+         authenticationRepository: AuthenticationRepositoryProtocol,
          userRepository: UserRepositoryProtocol) {
         self.keychainService = keychainService
-        self.authenticationService = authenticationService
+        self.authenticationRepository = authenticationRepository
         self.userRepository = userRepository
     }
 
@@ -50,10 +50,10 @@ extension RegistrationInteractor {
                         lastName: lastName,
                         email: email,
                         profileImage: nil)
-        authenticationService.registerUser(email: email, password: password) { [weak self] result in
+        authenticationRepository.registerUser(email: email, password: password) { [weak self] result in
             switch result {
-            case .success(let authDataResult):
-                user.id = authDataResult.user.uid
+            case .success(let authenticationResponse):
+                user.id = authenticationResponse.userId
                 self?.addUserToDatabase(user: user, image: request.image)
             case .failure(let myError):
                 self?.presenter?.interactor(didFail: Registration.ResponseFailure(myError: myError))

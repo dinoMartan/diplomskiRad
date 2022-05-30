@@ -28,6 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8C9304FF2844B76100AE2023"
+               BuildableName = "ConnectTests.xctest"
+               BlueprintName = "ConnectTests"
+               ReferencedContainer = "container:Connect.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8C93050C2844B79A00AE2023"
+               BuildableName = "ConnectUnitTests.xctest"
+               BlueprintName = "ConnectUnitTests"
+               ReferencedContainer = "container:Connect.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
