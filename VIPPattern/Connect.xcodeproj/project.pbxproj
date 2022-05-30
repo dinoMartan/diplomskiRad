@@ -235,8 +235,6 @@
 			isa = PBXGroup;
 			children = (
 				8C6BDC31283CE71F00A96ED4 /* Connect */,
-				8C6BDC48283CE72100A96ED4 /* ConnectTests */,
-				8C6BDC52283CE72100A96ED4 /* ConnectUITests */,
 				8C6BDC30283CE71F00A96ED4 /* Products */,
 				69D9148B018E1CD1CECBFA29 /* Pods */,
 				4A4B2BE18328ED846CE50297 /* Frameworks */,
@@ -265,20 +263,6 @@
 				8C6BDD96283F898A00A96ED4 /* Extensions */,
 			);
 			path = Connect;
-			sourceTree = "<group>";
-		};
-		8C6BDC48283CE72100A96ED4 /* ConnectTests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ConnectTests;
-			sourceTree = "<group>";
-		};
-		8C6BDC52283CE72100A96ED4 /* ConnectUITests */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ConnectUITests;
 			sourceTree = "<group>";
 		};
 		8C6BDC62283CE78300A96ED4 /* Application */ = {
