@@ -37,6 +37,6 @@ class ProfilePresenter: ProfilePresenterProtocol {
     }
 
     func interactor(didFail response: Profile.ResponseFailure) {
-        viewController?.presenter(didFail: Login.ViewModelFailure(myError: response.myError))
+        viewController?.presenter(didFail: Profile.ViewModelFailure(myError: response.myError))
     }
 }

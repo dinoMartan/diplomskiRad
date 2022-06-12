@@ -8,7 +8,7 @@
 @testable import Connect
 
 struct RegistrationDataModelMock {
-    private static let myError = MyError(type: .codableError,
+    static let myError = MyError(type: .codableError,
                                          message: "This is message")
     let responseFailure = Registration.ResponseFailure(myError: myError)
     let viewModelFailure = Registration.ViewModelFailure(myError: myError)

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C445E492855E9A80023CF41 /* RegistrationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E482855E9A80023CF41 /* RegistrationPresenterTests.swift */; };
+		8C445E4B2855EA280023CF41 /* RegistrationViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E4A2855EA280023CF41 /* RegistrationViewControllerMock.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -100,6 +102,7 @@
 		8C9305352844BC3900AE2023 /* DataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305342844BC3900AE2023 /* DataMock.swift */; };
 		8C9305382844C00E00AE2023 /* AuthenticationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305372844C00E00AE2023 /* AuthenticationResponse.swift */; };
 		8C93053A2844C25A00AE2023 /* RegistrationDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9305392844C25A00AE2023 /* RegistrationDataModelMock.swift */; };
+		8C930558284A927200AE2023 /* RegistrationPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C930557284A927200AE2023 /* RegistrationPresenterMock.swift */; };
 		D7AA47C0A49632F116840A2D /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */; };
 		D9F7457F57A05E288BADD0EA /* Pods_ConnectUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B15C6198DACEB73B981370 /* Pods_ConnectUnitTests.framework */; };
 /* End PBXBuildFile section */
@@ -119,6 +122,8 @@
 		5B832A382237C9C45B1CF03F /* Pods-Connect-ConnectUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect-ConnectUITests.release.xcconfig"; path = "Target Support Files/Pods-Connect-ConnectUITests/Pods-Connect-ConnectUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D58C673AF76DED229A4C446 /* Pods-ConnectUnitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectUnitTests.debug.xcconfig"; path = "Target Support Files/Pods-ConnectUnitTests/Pods-ConnectUnitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8546B102C62A6D9119A8464D /* Pods-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.release.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.release.xcconfig"; sourceTree = "<group>"; };
+		8C445E482855E9A80023CF41 /* RegistrationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterTests.swift; sourceTree = "<group>"; };
+		8C445E4A2855EA280023CF41 /* RegistrationViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerMock.swift; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -215,6 +220,7 @@
 		8C9305342844BC3900AE2023 /* DataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMock.swift; sourceTree = "<group>"; };
 		8C9305372844C00E00AE2023 /* AuthenticationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationResponse.swift; sourceTree = "<group>"; };
 		8C9305392844C25A00AE2023 /* RegistrationDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationDataModelMock.swift; sourceTree = "<group>"; };
+		8C930557284A927200AE2023 /* RegistrationPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterMock.swift; sourceTree = "<group>"; };
 		973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B298B1CB25B22484C2D14623 /* Pods-ConnectUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectUnitTests.release.xcconfig"; path = "Target Support Files/Pods-ConnectUnitTests/Pods-ConnectUnitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -269,6 +275,16 @@
 				B298B1CB25B22484C2D14623 /* Pods-ConnectUnitTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		8C445E472855E9830023CF41 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8C930557284A927200AE2023 /* RegistrationPresenterMock.swift */,
+				8C9305392844C25A00AE2023 /* RegistrationDataModelMock.swift */,
+				8C445E4A2855EA280023CF41 /* RegistrationViewControllerMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		8C6BDC26283CE71F00A96ED4 = {
@@ -585,8 +601,9 @@
 		8C93052D2844BA6B00AE2023 /* Registration */ = {
 			isa = PBXGroup;
 			children = (
+				8C445E472855E9830023CF41 /* Mocks */,
 				8C9305242844BA2800AE2023 /* RegistrationInteractorTests.swift */,
-				8C9305392844C25A00AE2023 /* RegistrationDataModelMock.swift */,
+				8C445E482855E9A80023CF41 /* RegistrationPresenterTests.swift */,
 			);
 			path = Registration;
 			sourceTree = "<group>";
@@ -876,11 +893,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C445E4B2855EA280023CF41 /* RegistrationViewControllerMock.swift in Sources */,
 				8C9305332844BB8400AE2023 /* UserRepositoryMock.swift in Sources */,
 				8C9305252844BA2800AE2023 /* RegistrationInteractorTests.swift in Sources */,
+				8C445E492855E9A80023CF41 /* RegistrationPresenterTests.swift in Sources */,
 				8C93052F2844BB6A00AE2023 /* KeychainServiceMock.swift in Sources */,
 				8C9305312844BB7800AE2023 /* AuthenticationRepositoryMock.swift in Sources */,
 				8C93053A2844C25A00AE2023 /* RegistrationDataModelMock.swift in Sources */,
+				8C930558284A927200AE2023 /* RegistrationPresenterMock.swift in Sources */,
 				8C9305352844BC3900AE2023 /* DataMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

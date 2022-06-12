@@ -36,7 +36,7 @@ extension LoginInteractor {
               !password.isEmpty
         else {
             let myError = MyError(type: .registrationFieldsRequired, message: nil)
-            presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
+            presenter?.interactor(didFailLogin: Login.LoginAction.Response.Failure(myError: myError))
             return
         }
         authenticationRepository.signInUser(email: email, password: password) { [weak self] result in
@@ -44,9 +44,9 @@ extension LoginInteractor {
             case .success(let authenticationResponse):
                 self?.keychainService.setUserLoggedIn(true)
                 self?.keychainService.setUserId(authenticationResponse.userId)
-                self?.presenter?.interactor(didSucceedLogin: Login.LoginAction.ResponseSuccess())
+                self?.presenter?.interactor(didSucceedLogin: Login.LoginAction.Response.Success())
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailLogin: Login.LoginAction.Response.Failure(myError: myError))
             }
         }
     }
@@ -56,15 +56,15 @@ extension LoginInteractor {
               !email.isEmpty
         else {
             let myError = MyError(type: .passwordResetFailed, message: nil)
-            presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
+            presenter?.interactor(didFailForgottenPassword: Login.ForgottenPasswordAction.Response.Failure(myError: myError))
             return
         }
         authenticationRepository.sendResetPasswordEmail(email: email) { [weak self] result in
             switch result {
             case .success(_):
-                self?.presenter?.interactor(didSucceedForgottenPassword: Login.ForgottenPasswordAction.ResponseSuccess())
+                self?.presenter?.interactor(didSucceedForgottenPassword: Login.ForgottenPasswordAction.Response.Success())
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailForgottenPassword: Login.ForgottenPasswordAction.Response.Failure(myError: myError))
             }
         }
     }

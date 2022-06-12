@@ -9,7 +9,7 @@ import UIKit
 
 protocol ProfilePresenterOutput: AnyObject {
     func presenter(didSucceedGetUserData viewModel: Profile.GetUserDataAction.ViewModelSuccess)
-    func presenter(didFail viewModel: Login.ViewModelFailure)
+    func presenter(didFail viewModel: Profile.ViewModelFailure)
 }
 
 class ProfileViewController: UIViewController {
@@ -133,7 +133,7 @@ extension ProfileViewController: ProfilePresenterOutput {
         self.profileViewModel = viewModel
     }
 
-    func presenter(didFail viewModel: Login.ViewModelFailure) {
+    func presenter(didFail viewModel: Profile.ViewModelFailure) {
         showMyErrorAlert(viewModel.myError)
     }
 }

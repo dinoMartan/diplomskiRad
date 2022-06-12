@@ -8,9 +8,10 @@
 import UIKit
 
 protocol LoginPresenterOutput: AnyObject {
-    func presenter(didSucceedLogin viewModel: Login.LoginAction.ViewModelSuccess)
-    func presenter(didSucceedForgottenPassword viewModel: Login.ForgottenPasswordAction.ViewModelSuccess)
-    func presenter(didFail viewModel: Login.ViewModelFailure)
+    func presenter(didSucceedLogin viewModel: Login.LoginAction.ViewModel.Success)
+    func presenter(didFailLogin viewModel: Login.LoginAction.ViewModel.Failure)
+    func presenter(didSucceedForgottenPassword viewModel: Login.ForgottenPasswordAction.ViewModel.Success)
+    func presenter(didFailForgottenPassword viewModel: Login.ForgottenPasswordAction.ViewModel.Failure)
 }
 
 class LoginViewController: UIViewController {
@@ -62,16 +63,20 @@ extension LoginViewController {
 }
 
 extension LoginViewController: LoginPresenterOutput {
-    func presenter(didSucceedLogin viewModel: Login.LoginAction.ViewModelSuccess) {
+    func presenter(didSucceedLogin viewModel: Login.LoginAction.ViewModel.Success) {
         router?.showMainFlow()
     }
 
-    func presenter(didSucceedForgottenPassword viewModel: Login.ForgottenPasswordAction.ViewModelSuccess) {
+    func presenter(didFailLogin viewModel: Login.LoginAction.ViewModel.Failure) {
+        showMyErrorAlert(viewModel.myError)
+    }
+
+    func presenter(didSucceedForgottenPassword viewModel: Login.ForgottenPasswordAction.ViewModel.Success) {
         showAlert(title: viewModel.title,
                   message: viewModel.message)
     }
 
-    func presenter(didFail viewModel: Login.ViewModelFailure) {
+    func presenter(didFailForgottenPassword viewModel: Login.ForgottenPasswordAction.ViewModel.Failure) {
         showMyErrorAlert(viewModel.myError)
     }
 }

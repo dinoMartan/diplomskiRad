@@ -7,20 +7,12 @@
 
 import UIKit
 
-struct Registration {
-    struct ResponseFailure {
-        let myError: MyError
-    }
-
-    struct ViewModelFailure {
-        let myError: MyError
-    }
-}
+struct Registration: Equatable { }
 
 // MARK: RegisterAction
 extension Registration {
-    struct RegisterAction {
-        struct Request {
+    struct RegisterAction: Equatable {
+        struct Request: Equatable {
             let username: String?
             let firstName: String?
             let lastName: String?
@@ -29,10 +21,20 @@ extension Registration {
             let image: UIImage?
         }
 
-        struct ResponseSuccess {
+        struct Response: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError?
+            }
         }
 
-        struct ViewModelSuccess {
+        struct ViewModel {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError?
+            }
         }
     }
 }
