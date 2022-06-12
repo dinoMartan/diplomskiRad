@@ -9,24 +9,24 @@
 
 class RegistrationViewControllerMock: RegistrationPresenterOutput {
     var presenterDidSucceedRegisterCalled = false
-    var presenterdidSucceedRegisterCounter = 0
-    var presenterDidSucceedRegisterViewModel: Registration.RegisterAction.ResponseSuccess?
+    var presenterDidSucceedRegisterCounter = 0
+    var presenterDidSucceedRegisterViewModel: Registration.RegisterAction.ViewModel.Success?
 
-    var presenterDidFailCalled = false
-    var presenterDidFailCounter = 0
-    var presenterDidFailViewModel: Registration.ViewModelFailure?
+    var presenterDidFailRegisterCalled = false
+    var presenterDidFailRegisterCounter = 0
+    var presenterDidFailRegisterViewModel: Registration.RegisterAction.ViewModel.Failure?
 }
 
 extension RegistrationViewControllerMock {
-    func presenter(didSucceedRegister viewModel: Registration.RegisterAction.ResponseSuccess) {
+    func presenter(didSucceedRegister viewModel: Registration.RegisterAction.ViewModel.Success) {
         presenterDidSucceedRegisterCalled = true
-        presenterdidSucceedRegisterCounter += 1
+        presenterDidSucceedRegisterCounter += 1
         presenterDidSucceedRegisterViewModel = viewModel
     }
     
-    func presenter(didFail viewModel: Registration.ViewModelFailure) {
-        presenterDidFailCalled = true
-        presenterDidFailCounter += 1
-        presenterDidFailViewModel = viewModel
+    func presenter(didFailRegister viewModel: Registration.RegisterAction.ViewModel.Failure) {
+        presenterDidFailRegisterCalled = true
+        presenterDidFailRegisterCounter += 1
+        presenterDidFailRegisterViewModel = viewModel
     }
 }

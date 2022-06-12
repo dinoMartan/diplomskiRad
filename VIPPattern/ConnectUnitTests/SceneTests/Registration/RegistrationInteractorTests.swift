@@ -62,24 +62,24 @@ extension RegistrationInteractorTests {
         sut.registerUser(request: request)
 
         // Then
-        XCTAssertTrue(registrationPresenterMock.didSuceedRegisterActionCalled)
-        XCTAssertEqual(registrationPresenterMock.didSuceedRegisterActionCounter, 1)
-        XCTAssertEqual(registrationPresenterMock.didSuceedRegisterActionResponse, expectedResponse)
+        XCTAssertTrue(registrationPresenterMock.didSucceedRegisterActionCalled)
+        XCTAssertEqual(registrationPresenterMock.didSucceedRegisterActionCounter, 1)
+        XCTAssertEqual(registrationPresenterMock.didSucceedRegisterActionResponse, expectedResponse)
     }
 
     func testRegisterUser_WhenRegisterUserCalledWithRequestOnFailure_ShouldCallPresenterWithResponseFailure() {
         // Given
         let myError = RegistrationDataModelMock.myError
         let request = registrationDataModelMock.registerAction.request
-        let expectedResponse = registrationDataModelMock.responseFailure
+        let expectedResponse = registrationDataModelMock.registerAction.responseFailure
         authenticationRepositoryMock.myError = myError
 
         // When
         sut.registerUser(request: request)
 
         // Then
-        XCTAssertTrue(registrationPresenterMock.didFailCalled)
-        XCTAssertEqual(registrationPresenterMock.didFailCounter, 1)
-        XCTAssertEqual(registrationPresenterMock.didFailResponse, expectedResponse)
+        XCTAssertTrue(registrationPresenterMock.didFailRegisterActionCalled)
+        XCTAssertEqual(registrationPresenterMock.didFailRegisterActionCounter, 1)
+        XCTAssertEqual(registrationPresenterMock.didFailRegisterActionResponse, expectedResponse)
     }
 }

@@ -280,9 +280,9 @@
 		8C445E472855E9830023CF41 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				8C930557284A927200AE2023 /* RegistrationPresenterMock.swift */,
 				8C9305392844C25A00AE2023 /* RegistrationDataModelMock.swift */,
 				8C445E4A2855EA280023CF41 /* RegistrationViewControllerMock.swift */,
+				8C930557284A927200AE2023 /* RegistrationPresenterMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";

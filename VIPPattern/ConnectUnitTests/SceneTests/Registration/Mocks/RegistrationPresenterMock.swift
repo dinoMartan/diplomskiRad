@@ -9,25 +9,25 @@
 import XCTest
 
 class RegistrationPresenterMock: RegistrationPresenterProtocol {
-    var didSuceedRegisterActionCalled = false
-    var didSuceedRegisterActionCounter = 0
-    var didSuceedRegisterActionResponse: Registration.RegisterAction.ResponseSuccess?
+    var didSucceedRegisterActionCalled = false
+    var didSucceedRegisterActionCounter = 0
+    var didSucceedRegisterActionResponse: Registration.RegisterAction.Response.Success?
 
-    var didFailCalled = false
-    var didFailCounter = 0
-    var didFailResponse: Registration.ResponseFailure?
+    var didFailRegisterActionCalled = false
+    var didFailRegisterActionCounter = 0
+    var didFailRegisterActionResponse: Registration.RegisterAction.Response.Failure?
 }
 
 extension RegistrationPresenterMock {
-    func interactor(didSuceedRegisterAction response: Registration.RegisterAction.ResponseSuccess) {
-        didSuceedRegisterActionCalled = true
-        didSuceedRegisterActionCounter += 1
-        didSuceedRegisterActionResponse = response
+    func interactor(didSuceedRegisterAction response: Registration.RegisterAction.Response.Success) {
+        didSucceedRegisterActionCalled = true
+        didSucceedRegisterActionCounter += 1
+        didSucceedRegisterActionResponse = response
     }
 
-    func interactor(didFail response: Registration.ResponseFailure) {
-        didFailCalled = true
-        didFailCounter += 1
-        didFailResponse = response
+    func interactor(didFailRegisterAction response: Registration.RegisterAction.Response.Failure) {
+        didFailRegisterActionCalled = true
+        didFailRegisterActionCounter += 1
+        didFailRegisterActionResponse = response
     }
 }

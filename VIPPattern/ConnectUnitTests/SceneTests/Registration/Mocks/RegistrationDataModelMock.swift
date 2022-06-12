@@ -10,10 +10,12 @@
 struct RegistrationDataModelMock {
     static let myError = MyError(type: .codableError,
                                          message: "This is message")
-    let responseFailure = Registration.ResponseFailure(myError: myError)
-    let viewModelFailure = Registration.ViewModelFailure(myError: myError)
-    let registerAction = RegisterAction()
 
+    let registerAction = RegisterAction()
+}
+
+// MARK: Register Action
+extension RegistrationDataModelMock {
     struct RegisterAction {
         let request = Registration.RegisterAction.Request(username: "username",
                                                           firstName: "first name",
@@ -21,7 +23,12 @@ struct RegistrationDataModelMock {
                                                           email: "email@email.com",
                                                           password: "123456",
                                                           image: nil)
-        let responseSuccess = Registration.RegisterAction.ResponseSuccess()
-        let viewModelSuccess = Registration.RegisterAction.ViewModelSuccess()
+
+        let responseSuccess = Registration.RegisterAction.Response.Success()
+        let responseFailure = Registration.RegisterAction.Response.Failure(myError: RegistrationDataModelMock.myError)
+
+        let viewModelSuccess = Registration.RegisterAction.ViewModel.Success()
+        let viewModelFailure = Registration.RegisterAction.ViewModel.Failure(myError: RegistrationDataModelMock.myError)
+
     }
 }
