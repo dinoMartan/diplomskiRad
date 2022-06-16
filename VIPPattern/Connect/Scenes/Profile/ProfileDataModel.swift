@@ -8,51 +8,46 @@
 import UIKit
 
 struct Profile {
-    struct ResponseFailure {
-        let myError: MyError
+    struct Setting {
+        var value: String?
+        let icon: String?
+        let type: SettingType
     }
 
-    struct ViewModelFailure {
-        let myError: MyError
+    enum SettingType {
+        case firstName
+        case lastName
+        case username
+        case image(_ image: UIImage?)
     }
 }
 
 // MARK: GetUserDataAction
 extension Profile {
     struct GetUserDataAction {
-        struct Request {
+        struct Request { }
+
+        struct Response {
+            struct Success {
+                let user: User
+            }
+
+            struct Failure {
+                let myError: MyError
+            }
         }
 
-        struct ResponseSuccess {
-            let user: User
-        }
+        struct ViewModel {
+            struct Success {
+                let userId: String
+                let displayName: String
+                let profileImage: String
+                let settings: [Setting]
+            }
 
-        struct ViewModelSuccess {
-            let baseInfo: BaseInfo
-            let sections: [Section]
-        }
-
-        struct BaseInfo {
-            let userId: String?
-            let displayName: String?
-            let profileImage: String?
-        }
-
-        enum Section {
-            case settings(_ settings: [Setting])
-        }
-
-        struct Setting {
-            var value: String?
-            let icon: String?
-            let type: SettingType
-        }
-
-        enum SettingType {
-            case firstName
-            case lastName
-            case username
-            case image(_ image: UIImage?)
+            struct Failure {
+                let myError: MyError
+            }
         }
     }
 }
@@ -61,13 +56,23 @@ extension Profile {
 extension Profile {
     struct UpdateSettingAction {
         struct Request {
-            let setting: GetUserDataAction.Setting
+            let setting: Profile.Setting
         }
 
-        struct ResponseSuccess {
+        struct Response {
+            struct Success { }
+
+            struct Failure {
+                let myError: MyError
+            }
         }
 
-        struct ViewModelSuccess {
+        struct ViewModel {
+            struct Success { }
+
+            struct Failure {
+                let myError: MyError
+            }
         }
     }
 }

@@ -6,11 +6,12 @@
 //
 
 import Foundation
-import UIKit
 
 protocol ProfilePresenterProtocol: AnyObject {
-    func interactor(getUserDataActionSuccess response: Profile.GetUserDataAction.ResponseSuccess)
-    func interactor(didFail response: Profile.ResponseFailure)
+    func interactor(didSucceedGetUserData response: Profile.GetUserDataAction.Response.Success)
+    func interactor(didFailGetUserData response: Profile.GetUserDataAction.Response.Failure)
+    func interactor(didSucceedUpdateSetting response: Profile.UpdateSettingAction.Response.Success)
+    func interactor(didFailUpdateSetting response: Profile.UpdateSettingAction.Response.Failure)
 }
 
 class ProfilePresenter: ProfilePresenterProtocol {
@@ -20,23 +21,31 @@ class ProfilePresenter: ProfilePresenterProtocol {
         print("deinit \(self)")
     }
 
-    func interactor(getUserDataActionSuccess response: Profile.GetUserDataAction.ResponseSuccess) {
-        let baseInfo = Profile.GetUserDataAction.BaseInfo(userId: response.user.id,
-                                                          displayName: response.user.username,
-                                                          profileImage: response.user.profileImage)
-        let sections = [
-            Profile.GetUserDataAction.Section.settings([
-                Profile.GetUserDataAction.Setting(value: response.user.firstName, icon: "person", type: .firstName),
-                Profile.GetUserDataAction.Setting(value: response.user.lastName, icon: "person", type: .lastName),
-                Profile.GetUserDataAction.Setting(value: response.user.username, icon: "person", type: .username)
-            ])
-        ]
-        let viewModelSuccess = Profile.GetUserDataAction.ViewModelSuccess(baseInfo: baseInfo,
-                                                                          sections: sections)
+    func interactor(didSucceedGetUserData response: Profile.GetUserDataAction.Response.Success) {
+        let settings = [
+                Profile.Setting(value: response.user.firstName, icon: "person", type: .firstName),
+                Profile.Setting(value: response.user.lastName, icon: "person", type: .lastName),
+                Profile.Setting(value: response.user.username, icon: "person", type: .username)
+            ]
+        let viewModelSuccess = Profile.GetUserDataAction.ViewModel.Success(userId: response.user.id ?? "",
+                                                                           displayName: response.user.username ?? "",
+                                                                           profileImage: response.user.profileImage ?? "",
+                                                                           settings: settings)
         viewController?.presenter(didSucceedGetUserData: viewModelSuccess)
     }
 
-    func interactor(didFail response: Profile.ResponseFailure) {
-        viewController?.presenter(didFail: Profile.ViewModelFailure(myError: response.myError))
+    func interactor(didFailGetUserData response: Profile.GetUserDataAction.Response.Failure) {
+        let viewModel = Profile.GetUserDataAction.ViewModel.Failure(myError: response.myError)
+        viewController?.presenter(didFailGetUserData: viewModel)
+    }
+
+    func interactor(didSucceedUpdateSetting response: Profile.UpdateSettingAction.Response.Success) {
+        let viewModel = Profile.UpdateSettingAction.ViewModel.Success()
+        viewController?.presenter(didSucceedUpdateSetting: viewModel)
+    }
+
+    func interactor(didFailUpdateSetting response: Profile.UpdateSettingAction.Response.Failure) {
+        let viewModel = Profile.UpdateSettingAction.ViewModel.Failure(myError: response.myError)
+        viewController?.presenter(didFailUpdateSettingData: viewModel)
     }
 }
