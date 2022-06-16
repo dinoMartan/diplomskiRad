@@ -29,7 +29,8 @@ extension LoginDataModelMock {
         let request = Login.ForgottenPasswordAction.Request(email: "email@email.com")
         let responseSuccess = Login.ForgottenPasswordAction.Response.Success()
         let responseFailure = Login.ForgottenPasswordAction.Response.Failure(myError: LoginDataModelMock.myError)
-        let viewModelSuccess = Login.ForgottenPasswordAction.ViewModel.Success(title: "success title", message: "success message")
+        let viewModelSuccess = Login.ForgottenPasswordAction.ViewModel.Success(title: "Email poslan",
+                                                                               message: "Email za reset lozinke je poslan na Vašu email adresu")
         let viewModelFailure = Login.ForgottenPasswordAction.ViewModel.Failure(myError: LoginDataModelMock.myError)
     }
 }
