@@ -26,23 +26,24 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "8C6BDC2E283CE71F00A96ED4"
+            BuildableName = "Connect.app"
+            BlueprintName = "Connect"
+            ReferencedContainer = "container:Connect.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8C9304FF2844B76100AE2023"
-               BuildableName = "ConnectTests.xctest"
-               BlueprintName = "ConnectTests"
-               ReferencedContainer = "container:Connect.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8C93050C2844B79A00AE2023"
+               BlueprintIdentifier = "8C9305212844BA2800AE2023"
                BuildableName = "ConnectUnitTests.xctest"
                BlueprintName = "ConnectUnitTests"
                ReferencedContainer = "container:Connect.xcodeproj">

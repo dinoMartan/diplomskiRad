@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		8C445E492855E9A80023CF41 /* RegistrationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E482855E9A80023CF41 /* RegistrationPresenterTests.swift */; };
 		8C445E4B2855EA280023CF41 /* RegistrationViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E4A2855EA280023CF41 /* RegistrationViewControllerMock.swift */; };
+		8C445E67285B2F110023CF41 /* LoginDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E66285B2F110023CF41 /* LoginDataModelMock.swift */; };
+		8C445E69285B2F280023CF41 /* LoginViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E68285B2F280023CF41 /* LoginViewControllerMock.swift */; };
+		8C445E6B285B2F310023CF41 /* LoginPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E6A285B2F310023CF41 /* LoginPresenterMock.swift */; };
+		8C445E6D285B32BF0023CF41 /* LoginInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E6C285B32BF0023CF41 /* LoginInteractorTests.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -124,6 +128,10 @@
 		8546B102C62A6D9119A8464D /* Pods-Connect.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Connect.release.xcconfig"; path = "Target Support Files/Pods-Connect/Pods-Connect.release.xcconfig"; sourceTree = "<group>"; };
 		8C445E482855E9A80023CF41 /* RegistrationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterTests.swift; sourceTree = "<group>"; };
 		8C445E4A2855EA280023CF41 /* RegistrationViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerMock.swift; sourceTree = "<group>"; };
+		8C445E66285B2F110023CF41 /* LoginDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModelMock.swift; sourceTree = "<group>"; };
+		8C445E68285B2F280023CF41 /* LoginViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerMock.swift; sourceTree = "<group>"; };
+		8C445E6A285B2F310023CF41 /* LoginPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenterMock.swift; sourceTree = "<group>"; };
+		8C445E6C285B32BF0023CF41 /* LoginInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractorTests.swift; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -283,6 +291,25 @@
 				8C9305392844C25A00AE2023 /* RegistrationDataModelMock.swift */,
 				8C445E4A2855EA280023CF41 /* RegistrationViewControllerMock.swift */,
 				8C930557284A927200AE2023 /* RegistrationPresenterMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8C445E64285B2EF60023CF41 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				8C445E65285B2EFF0023CF41 /* Mocks */,
+				8C445E6C285B32BF0023CF41 /* LoginInteractorTests.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		8C445E65285B2EFF0023CF41 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8C445E66285B2F110023CF41 /* LoginDataModelMock.swift */,
+				8C445E68285B2F280023CF41 /* LoginViewControllerMock.swift */,
+				8C445E6A285B2F310023CF41 /* LoginPresenterMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -593,6 +620,7 @@
 		8C93052C2844BA5400AE2023 /* SceneTests */ = {
 			isa = PBXGroup;
 			children = (
+				8C445E64285B2EF60023CF41 /* Login */,
 				8C93052D2844BA6B00AE2023 /* Registration */,
 			);
 			path = SceneTests;
@@ -895,9 +923,13 @@
 			files = (
 				8C445E4B2855EA280023CF41 /* RegistrationViewControllerMock.swift in Sources */,
 				8C9305332844BB8400AE2023 /* UserRepositoryMock.swift in Sources */,
+				8C445E6D285B32BF0023CF41 /* LoginInteractorTests.swift in Sources */,
 				8C9305252844BA2800AE2023 /* RegistrationInteractorTests.swift in Sources */,
 				8C445E492855E9A80023CF41 /* RegistrationPresenterTests.swift in Sources */,
+				8C445E69285B2F280023CF41 /* LoginViewControllerMock.swift in Sources */,
 				8C93052F2844BB6A00AE2023 /* KeychainServiceMock.swift in Sources */,
+				8C445E6B285B2F310023CF41 /* LoginPresenterMock.swift in Sources */,
+				8C445E67285B2F110023CF41 /* LoginDataModelMock.swift in Sources */,
 				8C9305312844BB7800AE2023 /* AuthenticationRepositoryMock.swift in Sources */,
 				8C93053A2844C25A00AE2023 /* RegistrationDataModelMock.swift in Sources */,
 				8C930558284A927200AE2023 /* RegistrationPresenterMock.swift in Sources */,

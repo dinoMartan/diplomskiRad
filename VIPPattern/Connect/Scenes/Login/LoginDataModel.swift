@@ -13,8 +13,8 @@ struct Login { }
 extension Login {
     struct LoginAction {
         struct Request {
-            let email: String?
-            let password: String?
+            let email: String
+            let password: String
         }
 
         struct Response: Equatable {
@@ -39,7 +39,7 @@ extension Login {
 extension Login {
     struct ForgottenPasswordAction {
         struct Request {
-            let email: String?
+            let email: String
         }
 
         struct Response: Equatable {

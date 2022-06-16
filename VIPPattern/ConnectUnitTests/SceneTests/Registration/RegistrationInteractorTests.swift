@@ -38,6 +38,7 @@ class RegistrationInteractorTests: XCTestCase {
     }
 }
 
+// MARK: RegisterAction tests
 extension RegistrationInteractorTests {
     func testRegisterUser_WhenRegisterUserCalledWithRequest_ShouldCallAuthenticationRepository() {
         // Given
