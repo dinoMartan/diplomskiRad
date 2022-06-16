@@ -6,6 +6,7 @@
 //
 
 @testable import Connect
+import Foundation
 
 class DataMock {
     // User
@@ -18,6 +19,14 @@ class DataMock {
 
     // Authentication
     var authenticationUserId: String? = "user id"
+
+    // Project
+    var projectId: String? = "project id"
+    var projectTitle: String? = "project title"
+    var projectCreatedAt: Date? = Date()
+    var projectDescription: String? = "project description"
+    var projectHaveTags: [String]? = ["have1", "have2"]
+    var projectNeedTags: [String]? = ["need1", "need2"]
 }
 
 extension DataMock {
@@ -32,5 +41,17 @@ extension DataMock {
 
     func getAuthenticationResponse() -> AuthenticationResponse {
         AuthenticationResponse(userId: authenticationUserId)
+    }
+}
+
+extension DataMock {
+    func getProject() -> Project {
+        Project(id: projectId,
+                title: projectTitle,
+                createdAt: projectCreatedAt,
+                description: projectDescription,
+                haveTags: projectHaveTags,
+                needTags: projectNeedTags,
+                owner: getUser().getUserNested())
     }
 }

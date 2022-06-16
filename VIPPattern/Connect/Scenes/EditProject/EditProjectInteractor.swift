@@ -46,21 +46,21 @@ extension EditProjectInteractor {
         }
         getUser { [weak self] user in
             guard let self = self else { return }
-            var project = self.getNewProjectFromRequest(request)
-            project.owner = user.getUserNested()
+            let project = self.getNewProjectFromRequest(request,
+                                                        owner: user.getUserNested())
             self.currentProject = project
             self.setCurrentProject()
         }
     }
 
-    private func getNewProjectFromRequest(_ request: EditProject.SaveProjectAction.Request) -> Project {
+    private func getNewProjectFromRequest(_ request: EditProject.SaveProjectAction.Request, owner: UserNested) -> Project {
         Project(id: UUID().uuidString,
                 title: request.title,
                 createdAt: Date(),
                 description: request.description,
                 haveTags: request.haveTags,
-                needTags: request.haveTags,
-                owner: nil)
+                needTags: request.needTags,
+                owner: owner)
     }
 
     private func updateCurrentProject(with request: EditProject.SaveProjectAction.Request) {

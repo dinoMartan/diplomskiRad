@@ -19,6 +19,12 @@
 		8C445E87285B72A70023CF41 /* ProfileDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E82285B72A70023CF41 /* ProfileDataModelMock.swift */; };
 		8C445E88285B72A70023CF41 /* ProfilePresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E83285B72A70023CF41 /* ProfilePresenterMock.swift */; };
 		8C445E89285B72A70023CF41 /* ProfilePresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E84285B72A70023CF41 /* ProfilePresenterTests.swift */; };
+		8C445E91285BA2BA0023CF41 /* EditProjectInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E8C285BA2BA0023CF41 /* EditProjectInteractorTests.swift */; };
+		8C445E92285BA2BA0023CF41 /* EditProjectViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E8D285BA2BA0023CF41 /* EditProjectViewControllerMock.swift */; };
+		8C445E93285BA2BA0023CF41 /* EditProjectDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E8E285BA2BA0023CF41 /* EditProjectDataModelMock.swift */; };
+		8C445E94285BA2BA0023CF41 /* EditProjectPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E8F285BA2BA0023CF41 /* EditProjectPresenterMock.swift */; };
+		8C445E95285BA2BA0023CF41 /* EditProjectPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E90285BA2BA0023CF41 /* EditProjectPresenterTests.swift */; };
+		8C445E98285BA5CA0023CF41 /* ProjectsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E97285BA5CA0023CF41 /* ProjectsRepositoryMock.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -144,6 +150,12 @@
 		8C445E82285B72A70023CF41 /* ProfileDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDataModelMock.swift; sourceTree = "<group>"; };
 		8C445E83285B72A70023CF41 /* ProfilePresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterMock.swift; sourceTree = "<group>"; };
 		8C445E84285B72A70023CF41 /* ProfilePresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenterTests.swift; sourceTree = "<group>"; };
+		8C445E8C285BA2BA0023CF41 /* EditProjectInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectInteractorTests.swift; sourceTree = "<group>"; };
+		8C445E8D285BA2BA0023CF41 /* EditProjectViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectViewControllerMock.swift; sourceTree = "<group>"; };
+		8C445E8E285BA2BA0023CF41 /* EditProjectDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectDataModelMock.swift; sourceTree = "<group>"; };
+		8C445E8F285BA2BA0023CF41 /* EditProjectPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectPresenterMock.swift; sourceTree = "<group>"; };
+		8C445E90285BA2BA0023CF41 /* EditProjectPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProjectPresenterTests.swift; sourceTree = "<group>"; };
+		8C445E97285BA5CA0023CF41 /* ProjectsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsRepositoryMock.swift; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -343,6 +355,26 @@
 				8C445E82285B72A70023CF41 /* ProfileDataModelMock.swift */,
 				8C445E81285B72A70023CF41 /* ProfileViewControllerMock.swift */,
 				8C445E83285B72A70023CF41 /* ProfilePresenterMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		8C445E8B285BA29F0023CF41 /* EditProject */ = {
+			isa = PBXGroup;
+			children = (
+				8C445E96285BA2BF0023CF41 /* Mocks */,
+				8C445E8C285BA2BA0023CF41 /* EditProjectInteractorTests.swift */,
+				8C445E90285BA2BA0023CF41 /* EditProjectPresenterTests.swift */,
+			);
+			path = EditProject;
+			sourceTree = "<group>";
+		};
+		8C445E96285BA2BF0023CF41 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8C445E8E285BA2BA0023CF41 /* EditProjectDataModelMock.swift */,
+				8C445E8D285BA2BA0023CF41 /* EditProjectViewControllerMock.swift */,
+				8C445E8F285BA2BA0023CF41 /* EditProjectPresenterMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -642,10 +674,11 @@
 		8C93052B2844BA4D00AE2023 /* CommonMocks */ = {
 			isa = PBXGroup;
 			children = (
+				8C9305342844BC3900AE2023 /* DataMock.swift */,
 				8C93052E2844BB6A00AE2023 /* KeychainServiceMock.swift */,
 				8C9305302844BB7800AE2023 /* AuthenticationRepositoryMock.swift */,
 				8C9305322844BB8400AE2023 /* UserRepositoryMock.swift */,
-				8C9305342844BC3900AE2023 /* DataMock.swift */,
+				8C445E97285BA5CA0023CF41 /* ProjectsRepositoryMock.swift */,
 			);
 			path = CommonMocks;
 			sourceTree = "<group>";
@@ -653,6 +686,7 @@
 		8C93052C2844BA5400AE2023 /* SceneTests */ = {
 			isa = PBXGroup;
 			children = (
+				8C445E8B285BA29F0023CF41 /* EditProject */,
 				8C445E70285B60760023CF41 /* Profile */,
 				8C445E64285B2EF60023CF41 /* Login */,
 				8C93052D2844BA6B00AE2023 /* Registration */,
@@ -956,11 +990,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C445E4B2855EA280023CF41 /* RegistrationViewControllerMock.swift in Sources */,
+				8C445E93285BA2BA0023CF41 /* EditProjectDataModelMock.swift in Sources */,
+				8C445E95285BA2BA0023CF41 /* EditProjectPresenterTests.swift in Sources */,
+				8C445E92285BA2BA0023CF41 /* EditProjectViewControllerMock.swift in Sources */,
 				8C445E89285B72A70023CF41 /* ProfilePresenterTests.swift in Sources */,
 				8C9305332844BB8400AE2023 /* UserRepositoryMock.swift in Sources */,
 				8C445E6D285B32BF0023CF41 /* LoginInteractorTests.swift in Sources */,
+				8C445E94285BA2BA0023CF41 /* EditProjectPresenterMock.swift in Sources */,
 				8C9305252844BA2800AE2023 /* RegistrationInteractorTests.swift in Sources */,
 				8C445E86285B72A70023CF41 /* ProfileViewControllerMock.swift in Sources */,
+				8C445E98285BA5CA0023CF41 /* ProjectsRepositoryMock.swift in Sources */,
 				8C445E85285B72A70023CF41 /* ProfileInteractorTests.swift in Sources */,
 				8C445E492855E9A80023CF41 /* RegistrationPresenterTests.swift in Sources */,
 				8C445E87285B72A70023CF41 /* ProfileDataModelMock.swift in Sources */,
@@ -971,6 +1010,7 @@
 				8C445E67285B2F110023CF41 /* LoginDataModelMock.swift in Sources */,
 				8C9305312844BB7800AE2023 /* AuthenticationRepositoryMock.swift in Sources */,
 				8C445E88285B72A70023CF41 /* ProfilePresenterMock.swift in Sources */,
+				8C445E91285BA2BA0023CF41 /* EditProjectInteractorTests.swift in Sources */,
 				8C93053A2844C25A00AE2023 /* RegistrationDataModelMock.swift in Sources */,
 				8C930558284A927200AE2023 /* RegistrationPresenterMock.swift in Sources */,
 				8C9305352844BC3900AE2023 /* DataMock.swift in Sources */,
