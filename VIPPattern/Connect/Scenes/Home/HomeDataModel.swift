@@ -7,29 +7,38 @@
 
 import Foundation
 
-struct Home {
-    struct ResponseFailure {
-        let myError: MyError
-    }
+struct Home { }
 
-    struct ViewModelFailure {
-        let myError: MyError
-    }
-}
-
-// MARK: 
+// MARK: GetAllProjectsAction
 extension Home {
-    struct Action {
-        struct Request {
+    struct GetAllProjectsAction {
+        struct Request { }
 
+        struct Response {
+            struct Success {
+                let projects: [Project]
+            }
+
+            struct Failure {
+                let myError: MyError
+            }
         }
 
-        struct ResponseSuccess {
-            
-        }
+        struct ViewModel {
+            struct Success {
+                let projects: [Project]
+            }
 
-        struct ViewModelSuccess {
-            
+            struct Project {
+                let projectId: String?
+                let projectTitle: String?
+                let ownerUsername: String?
+                let ownerImage: String?
+            }
+
+            struct Failure {
+                let myError: MyError
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ protocol FirestoreServiceProtocol {
     func getDocument<T: Codable>(documentPath: String, completion: @escaping ((Result<T, MyError>) -> Void))
     func setDocument<T: Codable>(documentPath: String, document: T, completion: @escaping ((Result<Void, MyError>) -> Void))
     func uploadImage(data: Data, completion: @escaping ((Result<String?, MyError>) -> Void))
+    func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
 }
 
 class FirestoreService: FirestoreServiceProtocol {
@@ -46,7 +47,26 @@ class FirestoreService: FirestoreServiceProtocol {
         catch {
             completion(.failure(MyError(type: .codableError, message: error.localizedDescription)))
         }
-        
+    }
+
+    func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+        let collectionReference = firestore.collection(collectionPath)
+        collectionReference.getDocuments { querySnapshot, error in
+            guard let querySnapshot = querySnapshot,
+            error == nil else {
+                completion(.failure(MyError(type: .firestoreFailed, message: error?.localizedDescription)))
+                return
+            }
+            var results = [T]()
+            for document in querySnapshot.documents {
+                do {
+                    let result = try document.data(as: T.self)
+                    results.append(result)
+                }
+                catch { continue }
+            }
+            completion(.success(results))
+        }
     }
 }
 

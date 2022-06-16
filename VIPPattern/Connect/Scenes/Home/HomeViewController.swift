@@ -8,6 +8,8 @@
 import UIKit
 
 protocol HomePresenterOutput: AnyObject {
+    func presenter(didSucceedGetAllProjects viewModel: Home.GetAllProjectsAction.ViewModel.Success)
+    func presenter(didFailGetAllProjects viewModel: Home.GetAllProjectsAction.ViewModel.Failure)
 }
 
 class HomeViewController: UIViewController {
@@ -23,6 +25,8 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        let request = Home.GetAllProjectsAction.Request()
+        interactor?.getAllProjects(request: request)
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -59,4 +63,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension HomeViewController: HomePresenterOutput {
+    func presenter(didSucceedGetAllProjects viewModel: Home.GetAllProjectsAction.ViewModel.Success) {
+        // TODO: populate table
+    }
+
+    func presenter(didFailGetAllProjects viewModel: Home.GetAllProjectsAction.ViewModel.Failure) {
+        showMyErrorAlert(viewModel.myError)
+    }
 }
