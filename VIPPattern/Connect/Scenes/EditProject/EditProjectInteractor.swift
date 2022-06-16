@@ -75,7 +75,7 @@ extension EditProjectInteractor {
     private func getUser(success: @escaping ((User) -> Void)) {
         guard let userId = keychainService.getUserId() else {
             let myError = MyError(type: nil, message: nil)
-            presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
+            presenter?.interactor(didFailSaveProject: EditProject.SaveProjectAction.Response.Failure(myError: myError))
             return
         }
         userRepository.getUser(userId: userId) { [weak self] result in
@@ -83,7 +83,7 @@ extension EditProjectInteractor {
             case .success(let user):
                 success(user)
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailSaveProject: EditProject.SaveProjectAction.Response.Failure(myError: myError))
             }
         }
     }
@@ -93,10 +93,9 @@ extension EditProjectInteractor {
         projectsRepository.setProject(project: currentProject) { [weak self] result in
             switch result {
             case .success(_):
-                self?.presenter?.interactor(didSucceedSaveProject: EditProject.SaveProjectAction.ResponseSuccess())
+                self?.presenter?.interactor(didSucceedSaveProject: EditProject.SaveProjectAction.Response.Success())
             case .failure(let myError):
-                break
-                self?.presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailSaveProject: EditProject.SaveProjectAction.Response.Failure(myError: myError))
             }
         }
     }
@@ -109,9 +108,9 @@ extension EditProjectInteractor {
             switch result {
             case .success(let project):
                 self?.currentProject = project
-                self?.presenter?.interactor(didSucceedGetProject: EditProject.GetProjectAction.ResponseSuccess(project: project))
+                self?.presenter?.interactor(didSucceedGetProject: EditProject.GetProjectAction.Response.Success(project: project))
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailGetProject: EditProject.GetProjectAction.Response.Failure(myError: myError))
             }
         }
     }

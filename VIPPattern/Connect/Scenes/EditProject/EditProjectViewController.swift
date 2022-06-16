@@ -8,9 +8,10 @@
 import UIKit
 
 protocol EditProjectPresenterOutput: AnyObject {
-    func presenter(didSucceedGetProject viewModel: EditProject.GetProjectAction.ViewModelSuccess)
-    func presenter(didSucceedSaveProject viewModel: EditProject.SaveProjectAction.ViewModelSuccess)
-    func presenter(didFail viewModel: EditProject.ViewModelFailure)
+    func presenter(didSucceedGetProject viewModel: EditProject.GetProjectAction.ViewModel.Success)
+    func presenter(didFailGetProject viewModel: EditProject.GetProjectAction.ViewModel.Failure)
+    func presenter(didSucceedSaveProject viewModel: EditProject.SaveProjectAction.ViewModel.Success)
+    func presenter(didFailSaveProject viewModel: EditProject.SaveProjectAction.ViewModel.Failure)
 }
 
 class EditProjectViewController: UIViewController {
@@ -62,18 +63,22 @@ extension EditProjectViewController {
 }
 
 extension EditProjectViewController: EditProjectPresenterOutput {
-    func presenter(didSucceedGetProject viewModel: EditProject.GetProjectAction.ViewModelSuccess) {
+    func presenter(didSucceedGetProject viewModel: EditProject.GetProjectAction.ViewModel.Success) {
         editProjectView?.titleTextField.text = viewModel.title
         editProjectView?.descriptionTextView.text = viewModel.description
         editProjectView?.haveTagsField.addTags(viewModel.haveTags ?? [])
         editProjectView?.needTagsField.addTags(viewModel.needTags ?? [])
     }
 
-    func presenter(didSucceedSaveProject viewModel: EditProject.SaveProjectAction.ViewModelSuccess) {
+    func presenter(didFailGetProject viewModel: EditProject.GetProjectAction.ViewModel.Failure) {
+        showMyErrorAlert(viewModel.myError)
+    }
+
+    func presenter(didSucceedSaveProject viewModel: EditProject.SaveProjectAction.ViewModel.Success) {
         navigationController?.popViewController(animated: true)
     }
 
-    func presenter(didFail viewModel: EditProject.ViewModelFailure) {
+    func presenter(didFailSaveProject viewModel: EditProject.SaveProjectAction.ViewModel.Failure) {
         showMyErrorAlert(viewModel.myError)
     }
 }

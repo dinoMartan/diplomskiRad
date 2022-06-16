@@ -7,50 +7,62 @@
 
 import Foundation
 
-struct EditProject {
-    struct ResponseFailure {
-        let myError: MyError
-    }
-
-    struct ViewModelFailure {
-        let myError: MyError
-    }
-}
+struct EditProject: Equatable { }
 
 // MARK: GetProjectAction
 extension EditProject {
-    struct GetProjectAction {
-        struct Request {
+    struct GetProjectAction: Equatable {
+        struct Request: Equatable { }
+
+        struct Response: Equatable {
+            struct Success: Equatable {
+                let project: Project
+            }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
 
-        struct ResponseSuccess {
-            let project: Project
-        }
+        struct ViewModel: Equatable {
+            struct Success: Equatable {
+                let title: String?
+                let description: String?
+                let haveTags: [String]?
+                let needTags: [String]?
+            }
 
-        struct ViewModelSuccess {
-            let title: String?
-            let description: String?
-            let haveTags: [String]?
-            let needTags: [String]?
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
     }
 }
 
 // MARK: SaveProjectAction
 extension EditProject {
-    struct SaveProjectAction {
-        struct Request {
+    struct SaveProjectAction: Equatable {
+        struct Request: Equatable {
             let title: String?
             let description: String?
             let haveTags: [String]?
             let needTags: [String]?
         }
 
-        struct ResponseSuccess {
+        struct Response: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
 
-        struct ViewModelSuccess {
-            
+        struct ViewModel {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
     }
 }
