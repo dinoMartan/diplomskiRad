@@ -8,7 +8,7 @@
 import FirebaseFirestoreSwift
 import Foundation
 
-struct Project: Codable {
+struct Project: Codable, Equatable {
     @DocumentID var id: String?
     var title: String?
     var createdAt: Date?

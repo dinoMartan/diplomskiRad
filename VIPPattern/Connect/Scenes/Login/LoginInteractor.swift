@@ -16,11 +16,11 @@ class LoginInteractor: LoginInteractorProtocol {
     var presenter: LoginPresenterProtocol?
 
     private let keychainService: KeychainServiceProtocol
-    private let authenticationService: AuthenticationServiceProtocol
+    private let authenticationRepository: AuthenticationRepositoryProtocol
 
-    init(keychainService: KeychainServiceProtocol, authenticationService: AuthenticationServiceProtocol) {
+    init(keychainService: KeychainServiceProtocol, authenticationRepository: AuthenticationRepositoryProtocol) {
         self.keychainService = keychainService
-        self.authenticationService = authenticationService
+        self.authenticationRepository = authenticationRepository
     }
 
     deinit {
@@ -30,41 +30,25 @@ class LoginInteractor: LoginInteractorProtocol {
 
 extension LoginInteractor {
     func loginUser(request: Login.LoginAction.Request) {
-        guard let email = request.email,
-              !email.isEmpty,
-              let password = request.password,
-              !password.isEmpty
-        else {
-            let myError = MyError(type: .registrationFieldsRequired, message: nil)
-            presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
-            return
-        }
-        authenticationService.signInUser(email: email, password: password) { [weak self] result in
+        authenticationRepository.signInUser(email: request.email, password: request.password) { [weak self] result in
             switch result {
-            case .success(let authDataResult):
+            case .success(let authenticationResponse):
                 self?.keychainService.setUserLoggedIn(true)
-                self?.keychainService.setUserId(authDataResult.user.uid)
-                self?.presenter?.interactor(didSucceedLogin: Login.LoginAction.ResponseSuccess())
+                self?.keychainService.setUserId(authenticationResponse.userId)
+                self?.presenter?.interactor(didSucceedLogin: Login.LoginAction.Response.Success())
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailLogin: Login.LoginAction.Response.Failure(myError: myError))
             }
         }
     }
 
     func forgottenPassword(request: Login.ForgottenPasswordAction.Request) {
-        guard let email = request.email,
-              !email.isEmpty
-        else {
-            let myError = MyError(type: .passwordResetFailed, message: nil)
-            presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
-            return
-        }
-        authenticationService.sendResetPasswordEmail(email: email) { [weak self] result in
+        authenticationRepository.sendResetPasswordEmail(email: request.email) { [weak self] result in
             switch result {
             case .success(_):
-                self?.presenter?.interactor(didSucceedForgottenPassword: Login.ForgottenPasswordAction.ResponseSuccess())
+                self?.presenter?.interactor(didSucceedForgottenPassword: Login.ForgottenPasswordAction.Response.Success())
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: Login.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailForgottenPassword: Login.ForgottenPasswordAction.Response.Failure(myError: myError))
             }
         }
     }

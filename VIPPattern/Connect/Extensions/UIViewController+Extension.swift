@@ -8,9 +8,9 @@
 import UIKit
 
 extension UIViewController {
-    func showMyErrorAlert(_ myError: MyError, completion: (() -> Void)? = nil) {
+    func showMyErrorAlert(_ myError: MyError?, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: "Greška",
-                                                message: myError.getMessage(),
+                                                message: myError?.getMessage() ?? "",
                                                 preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "OK", style: .destructive) { _ in
             completion?()

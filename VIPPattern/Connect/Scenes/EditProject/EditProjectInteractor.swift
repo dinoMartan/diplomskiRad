@@ -46,21 +46,21 @@ extension EditProjectInteractor {
         }
         getUser { [weak self] user in
             guard let self = self else { return }
-            var project = self.getNewProjectFromRequest(request)
-            project.owner = user.getUserNested()
+            let project = self.getNewProjectFromRequest(request,
+                                                        owner: user.getUserNested())
             self.currentProject = project
             self.setCurrentProject()
         }
     }
 
-    private func getNewProjectFromRequest(_ request: EditProject.SaveProjectAction.Request) -> Project {
+    private func getNewProjectFromRequest(_ request: EditProject.SaveProjectAction.Request, owner: UserNested) -> Project {
         Project(id: UUID().uuidString,
                 title: request.title,
                 createdAt: Date(),
                 description: request.description,
                 haveTags: request.haveTags,
-                needTags: request.haveTags,
-                owner: nil)
+                needTags: request.needTags,
+                owner: owner)
     }
 
     private func updateCurrentProject(with request: EditProject.SaveProjectAction.Request) {
@@ -75,7 +75,7 @@ extension EditProjectInteractor {
     private func getUser(success: @escaping ((User) -> Void)) {
         guard let userId = keychainService.getUserId() else {
             let myError = MyError(type: nil, message: nil)
-            presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
+            presenter?.interactor(didFailSaveProject: EditProject.SaveProjectAction.Response.Failure(myError: myError))
             return
         }
         userRepository.getUser(userId: userId) { [weak self] result in
@@ -83,7 +83,7 @@ extension EditProjectInteractor {
             case .success(let user):
                 success(user)
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailSaveProject: EditProject.SaveProjectAction.Response.Failure(myError: myError))
             }
         }
     }
@@ -93,10 +93,9 @@ extension EditProjectInteractor {
         projectsRepository.setProject(project: currentProject) { [weak self] result in
             switch result {
             case .success(_):
-                self?.presenter?.interactor(didSucceedSaveProject: EditProject.SaveProjectAction.ResponseSuccess())
+                self?.presenter?.interactor(didSucceedSaveProject: EditProject.SaveProjectAction.Response.Success())
             case .failure(let myError):
-                break
-                self?.presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailSaveProject: EditProject.SaveProjectAction.Response.Failure(myError: myError))
             }
         }
     }
@@ -109,9 +108,9 @@ extension EditProjectInteractor {
             switch result {
             case .success(let project):
                 self?.currentProject = project
-                self?.presenter?.interactor(didSucceedGetProject: EditProject.GetProjectAction.ResponseSuccess(project: project))
+                self?.presenter?.interactor(didSucceedGetProject: EditProject.GetProjectAction.Response.Success(project: project))
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: EditProject.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailGetProject: EditProject.GetProjectAction.Response.Failure(myError: myError))
             }
         }
     }

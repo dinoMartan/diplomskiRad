@@ -8,9 +8,10 @@
 import Foundation
 
 protocol EditProjectPresenterProtocol: AnyObject {
-    func interactor(didSucceedGetProject response: EditProject.GetProjectAction.ResponseSuccess)
-    func interactor(didSucceedSaveProject response: EditProject.SaveProjectAction.ResponseSuccess)
-    func interactor(didFail response: EditProject.ResponseFailure)
+    func interactor(didSucceedGetProject response: EditProject.GetProjectAction.Response.Success)
+    func interactor(didFailGetProject response: EditProject.GetProjectAction.Response.Failure)
+    func interactor(didSucceedSaveProject response: EditProject.SaveProjectAction.Response.Success)
+    func interactor(didFailSaveProject response: EditProject.SaveProjectAction.Response.Failure)
 }
 
 class EditProjectPresenter: EditProjectPresenterProtocol {
@@ -21,20 +22,24 @@ class EditProjectPresenter: EditProjectPresenterProtocol {
         
     }
 
-    func interactor(didSucceedGetProject response: EditProject.GetProjectAction.ResponseSuccess) {
+    func interactor(didSucceedGetProject response: EditProject.GetProjectAction.Response.Success) {
         let project = response.project
-        let viewModel = EditProject.GetProjectAction.ViewModelSuccess(title: project.title,
-                                                                      description: project.description,
-                                                                      haveTags: project.haveTags,
-                                                                      needTags: project.needTags)
+        let viewModel = EditProject.GetProjectAction.ViewModel.Success(title: project.title,
+                                                                       description: project.description,
+                                                                       haveTags: project.haveTags,
+                                                                       needTags: project.needTags)
         viewController?.presenter(didSucceedGetProject: viewModel)
     }
 
-    func interactor(didSucceedSaveProject response: EditProject.SaveProjectAction.ResponseSuccess) {
-        viewController?.presenter(didSucceedSaveProject: EditProject.SaveProjectAction.ViewModelSuccess())
+    func interactor(didFailGetProject response: EditProject.GetProjectAction.Response.Failure) {
+        viewController?.presenter(didFailGetProject: EditProject.GetProjectAction.ViewModel.Failure(myError: response.myError))
     }
 
-    func interactor(didFail response: EditProject.ResponseFailure) {
-        viewController?.presenter(didFail: EditProject.ViewModelFailure(myError: response.myError))
+    func interactor(didSucceedSaveProject response: EditProject.SaveProjectAction.Response.Success) {
+        viewController?.presenter(didSucceedSaveProject: EditProject.SaveProjectAction.ViewModel.Success())
+    }
+
+    func interactor(didFailSaveProject response: EditProject.SaveProjectAction.Response.Failure) {
+        viewController?.presenter(didFailSaveProject: EditProject.SaveProjectAction.ViewModel.Failure(myError: response.myError))
     }
 }

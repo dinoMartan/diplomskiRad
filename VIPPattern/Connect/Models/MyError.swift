@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MyError: Error {
+struct MyError: Error, Equatable {
     let type: MyErrorType?
     let message: String?
 

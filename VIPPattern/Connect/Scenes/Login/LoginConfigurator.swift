@@ -11,11 +11,11 @@ class LoginConfigurator {
     static func configureModule(loginRouterOutput: LoginRouterOutput,
                                 viewController: LoginViewController,
                                 keychainService: KeychainServiceProtocol,
-                                authenticationService: AuthenticationServiceProtocol) {
+                                authenticationRepository: AuthenticationRepositoryProtocol) {
         let view = LoginView()
         let router = LoginRouter()
         let interactor = LoginInteractor(keychainService: keychainService,
-                                         authenticationService: authenticationService)
+                                         authenticationRepository: authenticationRepository)
         let presenter = LoginPresenter()
 
         viewController.loginView = view

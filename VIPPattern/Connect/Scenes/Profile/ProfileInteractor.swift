@@ -38,9 +38,9 @@ extension ProfileInteractor {
             switch result {
             case .success(let user):
                 self?.user = user
-                self?.presenter?.interactor(getUserDataActionSuccess: Profile.GetUserDataAction.ResponseSuccess(user: user))
+                self?.presenter?.interactor(didSucceedGetUserData: Profile.GetUserDataAction.Response.Success(user: user))
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: Profile.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailGetUserData: Profile.GetUserDataAction.Response.Failure(myError: myError))
             }
         }
     }
@@ -67,9 +67,10 @@ extension ProfileInteractor {
         userRepository.setUser(user: user, userImage: userImage) { [weak self] result in
             switch result {
             case .success(_):
+                self?.presenter?.interactor(didSucceedUpdateSetting: Profile.UpdateSettingAction.Response.Success())
                 self?.getUserData(request: Profile.GetUserDataAction.Request())
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: Profile.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailUpdateSetting: Profile.UpdateSettingAction.Response.Failure(myError: myError))
             }
         }
     }

@@ -8,7 +8,7 @@
 import FirebaseFirestoreSwift
 import Foundation
 
-struct User: Codable {
+struct User: Codable, Equatable {
     @DocumentID var id: String?
     var username: String?
     var firstName: String?
@@ -26,7 +26,7 @@ struct User: Codable {
     }
 }
 
-struct UserNested: Codable {
+struct UserNested: Codable, Equatable {
     let id: String?
     let username: String?
     let firstName: String?

@@ -7,28 +7,30 @@
 
 import Foundation
 
-struct Login {
-    struct ResponseFailure {
-        let myError: MyError
-    }
-
-    struct ViewModelFailure {
-        let myError: MyError
-    }
-}
+struct Login { }
 
 // MARK: LoginAction
 extension Login {
     struct LoginAction {
         struct Request {
-            let email: String?
-            let password: String?
+            let email: String
+            let password: String
         }
 
-        struct ResponseSuccess {
+        struct Response: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError?
+            }
         }
 
-        struct ViewModelSuccess {
+        struct ViewModel {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError?
+            }
         }
     }
 }
@@ -37,15 +39,26 @@ extension Login {
 extension Login {
     struct ForgottenPasswordAction {
         struct Request {
-            let email: String?
+            let email: String
         }
 
-        struct ResponseSuccess {
+        struct Response: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError?
+            }
         }
 
-        struct ViewModelSuccess {
-            let title: String
-            let message: String
+        struct ViewModel {
+            struct Success: Equatable {
+                let title: String
+                let message: String
+            }
+
+            struct Failure: Equatable {
+                let myError: MyError?
+            }
         }
     }
 }

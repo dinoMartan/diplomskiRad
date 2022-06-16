@@ -7,67 +7,72 @@
 
 import UIKit
 
-struct Profile {
-    struct ResponseFailure {
-        let myError: MyError
+struct Profile: Equatable {
+    struct Setting: Equatable {
+        var value: String?
+        let icon: String?
+        let type: SettingType
     }
 
-    struct ViewModelFailure {
-        let myError: MyError
+    enum SettingType: Equatable {
+        case firstName
+        case lastName
+        case username
+        case image(_ image: UIImage?)
     }
 }
 
 // MARK: GetUserDataAction
 extension Profile {
-    struct GetUserDataAction {
-        struct Request {
+    struct GetUserDataAction: Equatable {
+        struct Request: Equatable { }
+
+        struct Response: Equatable {
+            struct Success: Equatable {
+                let user: User
+            }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
 
-        struct ResponseSuccess {
-            let user: User
-        }
+        struct ViewModel: Equatable {
+            struct Success: Equatable {
+                let userId: String
+                let displayName: String
+                let profileImage: String
+                let settings: [Setting]
+            }
 
-        struct ViewModelSuccess {
-            let baseInfo: BaseInfo
-            let sections: [Section]
-        }
-
-        struct BaseInfo {
-            let userId: String?
-            let displayName: String?
-            let profileImage: String?
-        }
-
-        enum Section {
-            case settings(_ settings: [Setting])
-        }
-
-        struct Setting {
-            var value: String?
-            let icon: String?
-            let type: SettingType
-        }
-
-        enum SettingType {
-            case firstName
-            case lastName
-            case username
-            case image(_ image: UIImage?)
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
     }
 }
 
 // MARK: UpdateSettingAction
 extension Profile {
-    struct UpdateSettingAction {
-        struct Request {
-            let setting: GetUserDataAction.Setting
+    struct UpdateSettingAction: Equatable {
+        struct Request: Equatable {
+            let setting: Profile.Setting
         }
 
-        struct ResponseSuccess {
+        struct Response: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
 
-        struct ViewModelSuccess {
+        struct ViewModel: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
     }
 }

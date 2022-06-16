@@ -8,8 +8,8 @@
 import UIKit
 
 protocol RegistrationPresenterOutput: AnyObject {
-    func presenter(didSucceedRegister viewModel: Registration.RegisterAction.ResponseSuccess)
-    func presenter(didFail viewModel: Registration.ViewModelFailure)
+    func presenter(didSucceedRegister viewModel: Registration.RegisterAction.ViewModel.Success)
+    func presenter(didFailRegister viewModel: Registration.RegisterAction.ViewModel.Failure)
 }
 
 class RegistrationViewController: UIViewController {
@@ -59,14 +59,13 @@ extension RegistrationViewController {
 }
 
 extension RegistrationViewController: RegistrationPresenterOutput {
-    func presenter(didSucceedRegister viewModel: Registration.RegisterAction.ResponseSuccess) {
+    func presenter(didSucceedRegister viewModel: Registration.RegisterAction.ViewModel.Success) {
         dismiss(animated: true) { [weak self] in
             self?.router?.showMainFlow()
         }
     }
 
-    func presenter(didFail viewModel: Registration.ViewModelFailure) {
+    func presenter(didFailRegister viewModel: Registration.RegisterAction.ViewModel.Failure) {
         showMyErrorAlert(viewModel.myError)
     }
-
 }

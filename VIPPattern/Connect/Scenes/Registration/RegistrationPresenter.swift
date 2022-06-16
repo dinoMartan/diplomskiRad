@@ -8,8 +8,8 @@
 import Foundation
 
 protocol RegistrationPresenterProtocol: AnyObject {
-    func interactor(didSuceedRegisterAction response: Registration.RegisterAction.ResponseSuccess)
-    func interactor(didFail response: Registration.ResponseFailure)
+    func interactor(didSuceedRegisterAction response: Registration.RegisterAction.Response.Success)
+    func interactor(didFailRegisterAction response: Registration.RegisterAction.Response.Failure)
 }
 
 class RegistrationPresenter: RegistrationPresenterProtocol {
@@ -19,11 +19,11 @@ class RegistrationPresenter: RegistrationPresenterProtocol {
         print("deinit \(self)")
     }
 
-    func interactor(didSuceedRegisterAction response: Registration.RegisterAction.ResponseSuccess) {
-        viewController?.presenter(didSucceedRegister: Registration.RegisterAction.ResponseSuccess())
+    func interactor(didSuceedRegisterAction response: Registration.RegisterAction.Response.Success) {
+        viewController?.presenter(didSucceedRegister: Registration.RegisterAction.ViewModel.Success())
     }
 
-    func interactor(didFail response: Registration.ResponseFailure) {
-        viewController?.presenter(didFail: Registration.ViewModelFailure(myError: response.myError))
+    func interactor(didFailRegisterAction response: Registration.RegisterAction.Response.Failure) {
+        viewController?.presenter(didFailRegister: Registration.RegisterAction.ViewModel.Failure(myError: response.myError))
     }
 }

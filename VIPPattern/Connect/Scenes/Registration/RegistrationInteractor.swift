@@ -15,15 +15,15 @@ protocol RegistrationInteractorProtocol {
 class RegistrationInteractor: RegistrationInteractorProtocol {
     var presenter: RegistrationPresenterProtocol?
 
-    private let authenticationService: AuthenticationServiceProtocol
+    private let authenticationRepository: AuthenticationRepositoryProtocol
     private let keychainService: KeychainServiceProtocol
     private let userRepository: UserRepositoryProtocol
 
     init(keychainService: KeychainServiceProtocol,
-         authenticationService: AuthenticationServiceProtocol,
+         authenticationRepository: AuthenticationRepositoryProtocol,
          userRepository: UserRepositoryProtocol) {
         self.keychainService = keychainService
-        self.authenticationService = authenticationService
+        self.authenticationRepository = authenticationRepository
         self.userRepository = userRepository
     }
 
@@ -41,7 +41,7 @@ extension RegistrationInteractor {
               let lastName = request.lastName, !lastName.isEmpty
         else {
             let myError = MyError(type: .registrationFieldsRequired, message: nil)
-            presenter?.interactor(didFail: Registration.ResponseFailure(myError: myError))
+            presenter?.interactor(didFailRegisterAction: Registration.RegisterAction.Response.Failure(myError: myError))
             return
         }
         var user = User(id: nil,
@@ -50,13 +50,13 @@ extension RegistrationInteractor {
                         lastName: lastName,
                         email: email,
                         profileImage: nil)
-        authenticationService.registerUser(email: email, password: password) { [weak self] result in
+        authenticationRepository.registerUser(email: email, password: password) { [weak self] result in
             switch result {
-            case .success(let authDataResult):
-                user.id = authDataResult.user.uid
+            case .success(let authenticationResponse):
+                user.id = authenticationResponse.userId
                 self?.addUserToDatabase(user: user, image: request.image)
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: Registration.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailRegisterAction: Registration.RegisterAction.Response.Failure(myError: myError))
             }
         }
     }
@@ -67,9 +67,9 @@ extension RegistrationInteractor {
             case .success(_):
                 self?.keychainService.setUserLoggedIn(true)
                 self?.keychainService.setUserId(user.id)
-                self?.presenter?.interactor(didSuceedRegisterAction: Registration.RegisterAction.ResponseSuccess())
+                self?.presenter?.interactor(didSuceedRegisterAction: Registration.RegisterAction.Response.Success())
             case .failure(let myError):
-                self?.presenter?.interactor(didFail: Registration.ResponseFailure(myError: myError))
+                self?.presenter?.interactor(didFailRegisterAction: Registration.RegisterAction.Response.Failure(myError: myError))
             }
         }
     }
