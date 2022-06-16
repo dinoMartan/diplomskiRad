@@ -7,14 +7,14 @@
 
 import UIKit
 
-struct Profile {
-    struct Setting {
+struct Profile: Equatable {
+    struct Setting: Equatable {
         var value: String?
         let icon: String?
         let type: SettingType
     }
 
-    enum SettingType {
+    enum SettingType: Equatable {
         case firstName
         case lastName
         case username
@@ -24,28 +24,28 @@ struct Profile {
 
 // MARK: GetUserDataAction
 extension Profile {
-    struct GetUserDataAction {
-        struct Request { }
+    struct GetUserDataAction: Equatable {
+        struct Request: Equatable { }
 
-        struct Response {
-            struct Success {
+        struct Response: Equatable {
+            struct Success: Equatable {
                 let user: User
             }
 
-            struct Failure {
+            struct Failure: Equatable {
                 let myError: MyError
             }
         }
 
-        struct ViewModel {
-            struct Success {
+        struct ViewModel: Equatable {
+            struct Success: Equatable {
                 let userId: String
                 let displayName: String
                 let profileImage: String
                 let settings: [Setting]
             }
 
-            struct Failure {
+            struct Failure: Equatable {
                 let myError: MyError
             }
         }
@@ -54,23 +54,23 @@ extension Profile {
 
 // MARK: UpdateSettingAction
 extension Profile {
-    struct UpdateSettingAction {
-        struct Request {
+    struct UpdateSettingAction: Equatable {
+        struct Request: Equatable {
             let setting: Profile.Setting
         }
 
-        struct Response {
-            struct Success { }
+        struct Response: Equatable {
+            struct Success: Equatable { }
 
-            struct Failure {
+            struct Failure: Equatable {
                 let myError: MyError
             }
         }
 
-        struct ViewModel {
-            struct Success { }
+        struct ViewModel: Equatable {
+            struct Success: Equatable { }
 
-            struct Failure {
+            struct Failure: Equatable {
                 let myError: MyError
             }
         }
