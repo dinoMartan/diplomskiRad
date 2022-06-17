@@ -12,6 +12,7 @@ struct HomeDataModelMock {
     static let myError = MyError(type: .codableError,
                                          message: "This is message")
     let getAllProjectsAction = HomeDataModelMock.GetAllProjectsAction()
+    let getProjectsWithNeedAction = HomeDataModelMock.GetProjectsWithNeed()
 }
 
 extension HomeDataModelMock {
@@ -25,5 +26,19 @@ extension HomeDataModelMock {
                                                                                                     ownerImage: dataMock.getProject().owner?.profileImage,
                                                                                                     projectNeeds: dataMock.getProject().needTags?.joined(separator: ",") ?? "")])
         let viewModelFailure = Home.GetAllProjectsAction.ViewModel.Failure(myError: myError)
+    }
+}
+
+extension HomeDataModelMock {
+    struct GetProjectsWithNeed {
+        let request = Home.GetProjectsWithNeed.Request(need: "need test")
+        let responseSuccess = Home.GetProjectsWithNeed.Response.Success(projects: [dataMock.getProject()])
+        let responseFailure = Home.GetProjectsWithNeed.Response.Failure(myError: myError)
+        let viewModelSuccess = Home.GetProjectsWithNeed.ViewModel.Success(projects: [Home.HProject(projectId: dataMock.getProject().id,
+                                                                                                    projectTitle: dataMock.getProject().title,
+                                                                                                    ownerUsername: dataMock.getProject().owner?.username,
+                                                                                                    ownerImage: dataMock.getProject().owner?.profileImage,
+                                                                                                    projectNeeds: dataMock.getProject().needTags?.joined(separator: ",") ?? "")])
+        let viewModelFailure = Home.GetProjectsWithNeed.ViewModel.Failure(myError: myError)
     }
 }

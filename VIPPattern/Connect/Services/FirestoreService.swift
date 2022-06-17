@@ -14,7 +14,10 @@ protocol FirestoreServiceProtocol {
     func getDocument<T: Codable>(documentPath: String, completion: @escaping ((Result<T, MyError>) -> Void))
     func setDocument<T: Codable>(documentPath: String, document: T, completion: @escaping ((Result<Void, MyError>) -> Void))
     func uploadImage(data: Data, completion: @escaping ((Result<String?, MyError>) -> Void))
+
     func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
+    func getCollectionWhereField<T: Codable>(_ field: String, isEqualTo: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
+    func getCollectionWhereField<T: Codable>(_ field: String, arrayContains: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
 }
 
 class FirestoreService: FirestoreServiceProtocol {
@@ -25,7 +28,10 @@ class FirestoreService: FirestoreServiceProtocol {
         firestore = Firestore.firestore()
         storageReference = Storage.storage().reference()
     }
+}
 
+// MARK: Single document
+extension FirestoreService {
     func getDocument<T: Codable>(documentPath: String, completion: @escaping ((Result<T, MyError>) -> Void)) {
         let documentReference = firestore.document(documentPath)
         documentReference.getDocument(as: T.self) { result in
@@ -48,12 +54,31 @@ class FirestoreService: FirestoreServiceProtocol {
             completion(.failure(MyError(type: .codableError, message: error.localizedDescription)))
         }
     }
+}
 
+// MARK: Multiple documents
+extension FirestoreService {
     func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+        // CollectionReference inheris Query
         let collectionReference = firestore.collection(collectionPath)
-        collectionReference.getDocuments { querySnapshot, error in
+        handleQuery(query: collectionReference, completion: completion)
+    }
+
+    func getCollectionWhereField<T: Codable>(_ field: String, isEqualTo: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+        let query = firestore.collection(collectionPath).whereField(field, isEqualTo: isEqualTo)
+        handleQuery(query: query, completion: completion)
+    }
+
+    func getCollectionWhereField<T: Codable>(_ field: String, arrayContains: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+        let query = firestore.collection(collectionPath).whereField(field, arrayContains: arrayContains)
+        handleQuery(query: query, completion: completion)
+    }
+
+    private func handleQuery<T: Codable>(query: Query, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+        query.getDocuments { querySnapshot, error in
             guard let querySnapshot = querySnapshot,
-            error == nil else {
+                  error == nil
+            else {
                 completion(.failure(MyError(type: .firestoreFailed, message: error?.localizedDescription)))
                 return
             }
@@ -70,6 +95,7 @@ class FirestoreService: FirestoreServiceProtocol {
     }
 }
 
+// MARK: Files
 extension FirestoreService {
     func uploadImage(data: Data, completion: @escaping ((Result<String?, MyError>) -> Void)) {
         let imageReference = storageReference.child("/images/\(UUID().uuidString).jpeg")

@@ -57,3 +57,34 @@ extension HomePresenterTests {
         XCTAssertEqual(homeViewControllerMock.didFailGetAllProjectsViewModel, expectedViewModel)
     }
 }
+
+// MARK: GetProjectsWithNeed tests
+extension HomePresenterTests {
+    func testDidSucceedGetProjectsWithNeed_WhenCalledWithResponse_ShouldCallViewControllerDidSucceedGetProjectsWithNeedWithViewModelSuccess() {
+        // Given
+        let response = homeDataModelMock.getProjectsWithNeedAction.responseSuccess
+        let expectedViewModel = homeDataModelMock.getProjectsWithNeedAction.viewModelSuccess
+
+        // When
+        sut.interactor(didSucceedGetProjectsWithNeed: response)
+
+        // Then
+        XCTAssertTrue(homeViewControllerMock.didSucceedGetProjectsWithNeedCalled)
+        XCTAssertEqual(homeViewControllerMock.didSucceedGetProjectsWithNeedCounter, 1)
+        XCTAssertEqual(homeViewControllerMock.didSucceedGetProjectsWithNeedViewModel, expectedViewModel)
+    }
+
+    func testDidFailGetProjectsWithNeed_WhenCalledWithResponse_ShouldCallViewControllerDidFailGetProjectsWithNeedWithViewModelFailure() {
+        // Given
+        let response = homeDataModelMock.getProjectsWithNeedAction.responseFailure
+        let expectedViewModel = homeDataModelMock.getProjectsWithNeedAction.viewModelFailure
+
+        // When
+        sut.interactor(didFailGetProjectsWithNeed: response)
+
+        // Then
+        XCTAssertTrue(homeViewControllerMock.didFailGetProjectsWithNeedCalled)
+        XCTAssertEqual(homeViewControllerMock.didFailGetProjectsWithNeedCounter, 1)
+        XCTAssertEqual(homeViewControllerMock.didFailGetProjectsWithNeedViewModel, expectedViewModel)
+    }
+}

@@ -73,3 +73,48 @@ extension HomeInteractorTests {
         XCTAssertEqual(homePresenterMock.didFailGetAllProjectsResponse, expectedResponse)
     }
 }
+
+// MARK: GetProjectsWithNeed tests
+extension HomeInteractorTests {
+    func testGetProjectsWithNeed_WhenCalledWithRequest_ShouldCallProjectsRepositoryGetProjectsWithNeedWithRequestData() {
+        // Given
+        let request = homeDataModelMock.getProjectsWithNeedAction.request
+
+        // When
+        sut.getProjectsWithNeed(request: request)
+
+        // Then
+        XCTAssertTrue(projectsRepositoryMock.getProjectsWithNeedForCalled)
+        XCTAssertEqual(projectsRepositoryMock.getProjectsWithNeedForCounter, 1)
+        XCTAssertEqual(projectsRepositoryMock.need, request.need)
+    }
+
+    func testGetProjectsWithNeed_WhenCalledWithRequestOnSuccess_ShouldCallPresenterDidSucceedGetProjectsWithNeedWithResponseSuccess() {
+        // Given
+        let request = homeDataModelMock.getProjectsWithNeedAction.request
+        let expectedResponse = homeDataModelMock.getProjectsWithNeedAction.responseSuccess
+
+        // When
+        sut.getProjectsWithNeed(request: request)
+
+        // Then
+        XCTAssertTrue(homePresenterMock.didSucceedGetProjectsWithNeedCalled)
+        XCTAssertEqual(homePresenterMock.didSucceedGetProjectsWithNeedCounter, 1)
+        XCTAssertEqual(homePresenterMock.didSucceedGetProjectsWithNeedResponse, expectedResponse)
+    }
+
+    func testGetProjectsWithNeed_WhenCalledWithRequestOnFailure_ShouldCallPresenterDidFailGetProjectsWithNeedWithResponseFailure() {
+        // Given
+        let request = homeDataModelMock.getProjectsWithNeedAction.request
+        let expectedResponse = homeDataModelMock.getProjectsWithNeedAction.responseFailure
+        projectsRepositoryMock.myError = HomeDataModelMock.myError
+
+        // When
+        sut.getProjectsWithNeed(request: request)
+
+        // Then
+        XCTAssertTrue(homePresenterMock.didFailGetProjectsWithNeedCalled)
+        XCTAssertEqual(homePresenterMock.didFailGetProjectsWithNeedCounter, 1)
+        XCTAssertEqual(homePresenterMock.didFailGetProjectsWithNeedResponse, expectedResponse)
+    }
+}

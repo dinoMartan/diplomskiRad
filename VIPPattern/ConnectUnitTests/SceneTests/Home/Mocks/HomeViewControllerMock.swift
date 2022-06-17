@@ -15,6 +15,14 @@ class HomeViewControllerMock {
     var didFailGetAllProjectsCalled = false
     var didFailGetAllProjectsCounter = 0
     var didFailGetAllProjectsViewModel: Home.GetAllProjectsAction.ViewModel.Failure?
+
+    var didSucceedGetProjectsWithNeedCalled = false
+    var didSucceedGetProjectsWithNeedCounter = 0
+    var didSucceedGetProjectsWithNeedViewModel: Home.GetProjectsWithNeed.ViewModel.Success?
+
+    var didFailGetProjectsWithNeedCalled = false
+    var didFailGetProjectsWithNeedCounter = 0
+    var didFailGetProjectsWithNeedViewModel: Home.GetProjectsWithNeed.ViewModel.Failure?
 }
 
 extension HomeViewControllerMock: HomePresenterOutput {
@@ -28,5 +36,17 @@ extension HomeViewControllerMock: HomePresenterOutput {
         didFailGetAllProjectsCalled = true
         didFailGetAllProjectsCounter += 1
         didFailGetAllProjectsViewModel = viewModel
+    }
+
+    func presenter(didSucceedGetProjectsWithNeed viewModel: Home.GetProjectsWithNeed.ViewModel.Success) {
+        didSucceedGetProjectsWithNeedCalled = true
+        didSucceedGetProjectsWithNeedCounter += 1
+        didSucceedGetProjectsWithNeedViewModel = viewModel
+    }
+
+    func presenter(didFailGetProjectsWithNeed viewModel: Home.GetProjectsWithNeed.ViewModel.Failure) {
+        didFailGetProjectsWithNeedCalled = true
+        didFailGetProjectsWithNeedCounter += 1
+        didFailGetProjectsWithNeedViewModel = viewModel
     }
 }

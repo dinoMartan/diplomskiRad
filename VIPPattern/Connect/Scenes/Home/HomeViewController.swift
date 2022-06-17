@@ -10,6 +10,8 @@ import UIKit
 protocol HomePresenterOutput: AnyObject {
     func presenter(didSucceedGetAllProjects viewModel: Home.GetAllProjectsAction.ViewModel.Success)
     func presenter(didFailGetAllProjects viewModel: Home.GetAllProjectsAction.ViewModel.Failure)
+    func presenter(didSucceedGetProjectsWithNeed viewModel: Home.GetProjectsWithNeed.ViewModel.Success)
+    func presenter(didFailGetProjectsWithNeed viewModel: Home.GetProjectsWithNeed.ViewModel.Failure)
 }
 
 class HomeViewController: UIViewController {
@@ -27,6 +29,7 @@ class HomeViewController: UIViewController {
         super.loadView()
         self.view = homeView
         setupTableView()
+        setupSearchBar()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -55,6 +58,10 @@ extension HomeViewController {
         homeView?.tableView.register(UINib(nibName: HomeTableViewCell.identifier, bundle: nil),
                                      forCellReuseIdentifier: HomeTableViewCell.identifier)
     }
+
+    private func setupSearchBar() {
+        homeView?.searchBar.delegate = self
+    }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -70,6 +77,30 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.setupWith(project: project)
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+}
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        guard !searchText.isEmpty else {
+            getAllProjects()
+            return
+        }
+        getProjectsForText(searchText)
+    }
+
+    private func getProjectsForText(_ text: String) {
+        let request = Home.GetProjectsWithNeed.Request(need: text)
+        interactor?.getProjectsWithNeed(request: request)
+    }
+
+    private func getAllProjects() {
+        let request = Home.GetAllProjectsAction.Request()
+        interactor?.getAllProjects(request: request)
+    }
 }
 
 extension HomeViewController: HomePresenterOutput {
@@ -78,6 +109,14 @@ extension HomeViewController: HomePresenterOutput {
     }
 
     func presenter(didFailGetAllProjects viewModel: Home.GetAllProjectsAction.ViewModel.Failure) {
+        showMyErrorAlert(viewModel.myError)
+    }
+
+    func presenter(didSucceedGetProjectsWithNeed viewModel: Home.GetProjectsWithNeed.ViewModel.Success) {
+        projects = viewModel.projects
+    }
+
+    func presenter(didFailGetProjectsWithNeed viewModel: Home.GetProjectsWithNeed.ViewModel.Failure) {
         showMyErrorAlert(viewModel.myError)
     }
 }
