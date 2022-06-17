@@ -13,13 +13,20 @@ protocol HomePresenterOutput: AnyObject {
 }
 
 class HomeViewController: UIViewController {
-    var viewHome: HomeView?
+    var homeView: HomeView?
     var interactor: HomeInteractorProtocol?
     var router: HomeRouterProtocol?
 
+    private var projects = [Home.HProject]() {
+        didSet {
+            homeView?.tableView.reloadData()
+        }
+    }
+
     override func loadView() {
         super.loadView()
-        self.view = viewHome
+        self.view = homeView
+        setupTableView()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -43,28 +50,31 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController {
     private func setupTableView() {
-        viewHome?.tableView.delegate = self
-        viewHome?.tableView.dataSource = self
-        viewHome?.tableView.register(HomeTableViewCell.self, forCellReuseIdentifier: HomeTableViewCell.identifier)
+        homeView?.tableView.delegate = self
+        homeView?.tableView.dataSource = self
+        homeView?.tableView.register(UINib(nibName: HomeTableViewCell.identifier, bundle: nil),
+                                     forCellReuseIdentifier: HomeTableViewCell.identifier)
     }
 }
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        projects.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier) as? HomeTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell else {
             return UITableViewCell()
         }
+        let project = projects[indexPath.row]
+        cell.setupWith(project: project)
         return cell
     }
 }
 
 extension HomeViewController: HomePresenterOutput {
     func presenter(didSucceedGetAllProjects viewModel: Home.GetAllProjectsAction.ViewModel.Success) {
-        // TODO: populate table
+        projects = viewModel.projects
     }
 
     func presenter(didFailGetAllProjects viewModel: Home.GetAllProjectsAction.ViewModel.Failure) {

@@ -16,7 +16,7 @@ class HomeConfigurator {
         let interactor = HomeInteractor(projectsRepository: projectsRepository)
         let presenter = HomePresenter()
 
-        viewController.view = view
+        viewController.homeView = view
         viewController.router = router
         viewController.interactor = interactor
 

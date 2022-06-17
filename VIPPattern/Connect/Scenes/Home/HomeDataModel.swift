@@ -7,7 +7,15 @@
 
 import Foundation
 
-struct Home { }
+struct Home {
+    struct HProject {
+        let projectId: String?
+        let projectTitle: String?
+        let ownerUsername: String?
+        let ownerImage: String?
+        let projectNeeds: String
+    }
+}
 
 // MARK: GetAllProjectsAction
 extension Home {
@@ -26,14 +34,7 @@ extension Home {
 
         struct ViewModel {
             struct Success {
-                let projects: [Project]
-            }
-
-            struct Project {
-                let projectId: String?
-                let projectTitle: String?
-                let ownerUsername: String?
-                let ownerImage: String?
+                let projects: [Home.HProject]
             }
 
             struct Failure {

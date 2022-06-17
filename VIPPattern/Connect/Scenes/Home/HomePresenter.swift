@@ -20,17 +20,18 @@ class HomePresenter: HomePresenterProtocol {
     }
 
     func interactor(didSucceedGetAllProjects response: Home.GetAllProjectsAction.Response.Success) {
-        let projects = getHomeGetAllProjectsActionViewModelProjectsFromProjects(response.projects)
+        let projects = getHomeProjectsFromProjects(response.projects)
         let viewModel = Home.GetAllProjectsAction.ViewModel.Success(projects: projects)
         viewController?.presenter(didSucceedGetAllProjects: viewModel)
     }
 
-    private func getHomeGetAllProjectsActionViewModelProjectsFromProjects(_ projects: [Project]) -> [Home.GetAllProjectsAction.ViewModel.Project] {
+    private func getHomeProjectsFromProjects(_ projects: [Project]) -> [Home.HProject] {
         projects.map {
-            Home.GetAllProjectsAction.ViewModel.Project(projectId: $0.id,
-                                                        projectTitle: $0.title,
-                                                        ownerUsername: $0.owner?.username,
-                                                        ownerImage: $0.owner?.profileImage)
+            Home.HProject(projectId: $0.id,
+                          projectTitle: $0.title,
+                          ownerUsername: $0.owner?.username,
+                          ownerImage: $0.owner?.profileImage,
+                          projectNeeds: $0.needTags?.joined(separator: ",") ?? "")
         }
     }
 
