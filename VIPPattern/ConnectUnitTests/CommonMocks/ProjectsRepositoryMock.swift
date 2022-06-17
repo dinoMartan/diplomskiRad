@@ -22,6 +22,10 @@ class ProjectsRepositoryMock {
 
     var getAllProjectsCalled = false
     var getAllProjectsCounter = 0
+
+    var getProjectsWithNeedForCalled = false
+    var getProjectsWithNeedForCounter = 0
+    var need: String?
 }
 
 extension ProjectsRepositoryMock: ProjectsRepositoryProtocol {
@@ -52,6 +56,18 @@ extension ProjectsRepositoryMock: ProjectsRepositoryProtocol {
     func getAllProjects(completion: @escaping ((Result<[Project], MyError>) -> Void)) {
         getAllProjectsCalled = true
         getAllProjectsCounter += 1
+
+        guard let myError = myError else {
+            completion(.success([dataMock.getProject()]))
+            return
+        }
+        completion(.failure(myError))
+    }
+
+    func getProjectsWithNeedFor(_ need: String, completion: @escaping ((Result<[Project], MyError>) -> Void)) {
+        getProjectsWithNeedForCalled = true
+        getProjectsWithNeedForCounter += 1
+        self.need = need
 
         guard let myError = myError else {
             completion(.success([dataMock.getProject()]))

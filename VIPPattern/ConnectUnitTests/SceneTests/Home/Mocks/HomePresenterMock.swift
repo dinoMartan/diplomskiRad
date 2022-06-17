@@ -15,6 +15,14 @@ class HomePresenterMock {
     var didFailGetAllProjectsCalled = false
     var didFailGetAllProjectsCounter = 0
     var didFailGetAllProjectsResponse: Home.GetAllProjectsAction.Response.Failure?
+
+    var didSucceedGetProjectsWithNeedCalled = false
+    var didSucceedGetProjectsWithNeedCounter = 0
+    var didSucceedGetProjectsWithNeedResponse: Home.GetProjectsWithNeed.Response.Success?
+
+    var didFailGetProjectsWithNeedCalled = false
+    var didFailGetProjectsWithNeedCounter = 0
+    var didFailGetProjectsWithNeedResponse: Home.GetProjectsWithNeed.Response.Failure?
 }
 
 extension HomePresenterMock: HomePresenterProtocol {
@@ -28,5 +36,17 @@ extension HomePresenterMock: HomePresenterProtocol {
         didFailGetAllProjectsCalled = true
         didFailGetAllProjectsCounter += 1
         didFailGetAllProjectsResponse = response
+    }
+
+    func interactor(didSucceedGetProjectsWithNeed response: Home.GetProjectsWithNeed.Response.Success) {
+        didSucceedGetProjectsWithNeedCalled = true
+        didSucceedGetProjectsWithNeedCounter += 1
+        didSucceedGetProjectsWithNeedResponse = response
+    }
+
+    func interactor(didFailGetProjectsWithNeed response: Home.GetProjectsWithNeed.Response.Failure) {
+        didFailGetProjectsWithNeedCalled = true
+        didFailGetProjectsWithNeedCounter += 1
+        didFailGetProjectsWithNeedResponse = response
     }
 }
