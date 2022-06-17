@@ -43,3 +43,32 @@ extension Home {
         }
     }
 }
+
+// MARK: GetProjectsWithNeed
+extension Home {
+    struct GetProjectsWithNeed: Equatable {
+        struct Request: Equatable {
+            let need: String
+        }
+
+        struct Response: Equatable {
+            struct Success: Equatable {
+                let projects: [Project]
+            }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+
+        struct ViewModel: Equatable {
+            struct Success: Equatable {
+                let projects: [Home.HProject]
+            }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+    }
+}

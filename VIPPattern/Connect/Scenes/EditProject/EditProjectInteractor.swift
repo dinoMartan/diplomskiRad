@@ -58,8 +58,8 @@ extension EditProjectInteractor {
                 title: request.title,
                 createdAt: Date(),
                 description: request.description,
-                haveTags: request.haveTags,
-                needTags: request.needTags,
+                haveTags: request.haveTags?.map({ $0.lowercased() }),
+                needTags: request.needTags?.map({ $0.lowercased() }),
                 owner: owner)
     }
 
@@ -67,8 +67,8 @@ extension EditProjectInteractor {
         guard var updatedProject = currentProject else { return }
         updatedProject.title = request.title
         updatedProject.description = request.description
-        updatedProject.haveTags = request.haveTags
-        updatedProject.needTags = request.needTags
+        updatedProject.haveTags = request.haveTags?.map({ $0.lowercased() })
+        updatedProject.needTags = request.needTags?.map({ $0.lowercased() })
         currentProject = updatedProject
     }
 

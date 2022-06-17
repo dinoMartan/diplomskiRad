@@ -54,7 +54,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvY-zp-fp2">
-                                <rect key="frame" x="105" y="51.5" width="266" height="1"/>
+                                <rect key="frame" x="120" y="51.5" width="241" height="1"/>
                                 <color key="backgroundColor" systemColor="systemRedColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="N0I-yZ-fKe"/>
@@ -73,7 +73,7 @@
                             <constraint firstItem="Vqs-Nb-ApI" firstAttribute="top" secondItem="7i6-dn-t4b" secondAttribute="top" constant="5" id="4HK-BG-u8E"/>
                             <constraint firstItem="HvY-zp-fp2" firstAttribute="top" secondItem="Vqs-Nb-ApI" secondAttribute="bottom" constant="10" id="65f-OW-mAC"/>
                             <constraint firstAttribute="bottom" secondItem="Z7y-lM-v1m" secondAttribute="bottom" constant="10" id="Bpp-lu-0FW"/>
-                            <constraint firstItem="HvY-zp-fp2" firstAttribute="leading" secondItem="Z7y-lM-v1m" secondAttribute="trailing" id="FPP-Ft-FjJ"/>
+                            <constraint firstItem="HvY-zp-fp2" firstAttribute="leading" secondItem="Z7y-lM-v1m" secondAttribute="trailing" constant="15" id="FPP-Ft-FjJ"/>
                             <constraint firstAttribute="trailing" secondItem="SZ4-MU-jXK" secondAttribute="trailing" constant="5" id="SBT-tz-SVz"/>
                             <constraint firstItem="Z7y-lM-v1m" firstAttribute="centerY" secondItem="7i6-dn-t4b" secondAttribute="centerY" id="TwA-lB-bll"/>
                             <constraint firstItem="SZ4-MU-jXK" firstAttribute="leading" secondItem="Z7y-lM-v1m" secondAttribute="trailing" constant="5" id="WO2-pN-Z4o"/>
@@ -81,7 +81,7 @@
                             <constraint firstAttribute="trailing" secondItem="Vqs-Nb-ApI" secondAttribute="trailing" constant="5" id="ekI-TO-aaV"/>
                             <constraint firstItem="SZ4-MU-jXK" firstAttribute="top" secondItem="HvY-zp-fp2" secondAttribute="bottom" constant="10" id="iBb-Ay-tlh"/>
                             <constraint firstItem="Vqs-Nb-ApI" firstAttribute="leading" secondItem="Z7y-lM-v1m" secondAttribute="trailing" constant="8" id="kgZ-42-v04"/>
-                            <constraint firstAttribute="trailing" secondItem="HvY-zp-fp2" secondAttribute="trailing" constant="5" id="mXf-SE-wVU"/>
+                            <constraint firstAttribute="trailing" secondItem="HvY-zp-fp2" secondAttribute="trailing" constant="15" id="mXf-SE-wVU"/>
                             <constraint firstItem="Z7y-lM-v1m" firstAttribute="leading" secondItem="7i6-dn-t4b" secondAttribute="leading" constant="5" id="sYD-HU-V4d"/>
                         </constraints>
                     </view>
