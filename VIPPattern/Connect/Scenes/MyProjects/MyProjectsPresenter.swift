@@ -8,6 +8,8 @@
 import Foundation
 
 protocol MyProjectsPresenterProtocol: AnyObject {
+    func interactor(didSucceedGetMyProjects response: MyProjects.GetMyProjectsAction.Response.Success)
+    func interactor(didFailGetMyProjects response: MyProjects.GetMyProjectsAction.Response.Failure)
 }
 
 class MyProjectsPresenter: MyProjectsPresenterProtocol {
@@ -15,5 +17,26 @@ class MyProjectsPresenter: MyProjectsPresenterProtocol {
 
     deinit {
         print("deinit \(self)")
+    }
+
+    func interactor(didSucceedGetMyProjects response: MyProjects.GetMyProjectsAction.Response.Success) {
+        let projects = getMyProjectsMProjectsFromProjects(response.projects)
+        let viewModel = MyProjects.GetMyProjectsAction.ViewModel.Success(projects: projects)
+        viewController?.presenter(didSucceedGetMyProjects: viewModel)
+    }
+
+    private func getMyProjectsMProjectsFromProjects(_ projects: [Project]) -> [MyProjects.MProject] {
+        projects.map {
+            MyProjects.MProject(id: $0.id,
+                                title: $0.title ?? "",
+                                createdAt: "TODO",
+                                needTags: $0.needTags?.joined(separator: ", ") ?? "",
+                                haveTags: $0.haveTags?.joined(separator: ", ") ?? "")
+        }
+    }
+
+    func interactor(didFailGetMyProjects response: MyProjects.GetMyProjectsAction.Response.Failure) {
+        let viewModel = MyProjects.GetMyProjectsAction.ViewModel.Failure(myError: response.myError)
+        viewController?.presenter(didFailGetMyProjects: viewModel)
     }
 }

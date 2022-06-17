@@ -7,29 +7,39 @@
 
 import Foundation
 
-struct MyProjects {
-    struct ResponseFailure {
-        let myError: MyError
-    }
-
-    struct ViewModelFailure {
-        let myError: MyError
+struct MyProjects: Equatable {
+    struct MProject: Equatable {
+        let id: String?
+        let title: String
+        let createdAt: String
+        let needTags: String
+        let haveTags: String
     }
 }
 
-// MARK:
+// MARK: GetMyProjectsAction
 extension MyProjects {
-    struct Action {
-        struct Request {
+    struct GetMyProjectsAction: Equatable {
+        struct Request: Equatable { }
 
+        struct Response: Equatable {
+            struct Success: Equatable {
+                let projects: [Project]
+            }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
 
-        struct ResponseSuccess {
-            
-        }
+        struct ViewModel: Equatable {
+            struct Success: Equatable {
+                let projects: [MyProjects.MProject]
+            }
 
-        struct ViewModelSuccess {
-            
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
     }
 }

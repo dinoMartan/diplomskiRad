@@ -25,8 +25,11 @@ class MyProjectsFlowCoordinator: FlowCoordinator {
 
     func start() {
         let viewController = MyProjectsViewController()
+        let projectsRepository = ProjectsRepository(firestoreService: dependencies.firestoreService)
         MyProjectsConfigurator.configureModule(routerOutput: self,
-                                               viewController: viewController)
+                                               viewController: viewController,
+                                               projectsRepository: projectsRepository,
+                                               keychainService: dependencies.keychainService)
         self.viewController = viewController
     }
 

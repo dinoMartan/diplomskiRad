@@ -12,6 +12,7 @@ protocol ProjectsRepositoryProtocol {
     func setProject(project: Project, completion: @escaping ((Result<Void, MyError>) -> Void))
     func getAllProjects(completion: @escaping ((Result<[Project], MyError>) -> Void))
     func getProjectsWithNeedFor(_ need: String, completion: @escaping ((Result<[Project], MyError>) -> Void))
+    func getProjectsForUser(_ userId: String, completion: @escaping ((Result<[Project], MyError>) -> Void))
 }
 
 class ProjectsRepository: ProjectsRepositoryProtocol {
@@ -19,6 +20,10 @@ class ProjectsRepository: ProjectsRepositoryProtocol {
 
     init(firestoreService: FirestoreServiceProtocol) {
         self.firestoreService = firestoreService
+    }
+
+    deinit {
+        print("deinit \(self)")
     }
 
     func getProject(projectId: String, completion: @escaping ((Result<Project, MyError>) -> Void)) {
@@ -38,5 +43,9 @@ class ProjectsRepository: ProjectsRepositoryProtocol {
 
     func getProjectsWithNeedFor(_ need: String, completion: @escaping ((Result<[Project], MyError>) -> Void)) {
         firestoreService.getCollectionWhereField("needTags", arrayContains: need, on: "projects", completion: completion)
+    }
+
+    func getProjectsForUser(_ userId: String, completion: @escaping ((Result<[Project], MyError>) -> Void)) {
+        firestoreService.getCollectionWhereField("owner.id", isEqualTo: userId, on: "projects", completion: completion)
     }
 }
