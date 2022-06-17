@@ -25,8 +25,10 @@ class HomeFlowCoordinator: FlowCoordinator {
 
     func start() {
         let viewController = HomeViewController()
+        let projectsRepository = ProjectsRepository(firestoreService: dependencies.firestoreService)
         HomeConfigurator.configureModule(routerOutput: self,
-                                         viewController: viewController)
+                                         viewController: viewController,
+                                         projectsRepository: projectsRepository)
         homeViewController = viewController
     }
 

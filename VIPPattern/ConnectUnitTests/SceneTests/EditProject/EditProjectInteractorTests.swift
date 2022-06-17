@@ -84,19 +84,7 @@ extension EditProjectInteractorTests {
         // Then
         XCTAssertTrue(editProjectPresenterMock.didSucceedGetProjectCalled)
         XCTAssertEqual(editProjectPresenterMock.didSucceedGetProjectCounter, 1)
-        XCTAssertEqual(editProjectPresenterMock.didSucceedGetProjectResponse?.project.title,
-                       expectedResponse.project.title)
-        XCTAssertEqual(editProjectPresenterMock.didSucceedGetProjectResponse?.project.createdAt?.timeIntervalSinceReferenceDate ?? 0,
-                       expectedResponse.project.createdAt?.timeIntervalSinceReferenceDate ?? 0,
-                       accuracy: 0.1)
-        XCTAssertEqual(editProjectPresenterMock.didSucceedGetProjectResponse?.project.description,
-                       expectedResponse.project.description)
-        XCTAssertEqual(editProjectPresenterMock.didSucceedGetProjectResponse?.project.haveTags,
-                       expectedResponse.project.haveTags)
-        XCTAssertEqual(editProjectPresenterMock.didSucceedGetProjectResponse?.project.needTags,
-                       expectedResponse.project.needTags)
-        XCTAssertEqual(editProjectPresenterMock.didSucceedGetProjectResponse?.project.owner,
-                       expectedResponse.project.owner)
+        XCTAssertEqual(editProjectPresenterMock.didSucceedGetProjectResponse, expectedResponse)
     }
 
     func testGetProject_WhenCalledWithRequestAndProjectIdIsSetOnFailure_ShouldCallPresenterDidFailGetProjectWithResponseFailure() {
