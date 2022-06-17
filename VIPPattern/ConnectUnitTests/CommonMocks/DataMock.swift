@@ -23,7 +23,7 @@ class DataMock {
     // Project
     var projectId: String? = "project id"
     var projectTitle: String? = "project title"
-    var projectCreatedAt: Date? = Date()
+    var projectCreatedAt: Date? = Date(timeIntervalSince1970: 12345)
     var projectDescription: String? = "project description"
     var projectHaveTags: [String]? = ["have1", "have2"]
     var projectNeedTags: [String]? = ["need1", "need2"]

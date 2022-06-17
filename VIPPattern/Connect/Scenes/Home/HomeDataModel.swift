@@ -7,8 +7,8 @@
 
 import Foundation
 
-struct Home {
-    struct HProject {
+struct Home: Equatable {
+    struct HProject: Equatable {
         let projectId: String?
         let projectTitle: String?
         let ownerUsername: String?
@@ -19,25 +19,25 @@ struct Home {
 
 // MARK: GetAllProjectsAction
 extension Home {
-    struct GetAllProjectsAction {
-        struct Request { }
+    struct GetAllProjectsAction: Equatable {
+        struct Request: Equatable { }
 
-        struct Response {
-            struct Success {
+        struct Response: Equatable {
+            struct Success: Equatable {
                 let projects: [Project]
             }
 
-            struct Failure {
+            struct Failure: Equatable {
                 let myError: MyError
             }
         }
 
-        struct ViewModel {
-            struct Success {
+        struct ViewModel: Equatable {
+            struct Success: Equatable {
                 let projects: [Home.HProject]
             }
 
-            struct Failure {
+            struct Failure: Equatable {
                 let myError: MyError
             }
         }
