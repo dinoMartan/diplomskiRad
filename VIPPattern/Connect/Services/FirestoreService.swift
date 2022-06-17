@@ -17,6 +17,7 @@ protocol FirestoreServiceProtocol {
 
     func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
     func getCollectionWhereField<T: Codable>(_ field: String, isEqualTo: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
+    func getCollectionWhereField<T: Codable>(_ field: String, arrayContains: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
 }
 
 class FirestoreService: FirestoreServiceProtocol {
@@ -65,6 +66,11 @@ extension FirestoreService {
 
     func getCollectionWhereField<T: Codable>(_ field: String, isEqualTo: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
         let query = firestore.collection(collectionPath).whereField(field, isEqualTo: isEqualTo)
+        handleQuery(query: query, completion: completion)
+    }
+
+    func getCollectionWhereField<T: Codable>(_ field: String, arrayContains: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+        let query = firestore.collection(collectionPath).whereField(field, arrayContains: arrayContains)
         handleQuery(query: query, completion: completion)
     }
 
