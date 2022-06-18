@@ -35,7 +35,8 @@ class EditProjectView: UIView {
     private lazy var saveButton: UIButton = {
         let button = UIButton()
         button.setTitle("Spremi", for: .normal)
-        button.backgroundColor = .tertiarySystemBackground
+        button.setTitleColor(.label, for: .normal)
+        button.backgroundColor = .secondarySystemBackground
         button.addTarget(self, action: #selector(didTapSaveButton), for: .touchUpInside)
         return button
     }()
