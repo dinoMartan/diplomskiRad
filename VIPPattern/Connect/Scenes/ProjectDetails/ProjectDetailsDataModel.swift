@@ -11,12 +11,12 @@ struct ProjectDetails: Equatable { }
 
 extension ProjectDetails {
     struct GetProjectDetailsAction: Equatable {
-        struct Request: Equatable {
-            let projectId: String
-        }
+        struct Request: Equatable { }
 
         struct Response: Equatable {
-            struct Success { }
+            struct Success {
+                let project: Project
+            }
 
             struct Failure: Equatable {
                 let myError: MyError
@@ -25,7 +25,13 @@ extension ProjectDetails {
 
         struct ViewModel: Equatable {
             struct Success: Equatable {
-                let title: String
+                let projectTitle: String
+                let ownerImage: String
+                let ownerName: String
+                let ownerUsername: String
+                let projectDescription: String
+                let projectNeeds: String
+                let projectHas: String
             }
 
             struct Failure: Equatable {

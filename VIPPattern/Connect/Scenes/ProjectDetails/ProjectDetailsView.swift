@@ -24,9 +24,9 @@ class ProjectDetailsSubview: UIView {
 
     let textLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(.openSansMedium, size: 12)
+        label.font = UIFont(.openSansMedium, size: 14)
+        label.textColor = .secondaryLabel
         label.numberOfLines = 0
-        label.text = "this is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is text labelthis is"
         return label
     }()
 
@@ -39,9 +39,12 @@ class ProjectDetailsSubview: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupWith(image: String, title: String, text: String) {
-        iconImageView.image = UIImage(systemName: "person")
+    func setupIconAndTitle(icon: String, title: String) {
+        iconImageView.image = UIImage(systemName: icon)
         titleLabel.text = title
+    }
+
+    func setupTextWith(_ text: String) {
         textLabel.text = text
     }
 }
@@ -52,9 +55,9 @@ extension ProjectDetailsSubview {
         setupCoinstraints()
         backgroundColor = .systemBackground
         self.layer.cornerRadius = 15
-        self.layer.shadowRadius = 4
-        self.layer.shadowOpacity = 0.2
-        self.layer.shadowOffset = CGSize(width: 4, height: 4)
+        self.layer.shadowRadius = 5
+        self.layer.shadowOpacity = 0.3
+        self.layer.shadowOffset = CGSize(width: 3, height: 3)
         self.layer.shadowColor = UIColor.darkGray.cgColor
     }
 
@@ -74,7 +77,7 @@ extension ProjectDetailsSubview {
         titleLabel.snp.makeConstraints { make in
             make.leading.equalTo(iconImageView.snp.trailing).offset(15)
             make.trailing.equalToSuperview().offset(-15)
-            make.top.equalToSuperview().offset(25)
+            make.top.equalToSuperview().offset(20)
         }
 
         textLabel.snp.makeConstraints { make in
@@ -101,6 +104,7 @@ class ProjectDetailsView: UIView {
     let projectTitle: UILabel = {
         let label = UILabel()
         label.font = UIFont(.openSansExtraBold, size: 24)
+        label.textAlignment = .center
         label.numberOfLines = 0
         label.text = "Project title"
         return label
@@ -109,6 +113,7 @@ class ProjectDetailsView: UIView {
     let ownerImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 50
         imageView.image = UIImage(systemName: "person")
         return imageView
@@ -118,6 +123,7 @@ class ProjectDetailsView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(.openSansExtraBold, size: 24)
+        label.textColor = .label
         label.text = "owner name"
         return label
     }()
@@ -126,6 +132,7 @@ class ProjectDetailsView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.font = UIFont(.openSansMedium, size: 16)
+        label.textColor = .secondaryLabel
         label.text = "owner username"
         return label
     }()
@@ -152,6 +159,13 @@ extension ProjectDetailsView {
     private func setupView() {
         addSubviews()
         setupCoinstraints()
+        setupSubviews()
+    }
+
+    private func setupSubviews() {
+        projectDescriptionView.setupIconAndTitle(icon: "scribble.variable", title: "Project description")
+        needTagsView.setupIconAndTitle(icon: "target", title: "Project needs")
+        haveTagsView.setupIconAndTitle(icon: "checkmark.circle", title: "Project has")
     }
 
     private func addSubviews() {
@@ -186,20 +200,20 @@ extension ProjectDetailsView {
         ownerImageView.snp.makeConstraints { make in
             make.width.height.equalTo(100)
             make.leading.equalToSuperview().offset(15)
-            make.top.equalTo(projectTitle.snp.bottom).offset(15)
+            make.top.equalTo(projectTitle.snp.bottom).offset(25)
         }
 
         ownerName.snp.makeConstraints { make in
             make.leading.equalTo(ownerImageView.snp.trailing).offset(15)
             make.trailing.equalToSuperview().offset(-15)
-            make.top.equalTo(projectTitle.snp.bottom).offset(15)
+            make.top.equalTo(projectTitle.snp.bottom).offset(25)
             make.height.equalTo(20).priority(.medium)
         }
 
         ownerUsername.snp.makeConstraints { make in
             make.leading.equalTo(ownerImageView.snp.trailing).offset(15)
             make.trailing.equalToSuperview().offset(-15)
-            make.top.equalTo(ownerName.snp.bottom).offset(5)
+            make.top.equalTo(ownerName.snp.bottom)
             make.height.equalTo(20).priority(.medium)
         }
 

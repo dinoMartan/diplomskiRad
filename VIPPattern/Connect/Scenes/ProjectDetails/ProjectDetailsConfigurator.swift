@@ -14,7 +14,8 @@ class ProjectDetailsConfigurator {
                                 projectsRepository: ProjectsRepositoryProtocol) {
         let view = ProjectDetailsView()
         let router = ProjectDetailsRouter()
-        let interactor = ProjectDetailsInteractor(projectsRepository: projectsRepository)
+        let interactor = ProjectDetailsInteractor(projectsRepository: projectsRepository,
+                                                  projectId: projectId)
         let presenter = ProjectDetailsPresenter()
 
         viewController.projectDetailsView = view
