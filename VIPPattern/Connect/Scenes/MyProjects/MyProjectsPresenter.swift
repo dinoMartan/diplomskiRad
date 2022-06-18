@@ -10,6 +10,8 @@ import Foundation
 protocol MyProjectsPresenterProtocol: AnyObject {
     func interactor(didSucceedGetMyProjects response: MyProjects.GetMyProjectsAction.Response.Success)
     func interactor(didFailGetMyProjects response: MyProjects.GetMyProjectsAction.Response.Failure)
+    func interactor(didSucceedDeleteProject response: MyProjects.DeleteProjectAction.Response.Success)
+    func interactor(didFailDeleteProject response: MyProjects.DeleteProjectAction.Response.Failure)
 }
 
 class MyProjectsPresenter: MyProjectsPresenterProtocol {
@@ -38,5 +40,15 @@ class MyProjectsPresenter: MyProjectsPresenterProtocol {
     func interactor(didFailGetMyProjects response: MyProjects.GetMyProjectsAction.Response.Failure) {
         let viewModel = MyProjects.GetMyProjectsAction.ViewModel.Failure(myError: response.myError)
         viewController?.presenter(didFailGetMyProjects: viewModel)
+    }
+
+    func interactor(didSucceedDeleteProject response: MyProjects.DeleteProjectAction.Response.Success) {
+        let viewModel = MyProjects.DeleteProjectAction.ViewModel.Success()
+        viewController?.presenter(didSucceedDeleteProject: viewModel)
+    }
+
+    func interactor(didFailDeleteProject response: MyProjects.DeleteProjectAction.Response.Failure) {
+        let viewModel = MyProjects.DeleteProjectAction.ViewModel.Failure(myError: response.myError)
+        viewController?.presenter(didFailDeleteProject: viewModel)
     }
 }

@@ -10,6 +10,8 @@ import UIKit
 protocol MyProjectsPresenterOutput: AnyObject {
     func presenter(didSucceedGetMyProjects viewModel: MyProjects.GetMyProjectsAction.ViewModel.Success)
     func presenter(didFailGetMyProjects viewModel: MyProjects.GetMyProjectsAction.ViewModel.Failure)
+    func presenter(didSucceedDeleteProject viewModel: MyProjects.DeleteProjectAction.ViewModel.Success)
+    func presenter(didFailDeleteProject viewModel: MyProjects.DeleteProjectAction.ViewModel.Failure)
 }
 
 class MyProjectsViewController: UIViewController {
@@ -75,6 +77,19 @@ extension MyProjectsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
 
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        guard let projectId = projects[indexPath.row].id else { return nil }
+        let deleteProjectAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, completion in
+            self?.showDestructiveAlert(title: "Are you sure you want to delete project?", message: "This action cannot be undone") {
+                let request = MyProjects.DeleteProjectAction.Request(projectId: projectId)
+                self?.interactor?.deleteProject(request: request)
+            }
+            completion(true)
+        }
+        let swipeActionsConfiguration = UISwipeActionsConfiguration(actions: [deleteProjectAction])
+        return swipeActionsConfiguration
+    }
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let project = projects[indexPath.row]
@@ -89,6 +104,15 @@ extension MyProjectsViewController: MyProjectsPresenterOutput {
     }
 
     func presenter(didFailGetMyProjects viewModel: MyProjects.GetMyProjectsAction.ViewModel.Failure) {
+        showMyErrorAlert(viewModel.myError)
+    }
+
+    func presenter(didSucceedDeleteProject viewModel: MyProjects.DeleteProjectAction.ViewModel.Success) {
+        let request = MyProjects.GetMyProjectsAction.Request()
+        interactor?.getMyProjects(request: request)
+    }
+
+    func presenter(didFailDeleteProject viewModel: MyProjects.DeleteProjectAction.ViewModel.Failure) {
         showMyErrorAlert(viewModel.myError)
     }
 }

@@ -43,3 +43,28 @@ extension MyProjects {
         }
     }
 }
+
+// MARK: DeleteProjectAction
+extension MyProjects {
+    struct DeleteProjectAction: Equatable {
+        struct Request: Equatable {
+            let projectId: String
+        }
+
+        struct Response: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+
+        struct ViewModel: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+    }
+}

@@ -9,6 +9,7 @@ import Foundation
 
 protocol MyProjectsInteractorProtocol {
     func getMyProjects(request: MyProjects.GetMyProjectsAction.Request)
+    func deleteProject(request: MyProjects.DeleteProjectAction.Request)
 }
 
 class MyProjectsInteractor: MyProjectsInteractorProtocol {
@@ -38,6 +39,19 @@ extension MyProjectsInteractor {
             case .failure(let myError):
                 let response = MyProjects.GetMyProjectsAction.Response.Failure(myError: myError)
                 self?.presenter?.interactor(didFailGetMyProjects: response)
+            }
+        }
+    }
+
+    func deleteProject(request: MyProjects.DeleteProjectAction.Request) {
+        projectsRepository.deleteProject(projectId: request.projectId) { [weak self] result in
+            switch result {
+            case .success(_):
+                let response = MyProjects.DeleteProjectAction.Response.Success()
+                self?.presenter?.interactor(didSucceedDeleteProject: response)
+            case .failure(let myError):
+                let response = MyProjects.DeleteProjectAction.Response.Failure(myError: myError)
+                self?.presenter?.interactor(didFailDeleteProject: response)
             }
         }
     }

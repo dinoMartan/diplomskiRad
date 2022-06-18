@@ -13,6 +13,7 @@ import Foundation
 protocol FirestoreServiceProtocol {
     func getDocument<T: Codable>(documentPath: String, completion: @escaping ((Result<T, MyError>) -> Void))
     func setDocument<T: Codable>(documentPath: String, document: T, completion: @escaping ((Result<Void, MyError>) -> Void))
+    func deleteDocument(documentPath: String, completion: @escaping ((Result<Void, MyError>) -> Void))
 
     func uploadImage(data: Data, completion: @escaping ((Result<String?, MyError>) -> Void))
 
@@ -53,6 +54,17 @@ extension FirestoreService {
         }
         catch {
             completion(.failure(MyError(type: .codableError, message: error.localizedDescription)))
+        }
+    }
+
+    func deleteDocument(documentPath: String, completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        let documentReference = firestore.document(documentPath)
+        documentReference.delete { error in
+            guard let error = error else {
+                completion(.success(()))
+                return
+            }
+            completion(.failure(MyError(type: .firestoreFailed, message: error.localizedDescription)))
         }
     }
 }
