@@ -18,6 +18,7 @@ struct MyProjectsDataModelMock {
                                                       needTags: dataMock.projectNeedTags?.joined(separator: ", ") ?? "",
                                                       haveTags: dataMock.projectHaveTags?.joined(separator: ", ") ?? "")
     let getMyProjectsAction = MyProjectsDataModelMock.GetMyProjectsAction()
+    let deleteProjectAction = MyProjectsDataModelMock.DeleteProjectAction()
 }
 
 extension MyProjectsDataModelMock {
@@ -27,5 +28,13 @@ extension MyProjectsDataModelMock {
         let responseFailure = MyProjects.GetMyProjectsAction.Response.Failure(myError: myError)
         let viewModelSuccess = MyProjects.GetMyProjectsAction.ViewModel.Success(projects: [mProject])
         let viewModelFailure = MyProjects.GetMyProjectsAction.ViewModel.Failure(myError: myError)
+    }
+
+    struct DeleteProjectAction {
+        let request = MyProjects.DeleteProjectAction.Request(projectId: "project id")
+        let responseSuccess = MyProjects.DeleteProjectAction.Response.Success()
+        let responseFailure = MyProjects.DeleteProjectAction.Response.Failure(myError: myError)
+        let viewModelSuccess = MyProjects.DeleteProjectAction.ViewModel.Success()
+        let viewModelFailure = MyProjects.DeleteProjectAction.ViewModel.Failure(myError: myError)
     }
 }

@@ -20,6 +20,9 @@ class ProjectsRepositoryMock {
     var setProjectCounter = 0
     var project: Project?
 
+    var deleteProjectCalled = false
+    var deleteProjectCounter = 0
+
     var getAllProjectsCalled = false
     var getAllProjectsCounter = 0
 
@@ -50,6 +53,18 @@ extension ProjectsRepositoryMock: ProjectsRepositoryProtocol {
         setProjectCounter += 1
         self.project = project
     
+        guard let myError = myError else {
+            completion(.success(()))
+            return
+        }
+        completion(.failure(myError))
+    }
+
+    func deleteProject(projectId: String, completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        deleteProjectCalled = true
+        deleteProjectCounter += 1
+        self.projectId = projectId
+
         guard let myError = myError else {
             completion(.success(()))
             return

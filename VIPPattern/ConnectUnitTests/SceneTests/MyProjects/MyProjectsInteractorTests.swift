@@ -96,3 +96,48 @@ extension MyProjectsInteractorTests {
         XCTAssertEqual(myProjectsPresenterMock.didFailGetMyProjectsResponse, expectedResponse)
     }
 }
+
+// MARK: DeleteProjectAction tests
+extension MyProjectsInteractorTests {
+    func testDeleteProjectAction_WhenDeleteProjectCalledWithRequest_ShouldCallProjectsRepositoryDeleteProjectWithRequestData() {
+        // Given
+        let request = myProjectsDataModelMock.deleteProjectAction.request
+
+        // When
+        sut.deleteProject(request: request)
+
+        // Then
+        XCTAssertTrue(projectsRepositoryMock.deleteProjectCalled)
+        XCTAssertEqual(projectsRepositoryMock.deleteProjectCounter, 1)
+        XCTAssertEqual(projectsRepositoryMock.projectId, request.projectId)
+    }
+
+    func testDeleteProjectAction_WhenDeleteProjectCalledWithRequestOnSuccess_ShouldCallPresenterDidSucceedDeleteProjectWithResponseSuccess() {
+        // Given
+        let request = myProjectsDataModelMock.deleteProjectAction.request
+        let expectedResponse = myProjectsDataModelMock.deleteProjectAction.responseSuccess
+
+        // When
+        sut.deleteProject(request: request)
+
+        // Then
+        XCTAssertTrue(myProjectsPresenterMock.didSucceedDeleteProjectCalled)
+        XCTAssertEqual(myProjectsPresenterMock.didSucceedDeleteProjectCounter, 1)
+        XCTAssertEqual(myProjectsPresenterMock.didSucceedDeleteProjectResponse, expectedResponse)
+    }
+
+    func testDeleteProjectAction_WhenDeleteProjectCalledWithRequestOnFailure_ShouldCallPresenterDidFailDeleteProjectWithResponseFailure() {
+        // Given
+        let request = myProjectsDataModelMock.deleteProjectAction.request
+        let expectedResponse = myProjectsDataModelMock.deleteProjectAction.responseFailure
+        projectsRepositoryMock.myError = MyProjectsDataModelMock.myError
+
+        // When
+        sut.deleteProject(request: request)
+
+        // Then
+        XCTAssertTrue(myProjectsPresenterMock.didFailDeleteProjectCalled)
+        XCTAssertEqual(myProjectsPresenterMock.didFailDeleteProjectCounter, 1)
+        XCTAssertEqual(myProjectsPresenterMock.didFailDeleteProjectResponse, expectedResponse)
+    }
+}

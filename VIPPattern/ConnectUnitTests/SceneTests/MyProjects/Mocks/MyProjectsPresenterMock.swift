@@ -15,6 +15,14 @@ class MyProjectsPresenterMock {
     var didFailGetMyProjectsCalled = false
     var didFailGetMyProjectsCounter = 0
     var didFailGetMyProjectsResponse: MyProjects.GetMyProjectsAction.Response.Failure?
+
+    var didSucceedDeleteProjectCalled = false
+    var didSucceedDeleteProjectCounter = 0
+    var didSucceedDeleteProjectResponse: MyProjects.DeleteProjectAction.Response.Success?
+
+    var didFailDeleteProjectCalled = false
+    var didFailDeleteProjectCounter = 0
+    var didFailDeleteProjectResponse: MyProjects.DeleteProjectAction.Response.Failure?
 }
 
 extension MyProjectsPresenterMock: MyProjectsPresenterProtocol {
@@ -28,5 +36,17 @@ extension MyProjectsPresenterMock: MyProjectsPresenterProtocol {
         didFailGetMyProjectsCalled = true
         didFailGetMyProjectsCounter += 1
         didFailGetMyProjectsResponse = response
+    }
+
+    func interactor(didSucceedDeleteProject response: MyProjects.DeleteProjectAction.Response.Success) {
+        didSucceedDeleteProjectCalled = true
+        didSucceedDeleteProjectCounter += 1
+        didSucceedDeleteProjectResponse = response
+    }
+
+    func interactor(didFailDeleteProject response: MyProjects.DeleteProjectAction.Response.Failure) {
+        didFailDeleteProjectCalled = true
+        didFailDeleteProjectCounter += 1
+        didFailDeleteProjectResponse = response
     }
 }
