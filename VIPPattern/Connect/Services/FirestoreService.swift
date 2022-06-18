@@ -13,6 +13,7 @@ import Foundation
 protocol FirestoreServiceProtocol {
     func getDocument<T: Codable>(documentPath: String, completion: @escaping ((Result<T, MyError>) -> Void))
     func setDocument<T: Codable>(documentPath: String, document: T, completion: @escaping ((Result<Void, MyError>) -> Void))
+
     func uploadImage(data: Data, completion: @escaping ((Result<String?, MyError>) -> Void))
 
     func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
