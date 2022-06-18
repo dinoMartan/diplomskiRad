@@ -16,7 +16,13 @@ class MyProjectsView: UIView {
         return button
     }()
 
+    let tableView: UITableView = {
+        let tableView = UITableView()
+        return tableView
+    }()
+
     var addProjectButtonAction: (() -> Void)?
+
     init() {
         super.init(frame: .zero)
         setupView()
@@ -40,6 +46,7 @@ extension MyProjectsView {
 
     private func addSubviews() {
         addSubview(addProjectButton)
+        addSubview(tableView)
     }
 
     private func setupCoinstraints() {
@@ -47,6 +54,11 @@ extension MyProjectsView {
             make.top.equalTo(safeAreaLayoutGuide.snp.top).offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.width.height.equalTo(30)
+        }
+
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(addProjectButton.snp.bottom).offset(15)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
 }

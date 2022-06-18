@@ -13,6 +13,8 @@ import Foundation
 protocol FirestoreServiceProtocol {
     func getDocument<T: Codable>(documentPath: String, completion: @escaping ((Result<T, MyError>) -> Void))
     func setDocument<T: Codable>(documentPath: String, document: T, completion: @escaping ((Result<Void, MyError>) -> Void))
+    func deleteDocument(documentPath: String, completion: @escaping ((Result<Void, MyError>) -> Void))
+
     func uploadImage(data: Data, completion: @escaping ((Result<String?, MyError>) -> Void))
 
     func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
@@ -54,12 +56,22 @@ extension FirestoreService {
             completion(.failure(MyError(type: .codableError, message: error.localizedDescription)))
         }
     }
+
+    func deleteDocument(documentPath: String, completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        let documentReference = firestore.document(documentPath)
+        documentReference.delete { error in
+            guard let error = error else {
+                completion(.success(()))
+                return
+            }
+            completion(.failure(MyError(type: .firestoreFailed, message: error.localizedDescription)))
+        }
+    }
 }
 
 // MARK: Multiple documents
 extension FirestoreService {
     func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
-        // CollectionReference inheris Query
         let collectionReference = firestore.collection(collectionPath)
         handleQuery(query: collectionReference, completion: completion)
     }

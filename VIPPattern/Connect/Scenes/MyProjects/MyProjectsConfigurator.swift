@@ -8,10 +8,14 @@
 import Foundation
 
 class MyProjectsConfigurator {
-    static func configureModule(routerOutput: MyProjectsRouterOutput, viewController: MyProjectsViewController) {
+    static func configureModule(routerOutput: MyProjectsRouterOutput,
+                                viewController: MyProjectsViewController,
+                                projectsRepository: ProjectsRepositoryProtocol,
+                                keychainService: KeychainServiceProtocol) {
         let view = MyProjectsView()
         let router = MyProjectsRouter()
-        let interactor = MyProjectsInteractor()
+        let interactor = MyProjectsInteractor(projectsRepository: projectsRepository,
+                                              keychainService: keychainService)
         let presenter = MyProjectsPresenter()
 
         viewController.myProjectsView = view

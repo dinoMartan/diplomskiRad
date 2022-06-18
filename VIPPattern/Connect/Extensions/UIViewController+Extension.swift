@@ -30,6 +30,19 @@ extension UIViewController {
         present(alertController, animated: true)
     }
 
+    func showDestructiveAlert(title: String, message: String, completion: (() -> Void)? = nil) {
+        let alertController = UIAlertController(title: title,
+                                                message: message,
+                                                preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+            completion?()
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        alertController.addAction(alertAction)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true)
+    }
+
     func showAlertControllerWithTextField(title: String, message: String?, placeholder: String?, completion: @escaping ((String?) -> Void)) {
         let alertController = UIAlertController(title: title,
                                                 message: message,
