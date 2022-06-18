@@ -38,6 +38,14 @@
 		8C445EB3285DDECC0023CF41 /* MyProjectsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EAE285DDECC0023CF41 /* MyProjectsPresenterMock.swift */; };
 		8C445EB4285DDECC0023CF41 /* MyProjectsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EAF285DDECC0023CF41 /* MyProjectsPresenterTests.swift */; };
 		8C445EB7285DF5D30023CF41 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EB6285DF5D30023CF41 /* Date+Extension.swift */; };
+		8C445EC1285DFCFB0023CF41 /* ProjectDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EB9285DFCFB0023CF41 /* ProjectDetailsPresenter.swift */; };
+		8C445EC2285DFCFB0023CF41 /* ProjectDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBA285DFCFB0023CF41 /* ProjectDetailsRouter.swift */; };
+		8C445EC3285DFCFB0023CF41 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBB285DFCFB0023CF41 /* ProjectDetailsViewController.swift */; };
+		8C445EC4285DFCFB0023CF41 /* ProjectDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBC285DFCFB0023CF41 /* ProjectDetailsInteractor.swift */; };
+		8C445EC5285DFCFB0023CF41 /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBD285DFCFB0023CF41 /* ProjectDetailsView.swift */; };
+		8C445EC6285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBE285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift */; };
+		8C445EC7285DFCFB0023CF41 /* ProjectDetailsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBF285DFCFB0023CF41 /* ProjectDetailsDataModel.swift */; };
+		8C445EC8285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EC0285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -182,6 +190,14 @@
 		8C445EAE285DDECC0023CF41 /* MyProjectsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsPresenterMock.swift; sourceTree = "<group>"; };
 		8C445EAF285DDECC0023CF41 /* MyProjectsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsPresenterTests.swift; sourceTree = "<group>"; };
 		8C445EB6285DF5D30023CF41 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		8C445EB9285DFCFB0023CF41 /* ProjectDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPresenter.swift; sourceTree = "<group>"; };
+		8C445EBA285DFCFB0023CF41 /* ProjectDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsRouter.swift; sourceTree = "<group>"; };
+		8C445EBB285DFCFB0023CF41 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
+		8C445EBC285DFCFB0023CF41 /* ProjectDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsInteractor.swift; sourceTree = "<group>"; };
+		8C445EBD285DFCFB0023CF41 /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
+		8C445EBE285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsConfigurator.swift; sourceTree = "<group>"; };
+		8C445EBF285DFCFB0023CF41 /* ProjectDetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsDataModel.swift; sourceTree = "<group>"; };
+		8C445EC0285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsFlowCoordinator.swift; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -454,6 +470,21 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		8C445EB8285DFCA90023CF41 /* ProjectDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8C445EC0285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift */,
+				8C445EBE285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift */,
+				8C445EBF285DFCFB0023CF41 /* ProjectDetailsDataModel.swift */,
+				8C445EBD285DFCFB0023CF41 /* ProjectDetailsView.swift */,
+				8C445EBB285DFCFB0023CF41 /* ProjectDetailsViewController.swift */,
+				8C445EBC285DFCFB0023CF41 /* ProjectDetailsInteractor.swift */,
+				8C445EB9285DFCFB0023CF41 /* ProjectDetailsPresenter.swift */,
+				8C445EBA285DFCFB0023CF41 /* ProjectDetailsRouter.swift */,
+			);
+			path = ProjectDetails;
+			sourceTree = "<group>";
+		};
 		8C6BDC26283CE71F00A96ED4 = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +544,7 @@
 		8C6BDC64283CE79A00A96ED4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8C445EB8285DFCA90023CF41 /* ProjectDetails */,
 				8C814173284151D600E7AB43 /* CommonUI */,
 				8C6BDD4B283DF99500A96ED4 /* TabBar */,
 				8C8141642841340000E7AB43 /* EditProject */,
@@ -995,6 +1027,7 @@
 				8C6BDD58283DF9E700A96ED4 /* TabBarConfigurator.swift in Sources */,
 				8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */,
 				8C6BDC73283CF24A00A96ED4 /* LoginPresenter.swift in Sources */,
+				8C445EC8285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift in Sources */,
 				8C9304E42843F03500AE2023 /* RegistrationDataModel.swift in Sources */,
 				8C9304E22843EC2700AE2023 /* LoginDataModel.swift in Sources */,
 				8C6BDD76283E019500A96ED4 /* MyProjectsConfigurator.swift in Sources */,
@@ -1002,6 +1035,7 @@
 				8C8141712841341900E7AB43 /* EditProjectConfigurator.swift in Sources */,
 				8C9304E62843F48900AE2023 /* ProfileDataModel.swift in Sources */,
 				8C8141612840E18100E7AB43 /* UIImageView+Extension.swift in Sources */,
+				8C445EC6285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift in Sources */,
 				8C6BDD74283E019500A96ED4 /* MyProjectsInteractor.swift in Sources */,
 				8C9304E82843FABD00AE2023 /* HomeDataModel.swift in Sources */,
 				8C6BDC6F283CF23600A96ED4 /* LoginConfigurator.swift in Sources */,
@@ -1013,15 +1047,18 @@
 				8C81416E2841341900E7AB43 /* EditProjectViewController.swift in Sources */,
 				8C81416C2841341900E7AB43 /* EditProjectPresenter.swift in Sources */,
 				8C6BDC89283D53C200A96ED4 /* RegistrationFlowCoordinator.swift in Sources */,
+				8C445EC4285DFCFB0023CF41 /* ProjectDetailsInteractor.swift in Sources */,
 				8C6BDC6A283CEB1400A96ED4 /* FlowCoordinator.swift in Sources */,
 				8C6BDD83283E031E00A96ED4 /* ConversationsInteractor.swift in Sources */,
 				8C6BDC71283CF24000A96ED4 /* LoginInteractor.swift in Sources */,
 				8C8141702841341900E7AB43 /* EditProjectView.swift in Sources */,
+				8C445EC2285DFCFB0023CF41 /* ProjectDetailsRouter.swift in Sources */,
 				8C6BDC8B283D53CA00A96ED4 /* RegistrationInteractor.swift in Sources */,
 				8C6BDD85283E031E00A96ED4 /* ConversationsConfigurator.swift in Sources */,
 				8C6BDD81283E031E00A96ED4 /* ConversationsRouter.swift in Sources */,
 				8C6BDD54283DF9E700A96ED4 /* TabBarRouter.swift in Sources */,
 				8C81414E283FD8B800E7AB43 /* User.swift in Sources */,
+				8C445EC5285DFCFB0023CF41 /* ProjectDetailsView.swift in Sources */,
 				8C6BDD59283DF9E700A96ED4 /* TabBarFlowCoordinator.swift in Sources */,
 				8C6BDD77283E019500A96ED4 /* MyProjectsFlowCoordinator.swift in Sources */,
 				8C6BDC8A283D53C700A96ED4 /* RegistrationConfigurator.swift in Sources */,
@@ -1029,6 +1066,8 @@
 				8C6BDC8D283D53D000A96ED4 /* RegistrationRouter.swift in Sources */,
 				8C6BDD65283DFB6800A96ED4 /* HomeInteractor.swift in Sources */,
 				8C8141722841341900E7AB43 /* EditProjectFlowCoordinator.swift in Sources */,
+				8C445EC1285DFCFB0023CF41 /* ProjectDetailsPresenter.swift in Sources */,
+				8C445EC7285DFCFB0023CF41 /* ProjectDetailsDataModel.swift in Sources */,
 				8C6BDC68283CE99100A96ED4 /* AppFlowCoordinator.swift in Sources */,
 				8C6BDD80283E031E00A96ED4 /* ConversationsPresenter.swift in Sources */,
 				8C6BDD63283DFB6800A96ED4 /* HomeRouter.swift in Sources */,
@@ -1038,6 +1077,7 @@
 				8C6BDD82283E031E00A96ED4 /* ConversationsViewController.swift in Sources */,
 				8C6BDD86283E031E00A96ED4 /* ConversationsFlowCoordinator.swift in Sources */,
 				8C814151283FDB0B00E7AB43 /* UserRepository.swift in Sources */,
+				8C445EC3285DFCFB0023CF41 /* ProjectDetailsViewController.swift in Sources */,
 				8C6BDD75283E019500A96ED4 /* MyProjectsView.swift in Sources */,
 				8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */,
 				8C9304EA2843FB3600AE2023 /* MyProjectsDataModel.swift in Sources */,
