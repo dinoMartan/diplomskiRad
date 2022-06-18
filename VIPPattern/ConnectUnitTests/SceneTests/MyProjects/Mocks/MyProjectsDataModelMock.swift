@@ -14,7 +14,7 @@ struct MyProjectsDataModelMock {
                                          message: "This is message")
     private static let mProject = MyProjects.MProject(id: dataMock.projectId ?? "",
                                                       title: dataMock.projectTitle ?? "",
-                                                      createdAt: "TODO",
+                                                      createdAt: dataMock.projectCreatedAt?.toString(.short) ?? "",
                                                       needTags: dataMock.projectNeedTags?.joined(separator: ", ") ?? "",
                                                       haveTags: dataMock.projectHaveTags?.joined(separator: ", ") ?? "")
     let getMyProjectsAction = MyProjectsDataModelMock.GetMyProjectsAction()

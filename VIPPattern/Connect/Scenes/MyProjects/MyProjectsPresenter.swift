@@ -31,7 +31,7 @@ class MyProjectsPresenter: MyProjectsPresenterProtocol {
         projects.map {
             MyProjects.MProject(id: $0.id,
                                 title: $0.title ?? "",
-                                createdAt: "TODO",
+                                createdAt: $0.createdAt?.toString(.short) ?? "",
                                 needTags: $0.needTags?.joined(separator: ", ") ?? "",
                                 haveTags: $0.haveTags?.joined(separator: ", ") ?? "")
         }

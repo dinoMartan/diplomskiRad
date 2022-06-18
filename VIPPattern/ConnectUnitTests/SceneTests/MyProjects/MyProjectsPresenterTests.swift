@@ -57,3 +57,34 @@ extension MyProjectsPresenterTests {
         XCTAssertEqual(myProjectsViewControllerMock.didFailGetMyProjectsViewModel, expectedViewModel)
     }
 }
+
+// MARK: DeleteProjectAction tests
+extension MyProjectsPresenterTests {
+    func testDeleteProjectAction_WhenDidSucceedDeleteProjectCalledWithResponseSuccess_ShouldCallViewControllerDidSucceedDeleteProjectWithViewModelSuccess() {
+        // Given
+        let response = myProjectsDataModelMock.deleteProjectAction.responseSuccess
+        let expectedViewModel = myProjectsDataModelMock.deleteProjectAction.viewModelSuccess
+
+        // When
+        sut.interactor(didSucceedDeleteProject: response)
+
+        // Then
+        XCTAssertTrue(myProjectsViewControllerMock.didSucceedDeleteProjectCalled)
+        XCTAssertEqual(myProjectsViewControllerMock.didSucceedDeleteProjectCounter, 1)
+        XCTAssertEqual(myProjectsViewControllerMock.didSucceedDeleteProjectViewModel, expectedViewModel)
+    }
+
+    func testDeleteProjectAction_WhenDidFailDeleteProjectCalledWithResponseFailure_ShouldCallViewControllerDidFailDeleteProjectWithViewModelFailure() {
+        // Given
+        let response = myProjectsDataModelMock.deleteProjectAction.responseFailure
+        let expectedViewModel = myProjectsDataModelMock.deleteProjectAction.viewModelFailure
+
+        // When
+        sut.interactor(didFailDeleteProject: response)
+
+        // Then
+        XCTAssertTrue(myProjectsViewControllerMock.didFailDeleteProjectCalled)
+        XCTAssertEqual(myProjectsViewControllerMock.didFailDeleteProjectCounter, 1)
+        XCTAssertEqual(myProjectsViewControllerMock.didFailDeleteProjectViewModel, expectedViewModel)
+    }
+}

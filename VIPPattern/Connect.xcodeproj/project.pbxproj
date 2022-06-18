@@ -37,6 +37,7 @@
 		8C445EB2285DDECC0023CF41 /* MyProjectsDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EAD285DDECC0023CF41 /* MyProjectsDataModelMock.swift */; };
 		8C445EB3285DDECC0023CF41 /* MyProjectsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EAE285DDECC0023CF41 /* MyProjectsPresenterMock.swift */; };
 		8C445EB4285DDECC0023CF41 /* MyProjectsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EAF285DDECC0023CF41 /* MyProjectsPresenterTests.swift */; };
+		8C445EB7285DF5D30023CF41 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EB6285DF5D30023CF41 /* Date+Extension.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -180,6 +181,7 @@
 		8C445EAD285DDECC0023CF41 /* MyProjectsDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsDataModelMock.swift; sourceTree = "<group>"; };
 		8C445EAE285DDECC0023CF41 /* MyProjectsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsPresenterMock.swift; sourceTree = "<group>"; };
 		8C445EAF285DDECC0023CF41 /* MyProjectsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsPresenterTests.swift; sourceTree = "<group>"; };
+		8C445EB6285DF5D30023CF41 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -656,6 +658,7 @@
 			children = (
 				8C6BDD97283F89A600A96ED4 /* UIViewController+Extension.swift */,
 				8C8141602840E18100E7AB43 /* UIImageView+Extension.swift */,
+				8C445EB6285DF5D30023CF41 /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1030,6 +1033,7 @@
 				8C6BDD80283E031E00A96ED4 /* ConversationsPresenter.swift in Sources */,
 				8C6BDD63283DFB6800A96ED4 /* HomeRouter.swift in Sources */,
 				8C814146283FA5BC00E7AB43 /* ProfileViewController.swift in Sources */,
+				8C445EB7285DF5D30023CF41 /* Date+Extension.swift in Sources */,
 				8C6BDC7D283D31B600A96ED4 /* KeychainService.swift in Sources */,
 				8C6BDD82283E031E00A96ED4 /* ConversationsViewController.swift in Sources */,
 				8C6BDD86283E031E00A96ED4 /* ConversationsFlowCoordinator.swift in Sources */,
