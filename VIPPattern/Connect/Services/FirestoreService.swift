@@ -60,7 +60,6 @@ extension FirestoreService {
 // MARK: Multiple documents
 extension FirestoreService {
     func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
-        // CollectionReference inheris Query
         let collectionReference = firestore.collection(collectionPath)
         handleQuery(query: collectionReference, completion: completion)
     }
