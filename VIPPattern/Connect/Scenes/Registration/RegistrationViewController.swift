@@ -49,11 +49,11 @@ extension RegistrationViewController {
     }
 
     private func getRegisterActionRequest() -> Registration.RegisterAction.Request {
-        Registration.RegisterAction.Request(username: registrationView?.usernameTextField.text,
-                                            firstName: registrationView?.firstNameTextField.text,
-                                            lastName: registrationView?.lastNameTextField.text,
-                                            email: registrationView?.emailTextField.text,
-                                            password: registrationView?.passwordTextField.text,
+        Registration.RegisterAction.Request(username: registrationView?.usernameTextFieldView.textField.text,
+                                            firstName: registrationView?.firstNameTextFieldView.textField.text,
+                                            lastName: registrationView?.lastNameTextFieldView.textField.text,
+                                            email: registrationView?.emailTextFieldView.textField.text,
+                                            password: registrationView?.passwordTextFieldView.textField.text,
                                             image: registrationView?.imageView.image)
     }
 }

@@ -35,10 +35,28 @@ class HomeFlowCoordinator: FlowCoordinator {
     deinit {
         print("deinit \(self)")
     }
+
+    private func showProjectDetailsFlow(projectId: String) {
+        let projectDetailsFlowCoordinator = ProjectDetailsFlowCoordinator(rootViewController: rootViewController,
+                                                                          dependencies: dependencies)
+        addChildFlowCoordinator(projectDetailsFlowCoordinator)
+        projectDetailsFlowCoordinator.delegate = self
+        projectDetailsFlowCoordinator.startWith(projectId: projectId)
+    }
 }
 
 extension HomeFlowCoordinator: HomeRouterOutput {
     func shouldClose() {
         delegate?.shouldRemoveFlowCoordinator(self)
+    }
+
+    func showProjectDetails(projectId: String) {
+        showProjectDetailsFlow(projectId: projectId)
+    }
+}
+
+extension HomeFlowCoordinator: ProjectDetailsFlowCoordinatorDelegate {
+    func shouldRemoveFlowCoordinator(_ flowCoordinator: FlowCoordinator) {
+        removeChildFlowCoordinator(flowCoordinator)
     }
 }

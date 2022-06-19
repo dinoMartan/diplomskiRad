@@ -18,6 +18,7 @@ class MyProjectsView: UIView {
 
     let tableView: UITableView = {
         let tableView = UITableView()
+        tableView.separatorStyle = .none
         return tableView
     }()
 

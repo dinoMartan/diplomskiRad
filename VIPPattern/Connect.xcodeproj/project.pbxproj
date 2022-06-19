@@ -38,6 +38,27 @@
 		8C445EB3285DDECC0023CF41 /* MyProjectsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EAE285DDECC0023CF41 /* MyProjectsPresenterMock.swift */; };
 		8C445EB4285DDECC0023CF41 /* MyProjectsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EAF285DDECC0023CF41 /* MyProjectsPresenterTests.swift */; };
 		8C445EB7285DF5D30023CF41 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EB6285DF5D30023CF41 /* Date+Extension.swift */; };
+		8C445EC1285DFCFB0023CF41 /* ProjectDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EB9285DFCFB0023CF41 /* ProjectDetailsPresenter.swift */; };
+		8C445EC2285DFCFB0023CF41 /* ProjectDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBA285DFCFB0023CF41 /* ProjectDetailsRouter.swift */; };
+		8C445EC3285DFCFB0023CF41 /* ProjectDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBB285DFCFB0023CF41 /* ProjectDetailsViewController.swift */; };
+		8C445EC4285DFCFB0023CF41 /* ProjectDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBC285DFCFB0023CF41 /* ProjectDetailsInteractor.swift */; };
+		8C445EC5285DFCFB0023CF41 /* ProjectDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBD285DFCFB0023CF41 /* ProjectDetailsView.swift */; };
+		8C445EC6285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBE285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift */; };
+		8C445EC7285DFCFB0023CF41 /* ProjectDetailsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EBF285DFCFB0023CF41 /* ProjectDetailsDataModel.swift */; };
+		8C445EC8285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EC0285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift */; };
+		8C445ECE285E20130023CF41 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C445ECA285E20120023CF41 /* OpenSans-Bold.ttf */; };
+		8C445ECF285E20130023CF41 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C445ECB285E20120023CF41 /* OpenSans-ExtraBold.ttf */; };
+		8C445ED0285E20130023CF41 /* OpenSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C445ECC285E20130023CF41 /* OpenSans-Medium.ttf */; };
+		8C445ED1285E20130023CF41 /* OpenSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C445ECD285E20130023CF41 /* OpenSans-MediumItalic.ttf */; };
+		8C445ED3285E202A0023CF41 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED2285E202A0023CF41 /* UIFont+Extension.swift */; };
+		8C445ED5285E38590023CF41 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED4285E38590023CF41 /* UIView+Extension.swift */; };
+		8C445ED7285E645B0023CF41 /* CTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED6285E645B0023CF41 /* CTextFieldView.swift */; };
+		8C445ED9285F19580023CF41 /* CButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED8285F19580023CF41 /* CButtonView.swift */; };
+		8C445EE0285F20A80023CF41 /* ProjectDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDB285F20A80023CF41 /* ProjectDetailsInteractorTests.swift */; };
+		8C445EE1285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDC285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift */; };
+		8C445EE2285F20A80023CF41 /* ProjectDetailsDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDD285F20A80023CF41 /* ProjectDetailsDataModelMock.swift */; };
+		8C445EE3285F20A80023CF41 /* ProjectDetailsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDE285F20A80023CF41 /* ProjectDetailsPresenterMock.swift */; };
+		8C445EE4285F20A80023CF41 /* ProjectDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDF285F20A80023CF41 /* ProjectDetailsPresenterTests.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -182,6 +203,27 @@
 		8C445EAE285DDECC0023CF41 /* MyProjectsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsPresenterMock.swift; sourceTree = "<group>"; };
 		8C445EAF285DDECC0023CF41 /* MyProjectsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProjectsPresenterTests.swift; sourceTree = "<group>"; };
 		8C445EB6285DF5D30023CF41 /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		8C445EB9285DFCFB0023CF41 /* ProjectDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPresenter.swift; sourceTree = "<group>"; };
+		8C445EBA285DFCFB0023CF41 /* ProjectDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsRouter.swift; sourceTree = "<group>"; };
+		8C445EBB285DFCFB0023CF41 /* ProjectDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewController.swift; sourceTree = "<group>"; };
+		8C445EBC285DFCFB0023CF41 /* ProjectDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsInteractor.swift; sourceTree = "<group>"; };
+		8C445EBD285DFCFB0023CF41 /* ProjectDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsView.swift; sourceTree = "<group>"; };
+		8C445EBE285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsConfigurator.swift; sourceTree = "<group>"; };
+		8C445EBF285DFCFB0023CF41 /* ProjectDetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsDataModel.swift; sourceTree = "<group>"; };
+		8C445EC0285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsFlowCoordinator.swift; sourceTree = "<group>"; };
+		8C445ECA285E20120023CF41 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		8C445ECB285E20120023CF41 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		8C445ECC285E20130023CF41 /* OpenSans-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Medium.ttf"; sourceTree = "<group>"; };
+		8C445ECD285E20130023CF41 /* OpenSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-MediumItalic.ttf"; sourceTree = "<group>"; };
+		8C445ED2285E202A0023CF41 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		8C445ED4285E38590023CF41 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		8C445ED6285E645B0023CF41 /* CTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextFieldView.swift; sourceTree = "<group>"; };
+		8C445ED8285F19580023CF41 /* CButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonView.swift; sourceTree = "<group>"; };
+		8C445EDB285F20A80023CF41 /* ProjectDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsInteractorTests.swift; sourceTree = "<group>"; };
+		8C445EDC285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewControllerMock.swift; sourceTree = "<group>"; };
+		8C445EDD285F20A80023CF41 /* ProjectDetailsDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsDataModelMock.swift; sourceTree = "<group>"; };
+		8C445EDE285F20A80023CF41 /* ProjectDetailsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPresenterMock.swift; sourceTree = "<group>"; };
+		8C445EDF285F20A80023CF41 /* ProjectDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPresenterTests.swift; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -454,6 +496,52 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		8C445EB8285DFCA90023CF41 /* ProjectDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8C445EC0285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift */,
+				8C445EBE285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift */,
+				8C445EBF285DFCFB0023CF41 /* ProjectDetailsDataModel.swift */,
+				8C445EBD285DFCFB0023CF41 /* ProjectDetailsView.swift */,
+				8C445EBB285DFCFB0023CF41 /* ProjectDetailsViewController.swift */,
+				8C445EBC285DFCFB0023CF41 /* ProjectDetailsInteractor.swift */,
+				8C445EB9285DFCFB0023CF41 /* ProjectDetailsPresenter.swift */,
+				8C445EBA285DFCFB0023CF41 /* ProjectDetailsRouter.swift */,
+			);
+			path = ProjectDetails;
+			sourceTree = "<group>";
+		};
+		8C445EC9285E1FFA0023CF41 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				8C445ECA285E20120023CF41 /* OpenSans-Bold.ttf */,
+				8C445ECB285E20120023CF41 /* OpenSans-ExtraBold.ttf */,
+				8C445ECC285E20130023CF41 /* OpenSans-Medium.ttf */,
+				8C445ECD285E20130023CF41 /* OpenSans-MediumItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8C445EDA285F207A0023CF41 /* ProjectDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8C445EE5285F20AB0023CF41 /* Mocks */,
+				8C445EDB285F20A80023CF41 /* ProjectDetailsInteractorTests.swift */,
+				8C445EDF285F20A80023CF41 /* ProjectDetailsPresenterTests.swift */,
+			);
+			path = ProjectDetails;
+			sourceTree = "<group>";
+		};
+		8C445EE5285F20AB0023CF41 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8C445EDD285F20A80023CF41 /* ProjectDetailsDataModelMock.swift */,
+				8C445EDC285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift */,
+				8C445EDE285F20A80023CF41 /* ProjectDetailsPresenterMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		8C6BDC26283CE71F00A96ED4 = {
 			isa = PBXGroup;
 			children = (
@@ -514,6 +602,7 @@
 			isa = PBXGroup;
 			children = (
 				8C814173284151D600E7AB43 /* CommonUI */,
+				8C445EB8285DFCA90023CF41 /* ProjectDetails */,
 				8C6BDD4B283DF99500A96ED4 /* TabBar */,
 				8C8141642841340000E7AB43 /* EditProject */,
 				8C6BDD78283E030D00A96ED4 /* Conversations */,
@@ -529,6 +618,7 @@
 		8C6BDC65283CE7A200A96ED4 /* SupportingFiles */ = {
 			isa = PBXGroup;
 			children = (
+				8C445EC9285E1FFA0023CF41 /* Fonts */,
 				8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */,
 				8C6BDC40283CE72100A96ED4 /* Info.plist */,
 			);
@@ -659,6 +749,8 @@
 				8C6BDD97283F89A600A96ED4 /* UIViewController+Extension.swift */,
 				8C8141602840E18100E7AB43 /* UIImageView+Extension.swift */,
 				8C445EB6285DF5D30023CF41 /* Date+Extension.swift */,
+				8C445ED2285E202A0023CF41 /* UIFont+Extension.swift */,
+				8C445ED4285E38590023CF41 /* UIView+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -735,6 +827,8 @@
 			children = (
 				8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */,
 				8C8141742841528C00E7AB43 /* TagsField.swift */,
+				8C445ED6285E645B0023CF41 /* CTextFieldView.swift */,
+				8C445ED8285F19580023CF41 /* CButtonView.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -763,6 +857,7 @@
 		8C93052C2844BA5400AE2023 /* SceneTests */ = {
 			isa = PBXGroup;
 			children = (
+				8C445EDA285F207A0023CF41 /* ProjectDetails */,
 				8C445EAA285DDEB20023CF41 /* MyProjects */,
 				8C445E99285C8D680023CF41 /* Home */,
 				8C445E8B285BA29F0023CF41 /* EditProject */,
@@ -877,9 +972,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C6BDC3F283CE72100A96ED4 /* LaunchScreen.storyboard in Resources */,
+				8C445ECE285E20130023CF41 /* OpenSans-Bold.ttf in Resources */,
 				8C6BDD8D283F7B9D00A96ED4 /* GoogleService-Info.plist in Resources */,
+				8C445ECF285E20130023CF41 /* OpenSans-ExtraBold.ttf in Resources */,
+				8C445ED1285E20130023CF41 /* OpenSans-MediumItalic.ttf in Resources */,
 				8C6BDD8B283E246900A96ED4 /* HomeTableViewCell.xib in Resources */,
 				8C445EA9285CC0A20023CF41 /* MyProjectsTableViewCell.xib in Resources */,
+				8C445ED0285E20130023CF41 /* OpenSans-Medium.ttf in Resources */,
 				8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */,
 				8C81415B2840CBBE00E7AB43 /* ProfileSettingTableViewCell.xib in Resources */,
 			);
@@ -993,8 +1092,10 @@
 				8C6BDD62283DFB6800A96ED4 /* HomePresenter.swift in Sources */,
 				8C6BDD68283DFB6800A96ED4 /* HomeFlowCoordinator.swift in Sources */,
 				8C6BDD58283DF9E700A96ED4 /* TabBarConfigurator.swift in Sources */,
+				8C445ED7285E645B0023CF41 /* CTextFieldView.swift in Sources */,
 				8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */,
 				8C6BDC73283CF24A00A96ED4 /* LoginPresenter.swift in Sources */,
+				8C445EC8285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift in Sources */,
 				8C9304E42843F03500AE2023 /* RegistrationDataModel.swift in Sources */,
 				8C9304E22843EC2700AE2023 /* LoginDataModel.swift in Sources */,
 				8C6BDD76283E019500A96ED4 /* MyProjectsConfigurator.swift in Sources */,
@@ -1002,10 +1103,12 @@
 				8C8141712841341900E7AB43 /* EditProjectConfigurator.swift in Sources */,
 				8C9304E62843F48900AE2023 /* ProfileDataModel.swift in Sources */,
 				8C8141612840E18100E7AB43 /* UIImageView+Extension.swift in Sources */,
+				8C445EC6285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift in Sources */,
 				8C6BDD74283E019500A96ED4 /* MyProjectsInteractor.swift in Sources */,
 				8C9304E82843FABD00AE2023 /* HomeDataModel.swift in Sources */,
 				8C6BDC6F283CF23600A96ED4 /* LoginConfigurator.swift in Sources */,
 				8C6BDD73283E019500A96ED4 /* MyProjectsViewController.swift in Sources */,
+				8C445ED5285E38590023CF41 /* UIView+Extension.swift in Sources */,
 				8C81416328411E8200E7AB43 /* Project.swift in Sources */,
 				8C81415A2840CBBE00E7AB43 /* ProfileSettingTableViewCell.swift in Sources */,
 				8C6BDC75283CF25000A96ED4 /* LoginRouter.swift in Sources */,
@@ -1013,15 +1116,18 @@
 				8C81416E2841341900E7AB43 /* EditProjectViewController.swift in Sources */,
 				8C81416C2841341900E7AB43 /* EditProjectPresenter.swift in Sources */,
 				8C6BDC89283D53C200A96ED4 /* RegistrationFlowCoordinator.swift in Sources */,
+				8C445EC4285DFCFB0023CF41 /* ProjectDetailsInteractor.swift in Sources */,
 				8C6BDC6A283CEB1400A96ED4 /* FlowCoordinator.swift in Sources */,
 				8C6BDD83283E031E00A96ED4 /* ConversationsInteractor.swift in Sources */,
 				8C6BDC71283CF24000A96ED4 /* LoginInteractor.swift in Sources */,
 				8C8141702841341900E7AB43 /* EditProjectView.swift in Sources */,
+				8C445EC2285DFCFB0023CF41 /* ProjectDetailsRouter.swift in Sources */,
 				8C6BDC8B283D53CA00A96ED4 /* RegistrationInteractor.swift in Sources */,
 				8C6BDD85283E031E00A96ED4 /* ConversationsConfigurator.swift in Sources */,
 				8C6BDD81283E031E00A96ED4 /* ConversationsRouter.swift in Sources */,
 				8C6BDD54283DF9E700A96ED4 /* TabBarRouter.swift in Sources */,
 				8C81414E283FD8B800E7AB43 /* User.swift in Sources */,
+				8C445EC5285DFCFB0023CF41 /* ProjectDetailsView.swift in Sources */,
 				8C6BDD59283DF9E700A96ED4 /* TabBarFlowCoordinator.swift in Sources */,
 				8C6BDD77283E019500A96ED4 /* MyProjectsFlowCoordinator.swift in Sources */,
 				8C6BDC8A283D53C700A96ED4 /* RegistrationConfigurator.swift in Sources */,
@@ -1029,6 +1135,8 @@
 				8C6BDC8D283D53D000A96ED4 /* RegistrationRouter.swift in Sources */,
 				8C6BDD65283DFB6800A96ED4 /* HomeInteractor.swift in Sources */,
 				8C8141722841341900E7AB43 /* EditProjectFlowCoordinator.swift in Sources */,
+				8C445EC1285DFCFB0023CF41 /* ProjectDetailsPresenter.swift in Sources */,
+				8C445EC7285DFCFB0023CF41 /* ProjectDetailsDataModel.swift in Sources */,
 				8C6BDC68283CE99100A96ED4 /* AppFlowCoordinator.swift in Sources */,
 				8C6BDD80283E031E00A96ED4 /* ConversationsPresenter.swift in Sources */,
 				8C6BDD63283DFB6800A96ED4 /* HomeRouter.swift in Sources */,
@@ -1038,9 +1146,11 @@
 				8C6BDD82283E031E00A96ED4 /* ConversationsViewController.swift in Sources */,
 				8C6BDD86283E031E00A96ED4 /* ConversationsFlowCoordinator.swift in Sources */,
 				8C814151283FDB0B00E7AB43 /* UserRepository.swift in Sources */,
+				8C445EC3285DFCFB0023CF41 /* ProjectDetailsViewController.swift in Sources */,
 				8C6BDD75283E019500A96ED4 /* MyProjectsView.swift in Sources */,
 				8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */,
 				8C9304EA2843FB3600AE2023 /* MyProjectsDataModel.swift in Sources */,
+				8C445ED9285F19580023CF41 /* CButtonView.swift in Sources */,
 				8C6BDD71283E019500A96ED4 /* MyProjectsPresenter.swift in Sources */,
 				8C6BDD98283F89A600A96ED4 /* UIViewController+Extension.swift in Sources */,
 				8C9304EE2843FB9A00AE2023 /* EditProjectDataModel.swift in Sources */,
@@ -1050,6 +1160,7 @@
 				8C6BDD55283DF9E700A96ED4 /* TabBarViewController.swift in Sources */,
 				8C814145283FA5BC00E7AB43 /* ProfileRouter.swift in Sources */,
 				8C814148283FA5BC00E7AB43 /* ProfileView.swift in Sources */,
+				8C445ED3285E202A0023CF41 /* UIFont+Extension.swift in Sources */,
 				8C6BDD8A283E246900A96ED4 /* HomeTableViewCell.swift in Sources */,
 				8C6BDD8F283F7D9100A96ED4 /* AuthenticationRepository.swift in Sources */,
 				8C6BDC6C283CEDB100A96ED4 /* MainFlowCoordinator.swift in Sources */,
@@ -1072,15 +1183,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C445E4B2855EA280023CF41 /* RegistrationViewControllerMock.swift in Sources */,
+				8C445EE0285F20A80023CF41 /* ProjectDetailsInteractorTests.swift in Sources */,
 				8C445E93285BA2BA0023CF41 /* EditProjectDataModelMock.swift in Sources */,
 				8C445EB3285DDECC0023CF41 /* MyProjectsPresenterMock.swift in Sources */,
+				8C445EE1285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift in Sources */,
 				8C445E95285BA2BA0023CF41 /* EditProjectPresenterTests.swift in Sources */,
 				8C445E9F285C8D780023CF41 /* HomeInteractorTests.swift in Sources */,
 				8C445E92285BA2BA0023CF41 /* EditProjectViewControllerMock.swift in Sources */,
 				8C445E89285B72A70023CF41 /* ProfilePresenterTests.swift in Sources */,
 				8C9305332844BB8400AE2023 /* UserRepositoryMock.swift in Sources */,
 				8C445E6D285B32BF0023CF41 /* LoginInteractorTests.swift in Sources */,
+				8C445EE3285F20A80023CF41 /* ProjectDetailsPresenterMock.swift in Sources */,
 				8C445E94285BA2BA0023CF41 /* EditProjectPresenterMock.swift in Sources */,
+				8C445EE2285F20A80023CF41 /* ProjectDetailsDataModelMock.swift in Sources */,
 				8C9305252844BA2800AE2023 /* RegistrationInteractorTests.swift in Sources */,
 				8C445E86285B72A70023CF41 /* ProfileViewControllerMock.swift in Sources */,
 				8C445E98285BA5CA0023CF41 /* ProjectsRepositoryMock.swift in Sources */,
@@ -1100,6 +1215,7 @@
 				8C445EB0285DDECC0023CF41 /* MyProjectsInteractorTests.swift in Sources */,
 				8C445EA3285C8D780023CF41 /* HomePresenterTests.swift in Sources */,
 				8C445E88285B72A70023CF41 /* ProfilePresenterMock.swift in Sources */,
+				8C445EE4285F20A80023CF41 /* ProjectDetailsPresenterTests.swift in Sources */,
 				8C445E91285BA2BA0023CF41 /* EditProjectInteractorTests.swift in Sources */,
 				8C445EA1285C8D780023CF41 /* HomeDataModelMock.swift in Sources */,
 				8C445EB4285DDECC0023CF41 /* MyProjectsPresenterTests.swift in Sources */,
@@ -1181,6 +1297,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1235,6 +1352,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

@@ -12,8 +12,14 @@ class MyProjectsTableViewCell: UITableViewCell {
     @IBOutlet private weak var createdAtLabel: UILabel!
     @IBOutlet private weak var needTagsLabel: UILabel!
     @IBOutlet private weak var haveTagsLabel: UILabel!
+    @IBOutlet private weak var containerView: UIView!
 
     static let reuseIdentifier = "MyProjectsTableViewCell"
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        containerView.setShadowAndCornerRadius()
+    }
 
     func setupWith(project: MyProjects.MProject) {
         titleLabel.text = project.title

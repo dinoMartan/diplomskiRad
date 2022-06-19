@@ -11,8 +11,10 @@ import UIKit
 class RegistrationView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
+        label.font = UIFont(.openSansExtraBold, size: 34)
+        label.textColor = .secondaryLabel
         label.textAlignment = .center
-        label.text = "Registriraj se"
+        label.text = "Registration"
         return label
     }()
 
@@ -29,60 +31,32 @@ class RegistrationView: UIView {
         return imageView
     }()
 
-    let usernameTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .secondarySystemBackground
-        textField.placeholder = "Korisničko ime"
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        return textField
-    }()
+    let usernameTextFieldView = CTextFieldView(placeholder: "Username",
+                                               textContentType: .username,
+                                               backgroundColor: .systemBackground)
 
-    let firstNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .secondarySystemBackground
-        textField.placeholder = "Ime"
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        return textField
-    }()
+    let firstNameTextFieldView = CTextFieldView(placeholder: "First name",
+                                                textContentType: .name,
+                                                backgroundColor: .systemBackground)
 
-    let lastNameTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .secondarySystemBackground
-        textField.placeholder = "Prezime"
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        return textField
-    }()
+    let lastNameTextFieldView = CTextFieldView(placeholder: "Last name",
+                                               textContentType: .familyName,
+                                               backgroundColor: .systemBackground)
 
-    let emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .secondarySystemBackground
-        textField.placeholder = "Email"
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        return textField
-    }()
+    let emailTextFieldView = CTextFieldView(placeholder: "Email",
+                                            textContentType: .emailAddress,
+                                            backgroundColor: .systemBackground)
 
-    let passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Lozinka"
-        textField.backgroundColor = .secondarySystemBackground
-        textField.textContentType = .password
-        return textField
-    }()
+    let passwordTextFieldView = CTextFieldView(placeholder: "Password",
+                                               textContentType: .password,
+                                               backgroundColor: .systemBackground,
+                                               isSecureText: true)
 
-    private let registerButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Registracija", for: .normal)
-        return button
-    }()
+    private let registerButton = CButtonView(title: "Register")
 
     private let stackView: UIStackView = {
         let stackView = UIStackView()
         stackView.distribution = .fillEqually
-        stackView.spacing = 20
         stackView.axis = .vertical
         return stackView
     }()
@@ -102,7 +76,7 @@ class RegistrationView: UIView {
 
 extension RegistrationView {
     private func setupView() {
-        backgroundColor = .systemGray
+        backgroundColor = .secondarySystemBackground
         addSubviews()
         setupCoinstraints()
         setupActions()
@@ -112,11 +86,11 @@ extension RegistrationView {
         addSubview(titleLabel)
         addSubview(imageView)
         addSubview(stackView)
-        stackView.addArrangedSubview(usernameTextField)
-        stackView.addArrangedSubview(firstNameTextField)
-        stackView.addArrangedSubview(lastNameTextField)
-        stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(passwordTextField)
+        stackView.addArrangedSubview(usernameTextFieldView)
+        stackView.addArrangedSubview(firstNameTextFieldView)
+        stackView.addArrangedSubview(lastNameTextFieldView)
+        stackView.addArrangedSubview(emailTextFieldView)
+        stackView.addArrangedSubview(passwordTextFieldView)
         stackView.addArrangedSubview(registerButton)
     }
 
@@ -148,14 +122,9 @@ extension RegistrationView {
     }
 
     private func setupLoginButtonAction() {
-        let guesture = UITapGestureRecognizer(target: self,
-                                              action: #selector(didTapLoginButton))
-        registerButton.addGestureRecognizer(guesture)
-    }
-
-    @objc
-    private func didTapLoginButton() {
-        registerButtonTapInteraction?()
+        registerButton.buttonAction = { [weak self] in
+            self?.registerButtonTapInteraction?()
+        }
     }
 
     private func setupImageTapAction() {

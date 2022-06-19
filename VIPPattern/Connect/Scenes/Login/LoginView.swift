@@ -9,48 +9,34 @@ import SnapKit
 import UIKit
 
 class LoginView: UIView {
-    let emailTextField: UITextField = {
-        let textField = UITextField()
-        textField.backgroundColor = .secondarySystemBackground
-        textField.placeholder = "Email"
-        textField.autocorrectionType = .no
-        textField.autocapitalizationType = .none
-        return textField
+    private let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.image = UIImage(named: "Connect")
+        return imageView
     }()
 
-    let passwordTextField: UITextField = {
-        let textField = UITextField()
-        textField.textContentType = .password
-        textField.backgroundColor = .secondarySystemBackground
-        textField.placeholder = "Lozinka"
-        return textField
+    let titleLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(.openSansExtraBold, size: 34)
+        label.textColor = .label
+        label.textAlignment = .center
+        label.text = "Login"
+        return label
     }()
 
-    private let loginButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Prijava", for: .normal)
-        return button
-    }()
+    let emailTextFieldView = CTextFieldView(placeholder: "Email",
+                                            textContentType: .emailAddress)
 
-    private let registerButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Registracija", for: .normal)
-        return button
-    }()
+    let passwordTextFieldView = CTextFieldView(placeholder: "Password",
+                                               textContentType: .password,
+                                               isSecureText: true)
 
-    private let forgottenPasswordButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Zaboravljena lozinka", for: .normal)
-        return button
-    }()
+    let loginButtonView = CButtonView(title: "Login")
 
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.distribution = .fillEqually
-        stackView.spacing = 20
-        stackView.axis = .vertical
-        return stackView
-    }()
+    let registerButtonView = CButtonView(title: "Register")
+
+    let forgottenPasswordButtonView = CButtonView(title: "Forgotten password")
 
     var loginButtonTapInteraction: (() -> Void)?
     var registerButtonTapInteraction: (() -> Void)?
@@ -68,27 +54,68 @@ class LoginView: UIView {
 
 extension LoginView {
     private func setupView() {
-        backgroundColor = .systemGray
         addSubviews()
         setupCoinstraints()
         setupActions()
     }
-    
+
     private func addSubviews() {
-        addSubview(stackView)
-        stackView.addArrangedSubview(emailTextField)
-        stackView.addArrangedSubview(passwordTextField)
-        stackView.addArrangedSubview(loginButton)
-        stackView.addArrangedSubview(registerButton)
-        stackView.addArrangedSubview(forgottenPasswordButton)
+        addSubview(imageView)
+        addSubview(titleLabel)
+        addSubview(emailTextFieldView)
+        addSubview(passwordTextFieldView)
+        addSubview(loginButtonView)
+        addSubview(registerButtonView)
+        addSubview(forgottenPasswordButtonView)
     }
-    
+
     private func setupCoinstraints() {
-        stackView.snp.makeConstraints { make in
+        imageView.snp.makeConstraints { make in
+            make.width.height.equalTo(100)
+            make.top.equalToSuperview().offset(100)
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-            make.height.equalTo(200)
-            make.width.equalTo(200)
+        }
+
+        titleLabel.snp.makeConstraints { make in
+            make.top.equalTo(imageView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+
+        emailTextFieldView.snp.makeConstraints { make in
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(80)
+        }
+
+        passwordTextFieldView.snp.makeConstraints { make in
+            make.top.equalTo(emailTextFieldView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(80)
+        }
+
+        loginButtonView.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextFieldView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(80)
+        }
+
+        registerButtonView.snp.makeConstraints { make in
+            make.top.equalTo(loginButtonView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(80)
+        }
+
+        forgottenPasswordButtonView.snp.makeConstraints { make in
+            make.top.equalTo(registerButtonView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(80)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-40).priority(.low)
         }
     }
 }
@@ -101,35 +128,20 @@ extension LoginView {
     }
 
     private func setupLoginButtonAction() {
-        let guesture = UITapGestureRecognizer(target: self,
-                                              action: #selector(didTapLoginButton))
-        loginButton.addGestureRecognizer(guesture)
-    }
-
-    @objc
-    private func didTapLoginButton() {
-        loginButtonTapInteraction?()
+        loginButtonView.buttonAction = { [weak self] in
+            self?.loginButtonTapInteraction?()
+        }
     }
 
     private func setupRegisterButtonAction() {
-        let guesture = UITapGestureRecognizer(target: self,
-                                              action: #selector(didTapRegisterButton))
-        registerButton.addGestureRecognizer(guesture)
-    }
-
-    @objc
-    private func didTapRegisterButton() {
-        registerButtonTapInteraction?()
+        registerButtonView.buttonAction = { [weak self] in
+            self?.registerButtonTapInteraction?()
+        }
     }
 
     private func setupForgottenPasswordButtonAction() {
-        let guesture = UITapGestureRecognizer(target: self,
-                                              action: #selector(didTapForgottenPasswordButton))
-        forgottenPasswordButton.addGestureRecognizer(guesture)
-    }
-
-    @objc
-    private func didTapForgottenPasswordButton() {
-        forgottenPasswordButtonTapInteraction?()
+        forgottenPasswordButtonView.buttonAction = { [weak self] in
+            self?.forgottenPasswordButtonTapInteraction?()
+        }
     }
 }

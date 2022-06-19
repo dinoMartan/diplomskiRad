@@ -12,8 +12,14 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet private weak var ownerUsernameLabel: UILabel!
     @IBOutlet private weak var projectTitleLabel: UILabel!
     @IBOutlet private weak var projectNeedTagsLabel: UILabel!
+    @IBOutlet private weak var containerView: UIView!
 
     static let identifier = "HomeTableViewCell"
+
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        containerView.setShadowAndCornerRadius()
+    }
 
     func setupWith(project: Home.HProject) {
         ownerImageView.setImageFromFireStore(project.ownerImage ?? "")
