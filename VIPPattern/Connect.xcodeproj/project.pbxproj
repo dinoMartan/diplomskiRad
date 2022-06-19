@@ -54,6 +54,11 @@
 		8C445ED5285E38590023CF41 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED4285E38590023CF41 /* UIView+Extension.swift */; };
 		8C445ED7285E645B0023CF41 /* CTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED6285E645B0023CF41 /* CTextFieldView.swift */; };
 		8C445ED9285F19580023CF41 /* CButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED8285F19580023CF41 /* CButtonView.swift */; };
+		8C445EE0285F20A80023CF41 /* ProjectDetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDB285F20A80023CF41 /* ProjectDetailsInteractorTests.swift */; };
+		8C445EE1285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDC285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift */; };
+		8C445EE2285F20A80023CF41 /* ProjectDetailsDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDD285F20A80023CF41 /* ProjectDetailsDataModelMock.swift */; };
+		8C445EE3285F20A80023CF41 /* ProjectDetailsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDE285F20A80023CF41 /* ProjectDetailsPresenterMock.swift */; };
+		8C445EE4285F20A80023CF41 /* ProjectDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDF285F20A80023CF41 /* ProjectDetailsPresenterTests.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -214,6 +219,11 @@
 		8C445ED4285E38590023CF41 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		8C445ED6285E645B0023CF41 /* CTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextFieldView.swift; sourceTree = "<group>"; };
 		8C445ED8285F19580023CF41 /* CButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonView.swift; sourceTree = "<group>"; };
+		8C445EDB285F20A80023CF41 /* ProjectDetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsInteractorTests.swift; sourceTree = "<group>"; };
+		8C445EDC285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsViewControllerMock.swift; sourceTree = "<group>"; };
+		8C445EDD285F20A80023CF41 /* ProjectDetailsDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsDataModelMock.swift; sourceTree = "<group>"; };
+		8C445EDE285F20A80023CF41 /* ProjectDetailsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPresenterMock.swift; sourceTree = "<group>"; };
+		8C445EDF285F20A80023CF41 /* ProjectDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPresenterTests.swift; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -510,6 +520,26 @@
 				8C445ECD285E20130023CF41 /* OpenSans-MediumItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8C445EDA285F207A0023CF41 /* ProjectDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8C445EE5285F20AB0023CF41 /* Mocks */,
+				8C445EDB285F20A80023CF41 /* ProjectDetailsInteractorTests.swift */,
+				8C445EDF285F20A80023CF41 /* ProjectDetailsPresenterTests.swift */,
+			);
+			path = ProjectDetails;
+			sourceTree = "<group>";
+		};
+		8C445EE5285F20AB0023CF41 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8C445EDD285F20A80023CF41 /* ProjectDetailsDataModelMock.swift */,
+				8C445EDC285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift */,
+				8C445EDE285F20A80023CF41 /* ProjectDetailsPresenterMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		8C6BDC26283CE71F00A96ED4 = {
@@ -827,6 +857,7 @@
 		8C93052C2844BA5400AE2023 /* SceneTests */ = {
 			isa = PBXGroup;
 			children = (
+				8C445EDA285F207A0023CF41 /* ProjectDetails */,
 				8C445EAA285DDEB20023CF41 /* MyProjects */,
 				8C445E99285C8D680023CF41 /* Home */,
 				8C445E8B285BA29F0023CF41 /* EditProject */,
@@ -1152,15 +1183,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C445E4B2855EA280023CF41 /* RegistrationViewControllerMock.swift in Sources */,
+				8C445EE0285F20A80023CF41 /* ProjectDetailsInteractorTests.swift in Sources */,
 				8C445E93285BA2BA0023CF41 /* EditProjectDataModelMock.swift in Sources */,
 				8C445EB3285DDECC0023CF41 /* MyProjectsPresenterMock.swift in Sources */,
+				8C445EE1285F20A80023CF41 /* ProjectDetailsViewControllerMock.swift in Sources */,
 				8C445E95285BA2BA0023CF41 /* EditProjectPresenterTests.swift in Sources */,
 				8C445E9F285C8D780023CF41 /* HomeInteractorTests.swift in Sources */,
 				8C445E92285BA2BA0023CF41 /* EditProjectViewControllerMock.swift in Sources */,
 				8C445E89285B72A70023CF41 /* ProfilePresenterTests.swift in Sources */,
 				8C9305332844BB8400AE2023 /* UserRepositoryMock.swift in Sources */,
 				8C445E6D285B32BF0023CF41 /* LoginInteractorTests.swift in Sources */,
+				8C445EE3285F20A80023CF41 /* ProjectDetailsPresenterMock.swift in Sources */,
 				8C445E94285BA2BA0023CF41 /* EditProjectPresenterMock.swift in Sources */,
+				8C445EE2285F20A80023CF41 /* ProjectDetailsDataModelMock.swift in Sources */,
 				8C9305252844BA2800AE2023 /* RegistrationInteractorTests.swift in Sources */,
 				8C445E86285B72A70023CF41 /* ProfileViewControllerMock.swift in Sources */,
 				8C445E98285BA5CA0023CF41 /* ProjectsRepositoryMock.swift in Sources */,
@@ -1180,6 +1215,7 @@
 				8C445EB0285DDECC0023CF41 /* MyProjectsInteractorTests.swift in Sources */,
 				8C445EA3285C8D780023CF41 /* HomePresenterTests.swift in Sources */,
 				8C445E88285B72A70023CF41 /* ProfilePresenterMock.swift in Sources */,
+				8C445EE4285F20A80023CF41 /* ProjectDetailsPresenterTests.swift in Sources */,
 				8C445E91285BA2BA0023CF41 /* EditProjectInteractorTests.swift in Sources */,
 				8C445EA1285C8D780023CF41 /* HomeDataModelMock.swift in Sources */,
 				8C445EB4285DDECC0023CF41 /* MyProjectsPresenterTests.swift in Sources */,

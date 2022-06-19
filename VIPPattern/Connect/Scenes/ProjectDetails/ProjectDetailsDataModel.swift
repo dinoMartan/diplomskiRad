@@ -14,7 +14,7 @@ extension ProjectDetails {
         struct Request: Equatable { }
 
         struct Response: Equatable {
-            struct Success {
+            struct Success: Equatable {
                 let project: Project
             }
 
