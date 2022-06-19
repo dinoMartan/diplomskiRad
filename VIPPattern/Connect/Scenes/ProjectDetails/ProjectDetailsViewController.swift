@@ -62,7 +62,11 @@ extension ProjectDetailsViewController: ProjectDetailsPresenterOutput {
     }
 
     func presenter(didSucceedCreateConversation viewModel: ProjectDetails.CreateConversationAction.ViewModel.Success) {
-        // TODO: open conversation details
+        router?.showConversationDetails(conversationId: viewModel.conversationId)
+        dismiss(animated: true)
+//        dismiss(animated: true) { [weak self] in
+//            self?.router?.showConversationDetails(conversationId: viewModel.conversationId)
+//        }
     }
 
     func presenter(didFailCreateConversation viewModel: ProjectDetails.CreateConversationAction.ViewModel.Failure) {

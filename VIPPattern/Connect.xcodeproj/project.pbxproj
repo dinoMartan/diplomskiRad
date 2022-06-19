@@ -62,6 +62,14 @@
 		8C445EE7285F49E70023CF41 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EE6285F49E70023CF41 /* Conversation.swift */; };
 		8C445EE9285F4ABC0023CF41 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EE8285F4ABC0023CF41 /* Message.swift */; };
 		8C445EEB285F636D0023CF41 /* ConversationsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EEA285F636D0023CF41 /* ConversationsRepository.swift */; };
+		8C445EF5285F85090023CF41 /* ConversationDetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EED285F85090023CF41 /* ConversationDetailsPresenter.swift */; };
+		8C445EF6285F85090023CF41 /* ConversationDetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EEE285F85090023CF41 /* ConversationDetailsRouter.swift */; };
+		8C445EF7285F85090023CF41 /* ConversationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EEF285F85090023CF41 /* ConversationDetailsViewController.swift */; };
+		8C445EF8285F85090023CF41 /* ConversationDetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EF0285F85090023CF41 /* ConversationDetailsInteractor.swift */; };
+		8C445EF9285F85090023CF41 /* ConversationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EF1285F85090023CF41 /* ConversationDetailsView.swift */; };
+		8C445EFA285F85090023CF41 /* ConversationDetailsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EF2285F85090023CF41 /* ConversationDetailsConfigurator.swift */; };
+		8C445EFB285F85090023CF41 /* ConversationDetailsDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EF3285F85090023CF41 /* ConversationDetailsDataModel.swift */; };
+		8C445EFC285F85090023CF41 /* ConversationDetailsFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EF4285F85090023CF41 /* ConversationDetailsFlowCoordinator.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -230,6 +238,14 @@
 		8C445EE6285F49E70023CF41 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
 		8C445EE8285F4ABC0023CF41 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		8C445EEA285F636D0023CF41 /* ConversationsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsRepository.swift; sourceTree = "<group>"; };
+		8C445EED285F85090023CF41 /* ConversationDetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailsPresenter.swift; sourceTree = "<group>"; };
+		8C445EEE285F85090023CF41 /* ConversationDetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailsRouter.swift; sourceTree = "<group>"; };
+		8C445EEF285F85090023CF41 /* ConversationDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailsViewController.swift; sourceTree = "<group>"; };
+		8C445EF0285F85090023CF41 /* ConversationDetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailsInteractor.swift; sourceTree = "<group>"; };
+		8C445EF1285F85090023CF41 /* ConversationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailsView.swift; sourceTree = "<group>"; };
+		8C445EF2285F85090023CF41 /* ConversationDetailsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailsConfigurator.swift; sourceTree = "<group>"; };
+		8C445EF3285F85090023CF41 /* ConversationDetailsDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailsDataModel.swift; sourceTree = "<group>"; };
+		8C445EF4285F85090023CF41 /* ConversationDetailsFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationDetailsFlowCoordinator.swift; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -548,6 +564,29 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		8C445EEC285F84EE0023CF41 /* ConversationDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8C445EFD285F86930023CF41 /* Cells */,
+				8C445EF4285F85090023CF41 /* ConversationDetailsFlowCoordinator.swift */,
+				8C445EF2285F85090023CF41 /* ConversationDetailsConfigurator.swift */,
+				8C445EF3285F85090023CF41 /* ConversationDetailsDataModel.swift */,
+				8C445EF1285F85090023CF41 /* ConversationDetailsView.swift */,
+				8C445EEF285F85090023CF41 /* ConversationDetailsViewController.swift */,
+				8C445EF0285F85090023CF41 /* ConversationDetailsInteractor.swift */,
+				8C445EED285F85090023CF41 /* ConversationDetailsPresenter.swift */,
+				8C445EEE285F85090023CF41 /* ConversationDetailsRouter.swift */,
+			);
+			path = ConversationDetails;
+			sourceTree = "<group>";
+		};
+		8C445EFD285F86930023CF41 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8C6BDC26283CE71F00A96ED4 = {
 			isa = PBXGroup;
 			children = (
@@ -607,6 +646,7 @@
 		8C6BDC64283CE79A00A96ED4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				8C445EEC285F84EE0023CF41 /* ConversationDetails */,
 				8C814173284151D600E7AB43 /* CommonUI */,
 				8C445EB8285DFCA90023CF41 /* ProjectDetails */,
 				8C6BDD4B283DF99500A96ED4 /* TabBar */,
@@ -1117,6 +1157,7 @@
 				8C6BDD74283E019500A96ED4 /* MyProjectsInteractor.swift in Sources */,
 				8C445EE9285F4ABC0023CF41 /* Message.swift in Sources */,
 				8C9304E82843FABD00AE2023 /* HomeDataModel.swift in Sources */,
+				8C445EFB285F85090023CF41 /* ConversationDetailsDataModel.swift in Sources */,
 				8C6BDC6F283CF23600A96ED4 /* LoginConfigurator.swift in Sources */,
 				8C6BDD73283E019500A96ED4 /* MyProjectsViewController.swift in Sources */,
 				8C445ED5285E38590023CF41 /* UIView+Extension.swift in Sources */,
@@ -1134,6 +1175,8 @@
 				8C8141702841341900E7AB43 /* EditProjectView.swift in Sources */,
 				8C445EC2285DFCFB0023CF41 /* ProjectDetailsRouter.swift in Sources */,
 				8C6BDC8B283D53CA00A96ED4 /* RegistrationInteractor.swift in Sources */,
+				8C445EF8285F85090023CF41 /* ConversationDetailsInteractor.swift in Sources */,
+				8C445EF5285F85090023CF41 /* ConversationDetailsPresenter.swift in Sources */,
 				8C6BDD85283E031E00A96ED4 /* ConversationsConfigurator.swift in Sources */,
 				8C6BDD81283E031E00A96ED4 /* ConversationsRouter.swift in Sources */,
 				8C6BDD54283DF9E700A96ED4 /* TabBarRouter.swift in Sources */,
@@ -1141,6 +1184,7 @@
 				8C445EC5285DFCFB0023CF41 /* ProjectDetailsView.swift in Sources */,
 				8C6BDD59283DF9E700A96ED4 /* TabBarFlowCoordinator.swift in Sources */,
 				8C6BDD77283E019500A96ED4 /* MyProjectsFlowCoordinator.swift in Sources */,
+				8C445EF6285F85090023CF41 /* ConversationDetailsRouter.swift in Sources */,
 				8C6BDC8A283D53C700A96ED4 /* RegistrationConfigurator.swift in Sources */,
 				8C8141752841528C00E7AB43 /* TagsField.swift in Sources */,
 				8C6BDC8D283D53D000A96ED4 /* RegistrationRouter.swift in Sources */,
@@ -1153,12 +1197,14 @@
 				8C6BDD63283DFB6800A96ED4 /* HomeRouter.swift in Sources */,
 				8C814146283FA5BC00E7AB43 /* ProfileViewController.swift in Sources */,
 				8C445EB7285DF5D30023CF41 /* Date+Extension.swift in Sources */,
+				8C445EF9285F85090023CF41 /* ConversationDetailsView.swift in Sources */,
 				8C6BDC7D283D31B600A96ED4 /* KeychainService.swift in Sources */,
 				8C6BDD82283E031E00A96ED4 /* ConversationsViewController.swift in Sources */,
 				8C6BDD86283E031E00A96ED4 /* ConversationsFlowCoordinator.swift in Sources */,
 				8C814151283FDB0B00E7AB43 /* UserRepository.swift in Sources */,
 				8C445EC3285DFCFB0023CF41 /* ProjectDetailsViewController.swift in Sources */,
 				8C6BDD75283E019500A96ED4 /* MyProjectsView.swift in Sources */,
+				8C445EFA285F85090023CF41 /* ConversationDetailsConfigurator.swift in Sources */,
 				8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */,
 				8C9304EA2843FB3600AE2023 /* MyProjectsDataModel.swift in Sources */,
 				8C445ED9285F19580023CF41 /* CButtonView.swift in Sources */,
@@ -1176,6 +1222,8 @@
 				8C6BDD8F283F7D9100A96ED4 /* AuthenticationRepository.swift in Sources */,
 				8C6BDC6C283CEDB100A96ED4 /* MainFlowCoordinator.swift in Sources */,
 				8C6BDC7F283D34B500A96ED4 /* LoginFlowCoordinator.swift in Sources */,
+				8C445EF7285F85090023CF41 /* ConversationDetailsViewController.swift in Sources */,
+				8C445EFC285F85090023CF41 /* ConversationDetailsFlowCoordinator.swift in Sources */,
 				8C814144283FA5BC00E7AB43 /* ProfilePresenter.swift in Sources */,
 				8C81414A283FA5BC00E7AB43 /* ProfileFlowCoordinator.swift in Sources */,
 				8C81416D2841341900E7AB43 /* EditProjectRouter.swift in Sources */,

@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ProjectDetailsFlowCoordinatorDelegate: FlowCoordinatorDelegate {
+    func showConversationDetails(conversationId: String)
 }
 
 class ProjectDetailsFlowCoordinator: FlowCoordinator {
@@ -52,6 +53,6 @@ extension ProjectDetailsFlowCoordinator: ProjectDetailsRouterOutput {
     }
 
     func showConversationDetails(conversationId: String) {
-        // TODO: show conv details
+        delegate?.showConversationDetails(conversationId: conversationId)
     }
 }
