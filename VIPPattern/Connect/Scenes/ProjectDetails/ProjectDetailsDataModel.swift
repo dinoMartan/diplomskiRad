@@ -9,6 +9,7 @@ import Foundation
 
 struct ProjectDetails: Equatable { }
 
+// MARK: GetProjectDetailsAction
 extension ProjectDetails {
     struct GetProjectDetailsAction: Equatable {
         struct Request: Equatable { }
@@ -32,6 +33,33 @@ extension ProjectDetails {
                 let projectDescription: String
                 let projectNeeds: String
                 let projectHas: String
+            }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+    }
+}
+
+// MARK: CreateConversationAction
+extension ProjectDetails {
+    struct CreateConversationAction: Equatable {
+        struct Request: Equatable { }
+
+        struct Response: Equatable {
+            struct Success: Equatable {
+                let conversationId: String
+            }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+
+        struct ViewModel: Equatable {
+            struct Success: Equatable {
+                let conversationId: String
             }
 
             struct Failure: Equatable {

@@ -11,10 +11,16 @@ class ProjectDetailsConfigurator {
     static func configureModule(routerOutput: ProjectDetailsRouterOutput,
                                 viewController: ProjectDetailsViewController,
                                 projectId: String,
-                                projectsRepository: ProjectsRepositoryProtocol) {
+                                projectsRepository: ProjectsRepositoryProtocol,
+                                userRepository: UserRepositoryProtocol,
+                                conversationsRepository: ConversationsRepositoryProtocol,
+                                keychainService: KeychainServiceProtocol) {
         let view = ProjectDetailsView()
         let router = ProjectDetailsRouter()
         let interactor = ProjectDetailsInteractor(projectsRepository: projectsRepository,
+                                                  userRepository: userRepository,
+                                                  keychainService: keychainService,
+                                                  conversationsRepository: conversationsRepository,
                                                   projectId: projectId)
         let presenter = ProjectDetailsPresenter()
 

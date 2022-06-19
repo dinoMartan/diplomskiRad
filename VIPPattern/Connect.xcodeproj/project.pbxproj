@@ -59,6 +59,9 @@
 		8C445EE2285F20A80023CF41 /* ProjectDetailsDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDD285F20A80023CF41 /* ProjectDetailsDataModelMock.swift */; };
 		8C445EE3285F20A80023CF41 /* ProjectDetailsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDE285F20A80023CF41 /* ProjectDetailsPresenterMock.swift */; };
 		8C445EE4285F20A80023CF41 /* ProjectDetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EDF285F20A80023CF41 /* ProjectDetailsPresenterTests.swift */; };
+		8C445EE7285F49E70023CF41 /* Conversation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EE6285F49E70023CF41 /* Conversation.swift */; };
+		8C445EE9285F4ABC0023CF41 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EE8285F4ABC0023CF41 /* Message.swift */; };
+		8C445EEB285F636D0023CF41 /* ConversationsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445EEA285F636D0023CF41 /* ConversationsRepository.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -224,6 +227,9 @@
 		8C445EDD285F20A80023CF41 /* ProjectDetailsDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsDataModelMock.swift; sourceTree = "<group>"; };
 		8C445EDE285F20A80023CF41 /* ProjectDetailsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPresenterMock.swift; sourceTree = "<group>"; };
 		8C445EDF285F20A80023CF41 /* ProjectDetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectDetailsPresenterTests.swift; sourceTree = "<group>"; };
+		8C445EE6285F49E70023CF41 /* Conversation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conversation.swift; sourceTree = "<group>"; };
+		8C445EE8285F4ABC0023CF41 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		8C445EEA285F636D0023CF41 /* ConversationsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsRepository.swift; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -739,6 +745,8 @@
 				8C6BDD91283F83A800A96ED4 /* MyError.swift */,
 				8C81414D283FD8B800E7AB43 /* User.swift */,
 				8C81416228411E8200E7AB43 /* Project.swift */,
+				8C445EE6285F49E70023CF41 /* Conversation.swift */,
+				8C445EE8285F4ABC0023CF41 /* Message.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -777,6 +785,7 @@
 				8C6BDD8E283F7D9100A96ED4 /* AuthenticationRepository.swift */,
 				8C81417628416B6D00E7AB43 /* ProjectsRepository.swift */,
 				8C814150283FDB0B00E7AB43 /* UserRepository.swift */,
+				8C445EEA285F636D0023CF41 /* ConversationsRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -1083,6 +1092,7 @@
 				8C6BDC7B283D2F3100A96ED4 /* Dependencies.swift in Sources */,
 				8C445EA8285CC0A20023CF41 /* MyProjectsTableViewCell.swift in Sources */,
 				8C6BDD92283F83A800A96ED4 /* MyError.swift in Sources */,
+				8C445EE7285F49E70023CF41 /* Conversation.swift in Sources */,
 				8C6BDD72283E019500A96ED4 /* MyProjectsRouter.swift in Sources */,
 				8C6BDD64283DFB6800A96ED4 /* HomeViewController.swift in Sources */,
 				8C6BDC8C283D53CC00A96ED4 /* RegistrationPresenter.swift in Sources */,
@@ -1105,6 +1115,7 @@
 				8C8141612840E18100E7AB43 /* UIImageView+Extension.swift in Sources */,
 				8C445EC6285DFCFB0023CF41 /* ProjectDetailsConfigurator.swift in Sources */,
 				8C6BDD74283E019500A96ED4 /* MyProjectsInteractor.swift in Sources */,
+				8C445EE9285F4ABC0023CF41 /* Message.swift in Sources */,
 				8C9304E82843FABD00AE2023 /* HomeDataModel.swift in Sources */,
 				8C6BDC6F283CF23600A96ED4 /* LoginConfigurator.swift in Sources */,
 				8C6BDD73283E019500A96ED4 /* MyProjectsViewController.swift in Sources */,
@@ -1175,6 +1186,7 @@
 				8C6BDC79283CF27400A96ED4 /* LoginViewController.swift in Sources */,
 				8C814147283FA5BC00E7AB43 /* ProfileInteractor.swift in Sources */,
 				8C6BDC8E283D53D200A96ED4 /* RegistrationView.swift in Sources */,
+				8C445EEB285F636D0023CF41 /* ConversationsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

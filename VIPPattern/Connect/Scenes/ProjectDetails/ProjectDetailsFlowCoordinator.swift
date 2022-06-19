@@ -29,10 +29,15 @@ class ProjectDetailsFlowCoordinator: FlowCoordinator {
     func startWith(projectId: String) {
         let viewController = ProjectDetailsViewController()
         let projectsRepository = ProjectsRepository(firestoreService: dependencies.firestoreService)
+        let userRepository = UserRepository(firestoreService: dependencies.firestoreService)
+        let conversationsRepository = ConversationsRepository(firestoreService: dependencies.firestoreService)
         ProjectDetailsConfigurator.configureModule(routerOutput: self,
                                                    viewController: viewController,
                                                    projectId: projectId,
-                                                   projectsRepository: projectsRepository)
+                                                   projectsRepository: projectsRepository,
+                                                   userRepository: userRepository,
+                                                   conversationsRepository: conversationsRepository,
+                                                   keychainService: dependencies.keychainService)
         rootViewController.present(viewController, animated: true)
     }
 
@@ -44,5 +49,9 @@ class ProjectDetailsFlowCoordinator: FlowCoordinator {
 extension ProjectDetailsFlowCoordinator: ProjectDetailsRouterOutput {
     func shouldClose() {
         delegate?.shouldRemoveFlowCoordinator(self)
+    }
+
+    func showConversationDetails(conversationId: String) {
+        // TODO: show conv details
     }
 }
