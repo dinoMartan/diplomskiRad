@@ -52,6 +52,8 @@
 		8C445ED1285E20130023CF41 /* OpenSans-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8C445ECD285E20130023CF41 /* OpenSans-MediumItalic.ttf */; };
 		8C445ED3285E202A0023CF41 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED2285E202A0023CF41 /* UIFont+Extension.swift */; };
 		8C445ED5285E38590023CF41 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED4285E38590023CF41 /* UIView+Extension.swift */; };
+		8C445ED7285E645B0023CF41 /* CTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED6285E645B0023CF41 /* CTextFieldView.swift */; };
+		8C445ED9285F19580023CF41 /* CButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445ED8285F19580023CF41 /* CButtonView.swift */; };
 		8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */; };
 		8C6BDC35283CE71F00A96ED4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */; };
 		8C6BDC3C283CE72100A96ED4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C6BDC3B283CE72100A96ED4 /* Assets.xcassets */; };
@@ -210,6 +212,8 @@
 		8C445ECD285E20130023CF41 /* OpenSans-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-MediumItalic.ttf"; sourceTree = "<group>"; };
 		8C445ED2285E202A0023CF41 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		8C445ED4285E38590023CF41 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		8C445ED6285E645B0023CF41 /* CTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTextFieldView.swift; sourceTree = "<group>"; };
+		8C445ED8285F19580023CF41 /* CButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CButtonView.swift; sourceTree = "<group>"; };
 		8C6BDC2F283CE71F00A96ED4 /* Connect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Connect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C6BDC32283CE71F00A96ED4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8C6BDC34283CE71F00A96ED4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -567,8 +571,8 @@
 		8C6BDC64283CE79A00A96ED4 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				8C445EB8285DFCA90023CF41 /* ProjectDetails */,
 				8C814173284151D600E7AB43 /* CommonUI */,
+				8C445EB8285DFCA90023CF41 /* ProjectDetails */,
 				8C6BDD4B283DF99500A96ED4 /* TabBar */,
 				8C8141642841340000E7AB43 /* EditProject */,
 				8C6BDD78283E030D00A96ED4 /* Conversations */,
@@ -793,6 +797,8 @@
 			children = (
 				8C8141522840B6D700E7AB43 /* ImagePickerManager.swift */,
 				8C8141742841528C00E7AB43 /* TagsField.swift */,
+				8C445ED6285E645B0023CF41 /* CTextFieldView.swift */,
+				8C445ED8285F19580023CF41 /* CButtonView.swift */,
 			);
 			path = CommonUI;
 			sourceTree = "<group>";
@@ -1055,6 +1061,7 @@
 				8C6BDD62283DFB6800A96ED4 /* HomePresenter.swift in Sources */,
 				8C6BDD68283DFB6800A96ED4 /* HomeFlowCoordinator.swift in Sources */,
 				8C6BDD58283DF9E700A96ED4 /* TabBarConfigurator.swift in Sources */,
+				8C445ED7285E645B0023CF41 /* CTextFieldView.swift in Sources */,
 				8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */,
 				8C6BDC73283CF24A00A96ED4 /* LoginPresenter.swift in Sources */,
 				8C445EC8285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift in Sources */,
@@ -1112,6 +1119,7 @@
 				8C6BDD75283E019500A96ED4 /* MyProjectsView.swift in Sources */,
 				8C6BDC33283CE71F00A96ED4 /* AppDelegate.swift in Sources */,
 				8C9304EA2843FB3600AE2023 /* MyProjectsDataModel.swift in Sources */,
+				8C445ED9285F19580023CF41 /* CButtonView.swift in Sources */,
 				8C6BDD71283E019500A96ED4 /* MyProjectsPresenter.swift in Sources */,
 				8C6BDD98283F89A600A96ED4 /* UIViewController+Extension.swift in Sources */,
 				8C9304EE2843FB9A00AE2023 /* EditProjectDataModel.swift in Sources */,
@@ -1253,6 +1261,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1307,6 +1316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

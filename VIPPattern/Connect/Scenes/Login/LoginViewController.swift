@@ -38,8 +38,8 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     private func setupInteractions() {
         loginView?.loginButtonTapInteraction = { [weak self] in
-            guard let email = self?.loginView?.emailTextField.text,
-                  let password = self?.loginView?.passwordTextField.text
+            guard let email = self?.loginView?.emailTextFieldView.textField.text,
+                  let password = self?.loginView?.passwordTextFieldView.textField.text
             else { return }
             self?.interactor?.loginUser(request: Login.LoginAction.Request(email: email,
                                                                            password: password))
