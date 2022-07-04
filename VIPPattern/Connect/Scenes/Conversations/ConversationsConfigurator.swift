@@ -8,13 +8,17 @@
 import Foundation
 
 class ConversationsConfigurator {
-    static func configureModule(routerOutput: ConversationsRouterOutput, viewController: ConversationsViewController) {
+    static func configureModule(routerOutput: ConversationsRouterOutput,
+                                viewController: ConversationsViewController,
+                                keychainService: KeychainServiceProtocol,
+                                conversationsRepository: ConversationsRepositoryProtocol) {
         let view = ConversationsView()
         let router = ConversationsRouter()
-        let interactor = ConversationsInteractor()
+        let interactor = ConversationsInteractor(keychainServices: keychainService,
+                                                 conversationsRepository: conversationsRepository)
         let presenter = ConversationsPresenter()
 
-        viewController.view = view
+        viewController.conversationsView = view
         viewController.router = router
         viewController.interactor = interactor
 

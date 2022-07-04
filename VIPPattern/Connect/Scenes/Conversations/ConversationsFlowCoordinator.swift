@@ -25,8 +25,11 @@ class ConversationsFlowCoordinator: FlowCoordinator {
 
     func start() {
         let viewController = ConversationsViewController()
+        let conversationsRepository = ConversationsRepository(firestoreService: dependencies.firestoreService)
         ConversationsConfigurator.configureModule(routerOutput: self,
-                                                  viewController: viewController)
+                                                  viewController: viewController,
+                                                  keychainService: dependencies.keychainService,
+                                                  conversationsRepository: conversationsRepository)
         self.viewController = viewController
     }
 

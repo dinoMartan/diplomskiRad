@@ -9,6 +9,7 @@ import Foundation
 
 protocol ConversationsRepositoryProtocol {
     func setConversation(_ conversation: Conversation, completion: @escaping ((Result<String, MyError>) -> Void))
+    func observeConversationsForUser(_ userId: String, completion: @escaping ((Result<[Conversation], MyError>) -> Void))
 }
 
 class ConversationsRepository: ConversationsRepositoryProtocol {
@@ -37,5 +38,9 @@ class ConversationsRepository: ConversationsRepositoryProtocol {
                 completion(.failure(myError))
             }
         }
+    }
+
+    func observeConversationsForUser(_ userId: String, completion: @escaping ((Result<[Conversation], MyError>) -> Void)) {
+        firestoreService.getCollectionWhereField("userIds", arrayContains: userId, on: "conversations", isRealTime: true, completion: completion)
     }
 }

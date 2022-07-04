@@ -8,16 +8,20 @@
 import UIKit
 
 protocol ConversationsPresenterOutput: AnyObject {
+    func presenter(didSucceedGetUsersConversations viewModel: Conversations.GetUsersConversationsAction.ViewModel.Success)
+    func presenter(didFailGetUsersConversations viewModel: Conversations.GetUsersConversationsAction.ViewModel.Failure)
 }
 
 class ConversationsViewController: UIViewController {
-    var viewConversations: ConversationsView?
+    var conversationsView: ConversationsView?
     var interactor: ConversationsInteractorProtocol?
     var router: ConversationsRouterProtocol?
 
     override func loadView() {
         super.loadView()
-        self.view = viewConversations
+        self.view = conversationsView
+        let request = Conversations.GetUsersConversationsAction.Request()
+        interactor?.getUsersConversations(request: request)
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -41,4 +45,11 @@ extension ConversationsViewController {
 }
 
 extension ConversationsViewController: ConversationsPresenterOutput {
+    func presenter(didSucceedGetUsersConversations viewModel: Conversations.GetUsersConversationsAction.ViewModel.Success) {
+        print(viewModel.conversations)
+    }
+
+    func presenter(didFailGetUsersConversations viewModel: Conversations.GetUsersConversationsAction.ViewModel.Failure) {
+        showMyErrorAlert(viewModel.myError)
+    }
 }

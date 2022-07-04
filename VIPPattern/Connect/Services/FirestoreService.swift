@@ -15,11 +15,13 @@ protocol FirestoreServiceProtocol {
     func setDocument<T: Codable>(documentPath: String, document: T, completion: @escaping ((Result<Void, MyError>) -> Void))
     func deleteDocument(documentPath: String, completion: @escaping ((Result<Void, MyError>) -> Void))
 
+    func observeDocument<T: Codable>(documentPath: String, completion: @escaping ((Result<T, MyError>) -> Void))
+
     func uploadImage(data: Data, completion: @escaping ((Result<String?, MyError>) -> Void))
 
-    func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
-    func getCollectionWhereField<T: Codable>(_ field: String, isEqualTo: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
-    func getCollectionWhereField<T: Codable>(_ field: String, arrayContains: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void))
+    func getCollection<T: Codable>(collectionPath: String, isRealTime: Bool, completion: @escaping ((Result<[T], MyError>) -> Void))
+    func getCollectionWhereField<T: Codable>(_ field: String, isEqualTo: Any, on collectionPath: String, isRealTime: Bool, completion: @escaping ((Result<[T], MyError>) -> Void))
+    func getCollectionWhereField<T: Codable>(_ field: String, arrayContains: Any, on collectionPath: String, isRealTime: Bool, completion: @escaping ((Result<[T], MyError>) -> Void))
 }
 
 class FirestoreService: FirestoreServiceProtocol {
@@ -67,43 +69,70 @@ extension FirestoreService {
             completion(.failure(MyError(type: .firestoreFailed, message: error.localizedDescription)))
         }
     }
+
+    func observeDocument<T>(documentPath: String, completion: @escaping ((Result<T, MyError>) -> Void)) where T : Decodable, T : Encodable {
+        let documentReference = firestore.document(documentPath)
+        documentReference.addSnapshotListener { documentSnapshot, error in
+            guard let documentSnapshot = documentSnapshot,
+                  error == nil else {
+                completion(.failure(MyError(type: .firestoreFailed, message: error?.localizedDescription)))
+                return
+            }
+            do {
+                let result = try documentSnapshot.data(as: T.self)
+                completion(.success(result))
+            } catch {
+                completion(.failure(MyError(type: .firestoreFailed, message: error.localizedDescription)))
+            }
+        }
+    }
 }
 
 // MARK: Multiple documents
 extension FirestoreService {
-    func getCollection<T: Codable>(collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+    func getCollection<T: Codable>(collectionPath: String, isRealTime: Bool = false, completion: @escaping ((Result<[T], MyError>) -> Void)) {
         let collectionReference = firestore.collection(collectionPath)
-        handleQuery(query: collectionReference, completion: completion)
+        isRealTime ? handleRealTimeQuery(query: collectionReference, completion: completion) : handleQuery(query: collectionReference, completion: completion)
     }
 
-    func getCollectionWhereField<T: Codable>(_ field: String, isEqualTo: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+    func getCollectionWhereField<T: Codable>(_ field: String, isEqualTo: Any, on collectionPath: String, isRealTime: Bool = false, completion: @escaping ((Result<[T], MyError>) -> Void)) {
         let query = firestore.collection(collectionPath).whereField(field, isEqualTo: isEqualTo)
-        handleQuery(query: query, completion: completion)
+        isRealTime ? handleRealTimeQuery(query: query, completion: completion) : handleQuery(query: query, completion: completion)
     }
 
-    func getCollectionWhereField<T: Codable>(_ field: String, arrayContains: Any, on collectionPath: String, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+    func getCollectionWhereField<T: Codable>(_ field: String, arrayContains: Any, on collectionPath: String, isRealTime: Bool = false, completion: @escaping ((Result<[T], MyError>) -> Void)) {
         let query = firestore.collection(collectionPath).whereField(field, arrayContains: arrayContains)
-        handleQuery(query: query, completion: completion)
+        isRealTime ? handleRealTimeQuery(query: query, completion: completion) : handleQuery(query: query, completion: completion)
     }
 
     private func handleQuery<T: Codable>(query: Query, completion: @escaping ((Result<[T], MyError>) -> Void)) {
-        query.getDocuments { querySnapshot, error in
-            guard let querySnapshot = querySnapshot,
-                  error == nil
-            else {
-                completion(.failure(MyError(type: .firestoreFailed, message: error?.localizedDescription)))
-                return
-            }
-            var results = [T]()
-            for document in querySnapshot.documents {
-                do {
-                    let result = try document.data(as: T.self)
-                    results.append(result)
-                }
-                catch { continue }
-            }
-            completion(.success(results))
+        query.getDocuments { [weak self] querySnapshot, error in
+            self?.processQueryCompletion(querySnapshot: querySnapshot, error: error, completion: completion)
         }
+    }
+
+    private func handleRealTimeQuery<T: Codable>(query: Query, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+        query.addSnapshotListener { [weak self] querySnapshot, error in
+            self?.processQueryCompletion(querySnapshot: querySnapshot, error: error, completion: completion)
+        }
+    }
+
+    private func processQueryCompletion<T: Codable>(querySnapshot: QuerySnapshot?, error: Error?, completion: @escaping ((Result<[T], MyError>) -> Void)) {
+        guard let querySnapshot = querySnapshot,
+              error == nil
+        else {
+            completion(.failure(MyError(type: .firestoreFailed, message: error?.localizedDescription)))
+            return
+        }
+        var results = [T]()
+        for document in querySnapshot.documents {
+            do {
+                let result = try document.data(as: T.self)
+                results.append(result)
+            }
+            catch { continue }
+        }
+        completion(.success(results))
     }
 }
 

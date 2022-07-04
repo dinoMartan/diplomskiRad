@@ -8,6 +8,8 @@
 import Foundation
 
 protocol ConversationsPresenterProtocol: AnyObject {
+    func interactor(didSucceedGetUsersConversations response: Conversations.GetUsersConversationsAction.Response.Success)
+    func interactor(didFailGetUsersConversations response: Conversations.GetUsersConversationsAction.Response.Failure)
 }
 
 class ConversationsPresenter: ConversationsPresenterProtocol {
@@ -15,5 +17,28 @@ class ConversationsPresenter: ConversationsPresenterProtocol {
 
     deinit {
         print("deinit \(self)")
+    }
+
+    func interactor(didSucceedGetUsersConversations response: Conversations.GetUsersConversationsAction.Response.Success) {
+        let conversations = response.conversations.map { conversation -> Conversations.CConversation in
+            let user = getUserFromConversation(conversation, currentUserId: response.currentUserId)
+            let lastMessage = conversation.messages?.last?.value
+            return Conversations.CConversation(image: user?.profileImage,
+                                               name: user?.firstName,
+                                               lastMessage: lastMessage)
+        }
+        let viewModel = Conversations.GetUsersConversationsAction.ViewModel.Success(conversations: conversations)
+        viewController?.presenter(didSucceedGetUsersConversations: viewModel)
+    }
+
+    private func getUserFromConversation(_ conversation: Conversation, currentUserId: String) -> UserNested? {
+        conversation.users?.first(where: { user in
+            user.id != currentUserId
+        })
+    }
+
+    func interactor(didFailGetUsersConversations response: Conversations.GetUsersConversationsAction.Response.Failure) {
+        let viewModel = Conversations.GetUsersConversationsAction.ViewModel.Failure(myError: response.myError)
+        viewController?.presenter(didFailGetUsersConversations: viewModel)
     }
 }
