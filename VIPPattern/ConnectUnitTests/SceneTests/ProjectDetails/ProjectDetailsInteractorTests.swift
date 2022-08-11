@@ -13,13 +13,22 @@ class ProjectDetailsInteractorTests: XCTestCase {
     private var projectDetailsPresenterMock: ProjectDetailsPresenterMock!
     private var projectDetailsDataModelMock: ProjectDetailsDataModelMock!
     private var projectsRepositoryMock: ProjectsRepositoryMock!
+    private var userRepositoryMock: UserRepositoryMock!
+    private var keychainServiceMock: KeychainServiceMock!
+    private var conversationsRepositoryMock: ConversationsRepositoryMock!
     private let projectId = "project id"
 
     override func setUpWithError() throws {
         projectDetailsDataModelMock = ProjectDetailsDataModelMock()
         projectDetailsPresenterMock = ProjectDetailsPresenterMock()
         projectsRepositoryMock = ProjectsRepositoryMock()
+        userRepositoryMock = UserRepositoryMock()
+        keychainServiceMock = KeychainServiceMock()
+        conversationsRepositoryMock = ConversationsRepositoryMock()
         sut = ProjectDetailsInteractor(projectsRepository: projectsRepositoryMock,
+                                       userRepository: userRepositoryMock,
+                                       keychainService: keychainServiceMock,
+                                       conversationsRepository: conversationsRepositoryMock,
                                        projectId: projectId)
         sut.presenter = projectDetailsPresenterMock
     }
@@ -27,6 +36,9 @@ class ProjectDetailsInteractorTests: XCTestCase {
     override func tearDownWithError() throws {
         projectDetailsDataModelMock = nil
         projectDetailsPresenterMock = nil
+        userRepositoryMock = nil
+        keychainServiceMock = nil
+        conversationsRepositoryMock = nil
         sut = nil
     }
 }

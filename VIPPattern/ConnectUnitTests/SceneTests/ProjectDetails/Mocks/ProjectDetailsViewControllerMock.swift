@@ -29,4 +29,12 @@ extension ProjectDetailsViewControllerMock: ProjectDetailsPresenterOutput {
         didFailGetProjectDetailsCounter += 1
         didFailGetProjectDetailsViewModel = viewModel
     }
+
+    func presenter(didSucceedCreateConversation viewModel: ProjectDetails.CreateConversationAction.ViewModel.Success) {
+        //
+    }
+
+    func presenter(didFailCreateConversation viewModel: ProjectDetails.CreateConversationAction.ViewModel.Failure) {
+        //
+    }
 }

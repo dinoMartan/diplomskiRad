@@ -79,8 +79,8 @@ extension MyProjectsViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         guard let projectId = projects[indexPath.row].id else { return nil }
-        let deleteProjectAction = UIContextualAction(style: .destructive, title: "Delete") { [weak self] _, _, completion in
-            self?.showDestructiveAlert(title: "Are you sure you want to delete project?", message: "This action cannot be undone") {
+        let deleteProjectAction = UIContextualAction(style: .destructive, title: "Obriši") { [weak self] _, _, completion in
+            self?.showDestructiveAlert(title: "Jeste li sigurni da želite obrisati projekt?", message: "Ova radnja ne može biti poništena!") {
                 let request = MyProjects.DeleteProjectAction.Request(projectId: projectId)
                 self?.interactor?.deleteProject(request: request)
             }

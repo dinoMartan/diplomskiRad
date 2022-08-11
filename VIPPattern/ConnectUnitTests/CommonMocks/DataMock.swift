@@ -8,7 +8,9 @@
 @testable import Connect
 import Foundation
 
-class DataMock {
+struct DataMock {
+    static let date = Date()
+
     // User
     var userId: String? = "id"
     var userUsername: String? = "username"
@@ -27,6 +29,17 @@ class DataMock {
     var projectDescription: String? = "project description"
     var projectHaveTags: [String]? = ["have1", "have2"]
     var projectNeedTags: [String]? = ["need1", "need2"]
+
+    // Conversation
+    var conversationId: String? = "conversation id"
+    var conversationUserIds: [String]? = ["id1", "id2"]
+    var conversationCreatedAt: Date? = DataMock.date
+
+    // Message
+    var messageCreatedAt: Date? = DataMock.date
+    var messageType: MessageType? = .text
+    var messageSenderId: String? = "id1"
+    var messageValue: String? = "message value"
 }
 
 extension DataMock {
@@ -53,5 +66,25 @@ extension DataMock {
                 haveTags: projectHaveTags,
                 needTags: projectNeedTags,
                 owner: getUser().getUserNested())
+    }
+}
+
+extension DataMock {
+    func getMessage() -> Message {
+        Message(createdAt: messageCreatedAt,
+                type: messageType,
+                senderId: messageSenderId,
+                value: messageValue)
+    }
+}
+
+extension DataMock {
+    func getConversation() -> Conversation {
+        Conversation(id: conversationId,
+                     project: getProject().getProjectNested(),
+                     users: [getUser().getUserNested()],
+                     userIds: conversationUserIds,
+                     createdAt: conversationCreatedAt,
+                     messages: [getMessage()])
     }
 }

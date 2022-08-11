@@ -43,14 +43,14 @@ class ProjectsRepository: ProjectsRepositoryProtocol {
     }
 
     func getAllProjects(completion: @escaping ((Result<[Project], MyError>) -> Void)) {
-        firestoreService.getCollection(collectionPath: "projects", completion: completion)
+        firestoreService.getCollection(collectionPath: "projects", isRealTime: false, completion: completion)
     }
 
     func getProjectsWithNeedFor(_ need: String, completion: @escaping ((Result<[Project], MyError>) -> Void)) {
-        firestoreService.getCollectionWhereField("needTags", arrayContains: need, on: "projects", completion: completion)
+        firestoreService.getCollectionWhereField("needTags", arrayContains: need, on: "projects", isRealTime: false, completion: completion)
     }
 
     func getProjectsForUser(_ userId: String, completion: @escaping ((Result<[Project], MyError>) -> Void)) {
-        firestoreService.getCollectionWhereField("owner.id", isEqualTo: userId, on: "projects", completion: completion)
+        firestoreService.getCollectionWhereField("owner.id", isEqualTo: userId, on: "projects", isRealTime: false, completion: completion)
     }
 }

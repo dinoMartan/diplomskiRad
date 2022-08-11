@@ -137,6 +137,10 @@ class ProjectDetailsView: UIView {
     let needTagsView = ProjectDetailsSubview()
     let haveTagsView = ProjectDetailsSubview()
 
+    private let contactButton = CButtonView(title: "Pošalji poruku")
+
+    var didTapContactButton: (() -> Void)?
+
     init() {
         super.init(frame: .zero)
         setupView()
@@ -156,12 +160,19 @@ extension ProjectDetailsView {
         addSubviews()
         setupCoinstraints()
         setupSubviews()
+        setupButtonAction()
     }
 
     private func setupSubviews() {
-        projectDescriptionView.setupIconAndTitle(icon: "scribble.variable", title: "Project description")
-        needTagsView.setupIconAndTitle(icon: "target", title: "Project needs")
-        haveTagsView.setupIconAndTitle(icon: "checkmark.circle", title: "Project has")
+        projectDescriptionView.setupIconAndTitle(icon: "scribble.variable", title: "Opis projekta")
+        needTagsView.setupIconAndTitle(icon: "target", title: "Potrebno")
+        haveTagsView.setupIconAndTitle(icon: "checkmark.circle", title: "Postojeće")
+    }
+
+    private func setupButtonAction() {
+        contactButton.buttonAction = { [weak self] in
+            self?.didTapContactButton?()
+        }
     }
 
     private func addSubviews() {
@@ -174,6 +185,7 @@ extension ProjectDetailsView {
         contentView.addSubview(projectDescriptionView)
         contentView.addSubview(haveTagsView)
         contentView.addSubview(needTagsView)
+        contentView.addSubview(contactButton)
     }
 
     private func setupCoinstraints() {
@@ -227,6 +239,12 @@ extension ProjectDetailsView {
 
         haveTagsView.snp.makeConstraints { make in
             make.top.equalTo(needTagsView.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(15)
+            make.trailing.equalToSuperview().offset(-15)
+        }
+
+        contactButton.snp.makeConstraints { make in
+            make.top.equalTo(haveTagsView.snp.bottom).offset(20)
             make.leading.equalToSuperview().offset(15)
             make.trailing.equalToSuperview().offset(-15)
             make.bottom.equalToSuperview().offset(-15)

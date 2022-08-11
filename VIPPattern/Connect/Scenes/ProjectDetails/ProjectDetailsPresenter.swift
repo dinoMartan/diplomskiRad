@@ -10,6 +10,8 @@ import Foundation
 protocol ProjectDetailsPresenterProtocol: AnyObject {
     func interactor(didSucceedGetProjectDetails response: ProjectDetails.GetProjectDetailsAction.Response.Success)
     func interactor(didFailGetProjectDetails response: ProjectDetails.GetProjectDetailsAction.Response.Failure)
+    func interactor(didSucceedCreateConversation response: ProjectDetails.CreateConversationAction.Response.Success)
+    func interactor(didFailCreateConversation response: ProjectDetails.CreateConversationAction.Response.Failure)
 }
 
 class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
@@ -33,5 +35,15 @@ class ProjectDetailsPresenter: ProjectDetailsPresenterProtocol {
     func interactor(didFailGetProjectDetails response: ProjectDetails.GetProjectDetailsAction.Response.Failure) {
         let viewModel = ProjectDetails.GetProjectDetailsAction.ViewModel.Failure(myError: response.myError)
         viewController?.presenter(didFailGetProjectDetails: viewModel)
+    }
+
+    func interactor(didSucceedCreateConversation response: ProjectDetails.CreateConversationAction.Response.Success) {
+        let viewModel = ProjectDetails.CreateConversationAction.ViewModel.Success(conversationId: response.conversationId)
+        viewController?.presenter(didSucceedCreateConversation: viewModel)
+    }
+
+    func interactor(didFailCreateConversation response: ProjectDetails.CreateConversationAction.Response.Failure) {
+        let viewModel = ProjectDetails.CreateConversationAction.ViewModel.Failure(myError: response.myError)
+        viewController?.presenter(didFailCreateConversation: viewModel)
     }
 }

@@ -29,4 +29,12 @@ extension ProjectDetailsPresenterMock: ProjectDetailsPresenterProtocol {
         didFailGetProjectDetailsCounter += 1
         didFailGetProjectDetailsResponse = response
     }
+
+    func interactor(didSucceedCreateConversation response: ProjectDetails.CreateConversationAction.Response.Success) {
+        //
+    }
+
+    func interactor(didFailCreateConversation response: ProjectDetails.CreateConversationAction.Response.Failure) {
+        //
+    }
 }

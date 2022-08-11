@@ -24,11 +24,13 @@ class EditProjectView: UIView {
 
     let haveTagsField: TagsField = {
         let tagsField = TagsField()
+        tagsField.placeholder = "Postojeće"
         return tagsField
     }()
 
     let needTagsField: TagsField = {
         let tagsField = TagsField()
+        tagsField.placeholder = "Potrebno"
         return tagsField
     }()
 

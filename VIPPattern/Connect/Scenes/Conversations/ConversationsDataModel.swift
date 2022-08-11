@@ -7,29 +7,38 @@
 
 import Foundation
 
-struct Conversations {
-    struct ResponseFailure {
-        let myError: MyError
-    }
-
-    struct ViewModelFailure {
-        let myError: MyError
+struct Conversations: Equatable {
+    struct CConversation: Equatable {
+        let image: String?
+        let name: String?
+        let lastMessage: String?
     }
 }
 
-// MARK:
+// MARK: GetUsersConversationsAction
 extension Conversations {
-    struct Action {
-        struct Request {
+    struct GetUsersConversationsAction: Equatable {
+        struct Request: Equatable { }
 
+        struct Response: Equatable {
+            struct Success: Equatable {
+                let currentUserId: String
+                let conversations: [Conversation]
+            }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
 
-        struct ResponseSuccess {
-            
-        }
+        struct ViewModel: Equatable {
+            struct Success: Equatable {
+                let conversations: [CConversation]
+            }
 
-        struct ViewModelSuccess {
-            
+            struct Failure: Equatable {
+                let myError: MyError
+            }
         }
     }
 }

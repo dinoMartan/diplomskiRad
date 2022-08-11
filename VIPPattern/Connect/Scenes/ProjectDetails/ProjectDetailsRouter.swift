@@ -9,10 +9,12 @@ import Foundation
 
 protocol ProjectDetailsRouterOutput: AnyObject {
     func shouldClose()
+    func showConversationDetails(conversationId: String)
 }
 
 protocol ProjectDetailsRouterProtocol: AnyObject {
     func shouldClose()
+    func showConversationDetails(conversationId: String)
 }
 
 class ProjectDetailsRouter: ProjectDetailsRouterProtocol {
@@ -24,5 +26,9 @@ class ProjectDetailsRouter: ProjectDetailsRouterProtocol {
 
     func shouldClose() {
         routerOutput?.shouldClose()
+    }
+
+    func showConversationDetails(conversationId: String) {
+        routerOutput?.showConversationDetails(conversationId: conversationId)
     }
 }

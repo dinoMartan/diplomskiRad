@@ -21,22 +21,22 @@ class LoginView: UIView {
         label.font = UIFont(.openSansExtraBold, size: 34)
         label.textColor = .label
         label.textAlignment = .center
-        label.text = "Login"
+        label.text = "Prijava"
         return label
     }()
 
     let emailTextFieldView = CTextFieldView(placeholder: "Email",
                                             textContentType: .emailAddress)
 
-    let passwordTextFieldView = CTextFieldView(placeholder: "Password",
+    let passwordTextFieldView = CTextFieldView(placeholder: "Lozinka",
                                                textContentType: .password,
                                                isSecureText: true)
 
-    let loginButtonView = CButtonView(title: "Login")
+    let loginButtonView = CButtonView(title: "Prijava")
 
-    let registerButtonView = CButtonView(title: "Register")
+    let registerButtonView = CButtonView(title: "Registracija")
 
-    let forgottenPasswordButtonView = CButtonView(title: "Forgotten password")
+    let forgottenPasswordButtonView = CButtonView(title: "Zaboravljena lozinka")
 
     var loginButtonTapInteraction: (() -> Void)?
     var registerButtonTapInteraction: (() -> Void)?

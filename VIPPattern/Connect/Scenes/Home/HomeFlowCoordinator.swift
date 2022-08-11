@@ -43,6 +43,14 @@ class HomeFlowCoordinator: FlowCoordinator {
         projectDetailsFlowCoordinator.delegate = self
         projectDetailsFlowCoordinator.startWith(projectId: projectId)
     }
+
+    private func showConversationDetailsFlow(conversationId: String) {
+        let conversationDetailsFlowCoordinator = ConversationDetailsFlowCoordinator(rootViewController: rootViewController,
+                                                                                    dependencies: dependencies)
+        addChildFlowCoordinator(conversationDetailsFlowCoordinator)
+        conversationDetailsFlowCoordinator.delegate = self
+        conversationDetailsFlowCoordinator.startWith(conversationId: conversationId)
+    }
 }
 
 extension HomeFlowCoordinator: HomeRouterOutput {
@@ -55,8 +63,13 @@ extension HomeFlowCoordinator: HomeRouterOutput {
     }
 }
 
-extension HomeFlowCoordinator: ProjectDetailsFlowCoordinatorDelegate {
+extension HomeFlowCoordinator: ProjectDetailsFlowCoordinatorDelegate,
+                               ConversationDetailsFlowCoordinatorDelegate {
     func shouldRemoveFlowCoordinator(_ flowCoordinator: FlowCoordinator) {
         removeChildFlowCoordinator(flowCoordinator)
+    }
+
+    func showConversationDetails(conversationId: String) {
+        showConversationDetailsFlow(conversationId: conversationId)
     }
 }
