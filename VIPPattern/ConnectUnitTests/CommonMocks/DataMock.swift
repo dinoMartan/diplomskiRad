@@ -8,7 +8,7 @@
 @testable import Connect
 import Foundation
 
-class DataMock {
+struct DataMock {
     // User
     var userId: String? = "id"
     var userUsername: String? = "username"

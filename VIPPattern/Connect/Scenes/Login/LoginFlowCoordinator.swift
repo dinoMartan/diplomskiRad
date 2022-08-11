@@ -37,10 +37,11 @@ extension LoginFlowCoordinator {
     private func startLoginFlow() {
         let authenticationRepository = AuthenticationRepository()
         let loginViewController = LoginViewController()
-        LoginConfigurator.configureModule(loginRouterOutput: self,
-                                          viewController: loginViewController,
-                                          keychainService: dependencies.keychainService,
-                                          authenticationRepository: authenticationRepository)
+        LoginConfigurator.configureModule(
+            loginRouterOutput: self,
+            viewController: loginViewController,
+            keychainService: dependencies.keychainService,
+            authenticationRepository: authenticationRepository)
         rootViewController.setViewControllers([loginViewController], animated: true)
     }
 }

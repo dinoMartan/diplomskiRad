@@ -14,7 +14,7 @@ class RegistrationView: UIView {
         label.font = UIFont(.openSansExtraBold, size: 34)
         label.textColor = .secondaryLabel
         label.textAlignment = .center
-        label.text = "Registration"
+        label.text = "Registracija"
         return label
     }()
 
@@ -31,15 +31,15 @@ class RegistrationView: UIView {
         return imageView
     }()
 
-    let usernameTextFieldView = CTextFieldView(placeholder: "Username",
+    let usernameTextFieldView = CTextFieldView(placeholder: "Korisničko ime",
                                                textContentType: .username,
                                                backgroundColor: .systemBackground)
 
-    let firstNameTextFieldView = CTextFieldView(placeholder: "First name",
+    let firstNameTextFieldView = CTextFieldView(placeholder: "Ime",
                                                 textContentType: .name,
                                                 backgroundColor: .systemBackground)
 
-    let lastNameTextFieldView = CTextFieldView(placeholder: "Last name",
+    let lastNameTextFieldView = CTextFieldView(placeholder: "Prezime",
                                                textContentType: .familyName,
                                                backgroundColor: .systemBackground)
 
@@ -47,12 +47,12 @@ class RegistrationView: UIView {
                                             textContentType: .emailAddress,
                                             backgroundColor: .systemBackground)
 
-    let passwordTextFieldView = CTextFieldView(placeholder: "Password",
+    let passwordTextFieldView = CTextFieldView(placeholder: "Lozinka",
                                                textContentType: .password,
                                                backgroundColor: .systemBackground,
                                                isSecureText: true)
 
-    private let registerButton = CButtonView(title: "Register")
+    private let registerButton = CButtonView(title: "Registriraj se")
 
     private let stackView: UIStackView = {
         let stackView = UIStackView()

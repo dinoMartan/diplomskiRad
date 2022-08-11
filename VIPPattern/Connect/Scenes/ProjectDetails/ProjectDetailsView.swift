@@ -137,7 +137,7 @@ class ProjectDetailsView: UIView {
     let needTagsView = ProjectDetailsSubview()
     let haveTagsView = ProjectDetailsSubview()
 
-    private let contactButton = CButtonView(title: "Send message")
+    private let contactButton = CButtonView(title: "Pošalji poruku")
 
     var didTapContactButton: (() -> Void)?
 
@@ -164,9 +164,9 @@ extension ProjectDetailsView {
     }
 
     private func setupSubviews() {
-        projectDescriptionView.setupIconAndTitle(icon: "scribble.variable", title: "Project description")
-        needTagsView.setupIconAndTitle(icon: "target", title: "Project needs")
-        haveTagsView.setupIconAndTitle(icon: "checkmark.circle", title: "Project has")
+        projectDescriptionView.setupIconAndTitle(icon: "scribble.variable", title: "Opis projekta")
+        needTagsView.setupIconAndTitle(icon: "target", title: "Potrebno")
+        haveTagsView.setupIconAndTitle(icon: "checkmark.circle", title: "Postojeće")
     }
 
     private func setupButtonAction() {
