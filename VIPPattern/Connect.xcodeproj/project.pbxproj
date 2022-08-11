@@ -170,6 +170,11 @@
 		8C930558284A927200AE2023 /* RegistrationPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C930557284A927200AE2023 /* RegistrationPresenterMock.swift */; };
 		8CF0B69928A4F09500B0F689 /* ConversationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B69728A4F09500B0F689 /* ConversationsTableViewCell.swift */; };
 		8CF0B69A28A4F09500B0F689 /* ConversationsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF0B69828A4F09500B0F689 /* ConversationsTableViewCell.xib */; };
+		8CF0B6A128A4F50A00B0F689 /* ConversationsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B69C28A4F50A00B0F689 /* ConversationsInteractorTests.swift */; };
+		8CF0B6A228A4F50A00B0F689 /* ConversationsViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B69D28A4F50A00B0F689 /* ConversationsViewControllerMock.swift */; };
+		8CF0B6A328A4F50A00B0F689 /* ConversationsDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B69E28A4F50A00B0F689 /* ConversationsDataModelMock.swift */; };
+		8CF0B6A428A4F50A00B0F689 /* ConversationsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B69F28A4F50A00B0F689 /* ConversationsPresenterMock.swift */; };
+		8CF0B6A528A4F50A00B0F689 /* ConversationsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B6A028A4F50A00B0F689 /* ConversationsPresenterTests.swift */; };
 		D7AA47C0A49632F116840A2D /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */; };
 		D9F7457F57A05E288BADD0EA /* Pods_ConnectUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B15C6198DACEB73B981370 /* Pods_ConnectUnitTests.framework */; };
 /* End PBXBuildFile section */
@@ -355,6 +360,11 @@
 		8C930557284A927200AE2023 /* RegistrationPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterMock.swift; sourceTree = "<group>"; };
 		8CF0B69728A4F09500B0F689 /* ConversationsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsTableViewCell.swift; sourceTree = "<group>"; };
 		8CF0B69828A4F09500B0F689 /* ConversationsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ConversationsTableViewCell.xib; sourceTree = "<group>"; };
+		8CF0B69C28A4F50A00B0F689 /* ConversationsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsInteractorTests.swift; sourceTree = "<group>"; };
+		8CF0B69D28A4F50A00B0F689 /* ConversationsViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsViewControllerMock.swift; sourceTree = "<group>"; };
+		8CF0B69E28A4F50A00B0F689 /* ConversationsDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsDataModelMock.swift; sourceTree = "<group>"; };
+		8CF0B69F28A4F50A00B0F689 /* ConversationsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsPresenterMock.swift; sourceTree = "<group>"; };
+		8CF0B6A028A4F50A00B0F689 /* ConversationsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsPresenterTests.swift; sourceTree = "<group>"; };
 		973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B298B1CB25B22484C2D14623 /* Pods-ConnectUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectUnitTests.release.xcconfig"; path = "Target Support Files/Pods-ConnectUnitTests/Pods-ConnectUnitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -931,6 +941,7 @@
 		8C93052C2844BA5400AE2023 /* SceneTests */ = {
 			isa = PBXGroup;
 			children = (
+				8CF0B69B28A4F4E800B0F689 /* Conversations */,
 				8C445EDA285F207A0023CF41 /* ProjectDetails */,
 				8C445EAA285DDEB20023CF41 /* MyProjects */,
 				8C445E99285C8D680023CF41 /* Home */,
@@ -967,6 +978,26 @@
 				8CF0B69828A4F09500B0F689 /* ConversationsTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		8CF0B69B28A4F4E800B0F689 /* Conversations */ = {
+			isa = PBXGroup;
+			children = (
+				8CF0B6A628A4F51900B0F689 /* Mocks */,
+				8CF0B69C28A4F50A00B0F689 /* ConversationsInteractorTests.swift */,
+				8CF0B6A028A4F50A00B0F689 /* ConversationsPresenterTests.swift */,
+			);
+			path = Conversations;
+			sourceTree = "<group>";
+		};
+		8CF0B6A628A4F51900B0F689 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				8CF0B69E28A4F50A00B0F689 /* ConversationsDataModelMock.swift */,
+				8CF0B69F28A4F50A00B0F689 /* ConversationsPresenterMock.swift */,
+				8CF0B69D28A4F50A00B0F689 /* ConversationsViewControllerMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1295,6 +1326,7 @@
 				8C445EE2285F20A80023CF41 /* ProjectDetailsDataModelMock.swift in Sources */,
 				8C9305252844BA2800AE2023 /* RegistrationInteractorTests.swift in Sources */,
 				8C445E86285B72A70023CF41 /* ProfileViewControllerMock.swift in Sources */,
+				8CF0B6A328A4F50A00B0F689 /* ConversationsDataModelMock.swift in Sources */,
 				8C2226B0289E7E6D00D81364 /* ConversationsRepositoryMock.swift in Sources */,
 				8C445E98285BA5CA0023CF41 /* ProjectsRepositoryMock.swift in Sources */,
 				8C445E85285B72A70023CF41 /* ProfileInteractorTests.swift in Sources */,
@@ -1312,16 +1344,20 @@
 				8C9305312844BB7800AE2023 /* AuthenticationRepositoryMock.swift in Sources */,
 				8C445EB0285DDECC0023CF41 /* MyProjectsInteractorTests.swift in Sources */,
 				8C2226AB289E775600D81364 /* FirestoreServiceMock.swift in Sources */,
+				8CF0B6A128A4F50A00B0F689 /* ConversationsInteractorTests.swift in Sources */,
 				8C445EA3285C8D780023CF41 /* HomePresenterTests.swift in Sources */,
 				8C445E88285B72A70023CF41 /* ProfilePresenterMock.swift in Sources */,
 				8C445EE4285F20A80023CF41 /* ProjectDetailsPresenterTests.swift in Sources */,
 				8C445E91285BA2BA0023CF41 /* EditProjectInteractorTests.swift in Sources */,
+				8CF0B6A428A4F50A00B0F689 /* ConversationsPresenterMock.swift in Sources */,
 				8C445EA1285C8D780023CF41 /* HomeDataModelMock.swift in Sources */,
+				8CF0B6A228A4F50A00B0F689 /* ConversationsViewControllerMock.swift in Sources */,
 				8C445EB4285DDECC0023CF41 /* MyProjectsPresenterTests.swift in Sources */,
 				8C93053A2844C25A00AE2023 /* RegistrationDataModelMock.swift in Sources */,
 				8C930558284A927200AE2023 /* RegistrationPresenterMock.swift in Sources */,
 				8C2226AE289E7CBE00D81364 /* UserRepositoryTests.swift in Sources */,
 				8C9305352844BC3900AE2023 /* DataMock.swift in Sources */,
+				8CF0B6A528A4F50A00B0F689 /* ConversationsPresenterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
