@@ -14,5 +14,5 @@ struct Conversation: Codable, Equatable {
     let conversationOwner: UserNested?
     let userIds: [String]?
     let createdAt: Date?
-    let messages: [Message]?
+    var messages: [Message]?
 }

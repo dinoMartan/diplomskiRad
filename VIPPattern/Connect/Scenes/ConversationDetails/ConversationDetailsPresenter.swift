@@ -10,6 +10,8 @@ import Foundation
 protocol ConversationDetailsPresenterProtocol: AnyObject {
     func interactor(didSucceedGetConversation response: ConversationDetails.GetConversationAction.Response.Success)
     func interactor(didFailGetConversation response: ConversationDetails.GetConversationAction.Response.Failure)
+    func interactor(didSucceedSendMessage response: ConversationDetails.SendMessageAction.Response.Success)
+    func interactor(didFailSendMessage response: ConversationDetails.SendMessageAction.Response.Failure)
 }
 
 class ConversationDetailsPresenter: ConversationDetailsPresenterProtocol {
@@ -39,5 +41,15 @@ class ConversationDetailsPresenter: ConversationDetailsPresenterProtocol {
     func interactor(didFailGetConversation response: ConversationDetails.GetConversationAction.Response.Failure) {
         let viewModel = ConversationDetails.GetConversationAction.ViewModel.Failure(myError: response.myError)
         viewController?.presenter(didFailGetConversation: viewModel)
+    }
+
+    func interactor(didSucceedSendMessage response: ConversationDetails.SendMessageAction.Response.Success) {
+        let viewModel = ConversationDetails.SendMessageAction.ViewModel.Success()
+        viewController?.interactor(didSucceedSendMessage: viewModel)
+    }
+
+    func interactor(didFailSendMessage response: ConversationDetails.SendMessageAction.Response.Failure) {
+        let viewModel = ConversationDetails.SendMessageAction.ViewModel.Failure(myError: response.myError)
+        viewController?.interactor(didFailSendMessage: viewModel)
     }
 }

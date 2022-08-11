@@ -42,3 +42,27 @@ extension ConversationDetails {
         }
     }
 }
+
+extension ConversationDetails {
+    struct SendMessageAction {
+        struct Request: Equatable {
+            let message: String
+        }
+
+        struct Response: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+
+        struct ViewModel: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+    }
+}

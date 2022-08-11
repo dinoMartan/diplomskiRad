@@ -10,6 +10,8 @@ import UIKit
 protocol ConversationDetailsPresenterOutput: AnyObject {
     func presenter(didSucceedGetConversation viewModel: ConversationDetails.GetConversationAction.ViewModel.Success)
     func presenter(didFailGetConversation viewModel: ConversationDetails.GetConversationAction.ViewModel.Failure)
+    func interactor(didSucceedSendMessage viewModel: ConversationDetails.SendMessageAction.ViewModel.Success)
+    func interactor(didFailSendMessage viewModel: ConversationDetails.SendMessageAction.ViewModel.Failure)
 }
 
 class ConversationDetailsViewController: UIViewController {
@@ -79,15 +81,18 @@ extension ConversationDetailsViewController: UITableViewDelegate, UITableViewDat
 
 extension ConversationDetailsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        guard let message = textField.text else {
+        guard let message = textField.text,
+              !message.isEmpty else {
             return false
         }
         sendMessage(message)
+        textField.text = ""
         return true
     }
 
     private func sendMessage(_ message: String) {
-        
+        let request = ConversationDetails.SendMessageAction.Request(message: message)
+        interactor?.sendMessage(request: request)
     }
 }
 
@@ -95,9 +100,28 @@ extension ConversationDetailsViewController: ConversationDetailsPresenterOutput 
     func presenter(didSucceedGetConversation viewModel: ConversationDetails.GetConversationAction.ViewModel.Success) {
         self.messages = viewModel.messages
         self.title = viewModel.pojectTitle
+        scrollToBottom()
+    }
+
+    private func scrollToBottom() {
+        guard !messages.isEmpty else { return }
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.messages.count - 1, section: 0)
+            self.conversationDetailsView?.tableView.scrollToRow(at: indexPath,
+                                                                at: .bottom,
+                                                                animated: true)
+        }
     }
 
     func presenter(didFailGetConversation viewModel: ConversationDetails.GetConversationAction.ViewModel.Failure) {
+        showMyErrorAlert(viewModel.myError)
+    }
+
+    func interactor(didSucceedSendMessage viewModel: ConversationDetails.SendMessageAction.ViewModel.Success) {
+        //
+    }
+
+    func interactor(didFailSendMessage viewModel: ConversationDetails.SendMessageAction.ViewModel.Failure) {
         showMyErrorAlert(viewModel.myError)
     }
 }
