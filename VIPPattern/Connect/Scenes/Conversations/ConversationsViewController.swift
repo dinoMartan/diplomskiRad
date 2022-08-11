@@ -68,6 +68,11 @@ extension ConversationsViewController: UITableViewDelegate, UITableViewDataSourc
         cell.setupWith(conversation)
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let conversationId = conversations[indexPath.row].id else { return }
+        router?.showConversationDetails(conversationId: conversationId)
+    }
 }
 
 extension ConversationsViewController: ConversationsPresenterOutput {

@@ -21,6 +21,8 @@ class ConversationDetailsView: UIView {
 
     let textField: UITextField = {
         let textField = UITextField()
+        textField.placeholder = "Poruka"
+        textField.backgroundColor = .secondarySystemBackground
         return textField
     }()
 
@@ -42,7 +44,6 @@ extension ConversationDetailsView {
     private func setupView() {
         addSubviews()
         setupCoinstraints()
-        backgroundColor = .systemGreen
     }
 
     private func addSubviews() {
@@ -53,12 +54,14 @@ extension ConversationDetailsView {
 
     private func setupCoinstraints() {
         tableView.snp.makeConstraints { make in
-            make.leading.trailing.top.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.leading.trailing.equalToSuperview()
         }
 
         sendingView.snp.makeConstraints { make in
             make.top.equalTo(tableView.snp.bottom)
-            make.leading.trailing.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(60)
         }
 
         textField.snp.makeConstraints { make in

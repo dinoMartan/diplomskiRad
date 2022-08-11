@@ -11,7 +11,7 @@ import Foundation
 struct Conversation: Codable, Equatable {
     @DocumentID var id: String?
     let project: ProjectNested?
-    let users: [UserNested]?
+    let conversationOwner: UserNested?
     let userIds: [String]?
     let createdAt: Date?
     let messages: [Message]?

@@ -23,7 +23,8 @@ class ConversationsPresenter: ConversationsPresenterProtocol {
         let conversations = response.conversations.map { conversation -> Conversations.CConversation in
             let user = getUserFromConversation(conversation, currentUserId: response.currentUserId)
             let lastMessage = conversation.messages?.last?.value
-            return Conversations.CConversation(image: user?.profileImage,
+            return Conversations.CConversation(id: conversation.id,
+                                               image: user?.profileImage,
                                                name: user?.firstName,
                                                lastMessage: lastMessage)
         }
@@ -32,9 +33,11 @@ class ConversationsPresenter: ConversationsPresenterProtocol {
     }
 
     private func getUserFromConversation(_ conversation: Conversation, currentUserId: String) -> UserNested? {
-        conversation.users?.first(where: { user in
-            user.id != currentUserId
-        })
+        if conversation.conversationOwner?.id == currentUserId {
+            return conversation.project?.owner
+        } else {
+            return conversation.conversationOwner
+        }
     }
 
     func interactor(didFailGetUsersConversations response: Conversations.GetUsersConversationsAction.Response.Failure) {

@@ -16,5 +16,4 @@ struct Message: Codable, Equatable {
 
 enum MessageType: String, RawRepresentable, Codable {
     case text = "text"
-    case image = "image"
 }

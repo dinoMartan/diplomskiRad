@@ -9,6 +9,7 @@ import Foundation
 
 struct Conversations: Equatable {
     struct CConversation: Equatable {
+        let id: String?
         let image: String?
         let name: String?
         let lastMessage: String?

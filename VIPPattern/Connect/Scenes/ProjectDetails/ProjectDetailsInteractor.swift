@@ -94,7 +94,7 @@ extension ProjectDetailsInteractor {
         let conversationId = UUID().uuidString
         return Conversation(id: conversationId,
                             project: project.getProjectNested(),
-                            users: [currentUser.getUserNested(), project.owner].compactMap({$0}),
+                            conversationOwner: currentUser.getUserNested(),
                             userIds: [currentUser.id ?? "", project.owner?.id ?? ""],
                             createdAt: Date(),
                             messages: [])

@@ -10,7 +10,8 @@ import Foundation
 struct ConversationDetails: Equatable {
     struct CDMessage: Equatable {
         let value: String
-        let isCurrentUsersMessage: Bool?
+        let isCurrentUsersMessage: Bool
+        let image: String
     }
 }
 

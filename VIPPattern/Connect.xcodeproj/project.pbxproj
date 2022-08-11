@@ -175,6 +175,10 @@
 		8CF0B6A328A4F50A00B0F689 /* ConversationsDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B69E28A4F50A00B0F689 /* ConversationsDataModelMock.swift */; };
 		8CF0B6A428A4F50A00B0F689 /* ConversationsPresenterMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B69F28A4F50A00B0F689 /* ConversationsPresenterMock.swift */; };
 		8CF0B6A528A4F50A00B0F689 /* ConversationsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B6A028A4F50A00B0F689 /* ConversationsPresenterTests.swift */; };
+		8CF0B6A928A52D3500B0F689 /* CurrentUserMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B6A728A52D3500B0F689 /* CurrentUserMessageTableViewCell.swift */; };
+		8CF0B6AA28A52D3500B0F689 /* CurrentUserMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF0B6A828A52D3500B0F689 /* CurrentUserMessageTableViewCell.xib */; };
+		8CF0B6AD28A52D5900B0F689 /* OtherUserMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CF0B6AB28A52D5900B0F689 /* OtherUserMessageTableViewCell.swift */; };
+		8CF0B6AE28A52D5900B0F689 /* OtherUserMessageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CF0B6AC28A52D5900B0F689 /* OtherUserMessageTableViewCell.xib */; };
 		D7AA47C0A49632F116840A2D /* Pods_Connect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13CEEECFB691AE69F0C2A3F5 /* Pods_Connect.framework */; };
 		D9F7457F57A05E288BADD0EA /* Pods_ConnectUnitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2B15C6198DACEB73B981370 /* Pods_ConnectUnitTests.framework */; };
 /* End PBXBuildFile section */
@@ -365,6 +369,10 @@
 		8CF0B69E28A4F50A00B0F689 /* ConversationsDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsDataModelMock.swift; sourceTree = "<group>"; };
 		8CF0B69F28A4F50A00B0F689 /* ConversationsPresenterMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsPresenterMock.swift; sourceTree = "<group>"; };
 		8CF0B6A028A4F50A00B0F689 /* ConversationsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsPresenterTests.swift; sourceTree = "<group>"; };
+		8CF0B6A728A52D3500B0F689 /* CurrentUserMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserMessageTableViewCell.swift; sourceTree = "<group>"; };
+		8CF0B6A828A52D3500B0F689 /* CurrentUserMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentUserMessageTableViewCell.xib; sourceTree = "<group>"; };
+		8CF0B6AB28A52D5900B0F689 /* OtherUserMessageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherUserMessageTableViewCell.swift; sourceTree = "<group>"; };
+		8CF0B6AC28A52D5900B0F689 /* OtherUserMessageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OtherUserMessageTableViewCell.xib; sourceTree = "<group>"; };
 		973DC1A55623CED7A6866F03 /* Pods_Connect_ConnectUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Connect_ConnectUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1611E42DC99B9ED09CE5B06 /* Pods_ConnectTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ConnectTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B298B1CB25B22484C2D14623 /* Pods-ConnectUnitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ConnectUnitTests.release.xcconfig"; path = "Target Support Files/Pods-ConnectUnitTests/Pods-ConnectUnitTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -613,6 +621,10 @@
 		8C445EFD285F86930023CF41 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				8CF0B6A728A52D3500B0F689 /* CurrentUserMessageTableViewCell.swift */,
+				8CF0B6A828A52D3500B0F689 /* CurrentUserMessageTableViewCell.xib */,
+				8CF0B6AB28A52D5900B0F689 /* OtherUserMessageTableViewCell.swift */,
+				8CF0B6AC28A52D5900B0F689 /* OtherUserMessageTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1091,6 +1103,8 @@
 				8CF0B69A28A4F09500B0F689 /* ConversationsTableViewCell.xib in Resources */,
 				8C445ECF285E20130023CF41 /* OpenSans-ExtraBold.ttf in Resources */,
 				8C445ED1285E20130023CF41 /* OpenSans-MediumItalic.ttf in Resources */,
+				8CF0B6AE28A52D5900B0F689 /* OtherUserMessageTableViewCell.xib in Resources */,
+				8CF0B6AA28A52D3500B0F689 /* CurrentUserMessageTableViewCell.xib in Resources */,
 				8C6BDD8B283E246900A96ED4 /* HomeTableViewCell.xib in Resources */,
 				8C445EA9285CC0A20023CF41 /* MyProjectsTableViewCell.xib in Resources */,
 				8C445ED0285E20130023CF41 /* OpenSans-Medium.ttf in Resources */,
@@ -1211,6 +1225,7 @@
 				8C445ED7285E645B0023CF41 /* CTextFieldView.swift in Sources */,
 				8C8141532840B6D700E7AB43 /* ImagePickerManager.swift in Sources */,
 				8C6BDC73283CF24A00A96ED4 /* LoginPresenter.swift in Sources */,
+				8CF0B6AD28A52D5900B0F689 /* OtherUserMessageTableViewCell.swift in Sources */,
 				8C445EC8285DFCFB0023CF41 /* ProjectDetailsFlowCoordinator.swift in Sources */,
 				8C9304E42843F03500AE2023 /* RegistrationDataModel.swift in Sources */,
 				8C9304E22843EC2700AE2023 /* LoginDataModel.swift in Sources */,
@@ -1302,6 +1317,7 @@
 				8C6BDC79283CF27400A96ED4 /* LoginViewController.swift in Sources */,
 				8C814147283FA5BC00E7AB43 /* ProfileInteractor.swift in Sources */,
 				8C6BDC8E283D53D200A96ED4 /* RegistrationView.swift in Sources */,
+				8CF0B6A928A52D3500B0F689 /* CurrentUserMessageTableViewCell.swift in Sources */,
 				8C445EEB285F636D0023CF41 /* ConversationsRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
