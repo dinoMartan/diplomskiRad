@@ -32,6 +32,7 @@ class ConversationDetailsFlowCoordinator: FlowCoordinator {
         ConversationDetailsConfigurator.configureModule(routerOutput: self,
                                                         viewController: viewController,
                                                         conversationsRepository: conversationsRepository,
+                                                        keychainService: dependencies.keychainService,
                                                         conversationId: conversationId)
         rootViewController.pushViewController(viewController, animated: true)
     }

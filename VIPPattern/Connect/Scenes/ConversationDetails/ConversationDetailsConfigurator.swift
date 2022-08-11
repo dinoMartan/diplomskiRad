@@ -11,10 +11,12 @@ class ConversationDetailsConfigurator {
     static func configureModule(routerOutput: ConversationDetailsRouterOutput,
                                 viewController: ConversationDetailsViewController,
                                 conversationsRepository: ConversationsRepositoryProtocol,
+                                keychainService: KeychainServiceProtocol,
                                 conversationId: String) {
         let view = ConversationDetailsView()
         let router = ConversationDetailsRouter()
         let interactor = ConversationDetailsInteractor(conversationsRepository: conversationsRepository,
+                                                       keychainService: keychainService,
                                                        conversationId: conversationId)
         let presenter = ConversationDetailsPresenter()
 

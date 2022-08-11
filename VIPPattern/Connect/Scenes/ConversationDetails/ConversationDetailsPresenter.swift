@@ -20,7 +20,17 @@ class ConversationDetailsPresenter: ConversationDetailsPresenterProtocol {
     }
 
     func interactor(didSucceedGetConversation response: ConversationDetails.GetConversationAction.Response.Success) {
-        //
+        let viewModel = ConversationDetails.GetConversationAction.ViewModel.Success(pojectTitle: response.conversation.project?.title ?? "",
+                                                                                    messages: mapMessagesToCDMessages(response.conversation.messages,
+                                                                                                                      currentUserId: response.currentUserId))
+        viewController?.presenter(didSucceedGetConversation: viewModel)
+    }
+
+    private func mapMessagesToCDMessages(_ messages: [Message]?, currentUserId: String) -> [ConversationDetails.CDMessage] {
+        messages?.map {
+            ConversationDetails.CDMessage(value: $0.value ?? "",
+                                          isCurrentUsersMessage: $0.senderId == currentUserId)
+        } ?? []
     }
 
     func interactor(didFailGetConversation response: ConversationDetails.GetConversationAction.Response.Failure) {

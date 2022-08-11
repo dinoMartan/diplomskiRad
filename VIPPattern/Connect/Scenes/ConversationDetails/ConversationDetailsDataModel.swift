@@ -8,6 +8,10 @@
 import Foundation
 
 struct ConversationDetails: Equatable {
+    struct CDMessage: Equatable {
+        let value: String
+        let isCurrentUsersMessage: Bool?
+    }
 }
 
 extension ConversationDetails {
@@ -16,6 +20,7 @@ extension ConversationDetails {
 
         struct Response: Equatable {
             struct Success: Equatable {
+                let currentUserId: String
                 let conversation: Conversation
             }
 
@@ -26,7 +31,8 @@ extension ConversationDetails {
 
         struct ViewModel: Equatable {
             struct Success: Equatable {
-                
+                let pojectTitle: String
+                let messages: [ConversationDetails.CDMessage]
             }
 
             struct Failure: Equatable {
