@@ -35,6 +35,14 @@ class ProfileTableViewHeader: UITableViewHeaderFooterView {
         return label
     }()
 
+    private let stackView: UIStackView = {
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
+
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         setupView()
@@ -58,22 +66,18 @@ extension ProfileTableViewHeader {
     }
 
     private func addSubviews() {
-        addSubview(imageView)
-        addSubview(displayNameLabel)
+        addSubview(stackView)
+        stackView.addArrangedSubview(imageView)
+        stackView.addArrangedSubview(displayNameLabel)
     }
 
     private func setupCoinstraints() {
         imageView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(15)
             make.width.height.equalTo(150)
-            make.centerX.equalToSuperview()
         }
 
-        displayNameLabel.snp.makeConstraints { make in
-            make.leading.equalToSuperview().offset(20)
-            make.trailing.equalToSuperview().offset(-20)
-            make.top.equalTo(imageView.snp.bottom).offset(20)
-            make.bottom.equalToSuperview().offset(-20)
+        stackView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalToSuperview()
         }
     }
 

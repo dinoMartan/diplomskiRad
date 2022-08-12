@@ -47,6 +47,8 @@ extension ProfileViewController {
                                         forCellReuseIdentifier: ProfileSettingTableViewCell.identifier)
         profileView?.tableView.register(ProfileTableViewHeader.self,
                                         forHeaderFooterViewReuseIdentifier: ProfileTableViewHeader.identifier)
+        profileView?.tableView.register(ProfileTableViewFooter.self,
+                                        forHeaderFooterViewReuseIdentifier: ProfileTableViewFooter.identifier)
     }
 }
 
@@ -69,6 +71,20 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         view?.setupWith(image: userData?.profileImage,
                         label: userData?.displayName)
         return view
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        200
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileTableViewFooter.identifier) as? ProfileTableViewFooter
+        view?.delegate = self
+        return view
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        100
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -101,6 +117,12 @@ extension ProfileViewController: ProfileTableViewHeaderDelegate {
                                                  type: .image(newImage))
             self?.interactor?.updateSetting(request: Profile.UpdateSettingAction.Request(setting: profileSetting))
         }
+    }
+}
+
+extension ProfileViewController: ProfileTableViewFooterDelegate {
+    func didTapLogoutButton() {
+        //
     }
 }
 
