@@ -11,6 +11,7 @@ import UIKit
 protocol ProfileInteractorProtocol {
     func getUserData(request: Profile.GetUserDataAction.Request)
     func updateSetting(request: Profile.UpdateSettingAction.Request)
+    func logout(request: Profile.LogoutAction.Request)
 }
 
 class ProfileInteractor: ProfileInteractorProtocol {
@@ -73,5 +74,9 @@ extension ProfileInteractor {
                 self?.presenter?.interactor(didFailUpdateSetting: Profile.UpdateSettingAction.Response.Failure(myError: myError))
             }
         }
+    }
+
+    func logout(request: Profile.LogoutAction.Request) {
+        //
     }
 }
