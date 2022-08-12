@@ -9,10 +9,12 @@ import Foundation
 
 protocol ProfileRouterOutput: AnyObject {
     func shouldClose()
+    func showLogin()
 }
 
 protocol ProfileRouterProtocol: AnyObject {
     func shouldClose()
+    func showLogin()
 }
 
 class ProfileRouter: ProfileRouterProtocol {
@@ -24,5 +26,9 @@ class ProfileRouter: ProfileRouterProtocol {
 
     func shouldClose() {
         routerOutput?.shouldClose()
+    }
+
+    func showLogin() {
+        routerOutput?.showLogin()
     }
 }

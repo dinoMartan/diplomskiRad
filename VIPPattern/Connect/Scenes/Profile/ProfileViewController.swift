@@ -12,8 +12,8 @@ protocol ProfilePresenterOutput: AnyObject {
     func presenter(didFailGetUserData viewModel: Profile.GetUserDataAction.ViewModel.Failure)
     func presenter(didSucceedUpdateSetting viewModel: Profile.UpdateSettingAction.ViewModel.Success)
     func presenter(didFailUpdateSettingData viewModel: Profile.UpdateSettingAction.ViewModel.Failure)
-    func presenter(didSucceedLogout viewModel: Profile.LogoutAction.ViewModel.Success)
-    func presenter(didFailLogout viewModel: Profile.LogoutAction.ViewModel.Failure)
+    func presenter(didSucceedSignOut viewModel: Profile.SignOutAction.ViewModel.Success)
+    func presenter(didFailSignOut viewModel: Profile.SignOutAction.ViewModel.Failure)
 }
 
 class ProfileViewController: UIViewController {
@@ -124,8 +124,8 @@ extension ProfileViewController: ProfileTableViewHeaderDelegate {
 
 extension ProfileViewController: ProfileTableViewFooterDelegate {
     func didTapLogoutButton() {
-        let request = Profile.LogoutAction.Request()
-        interactor?.logout(request: request)
+        let request = Profile.SignOutAction.Request()
+        interactor?.signOut(request: request)
     }
 }
 
@@ -147,11 +147,11 @@ extension ProfileViewController: ProfilePresenterOutput {
         showMyErrorAlert(viewModel.myError)
     }
 
-    func presenter(didSucceedLogout viewModel: Profile.LogoutAction.ViewModel.Success) {
-        // TODO: show login
+    func presenter(didSucceedSignOut viewModel: Profile.SignOutAction.ViewModel.Success) {
+        router?.showLogin()
     }
 
-    func presenter(didFailLogout viewModel: Profile.LogoutAction.ViewModel.Failure) {
+    func presenter(didFailSignOut viewModel: Profile.SignOutAction.ViewModel.Failure) {
         showMyErrorAlert(viewModel.myError)
     }
 }

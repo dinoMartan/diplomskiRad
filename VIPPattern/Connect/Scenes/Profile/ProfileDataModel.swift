@@ -77,9 +77,9 @@ extension Profile {
     }
 }
 
-// MARK: LogoutAction
+// MARK: SignOutAction
 extension Profile {
-    struct LogoutAction: Equatable {
+    struct SignOutAction: Equatable {
         struct Request: Equatable { }
 
         struct Response: Equatable {

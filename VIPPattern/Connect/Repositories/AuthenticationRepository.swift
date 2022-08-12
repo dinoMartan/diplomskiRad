@@ -11,6 +11,7 @@ protocol AuthenticationRepositoryProtocol {
     func registerUser(email: String, password: String, completion: @escaping ((Result<AuthenticationResponse, MyError>) -> Void))
     func signInUser(email: String, password: String, completion: @escaping ((Result<AuthenticationResponse, MyError>) -> Void))
     func sendResetPasswordEmail(email: String, completion: @escaping ((Result<Void, MyError>) -> Void))
+    func signOut(completion: @escaping ((Result<Void, MyError>) -> Void))
 }
 
 class AuthenticationRepository: AuthenticationRepositoryProtocol {
@@ -30,5 +31,9 @@ class AuthenticationRepository: AuthenticationRepositoryProtocol {
 
     func sendResetPasswordEmail(email: String, completion: @escaping ((Result<Void, MyError>) -> Void)) {
         authenticationService.sendResetPasswordEmail(email: email, completion: completion)
+    }
+
+    func signOut(completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        authenticationService.signOut(completion: completion)
     }
 }

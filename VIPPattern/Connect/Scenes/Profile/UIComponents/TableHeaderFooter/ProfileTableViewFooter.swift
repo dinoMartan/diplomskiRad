@@ -16,10 +16,12 @@ class ProfileTableViewFooter: UITableViewHeaderFooterView {
 
     weak var delegate: ProfileTableViewFooterDelegate?
 
-    private let logoutButton: UIButton = {
+    private lazy var logoutButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemRed
         button.setTitle("Odjava", for: .normal)
+        button.addGestureRecognizer(UITapGestureRecognizer(target: self,
+                                                           action: #selector(didTapLogoutButton)))
         return button
     }()
 
@@ -50,5 +52,12 @@ extension ProfileTableViewFooter {
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview()
         }
+    }
+}
+
+extension ProfileTableViewFooter {
+    @objc
+    private func didTapLogoutButton() {
+        delegate?.didTapLogoutButton()
     }
 }

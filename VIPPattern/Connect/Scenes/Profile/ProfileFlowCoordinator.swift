@@ -8,6 +8,7 @@
 import UIKit
 
 protocol ProfileFlowCoordinatorDelegate: FlowCoordinatorDelegate {
+    func showLogin()
 }
 
 class ProfileFlowCoordinator: FlowCoordinator {
@@ -25,11 +26,13 @@ class ProfileFlowCoordinator: FlowCoordinator {
 
     func start() {
         let userRepository = UserRepository(firestoreService: dependencies.firestoreService)
+        let authenticationRepository = AuthenticationRepository(authenticationService: dependencies.authenticationService)
         let viewController = ProfileViewController()
         ProfileConfigurator.configureModule(routerOutput: self,
                                             viewController: viewController,
                                             keychainService: dependencies.keychainService,
-                                            userRepository: userRepository)
+                                            userRepository: userRepository,
+                                            authenticationRepository: authenticationRepository)
         self.viewController = viewController
     }
 
@@ -41,5 +44,9 @@ class ProfileFlowCoordinator: FlowCoordinator {
 extension ProfileFlowCoordinator: ProfileRouterOutput {
     func shouldClose() {
         delegate?.shouldRemoveFlowCoordinator(self)
+    }
+
+    func showLogin() {
+        delegate?.showLogin()
     }
 }

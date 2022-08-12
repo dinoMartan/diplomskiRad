@@ -12,8 +12,8 @@ protocol ProfilePresenterProtocol: AnyObject {
     func interactor(didFailGetUserData response: Profile.GetUserDataAction.Response.Failure)
     func interactor(didSucceedUpdateSetting response: Profile.UpdateSettingAction.Response.Success)
     func interactor(didFailUpdateSetting response: Profile.UpdateSettingAction.Response.Failure)
-    func interactor(didSucceedLogout response: Profile.LogoutAction.Response.Success)
-    func interactor(didFailLogout response: Profile.LogoutAction.Response.Failure)
+    func interactor(didSucceedSignOut response: Profile.SignOutAction.Response.Success)
+    func interactor(didFailSignOut response: Profile.SignOutAction.Response.Failure)
 }
 
 class ProfilePresenter: ProfilePresenterProtocol {
@@ -51,11 +51,13 @@ class ProfilePresenter: ProfilePresenterProtocol {
         viewController?.presenter(didFailUpdateSettingData: viewModel)
     }
 
-    func interactor(didSucceedLogout response: Profile.LogoutAction.Response.Success) {
-        //
+    func interactor(didSucceedSignOut response: Profile.SignOutAction.Response.Success) {
+        let viewModel = Profile.SignOutAction.ViewModel.Success()
+        viewController?.presenter(didSucceedSignOut: viewModel)
     }
 
-    func interactor(didFailLogout response: Profile.LogoutAction.Response.Failure) {
-        //
+    func interactor(didFailSignOut response: Profile.SignOutAction.Response.Failure) {
+        let viewModel = Profile.SignOutAction.ViewModel.Failure(myError: response.myError)
+        viewController?.presenter(didFailSignOut: viewModel)
     }
 }

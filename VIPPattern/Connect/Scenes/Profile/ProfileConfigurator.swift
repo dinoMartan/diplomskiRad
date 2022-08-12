@@ -11,10 +11,12 @@ class ProfileConfigurator {
     static func configureModule(routerOutput: ProfileRouterOutput,
                                 viewController: ProfileViewController,
                                 keychainService: KeychainServiceProtocol,
-                                userRepository: UserRepositoryProtocol) {
+                                userRepository: UserRepositoryProtocol,
+                                authenticationRepository: AuthenticationRepositoryProtocol) {
         let view = ProfileView()
         let router = ProfileRouter()
         let interactor = ProfileInteractor(userRepository: userRepository,
+                                           authenticationRepository: authenticationRepository,
                                            keychainService: keychainService)
         let presenter = ProfilePresenter()
 
