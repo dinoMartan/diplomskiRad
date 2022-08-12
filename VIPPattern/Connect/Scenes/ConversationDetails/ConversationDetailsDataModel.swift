@@ -15,6 +15,7 @@ struct ConversationDetails: Equatable {
     }
 }
 
+// MARK: GetConversationAction
 extension ConversationDetails {
     struct GetConversationAction: Equatable {
         struct Request: Equatable { }
@@ -43,6 +44,7 @@ extension ConversationDetails {
     }
 }
 
+// MARK: SendMessageAction
 extension ConversationDetails {
     struct SendMessageAction {
         struct Request: Equatable {

@@ -34,6 +34,12 @@ struct DataMock {
     var conversationId: String? = "conversation id"
     var conversationUserIds: [String]? = ["id1", "id2"]
     var conversationCreatedAt: Date? = DataMock.date
+    var conversationUserId: String? = "conversation user id"
+    var conversationUserUsername: String? = "conversation username"
+    var conversationUserFirstName: String? = "conversation first name"
+    var conversationUserLastName: String? = "conversation last name"
+    var conversationUserEmail: String? = "conversation email"
+    var conversationUserProfileImage: String? = "conversation profile image"
 
     // Message
     var messageCreatedAt: Date? = DataMock.date
@@ -82,9 +88,14 @@ extension DataMock {
     func getConversation() -> Conversation {
         Conversation(id: conversationId,
                      project: getProject().getProjectNested(),
-                     users: [getUser().getUserNested()],
-                     userIds: conversationUserIds,
-                     createdAt: conversationCreatedAt,
+                     conversationOwner: UserNested(id: conversationUserId,
+                                                   username: conversationUserUsername,
+                                                   firstName: conversationUserFirstName,
+                                                   lastName: conversationUserLastName,
+                                                   email: conversationUserEmail,
+                                                   profileImage: conversationUserProfileImage),
+                     userIds: [userId ?? "", conversationUserId ?? ""],
+                     createdAt: DataMock.date,
                      messages: [getMessage()])
     }
 }

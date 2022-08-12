@@ -19,6 +19,10 @@ class ConversationsRepositoryMock: ConversationsRepositoryProtocol {
     var observeConversationsForUserCounter = 0
     var observeConversationsForUserUserId: String?
 
+    var observeConversationCalled = false
+    var observeConversationCounter = 0
+    var observeConversationConversationId: String?
+
     func setConversation(_ conversation: Conversation, completion: @escaping ((Result<String, MyError>) -> Void)) {
         setConversationCalled = true
         setConversationCounter += 1
@@ -31,6 +35,15 @@ class ConversationsRepositoryMock: ConversationsRepositoryProtocol {
         observeConversationsForUserCalled = true
         observeConversationsForUserCounter += 1
         observeConversationsForUserUserId = userId
+
+        handleCompletion(completion)
+    }
+
+    
+    func observeConversation(_ conversationId: String, completion: @escaping ((Result<Conversation, MyError>) -> Void)) {
+        observeConversationCalled = true
+        observeConversationCounter += 1
+        observeConversationConversationId = conversationId
 
         handleCompletion(completion)
     }
