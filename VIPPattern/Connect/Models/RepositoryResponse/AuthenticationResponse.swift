@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct AuthenticationResponse {
+struct AuthenticationResponse: Codable, Equatable {
     let userId: String?
 }
