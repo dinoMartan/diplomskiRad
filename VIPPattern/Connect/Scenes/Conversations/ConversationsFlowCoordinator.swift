@@ -33,6 +33,14 @@ class ConversationsFlowCoordinator: FlowCoordinator {
         self.viewController = viewController
     }
 
+    private func showConversationDetailsScene(conversationId: String) {
+        let conversationDetailsFlowCoordinator = ConversationDetailsFlowCoordinator(rootViewController: rootViewController,
+                                                                                    dependencies: dependencies)
+        addChildFlowCoordinator(conversationDetailsFlowCoordinator)
+        conversationDetailsFlowCoordinator.delegate = self
+        conversationDetailsFlowCoordinator.startWith(conversationId: conversationId)
+    }
+
     deinit {
         print("deinit \(self)")
     }
@@ -41,5 +49,15 @@ class ConversationsFlowCoordinator: FlowCoordinator {
 extension ConversationsFlowCoordinator: ConversationsRouterOutput {
     func shouldClose() {
         delegate?.shouldRemoveFlowCoordinator(self)
+    }
+
+    func showConversationDetails(conversationId: String) {
+        showConversationDetailsScene(conversationId: conversationId)
+    }
+}
+
+extension ConversationsFlowCoordinator: ConversationDetailsFlowCoordinatorDelegate {
+    func shouldRemoveFlowCoordinator(_ flowCoordinator: FlowCoordinator) {
+        removeChildFlowCoordinator(flowCoordinator)
     }
 }

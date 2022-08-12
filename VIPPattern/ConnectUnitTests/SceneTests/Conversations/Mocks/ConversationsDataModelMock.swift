@@ -18,21 +18,11 @@ extension ConversationsDataModelMock {
     struct GetUsersConversationsAction {
         let request = Conversations.GetUsersConversationsAction.Request()
         let responseSuccess = Conversations.GetUsersConversationsAction.Response.Success(currentUserId: dataMock.userId ?? "",
-                                                                                         conversations: [Conversation(id: "conv id",
-                                                                                                                      project: dataMock.getProject().getProjectNested(),
-                                                                                                                      users: [dataMock.getUser().getUserNested(),
-                                                                                                                             UserNested(id: "different user",
-                                                                                                                                        username: "some",
-                                                                                                                                        firstName: "user",
-                                                                                                                                        lastName: "last name",
-                                                                                                                                        email: "email",
-                                                                                                                                        profileImage: "image")],
-                                                                                                                      userIds: [dataMock.userId ?? "", "different user"],
-                                                                                                                      createdAt: DataMock.date,
-                                                                                                                      messages: [dataMock.getMessage()])])
+                                                                                         conversations: [dataMock.getConversation()])
         let responseFailure = Conversations.GetUsersConversationsAction.Response.Failure(myError: myError)
-        let viewModelSuccess = Conversations.GetUsersConversationsAction.ViewModel.Success(conversations: [Conversations.CConversation(image: "image",
-                                                                                                                                       name: "user",
+        let viewModelSuccess = Conversations.GetUsersConversationsAction.ViewModel.Success(conversations: [Conversations.CConversation(id: dataMock.conversationId,
+                                                                                                                                       image: dataMock.conversationUserProfileImage,
+                                                                                                                                       name: dataMock.conversationUserFirstName,
                                                                                                                                        lastMessage: dataMock.messageValue)])
         let viewModelFailure = Conversations.GetUsersConversationsAction.ViewModel.Failure(myError: myError)
     }
