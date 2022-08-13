@@ -15,6 +15,7 @@ class ProfileInteractorTests: XCTestCase {
     private var keychainServiceMock: KeychainServiceMock!
     private var userRepositoryMock: UserRepositoryMock!
     private var authenticationRepositoryMock: AuthenticationRepositoryMock!
+    private var dataMock: DataMock!
 
     override func setUpWithError() throws {
         profileDataModelMock = ProfileDataModelMock()
@@ -26,6 +27,7 @@ class ProfileInteractorTests: XCTestCase {
                                 authenticationRepository: authenticationRepositoryMock,
                                 keychainService: keychainServiceMock)
         sut.presenter = profilePresenterMock
+        dataMock = DataMock()
     }
 
     override func tearDownWithError() throws {
@@ -35,6 +37,7 @@ class ProfileInteractorTests: XCTestCase {
         userRepositoryMock = nil
         authenticationRepositoryMock = nil
         sut = nil
+        dataMock = nil
     }
 }
 
@@ -73,6 +76,7 @@ extension ProfileInteractorTests {
         let userId = "user id"
         let expectedResponse = profileDataModelMock.getUserDataAction.responseSuccess
         keychainServiceMock.setUserId(userId)
+        userRepositoryMock.expectedResponse = dataMock.getUser()
 
         // When
         sut.getUserData(request: request)
@@ -120,7 +124,9 @@ extension ProfileInteractorTests {
         let request = profileDataModelMock.updateSettingAction.request
         let getUserDataRequest = profileDataModelMock.getUserDataAction.request
         keychainServiceMock.setUserId("user id")
+        userRepositoryMock.expectedResponse = dataMock.getUser()
         sut.getUserData(request: getUserDataRequest)
+        userRepositoryMock.expectedResponse = nil
 
         // When
         sut.updateSetting(request: request)
@@ -136,7 +142,9 @@ extension ProfileInteractorTests {
         let expectedResponse = profileDataModelMock.updateSettingAction.responseSuccess
         let getUserDataRequest = profileDataModelMock.getUserDataAction.request
         keychainServiceMock.setUserId("user id")
+        userRepositoryMock.expectedResponse = dataMock.getUser()
         sut.getUserData(request: getUserDataRequest)
+        userRepositoryMock.expectedResponse = Void()
 
         // When
         sut.updateSetting(request: request)
@@ -153,7 +161,9 @@ extension ProfileInteractorTests {
         let expectedResponse = profileDataModelMock.updateSettingAction.responseFailure
         let getUserDataRequest = profileDataModelMock.getUserDataAction.request
         keychainServiceMock.setUserId("user id")
+        userRepositoryMock.expectedResponse = dataMock.getUser()
         sut.getUserData(request: getUserDataRequest)
+        userRepositoryMock.expectedResponse = nil
         userRepositoryMock.myError = ProfileDataModelMock.myError
 
         // When

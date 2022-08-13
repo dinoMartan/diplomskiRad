@@ -8,8 +8,8 @@
 @testable import Connect
 
 class ConversationsRepositoryMock: ConversationsRepositoryProtocol {
-    var myError: MyError?
     var expectedResponse: Any?
+    var myError: MyError?
 
     var setConversationCalled = false
     var setConversationCounter = 0

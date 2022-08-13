@@ -15,6 +15,7 @@ class RegistrationInteractorTests: XCTestCase {
     private var authenticationRepositoryMock: AuthenticationRepositoryMock!
     private var userRepositoryMock: UserRepositoryMock!
     private var registrationDataModelMock: RegistrationDataModelMock!
+    private var dataMock: DataMock!
 
     override func setUpWithError() throws {
         registrationDataModelMock = RegistrationDataModelMock()
@@ -26,6 +27,7 @@ class RegistrationInteractorTests: XCTestCase {
                                      authenticationRepository: authenticationRepositoryMock,
                                      userRepository: userRepositoryMock)
         sut.presenter = registrationPresenterMock
+        dataMock = DataMock()
     }
 
     override func tearDownWithError() throws {
@@ -35,6 +37,7 @@ class RegistrationInteractorTests: XCTestCase {
         userRepositoryMock = nil
         sut = nil
         registrationPresenterMock = nil
+        dataMock = nil
     }
 }
 
@@ -58,6 +61,8 @@ extension RegistrationInteractorTests {
         // Given
         let request = registrationDataModelMock.registerAction.request
         let expectedResponse = registrationDataModelMock.registerAction.responseSuccess
+        authenticationRepositoryMock.expectedResponse = dataMock.getAuthenticationResponse()
+        userRepositoryMock.expectedResponse = Void()
 
         // When
         sut.registerUser(request: request)

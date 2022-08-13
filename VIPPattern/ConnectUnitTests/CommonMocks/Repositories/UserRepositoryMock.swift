@@ -9,8 +9,7 @@ import UIKit
 @testable import Connect
 
 class UserRepositoryMock: UserRepositoryProtocol {
-    private let dataMock = DataMock()
-
+    var expectedResponse: Any?
     var myError: MyError?
 
     var getUserCalled = false
@@ -29,11 +28,7 @@ extension UserRepositoryMock {
         getUserCounter += 1
         self.userId = userId
 
-        guard let myError = myError else {
-            completion(.success(dataMock.getUser()))
-            return
-        }
-        completion(.failure(myError))
+        handleCompletion(completion)
     }
     
     func setUser(user: User, userImage: UIImage?, completion: @escaping ((Result<Void, MyError>) -> Void)) {
@@ -42,8 +37,26 @@ extension UserRepositoryMock {
         self.user = user
         self.userImage = userImage
 
+        handleVoidCompletion(completion)
+    }
+
+    private func handleCompletion<T: Codable>(_ completion: @escaping ((Result<T, MyError>) -> Void)) {
         guard let myError = myError else {
-            completion(.success(()))
+            guard let expectedResponse = expectedResponse else {
+                return
+            }
+            completion(.success(expectedResponse as! T))
+            return
+        }
+        completion(.failure(myError))
+    }
+
+    private func handleVoidCompletion(_ completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        guard let myError = myError else {
+            guard expectedResponse != nil else {
+                return
+            }
+            completion(.success(expectedResponse as! Void))
             return
         }
         completion(.failure(myError))

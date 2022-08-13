@@ -140,7 +140,8 @@ extension ProfileViewController: ProfilePresenterOutput {
     }
 
     func presenter(didSucceedUpdateSetting viewModel: Profile.UpdateSettingAction.ViewModel.Success) {
-        //
+        let request = Profile.GetUserDataAction.Request()
+        interactor?.getUserData(request: request)
     }
 
     func presenter(didFailUpdateSettingData viewModel: Profile.UpdateSettingAction.ViewModel.Failure) {

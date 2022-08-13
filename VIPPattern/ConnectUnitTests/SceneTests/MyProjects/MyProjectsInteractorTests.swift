@@ -14,6 +14,7 @@ class MyProjectsInteractorTests: XCTestCase {
     private var myProjectsDataModelMock: MyProjectsDataModelMock!
     private var projectsRepositoryMock: ProjectsRepositoryMock!
     private var keychainServiceMock: KeychainServiceMock!
+    private var dataMock: DataMock!
 
     override func setUpWithError() throws {
         myProjectsDataModelMock = MyProjectsDataModelMock()
@@ -23,6 +24,7 @@ class MyProjectsInteractorTests: XCTestCase {
         sut = MyProjectsInteractor(projectsRepository: projectsRepositoryMock,
                                    keychainService: keychainServiceMock)
         sut.presenter = myProjectsPresenterMock
+        dataMock = DataMock()
     }
 
     override func tearDownWithError() throws {
@@ -31,6 +33,7 @@ class MyProjectsInteractorTests: XCTestCase {
         projectsRepositoryMock = nil
         keychainServiceMock = nil
         sut = nil
+        dataMock = nil
     }
 }
 
@@ -69,6 +72,7 @@ extension MyProjectsInteractorTests {
         let userId = "user id"
         keychainServiceMock.setUserId(userId)
         let expectedResponse = myProjectsDataModelMock.getMyProjectsAction.responseSuccess
+        projectsRepositoryMock.expectedResponse = [dataMock.getProject()]
 
         // When
         sut.getMyProjects(request: request)
@@ -116,6 +120,7 @@ extension MyProjectsInteractorTests {
         // Given
         let request = myProjectsDataModelMock.deleteProjectAction.request
         let expectedResponse = myProjectsDataModelMock.deleteProjectAction.responseSuccess
+        projectsRepositoryMock.expectedResponse = Void()
 
         // When
         sut.deleteProject(request: request)

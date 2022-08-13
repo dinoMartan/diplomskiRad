@@ -10,8 +10,8 @@ import Foundation
 @testable import Connect
 
 class AuthenticationServiceMock: AuthenticationServiceProtocol {
-    var myError: MyError?
     var expectedResponse: Any?
+    var myError: MyError?
 
     var registerUserCalled = false
     var registerUserCounter = 0

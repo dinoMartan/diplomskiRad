@@ -77,6 +77,7 @@ extension EditProjectInteractorTests {
         // Given
         let request = editProjectDataModelMock.getProjectAction.request
         let expectedResponse = editProjectDataModelMock.getProjectAction.responseSuccess
+        projectsRepositoryMock.expectedResponse = dataMock.getProject()
 
         // When
         sut.getProject(request: request)
@@ -108,7 +109,9 @@ extension EditProjectInteractorTests {
     func testSaveProject_WhenCalledWithCurrentProjectSet_ShouldUpdateCurrentProjectWithRequestDataAndCallProjectsRepositorySetProjectWithCurrentProject() {
         // Given
         let getCurrentProjectRequest = editProjectDataModelMock.getProjectAction.request
+        projectsRepositoryMock.expectedResponse = dataMock.getProject()
         sut.getProject(request: getCurrentProjectRequest)
+        projectsRepositoryMock.expectedResponse = Void()
         let request = editProjectDataModelMock.saveProjectAction.request
         let expectedTitle = request.title
         let expectedDescription = request.description
@@ -130,7 +133,9 @@ extension EditProjectInteractorTests {
     func testSaveProject_WhenCalledWithCurrentProjectSetOnSuccess_ShouldCallPresenterDidSucceedSaveProjectWithResponseSuccess() {
         // Given
         let getCurrentProjectRequest = editProjectDataModelMock.getProjectAction.request
+        projectsRepositoryMock.expectedResponse = dataMock.getProject()
         sut.getProject(request: getCurrentProjectRequest)
+        projectsRepositoryMock.expectedResponse = Void()
         let request = editProjectDataModelMock.saveProjectAction.request
         let expectedResponse = editProjectDataModelMock.saveProjectAction.responseSuccess
 
@@ -146,7 +151,9 @@ extension EditProjectInteractorTests {
     func testSaveProject_WhenCalledWithCurrentProjectSetOnFailure_ShouldCallPresenterDidFaileSaveProjectWithResponseFailure() {
         // Given
         let getCurrentProjectRequest = editProjectDataModelMock.getProjectAction.request
+        projectsRepositoryMock.expectedResponse = dataMock.getProject()
         sut.getProject(request: getCurrentProjectRequest)
+        projectsRepositoryMock.expectedResponse = nil
         let request = editProjectDataModelMock.saveProjectAction.request
         let expectedResponse = editProjectDataModelMock.saveProjectAction.responseFailure
         projectsRepositoryMock.myError = EditProjectDataModelMock.myError
@@ -228,6 +235,8 @@ extension EditProjectInteractorTests {
         let expectedHaveTags = request.haveTags
         let expectedNeedTags = request.needTags
         let expectedOwner = dataMock.getUser().getUserNested()
+        userRepositoryMock.expectedResponse = dataMock.getUser()
+        projectsRepositoryMock.expectedResponse = Void()
 
         // When
         sut.saveProject(request: request)
@@ -248,6 +257,8 @@ extension EditProjectInteractorTests {
         keychainServiceMock.setUserId(userId)
         let request = editProjectDataModelMock.saveProjectAction.request
         let expectedResponse = editProjectDataModelMock.saveProjectAction.responseSuccess
+        userRepositoryMock.expectedResponse = dataMock.getUser()
+        projectsRepositoryMock.expectedResponse = Void()
 
         // When
         sut.saveProject(request: request)
@@ -264,6 +275,7 @@ extension EditProjectInteractorTests {
         keychainServiceMock.setUserId(userId)
         let request = editProjectDataModelMock.saveProjectAction.request
         let expectedResponse = editProjectDataModelMock.saveProjectAction.responseFailure
+        userRepositoryMock.expectedResponse = dataMock.getUser()
         projectsRepositoryMock.myError = EditProjectDataModelMock.myError
 
         // When
