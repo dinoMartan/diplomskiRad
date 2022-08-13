@@ -18,6 +18,7 @@ struct MyError: Error, Equatable {
                 case .registrationFieldsRequired: return "Potrebno je unesti sve podatke"
                 case .signInFailed: return "Prijava neuspješna!"
                 case .passwordResetFailed: return "Došlo je do greške kod resetiranja lozinke"
+                case .signOutFailed: return "Došlo je do greške kod odjave"
                 default: return "Došlo je do greške"
             }
         }
@@ -32,4 +33,5 @@ enum MyErrorType {
     case passwordResetFailed
     case firestoreFailed
     case codableError
+    case signOutFailed
 }

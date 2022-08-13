@@ -8,6 +8,7 @@
 import UIKit
 
 protocol TabBarFlowCoordinatorDelegate: FlowCoordinatorDelegate {
+    func showLogin()
 }
 
 class TabBarFlowCoordinator: FlowCoordinator {
@@ -111,5 +112,9 @@ extension TabBarFlowCoordinator: HomeFlowCoordinatorDelegate,
                                  ProfileFlowCoordinatorDelegate {
     func shouldRemoveFlowCoordinator(_ flowCoordinator: FlowCoordinator) {
         removeChildFlowCoordinator(flowCoordinator)
+    }
+
+    func showLogin() {
+        delegate?.showLogin()
     }
 }

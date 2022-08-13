@@ -7,12 +7,16 @@
 
 import UIKit
 
+protocol MainFlowCoordinatorDelegate: FlowCoordinatorDelegate {
+    func showLogin()
+}
+
 class MainFlowCoordinator: FlowCoordinator {
     var childFlowCoordinators = [FlowCoordinator]()
     var rootViewController: UINavigationController
     internal var dependencies: DependenciesProtocol
 
-    weak var delegate: FlowCoordinatorDelegate?
+    weak var delegate: MainFlowCoordinatorDelegate?
 
     init(rootViewController: UINavigationController, dependencies: DependenciesProtocol) {
         self.rootViewController = rootViewController
@@ -35,5 +39,9 @@ class MainFlowCoordinator: FlowCoordinator {
 extension MainFlowCoordinator: TabBarFlowCoordinatorDelegate {
     func shouldRemoveFlowCoordinator(_ flowCoordinator: FlowCoordinator) {
         removeChildFlowCoordinator(flowCoordinator)
+    }
+
+    func showLogin() {
+        delegate?.showLogin()
     }
 }

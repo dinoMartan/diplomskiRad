@@ -11,6 +11,9 @@
 		8C2226AE289E7CBE00D81364 /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2226AD289E7CBE00D81364 /* UserRepositoryTests.swift */; };
 		8C2226B0289E7E6D00D81364 /* ConversationsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2226AF289E7E6D00D81364 /* ConversationsRepositoryMock.swift */; };
 		8C2226B2289FB43D00D81364 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2226B1289FB43D00D81364 /* AuthenticationService.swift */; };
+		8C2B856428A6719F00E49429 /* AuthenticationServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2B856328A6719F00E49429 /* AuthenticationServiceMock.swift */; };
+		8C2B856628A672FB00E49429 /* AuthenticationRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2B856528A672FB00E49429 /* AuthenticationRepositoryTests.swift */; };
+		8C2B856828A6892C00E49429 /* ProfileTableViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C2B856728A6892C00E49429 /* ProfileTableViewFooter.swift */; };
 		8C445E492855E9A80023CF41 /* RegistrationPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E482855E9A80023CF41 /* RegistrationPresenterTests.swift */; };
 		8C445E4B2855EA280023CF41 /* RegistrationViewControllerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E4A2855EA280023CF41 /* RegistrationViewControllerMock.swift */; };
 		8C445E67285B2F110023CF41 /* LoginDataModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C445E66285B2F110023CF41 /* LoginDataModelMock.swift */; };
@@ -207,6 +210,9 @@
 		8C2226AD289E7CBE00D81364 /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
 		8C2226AF289E7E6D00D81364 /* ConversationsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsRepositoryMock.swift; sourceTree = "<group>"; };
 		8C2226B1289FB43D00D81364 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
+		8C2B856328A6719F00E49429 /* AuthenticationServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceMock.swift; sourceTree = "<group>"; };
+		8C2B856528A672FB00E49429 /* AuthenticationRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRepositoryTests.swift; sourceTree = "<group>"; };
+		8C2B856728A6892C00E49429 /* ProfileTableViewFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewFooter.swift; sourceTree = "<group>"; };
 		8C445E482855E9A80023CF41 /* RegistrationPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenterTests.swift; sourceTree = "<group>"; };
 		8C445E4A2855EA280023CF41 /* RegistrationViewControllerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewControllerMock.swift; sourceTree = "<group>"; };
 		8C445E66285B2F110023CF41 /* LoginDataModelMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModelMock.swift; sourceTree = "<group>"; };
@@ -443,6 +449,7 @@
 			isa = PBXGroup;
 			children = (
 				8C2226AD289E7CBE00D81364 /* UserRepositoryTests.swift */,
+				8C2B856528A672FB00E49429 /* AuthenticationRepositoryTests.swift */,
 			);
 			path = RepositoryTests;
 			sourceTree = "<group>";
@@ -887,7 +894,7 @@
 		8C8141572840CBA400E7AB43 /* UIComponents */ = {
 			isa = PBXGroup;
 			children = (
-				8C81415D2840D35C00E7AB43 /* TableHeader */,
+				8C81415D2840D35C00E7AB43 /* TableHeaderFooter */,
 				8C81415C2840D34D00E7AB43 /* SettingCell */,
 			);
 			path = UIComponents;
@@ -902,12 +909,13 @@
 			path = SettingCell;
 			sourceTree = "<group>";
 		};
-		8C81415D2840D35C00E7AB43 /* TableHeader */ = {
+		8C81415D2840D35C00E7AB43 /* TableHeaderFooter */ = {
 			isa = PBXGroup;
 			children = (
 				8C81415E2840D3D100E7AB43 /* ProfileTableViewHeader.swift */,
+				8C2B856728A6892C00E49429 /* ProfileTableViewFooter.swift */,
 			);
-			path = TableHeader;
+			path = TableHeaderFooter;
 			sourceTree = "<group>";
 		};
 		8C8141642841340000E7AB43 /* EditProject */ = {
@@ -956,6 +964,7 @@
 				8C445E97285BA5CA0023CF41 /* ProjectsRepositoryMock.swift */,
 				8C2226AA289E775600D81364 /* FirestoreServiceMock.swift */,
 				8C2226AF289E7E6D00D81364 /* ConversationsRepositoryMock.swift */,
+				8C2B856328A6719F00E49429 /* AuthenticationServiceMock.swift */,
 			);
 			path = CommonMocks;
 			sourceTree = "<group>";
@@ -1329,6 +1338,7 @@
 				8C81417728416B6D00E7AB43 /* ProjectsRepository.swift in Sources */,
 				8C814149283FA5BC00E7AB43 /* ProfileConfigurator.swift in Sources */,
 				8C6BDD55283DF9E700A96ED4 /* TabBarViewController.swift in Sources */,
+				8C2B856828A6892C00E49429 /* ProfileTableViewFooter.swift in Sources */,
 				8C814145283FA5BC00E7AB43 /* ProfileRouter.swift in Sources */,
 				8C814148283FA5BC00E7AB43 /* ProfileView.swift in Sources */,
 				8C445ED3285E202A0023CF41 /* UIFont+Extension.swift in Sources */,
@@ -1386,12 +1396,14 @@
 				8C445E87285B72A70023CF41 /* ProfileDataModelMock.swift in Sources */,
 				8C445E69285B2F280023CF41 /* LoginViewControllerMock.swift in Sources */,
 				8C93052F2844BB6A00AE2023 /* KeychainServiceMock.swift in Sources */,
+				8C2B856428A6719F00E49429 /* AuthenticationServiceMock.swift in Sources */,
 				8C445EB2285DDECC0023CF41 /* MyProjectsDataModelMock.swift in Sources */,
 				8C445E6B285B2F310023CF41 /* LoginPresenterMock.swift in Sources */,
 				8C445EA2285C8D780023CF41 /* HomePresenterMock.swift in Sources */,
 				8CF0B6B528A6311A00B0F689 /* ConversationDetailsInteractorTests.swift in Sources */,
 				8C445E6F285B3EAD0023CF41 /* LoginPresenterTests.swift in Sources */,
 				8C445E67285B2F110023CF41 /* LoginDataModelMock.swift in Sources */,
+				8C2B856628A672FB00E49429 /* AuthenticationRepositoryTests.swift in Sources */,
 				8C445EA0285C8D780023CF41 /* HomeViewControllerMock.swift in Sources */,
 				8C9305312844BB7800AE2023 /* AuthenticationRepositoryMock.swift in Sources */,
 				8C445EB0285DDECC0023CF41 /* MyProjectsInteractorTests.swift in Sources */,

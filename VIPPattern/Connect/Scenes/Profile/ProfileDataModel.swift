@@ -76,3 +76,26 @@ extension Profile {
         }
     }
 }
+
+// MARK: SignOutAction
+extension Profile {
+    struct SignOutAction: Equatable {
+        struct Request: Equatable { }
+
+        struct Response: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+
+        struct ViewModel: Equatable {
+            struct Success: Equatable { }
+
+            struct Failure: Equatable {
+                let myError: MyError
+            }
+        }
+    }
+}

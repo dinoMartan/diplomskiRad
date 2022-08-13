@@ -1,56 +1,57 @@
 //
-//  AuthenticationRepositoryMock.swift
+//  AuthenticationServiceMock.swift
 //  ConnectUnitTests
 //
-//  Created by Dino Martan on 30.05.2022..
+//  Created by Dino Martan on 12.08.2022..
 //
 
 import FirebaseAuth
+import Foundation
 @testable import Connect
 
-class AuthenticationRepositoryMock: AuthenticationRepositoryProtocol {
-    var expectedResponse: Any?
+class AuthenticationServiceMock: AuthenticationServiceProtocol {
     var myError: MyError?
-
-    var signInUserCalled = false
-    var signInUserCounter = 0
+    var expectedResponse: Any?
 
     var registerUserCalled = false
     var registerUserCounter = 0
+    var registerUserEmail: String?
+    var registerUserPassword: String?
+
+    var signInUserCalled = false
+    var signInUserCounter = 0
+    var signInUserEmail: String?
+    var signInUserPassword: String?
 
     var sendResetPasswordEmailCalled = false
     var sendResetPasswordEmailCounter = 0
-
-    var email: String?
-    var password: String?
+    var sendResetPasswordEmailEmail: String?
 
     var signOutCalled = false
     var signOutCounter = 0
-}
 
-extension AuthenticationRepositoryMock {
-    func signInUser(email: String, password: String, completion: @escaping ((Result<AuthenticationResponse, MyError>) -> Void)) {
-        signInUserCalled = true
-        signInUserCounter += 1
-        self.email = email
-        self.password = password
-
-        handleCompletion(completion)
-    }
-    
     func registerUser(email: String, password: String, completion: @escaping ((Result<AuthenticationResponse, MyError>) -> Void)) {
         registerUserCalled = true
         registerUserCounter += 1
-        self.email = email
-        self.password = password
+        registerUserEmail = email
+        registerUserPassword = password
 
         handleCompletion(completion)
     }
-    
+
+    func signInUser(email: String, password: String, completion: @escaping ((Result<AuthenticationResponse, MyError>) -> Void)) {
+        signInUserCalled = true
+        signInUserCounter += 1
+        signInUserEmail = email
+        signInUserPassword = password
+
+        handleCompletion(completion)
+    }
+
     func sendResetPasswordEmail(email: String, completion: @escaping ((Result<Void, MyError>) -> Void)) {
         sendResetPasswordEmailCalled = true
         sendResetPasswordEmailCounter += 1
-        self.email = email
+        sendResetPasswordEmailEmail = email
 
         handleVoidCompletion(completion)
     }

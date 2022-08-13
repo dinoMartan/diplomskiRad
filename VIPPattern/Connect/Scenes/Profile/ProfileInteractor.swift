@@ -11,18 +11,21 @@ import UIKit
 protocol ProfileInteractorProtocol {
     func getUserData(request: Profile.GetUserDataAction.Request)
     func updateSetting(request: Profile.UpdateSettingAction.Request)
+    func signOut(request: Profile.SignOutAction.Request)
 }
 
 class ProfileInteractor: ProfileInteractorProtocol {
     var presenter: ProfilePresenterProtocol?
 
     private let userRepository: UserRepositoryProtocol
+    private let authenticationRepository: AuthenticationRepositoryProtocol
     private let keychainService: KeychainServiceProtocol
 
     private var user: User?
 
-    init(userRepository: UserRepositoryProtocol, keychainService: KeychainServiceProtocol) {
+    init(userRepository: UserRepositoryProtocol, authenticationRepository: AuthenticationRepositoryProtocol, keychainService: KeychainServiceProtocol) {
         self.userRepository = userRepository
+        self.authenticationRepository = authenticationRepository
         self.keychainService = keychainService
     }
 
@@ -71,6 +74,20 @@ extension ProfileInteractor {
                 self?.getUserData(request: Profile.GetUserDataAction.Request())
             case .failure(let myError):
                 self?.presenter?.interactor(didFailUpdateSetting: Profile.UpdateSettingAction.Response.Failure(myError: myError))
+            }
+        }
+    }
+
+    func signOut(request: Profile.SignOutAction.Request) {
+        authenticationRepository.signOut { [weak self] result in
+            switch result {
+            case .success(_):
+                self?.keychainService.setUserLoggedIn(false)
+                let response = Profile.SignOutAction.Response.Success()
+                self?.presenter?.interactor(didSucceedSignOut: response)
+            case .failure(let myError):
+                let response = Profile.SignOutAction.Response.Failure(myError: myError)
+                self?.presenter?.interactor(didFailSignOut: response)
             }
         }
     }

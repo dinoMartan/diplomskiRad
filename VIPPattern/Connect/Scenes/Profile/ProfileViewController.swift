@@ -12,6 +12,8 @@ protocol ProfilePresenterOutput: AnyObject {
     func presenter(didFailGetUserData viewModel: Profile.GetUserDataAction.ViewModel.Failure)
     func presenter(didSucceedUpdateSetting viewModel: Profile.UpdateSettingAction.ViewModel.Success)
     func presenter(didFailUpdateSettingData viewModel: Profile.UpdateSettingAction.ViewModel.Failure)
+    func presenter(didSucceedSignOut viewModel: Profile.SignOutAction.ViewModel.Success)
+    func presenter(didFailSignOut viewModel: Profile.SignOutAction.ViewModel.Failure)
 }
 
 class ProfileViewController: UIViewController {
@@ -47,6 +49,8 @@ extension ProfileViewController {
                                         forCellReuseIdentifier: ProfileSettingTableViewCell.identifier)
         profileView?.tableView.register(ProfileTableViewHeader.self,
                                         forHeaderFooterViewReuseIdentifier: ProfileTableViewHeader.identifier)
+        profileView?.tableView.register(ProfileTableViewFooter.self,
+                                        forHeaderFooterViewReuseIdentifier: ProfileTableViewFooter.identifier)
     }
 }
 
@@ -69,6 +73,20 @@ extension ProfileViewController: UITableViewDelegate, UITableViewDataSource {
         view?.setupWith(image: userData?.profileImage,
                         label: userData?.displayName)
         return view
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        200
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProfileTableViewFooter.identifier) as? ProfileTableViewFooter
+        view?.delegate = self
+        return view
+    }
+
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        100
     }
 
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -104,6 +122,13 @@ extension ProfileViewController: ProfileTableViewHeaderDelegate {
     }
 }
 
+extension ProfileViewController: ProfileTableViewFooterDelegate {
+    func didTapLogoutButton() {
+        let request = Profile.SignOutAction.Request()
+        interactor?.signOut(request: request)
+    }
+}
+
 extension ProfileViewController: ProfilePresenterOutput {
     func presenter(didSucceedGetUserData viewModel: Profile.GetUserDataAction.ViewModel.Success) {
         userData = viewModel
@@ -119,6 +144,14 @@ extension ProfileViewController: ProfilePresenterOutput {
     }
 
     func presenter(didFailUpdateSettingData viewModel: Profile.UpdateSettingAction.ViewModel.Failure) {
+        showMyErrorAlert(viewModel.myError)
+    }
+
+    func presenter(didSucceedSignOut viewModel: Profile.SignOutAction.ViewModel.Success) {
+        router?.showLogin()
+    }
+
+    func presenter(didFailSignOut viewModel: Profile.SignOutAction.ViewModel.Failure) {
         showMyErrorAlert(viewModel.myError)
     }
 }

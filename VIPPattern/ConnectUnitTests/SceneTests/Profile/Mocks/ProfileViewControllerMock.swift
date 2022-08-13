@@ -23,6 +23,14 @@ class ProfileViewControllerMock {
     var didFailUpdateSettingCalled = false
     var didFailUpdateSettingCounter = 0
     var didFailUpdateSettingViewModel: Profile.UpdateSettingAction.ViewModel.Failure?
+
+    var didSucceedSignOutCalled = false
+    var didSucceedSignOutCounter = 0
+    var didSucceedSignOutViewModel: Profile.SignOutAction.ViewModel.Success?
+
+    var didFailSignOutCalled = false
+    var didFailSignOutCounter = 0
+    var didFailSignOutViewModel: Profile.SignOutAction.ViewModel.Failure?
 }
 
 extension ProfileViewControllerMock: ProfilePresenterOutput {
@@ -48,5 +56,17 @@ extension ProfileViewControllerMock: ProfilePresenterOutput {
         didFailUpdateSettingCalled = true
         didFailUpdateSettingCounter += 1
         didFailUpdateSettingViewModel = viewModel
+    }
+
+    func presenter(didSucceedSignOut viewModel: Profile.SignOutAction.ViewModel.Success) {
+        didSucceedSignOutCalled = true
+        didSucceedSignOutCounter += 1
+        didSucceedSignOutViewModel = viewModel
+    }
+
+    func presenter(didFailSignOut viewModel: Profile.SignOutAction.ViewModel.Failure) {
+        didFailSignOutCalled = true
+        didFailSignOutCounter += 1
+        didFailSignOutViewModel = viewModel
     }
 }

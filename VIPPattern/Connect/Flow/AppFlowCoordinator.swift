@@ -59,12 +59,17 @@ extension AppFlowCoordinator: FlowCoordinatorDelegate {
 }
 
 extension AppFlowCoordinator: LoginFlowCoordinatorDelegate,
-                              RegistrationFlowCoordinatorDelegate {
+                              RegistrationFlowCoordinatorDelegate,
+                              MainFlowCoordinatorDelegate {
     func showRegistration() {
         startRegistration()
     }
 
     func showMainFlow() {
         startMainFlow()
+    }
+
+    func showLogin() {
+        startLogin()
     }
 }
