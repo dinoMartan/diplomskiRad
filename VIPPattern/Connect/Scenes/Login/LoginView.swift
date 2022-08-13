@@ -9,6 +9,9 @@ import SnapKit
 import UIKit
 
 class LoginView: UIView {
+    private let scrollView = UIScrollView()
+    private let containerView = UIView()
+
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -57,22 +60,36 @@ extension LoginView {
         addSubviews()
         setupCoinstraints()
         setupActions()
+        setBackgroundColor()
     }
 
     private func addSubviews() {
-        addSubview(imageView)
-        addSubview(titleLabel)
-        addSubview(emailTextFieldView)
-        addSubview(passwordTextFieldView)
-        addSubview(loginButtonView)
-        addSubview(registerButtonView)
-        addSubview(forgottenPasswordButtonView)
+        addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        containerView.addSubview(imageView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(emailTextFieldView)
+        containerView.addSubview(passwordTextFieldView)
+        containerView.addSubview(loginButtonView)
+        containerView.addSubview(registerButtonView)
+        containerView.addSubview(forgottenPasswordButtonView)
     }
 
     private func setupCoinstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.bottom.leading.trailing.equalToSuperview()
+        }
+
+        containerView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview().priority(250)
+        }
+
         imageView.snp.makeConstraints { make in
             make.width.height.equalTo(100)
-            make.top.equalToSuperview().offset(100)
+            make.top.equalToSuperview().offset(30)
             make.centerX.equalToSuperview()
         }
 
@@ -115,8 +132,14 @@ extension LoginView {
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
             make.height.equalTo(80)
-            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).offset(-40).priority(.low)
+            make.bottom.equalToSuperview().offset(-20)
         }
+    }
+
+    private func setBackgroundColor() {
+        backgroundColor = .systemBackground
+        scrollView.backgroundColor = .systemBackground
+        containerView.backgroundColor = .systemBackground
     }
 }
 

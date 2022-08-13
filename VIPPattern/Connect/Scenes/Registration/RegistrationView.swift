@@ -9,6 +9,9 @@ import SnapKit
 import UIKit
 
 class RegistrationView: UIView {
+    private let scrollView = UIScrollView()
+    private let containerView = UIView()
+
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(.openSansExtraBold, size: 34)
@@ -76,16 +79,18 @@ class RegistrationView: UIView {
 
 extension RegistrationView {
     private func setupView() {
-        backgroundColor = .secondarySystemBackground
         addSubviews()
         setupCoinstraints()
         setupActions()
+        setBackgroundColor()
     }
     
     private func addSubviews() {
-        addSubview(titleLabel)
-        addSubview(imageView)
-        addSubview(stackView)
+        addSubview(scrollView)
+        scrollView.addSubview(containerView)
+        containerView.addSubview(titleLabel)
+        containerView.addSubview(imageView)
+        containerView.addSubview(stackView)
         stackView.addArrangedSubview(usernameTextFieldView)
         stackView.addArrangedSubview(firstNameTextFieldView)
         stackView.addArrangedSubview(lastNameTextFieldView)
@@ -95,6 +100,16 @@ extension RegistrationView {
     }
 
     private func setupCoinstraints() {
+        scrollView.snp.makeConstraints { make in
+            make.top.bottom.leading.trailing.equalToSuperview()
+        }
+
+        containerView.snp.makeConstraints { make in
+            make.top.leading.trailing.bottom.equalToSuperview()
+            make.width.equalToSuperview()
+            make.height.equalToSuperview().priority(250)
+        }
+
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalToSuperview()
             make.top.equalToSuperview().offset(30)
@@ -110,8 +125,18 @@ extension RegistrationView {
             make.top.equalTo(imageView.snp.bottom).offset(30)
             make.leading.equalToSuperview().offset(30)
             make.trailing.equalToSuperview().offset(-30)
-            make.bottom.equalToSuperview().offset(-50)
+            make.bottom.equalToSuperview().offset(-20)
         }
+
+        usernameTextFieldView.snp.makeConstraints { make in
+            make.height.equalTo(80)
+        }
+    }
+
+    private func setBackgroundColor() {
+        backgroundColor = .secondarySystemBackground
+        scrollView.backgroundColor = .secondarySystemBackground
+        containerView.backgroundColor = .secondarySystemBackground
     }
 }
 
