@@ -454,6 +454,27 @@
 			path = RepositoryTests;
 			sourceTree = "<group>";
 		};
+		8C2B856B28A7B78400E49429 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8C2B856328A6719F00E49429 /* AuthenticationServiceMock.swift */,
+				8C93052E2844BB6A00AE2023 /* KeychainServiceMock.swift */,
+				8C2226AA289E775600D81364 /* FirestoreServiceMock.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8C2B856C28A7B78B00E49429 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				8C2226AF289E7E6D00D81364 /* ConversationsRepositoryMock.swift */,
+				8C9305302844BB7800AE2023 /* AuthenticationRepositoryMock.swift */,
+				8C9305322844BB8400AE2023 /* UserRepositoryMock.swift */,
+				8C445E97285BA5CA0023CF41 /* ProjectsRepositoryMock.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
 		8C445E472855E9830023CF41 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
@@ -958,13 +979,8 @@
 			isa = PBXGroup;
 			children = (
 				8C9305342844BC3900AE2023 /* DataMock.swift */,
-				8C93052E2844BB6A00AE2023 /* KeychainServiceMock.swift */,
-				8C9305302844BB7800AE2023 /* AuthenticationRepositoryMock.swift */,
-				8C9305322844BB8400AE2023 /* UserRepositoryMock.swift */,
-				8C445E97285BA5CA0023CF41 /* ProjectsRepositoryMock.swift */,
-				8C2226AA289E775600D81364 /* FirestoreServiceMock.swift */,
-				8C2226AF289E7E6D00D81364 /* ConversationsRepositoryMock.swift */,
-				8C2B856328A6719F00E49429 /* AuthenticationServiceMock.swift */,
+				8C2B856B28A7B78400E49429 /* Services */,
+				8C2B856C28A7B78B00E49429 /* Repositories */,
 			);
 			path = CommonMocks;
 			sourceTree = "<group>";

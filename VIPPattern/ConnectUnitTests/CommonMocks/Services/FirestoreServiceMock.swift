@@ -9,8 +9,8 @@ import Foundation
 @testable import Connect
 
 class FirestoreServiceMock: FirestoreServiceProtocol {
-    var myError: MyError?
     var expectedResponse: Any?
+    var myError: MyError?
 
     var getDocumentCalled = false
     var getDocumentCounter = 0
@@ -91,6 +91,8 @@ class FirestoreServiceMock: FirestoreServiceProtocol {
         getCollectionCounter += 1
         getCollectionCollectionPath = collectionPath
         getCollectionIsRealTime = isRealTime
+
+        handleCompletion(completion)
     }
 
     func getCollectionWhereField<T: Codable>(_ field: String, isEqualTo: Any, on collectionPath: String, isRealTime: Bool, completion: @escaping ((Result<[T], MyError>) -> Void))  {

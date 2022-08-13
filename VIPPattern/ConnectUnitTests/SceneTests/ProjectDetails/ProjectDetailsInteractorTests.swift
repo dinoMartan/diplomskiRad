@@ -16,6 +16,7 @@ class ProjectDetailsInteractorTests: XCTestCase {
     private var userRepositoryMock: UserRepositoryMock!
     private var keychainServiceMock: KeychainServiceMock!
     private var conversationsRepositoryMock: ConversationsRepositoryMock!
+    private var dataMock: DataMock!
     private let projectId = "project id"
 
     override func setUpWithError() throws {
@@ -31,6 +32,7 @@ class ProjectDetailsInteractorTests: XCTestCase {
                                        conversationsRepository: conversationsRepositoryMock,
                                        projectId: projectId)
         sut.presenter = projectDetailsPresenterMock
+        dataMock = DataMock()
     }
 
     override func tearDownWithError() throws {
@@ -40,6 +42,7 @@ class ProjectDetailsInteractorTests: XCTestCase {
         keychainServiceMock = nil
         conversationsRepositoryMock = nil
         sut = nil
+        dataMock = nil
     }
 }
 
@@ -62,6 +65,7 @@ extension ProjectDetailsInteractorTests {
         // Given
         let request = projectDetailsDataModelMock.getProjectDetailsAction.request
         let expectedResponse = projectDetailsDataModelMock.getProjectDetailsAction.responseSuccess
+        projectsRepositoryMock.expectedResponse = dataMock.getProject()
 
         // When
         sut.getProjectDetails(request: request)

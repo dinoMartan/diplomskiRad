@@ -8,8 +8,7 @@
 @testable import Connect
 
 class ProjectsRepositoryMock {
-    private let dataMock = DataMock()
-
+    var expectedResponse: Any?
     var myError: MyError?
 
     var getProjectCalled = false
@@ -41,11 +40,7 @@ extension ProjectsRepositoryMock: ProjectsRepositoryProtocol {
         getProjectCounter += 1
         self.projectId = projectId
 
-        guard let myError = myError else {
-            completion(.success(dataMock.getProject()))
-            return
-        }
-        completion(.failure(myError))
+        handleCompletion(completion)
     }
 
     func setProject(project: Project, completion: @escaping ((Result<Void, MyError>) -> Void)) {
@@ -53,11 +48,7 @@ extension ProjectsRepositoryMock: ProjectsRepositoryProtocol {
         setProjectCounter += 1
         self.project = project
     
-        guard let myError = myError else {
-            completion(.success(()))
-            return
-        }
-        completion(.failure(myError))
+        handleVoidCompletion(completion)
     }
 
     func deleteProject(projectId: String, completion: @escaping ((Result<Void, MyError>) -> Void)) {
@@ -65,22 +56,14 @@ extension ProjectsRepositoryMock: ProjectsRepositoryProtocol {
         deleteProjectCounter += 1
         self.projectId = projectId
 
-        guard let myError = myError else {
-            completion(.success(()))
-            return
-        }
-        completion(.failure(myError))
+        handleVoidCompletion(completion)
     }
 
     func getAllProjects(completion: @escaping ((Result<[Project], MyError>) -> Void)) {
         getAllProjectsCalled = true
         getAllProjectsCounter += 1
 
-        guard let myError = myError else {
-            completion(.success([dataMock.getProject()]))
-            return
-        }
-        completion(.failure(myError))
+        handleCompletion(completion)
     }
 
     func getProjectsWithNeedFor(_ need: String, completion: @escaping ((Result<[Project], MyError>) -> Void)) {
@@ -88,11 +71,7 @@ extension ProjectsRepositoryMock: ProjectsRepositoryProtocol {
         getProjectsWithNeedForCounter += 1
         self.need = need
 
-        guard let myError = myError else {
-            completion(.success([dataMock.getProject()]))
-            return
-        }
-        completion(.failure(myError))
+        handleCompletion(completion)
     }
 
     func getProjectsForUser(_ userId: String, completion: @escaping ((Result<[Project], MyError>) -> Void)) {
@@ -100,8 +79,26 @@ extension ProjectsRepositoryMock: ProjectsRepositoryProtocol {
         getProjectsForUserCounter += 1
         self.userId = userId
 
+        handleCompletion(completion)
+    }
+
+    private func handleCompletion<T: Codable>(_ completion: @escaping ((Result<T, MyError>) -> Void)) {
         guard let myError = myError else {
-            completion(.success([dataMock.getProject()]))
+            guard let expectedResponse = expectedResponse else {
+                return
+            }
+            completion(.success(expectedResponse as! T))
+            return
+        }
+        completion(.failure(myError))
+    }
+
+    private func handleVoidCompletion(_ completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        guard let myError = myError else {
+            guard expectedResponse != nil else {
+                return
+            }
+            completion(.success(expectedResponse as! Void))
             return
         }
         completion(.failure(myError))

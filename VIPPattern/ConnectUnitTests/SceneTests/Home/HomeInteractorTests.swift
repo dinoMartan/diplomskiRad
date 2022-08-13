@@ -13,6 +13,7 @@ class HomeInteractorTests: XCTestCase {
     private var homePresenterMock: HomePresenterMock!
     private var homeDataModelMock: HomeDataModelMock!
     private var projectsRepositoryMock: ProjectsRepositoryMock!
+    private var dataMock: DataMock!
 
     override func setUpWithError() throws {
         homeDataModelMock = HomeDataModelMock()
@@ -20,6 +21,7 @@ class HomeInteractorTests: XCTestCase {
         projectsRepositoryMock = ProjectsRepositoryMock()
         sut = HomeInteractor(projectsRepository: projectsRepositoryMock)
         sut.presenter = homePresenterMock
+        dataMock = DataMock()
     }
 
     override func tearDownWithError() throws {
@@ -27,6 +29,7 @@ class HomeInteractorTests: XCTestCase {
         homePresenterMock = nil
         projectsRepositoryMock = nil
         sut = nil
+        dataMock = nil
     }
 }
 
@@ -48,6 +51,7 @@ extension HomeInteractorTests {
         // Given
         let request = homeDataModelMock.getAllProjectsAction.request
         let expectedResponse = homeDataModelMock.getAllProjectsAction.responseSuccess
+        projectsRepositoryMock.expectedResponse = [dataMock.getProject()]
 
         // When
         sut.getAllProjects(request: request)
@@ -93,6 +97,7 @@ extension HomeInteractorTests {
         // Given
         let request = homeDataModelMock.getProjectsWithNeedAction.request
         let expectedResponse = homeDataModelMock.getProjectsWithNeedAction.responseSuccess
+        projectsRepositoryMock.expectedResponse = [dataMock.getProject()]
 
         // When
         sut.getProjectsWithNeed(request: request)

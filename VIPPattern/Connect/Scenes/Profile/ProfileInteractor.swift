@@ -71,7 +71,6 @@ extension ProfileInteractor {
             switch result {
             case .success(_):
                 self?.presenter?.interactor(didSucceedUpdateSetting: Profile.UpdateSettingAction.Response.Success())
-                self?.getUserData(request: Profile.GetUserDataAction.Request())
             case .failure(let myError):
                 self?.presenter?.interactor(didFailUpdateSetting: Profile.UpdateSettingAction.Response.Failure(myError: myError))
             }

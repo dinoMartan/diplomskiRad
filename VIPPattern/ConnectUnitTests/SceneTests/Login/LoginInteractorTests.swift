@@ -56,6 +56,7 @@ extension LoginInteractorTests {
     func testLoginUserAction_WhenCalledWithRequestOnSuccess_ShouldCallKeychainServiceSetUserLoggedInWiithTrue() {
         // Given
         let request = loginDataModelMock.loginAction.request
+        authenticationRepositoryMock.expectedResponse = dataMock.getAuthenticationResponse()
 
         // When
         sut.loginUser(request: request)
@@ -68,6 +69,7 @@ extension LoginInteractorTests {
         // Given
         let request = loginDataModelMock.loginAction.request
         let expectedUserId = dataMock.authenticationUserId
+        authenticationRepositoryMock.expectedResponse = dataMock.getAuthenticationResponse()
 
         // When
         sut.loginUser(request: request)
@@ -80,6 +82,7 @@ extension LoginInteractorTests {
         // Given
         let request = loginDataModelMock.loginAction.request
         let expectedResponse = loginDataModelMock.loginAction.responseSuccess
+        authenticationRepositoryMock.expectedResponse = dataMock.getAuthenticationResponse()
 
         // When
         sut.loginUser(request: request)
@@ -126,6 +129,7 @@ extension LoginInteractorTests {
         // Given
         let request = loginDataModelMock.forgottenPasswordAction.request
         let expectedResponse = loginDataModelMock.forgottenPasswordAction.responseSuccess
+        authenticationRepositoryMock.expectedResponse = Void()
 
         // When
         sut.forgottenPassword(request: request)
