@@ -23,6 +23,14 @@ class ProfilePresenterMock {
     var didFailUpdateSettingCalled = false
     var didFailUpdateSettingCounter = 0
     var didFailUpdateSettingResponse: Profile.UpdateSettingAction.Response.Failure?
+
+    var didSucceedSignOutCalled = false
+    var didSucceedSignOutCounter = 0
+    var didSucceedSignOutResponse: Profile.SignOutAction.Response.Success?
+
+    var didFailSignOutCalled = false
+    var didFailSignOutCounter = 0
+    var didFailSignOutResponse: Profile.SignOutAction.Response.Failure?
 }
 
 extension ProfilePresenterMock: ProfilePresenterProtocol {
@@ -48,5 +56,17 @@ extension ProfilePresenterMock: ProfilePresenterProtocol {
         didFailUpdateSettingCalled = true
         didFailUpdateSettingCounter += 1
         didFailUpdateSettingResponse = response
+    }
+
+    func interactor(didSucceedSignOut response: Profile.SignOutAction.Response.Success) {
+        didSucceedSignOutCalled = true
+        didSucceedSignOutCounter += 1
+        didSucceedSignOutResponse = response
+    }
+
+    func interactor(didFailSignOut response: Profile.SignOutAction.Response.Failure) {
+        didFailSignOutCalled = true
+        didFailSignOutCounter += 1
+        didFailSignOutResponse = response
     }
 }

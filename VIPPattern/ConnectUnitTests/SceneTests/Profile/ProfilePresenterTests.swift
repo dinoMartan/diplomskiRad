@@ -89,3 +89,33 @@ extension ProfilePresenterTests {
     }
 }
 
+// MARK: SignOutAction tests
+extension ProfilePresenterTests {
+    func testDidSucceedSignOut_WhenCalledWithResponse_ShouldCallViewControllerDidSucceedSignOutWithViewModelSuccess() {
+        // Given
+        let response = profileDataModelMock.signOutAction.responseSuccess
+        let expectedViewModel = profileDataModelMock.signOutAction.viewModelSuccess
+
+        // When
+        sut.interactor(didSucceedSignOut: response)
+
+        // Then
+        XCTAssertTrue(profileViewControllerMock.didSucceedSignOutCalled)
+        XCTAssertEqual(profileViewControllerMock.didSucceedSignOutCounter, 1)
+        XCTAssertEqual(profileViewControllerMock.didSucceedSignOutViewModel, expectedViewModel)
+    }
+
+    func testDidFailSignOut_WhenCalledWithResponse_ShouldCallViewControllerDidFailSignOutWithViewModelFailure() {
+        // Given
+        let response = profileDataModelMock.signOutAction.responseFailure
+        let expectedViewModel = profileDataModelMock.signOutAction.viewModelFailure
+
+        // When
+        sut.interactor(didFailSignOut: response)
+
+        // Then
+        XCTAssertTrue(profileViewControllerMock.didFailSignOutCalled)
+        XCTAssertEqual(profileViewControllerMock.didFailSignOutCounter, 1)
+        XCTAssertEqual(profileViewControllerMock.didFailSignOutViewModel, expectedViewModel)
+    }
+}

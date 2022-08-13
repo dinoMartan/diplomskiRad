@@ -9,8 +9,7 @@ import FirebaseAuth
 @testable import Connect
 
 class AuthenticationRepositoryMock: AuthenticationRepositoryProtocol {
-    private let dataMock = DataMock()
-
+    var expectedResponse: Any?
     var myError: MyError?
 
     var signInUserCalled = false
@@ -24,6 +23,9 @@ class AuthenticationRepositoryMock: AuthenticationRepositoryProtocol {
 
     var email: String?
     var password: String?
+
+    var signOutCalled = false
+    var signOutCounter = 0
 }
 
 extension AuthenticationRepositoryMock {
@@ -33,11 +35,7 @@ extension AuthenticationRepositoryMock {
         self.email = email
         self.password = password
 
-        guard let myError = myError else {
-            completion(.success(dataMock.getAuthenticationResponse()))
-            return
-        }
-        completion(.failure(myError))
+        handleCompletion(completion)
     }
     
     func registerUser(email: String, password: String, completion: @escaping ((Result<AuthenticationResponse, MyError>) -> Void)) {
@@ -46,11 +44,7 @@ extension AuthenticationRepositoryMock {
         self.email = email
         self.password = password
 
-        guard let myError = myError else {
-            completion(.success(dataMock.getAuthenticationResponse()))
-            return
-        }
-        completion(.failure(myError))
+        handleCompletion(completion)
     }
     
     func sendResetPasswordEmail(email: String, completion: @escaping ((Result<Void, MyError>) -> Void)) {
@@ -58,8 +52,33 @@ extension AuthenticationRepositoryMock {
         sendResetPasswordEmailCounter += 1
         self.email = email
 
+        handleVoidCompletion(completion)
+    }
+
+    func signOut(completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        signOutCalled = true
+        signOutCounter += 1
+
+        handleVoidCompletion(completion)
+    }
+
+    private func handleCompletion<T: Codable>(_ completion: @escaping ((Result<T, MyError>) -> Void)) {
         guard let myError = myError else {
-            completion(.success(()))
+            guard let expectedResponse = expectedResponse else {
+                return
+            }
+            completion(.success(expectedResponse as! T))
+            return
+        }
+        completion(.failure(myError))
+    }
+
+    private func handleVoidCompletion(_ completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        guard let myError = myError else {
+            guard expectedResponse != nil else {
+                return
+            }
+            completion(.success(expectedResponse as! Void))
             return
         }
         completion(.failure(myError))

@@ -14,13 +14,16 @@ class ProfileInteractorTests: XCTestCase {
     private var profileDataModelMock: ProfileDataModelMock!
     private var keychainServiceMock: KeychainServiceMock!
     private var userRepositoryMock: UserRepositoryMock!
+    private var authenticationRepositoryMock: AuthenticationRepositoryMock!
 
     override func setUpWithError() throws {
         profileDataModelMock = ProfileDataModelMock()
         profilePresenterMock = ProfilePresenterMock()
         keychainServiceMock = KeychainServiceMock()
         userRepositoryMock = UserRepositoryMock()
+        authenticationRepositoryMock = AuthenticationRepositoryMock()
         sut = ProfileInteractor(userRepository: userRepositoryMock,
+                                authenticationRepository: authenticationRepositoryMock,
                                 keychainService: keychainServiceMock)
         sut.presenter = profilePresenterMock
     }
@@ -30,11 +33,12 @@ class ProfileInteractorTests: XCTestCase {
         profilePresenterMock = nil
         keychainServiceMock = nil
         userRepositoryMock = nil
+        authenticationRepositoryMock = nil
         sut = nil
     }
 }
 
-// MARK: GetUserDataAction tests
+// MARK: getUserData(request: Profile.GetUserDataAction.Request) tests
 extension ProfileInteractorTests {
     func testGetUserData_WhenCalledWithRequest_andUserIdIsNotInKeychain_ShouldNotCallUserRepositoryGetUser() {
         // Given
@@ -97,7 +101,7 @@ extension ProfileInteractorTests {
     }
 }
 
-// MARK: UpdateSettingAction tests
+// MARK: updateSetting(request: Profile.UpdateSettingAction.Request) tests
 extension ProfileInteractorTests {
     func testUpdateSetting_WhenCalledWithRequestAndUserWasNotFetched_ShouldNotCallUserRepositorySetUser() {
         // Given
@@ -159,5 +163,63 @@ extension ProfileInteractorTests {
         XCTAssertTrue(profilePresenterMock.didFailUpdateSettingCalled)
         XCTAssertEqual(profilePresenterMock.didFailUpdateSettingCounter, 1)
         XCTAssertEqual(profilePresenterMock.didFailUpdateSettingResponse, expectedResponse)
+    }
+}
+
+// MARK: signOut(request: Profile.SignOutAction.Request) tests
+extension ProfileInteractorTests {
+    func testSignOut_WhenCalled_ShouldCallAuthenticationRepositorySignOut() {
+        // Given
+        let request = profileDataModelMock.signOutAction.request
+
+        // When
+        sut.signOut(request: request)
+
+        // Then
+        XCTAssertTrue(authenticationRepositoryMock.signOutCalled)
+        XCTAssertEqual(authenticationRepositoryMock.signOutCounter, 1)
+    }
+
+    func testSignOut_WhenCalledOnSuccess_ShouldCallKeychainServiceSetUserLoggedInWithFalse() {
+        // Given
+        let request = profileDataModelMock.signOutAction.request
+        keychainServiceMock.setUserLoggedIn(true)
+        authenticationRepositoryMock.expectedResponse = Void()
+
+        // When
+        sut.signOut(request: request)
+
+        // Then
+        XCTAssertFalse(keychainServiceMock.getUserLoggedIn())
+    }
+
+    func testSignOut_WhenCalledOnSuccess_ShouldCallPresenterDidSucceedSignOutWithResponse() {
+        // Given
+        let request = profileDataModelMock.signOutAction.request
+        let expectedResponse = profileDataModelMock.signOutAction.responseSuccess
+        authenticationRepositoryMock.expectedResponse = Void()
+
+        // When
+        sut.signOut(request: request)
+
+        // Then
+        XCTAssertTrue(profilePresenterMock.didSucceedSignOutCalled)
+        XCTAssertEqual(profilePresenterMock.didSucceedSignOutCounter, 1)
+        XCTAssertEqual(profilePresenterMock.didSucceedSignOutResponse, expectedResponse)
+    }
+
+    func testSignOut_WhenCalledOnFailure_ShouldCallPresenterDidFailSignOutWithResponse() {
+        // Given
+        let request = profileDataModelMock.signOutAction.request
+        let expectedResponse = profileDataModelMock.signOutAction.responseFailure
+        authenticationRepositoryMock.myError = ProfileDataModelMock.myError
+
+        // When
+        sut.signOut(request: request)
+
+        // Then
+        XCTAssertTrue(profilePresenterMock.didFailSignOutCalled)
+        XCTAssertEqual(profilePresenterMock.didFailSignOutCounter, 1)
+        XCTAssertEqual(profilePresenterMock.didFailSignOutResponse, expectedResponse)
     }
 }

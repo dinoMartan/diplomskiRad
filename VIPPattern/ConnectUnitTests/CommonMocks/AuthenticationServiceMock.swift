@@ -27,6 +27,9 @@ class AuthenticationServiceMock: AuthenticationServiceProtocol {
     var sendResetPasswordEmailCounter = 0
     var sendResetPasswordEmailEmail: String?
 
+    var signOutCalled = false
+    var signOutCounter = 0
+
     func registerUser(email: String, password: String, completion: @escaping ((Result<AuthenticationResponse, MyError>) -> Void)) {
         registerUserCalled = true
         registerUserCounter += 1
@@ -50,14 +53,14 @@ class AuthenticationServiceMock: AuthenticationServiceProtocol {
         sendResetPasswordEmailCounter += 1
         sendResetPasswordEmailEmail = email
 
-        guard let myError = myError else {
-            guard let expectedResponse = expectedResponse else {
-                return
-            }
-            completion(.success(expectedResponse as! Void))
-            return
-        }
-        completion(.failure(myError))
+        handleVoidCompletion(completion)
+    }
+
+    func signOut(completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        signOutCalled = true
+        signOutCounter += 1
+
+        handleVoidCompletion(completion)
     }
 
     private func handleCompletion<T: Codable>(_ completion: @escaping ((Result<T, MyError>) -> Void)) {
@@ -66,6 +69,17 @@ class AuthenticationServiceMock: AuthenticationServiceProtocol {
                 return
             }
             completion(.success(expectedResponse as! T))
+            return
+        }
+        completion(.failure(myError))
+    }
+
+    private func handleVoidCompletion(_ completion: @escaping ((Result<Void, MyError>) -> Void)) {
+        guard let myError = myError else {
+            guard expectedResponse != nil else {
+                return
+            }
+            completion(.success(expectedResponse as! Void))
             return
         }
         completion(.failure(myError))

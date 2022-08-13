@@ -212,3 +212,54 @@ extension AuthenticationRepositoryTests {
         wait(for: [expectation], timeout: 5)
     }
 }
+
+// MARK: signOut(completion: @escaping ((Result<Void, MyError>) -> Void)) tests
+extension AuthenticationRepositoryTests {
+    func testSignOut_WhenCalled_ShouldCallAuthenticationServiceSignOut() {
+        // When
+        sut.signOut { _ in
+            //
+        }
+
+        // Then
+        XCTAssertTrue(authenticationServiceMock.signOutCalled)
+        XCTAssertEqual(authenticationServiceMock.signOutCounter, 1)
+    }
+
+    func testSignOut_WhenCalledOnSuccess_ShouldCallCompletion() {
+        // Given
+        let expectation = expectation(description: "expectation")
+        authenticationServiceMock.expectedResponse = Void()
+
+        // When
+        sut.signOut { result in
+            guard case .success(_) = result else {
+                return
+            }
+            expectation.fulfill()
+        }
+
+        // Then
+        wait(for: [expectation], timeout: 5)
+    }
+
+    func testSignOut_WhenCalledOnFailure_ShouldCallCompletionWithMyError() {
+        // Given
+        let expectation = expectation(description: "expectation")
+        let myError = MyError(type: .passwordResetFailed, message: nil)
+        authenticationServiceMock.myError = myError
+
+        // When
+        sut.signOut { result in
+            guard case .failure(let error) = result,
+                  myError == error
+            else {
+                return
+            }
+            expectation.fulfill()
+        }
+
+        // Then
+        wait(for: [expectation], timeout: 5)
+    }
+}
